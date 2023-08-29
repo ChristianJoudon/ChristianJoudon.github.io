@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/micromouse/micromouse-square.jpg
+image:
 title: "Character Dictionary"
 date: 2022
 published: false
@@ -15,12 +15,6 @@ labels:
   - Python
 summary: "I designed a software that extracts and compiles a keyword dictionary for individual characters from film or TV scripts."
 ---
-
-<div class="text-center p-4">
-  <img width="200px" src="../img/micromouse/micromouse-robot.png" class="img-thumbnail" >
-  <img width="200px" src="../img/micromouse/micromouse-robot-2.jpg" class="img-thumbnail" >
-  <img width="200px" src="../img/micromouse/micromouse-circuit.png" class="img-thumbnail" >
-</div>
 
 In pursuit of advancing game dynamics, I aim to develop keyword dictionaries derived from expansive network systems that mirror real personalities. The ultimate objective, though ambitious, is to design generative AI-driven non-player characters (NPCs) that autonomously generate dialogue based on a player's in-game progress. This innovation promises decision-centric gameplay, wherein NPCs not only react to the evolving game world but also offer unique event-based interactions. The current landscape already boasts chatbots proficient in real-time responses, indicating feasibility. Beyond mere semantics, my vision encompasses the nuanced syntax and distinct "personality" of each NPC, enhancing overall gameplay immersion.
 
