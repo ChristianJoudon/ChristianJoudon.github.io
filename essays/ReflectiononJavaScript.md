@@ -8,8 +8,6 @@ labels:
   - Programming Languages
 ---
 
-![JavaScript Difficulty](../img/difficulty/degree_difficulty.jpg){: width="200px" class="rounded float-start pe-4"}
-
 ## Introduction
 
 Transitioning to JavaScript from my background in Python and Java provided both challenges and new perspectives. Here’s a succinct comparison based on my experience.
