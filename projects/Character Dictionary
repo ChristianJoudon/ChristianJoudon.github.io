@@ -4,7 +4,7 @@ type: project
 image:
 title: "Character Dictionary"
 date: 2022
-published: false
+published: true
 labels:
   - Natural Language Processing
   - Rake
