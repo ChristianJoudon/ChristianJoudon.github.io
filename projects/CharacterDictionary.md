@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: 
+image: img/c6a7db474ee18492e629b4a3f3d5627b.png
 title: "Character Dictionary"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
