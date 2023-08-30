@@ -2,6 +2,7 @@
 layout: project
 type: project
 image: img/Screenshot 2023-08-30 at 9.28.07 AM.png
+title: "Text Generation from Personality Traits"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
 labels:
