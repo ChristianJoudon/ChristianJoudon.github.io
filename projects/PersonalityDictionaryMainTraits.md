@@ -1,8 +1,8 @@
 ---
 layout: project
 type: project
-image: img/c6a7db474ee18492e629b4a3f3d5627b.png
-title: "Character Dictionary"
+image: img/Screenshot 2023-08-30 at 9.46.00 AM.png
+title: "NPC Personality Generator"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
 labels:
