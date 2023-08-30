@@ -1,8 +1,8 @@
 ---
 layout: project
 type: project
-image: img/c6a7db474ee18492e629b4a3f3d5627b.png
-title: "Character Dictionary"
+image: img/Screenshot 2023-08-30 at 9.44.21 AM.png
+title: "Trait Generator for Non-Player Characters"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
 labels:
