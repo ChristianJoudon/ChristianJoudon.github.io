@@ -5,12 +5,12 @@ image: img/Screenshot 2023-08-30 at 9.28.07 AM.png
 date: 2022-01-01  # Adjust the date as necessary
 published: true
 labels:
-  - Natural Language Processing
-  - Rake
-  - Ntlk
-  - Ssl
-  - Spacy
-  - Beautiful Soup
+  - Numpy
+  - Pandas
+  - Sickit-Learn
+  - TfidfVectorizer
+  - Linear Regression
+  - Textgenrnn
   - Python
 summary: "I designed a software that extracts and compiles a keyword dictionary for individual characters from film or TV scripts."
 ---
