@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/Screenshot 2023-08-30 at 9.44.21 AM.png
+image: img/Screenshot 2023-08-30 at 5.52.14 PM.png
 title: "Trait Generator for Non-Player Characters"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
