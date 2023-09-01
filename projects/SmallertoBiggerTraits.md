@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/background-concept-wordcloud-illustration-of-personality-traits-F40GJ4.jpeg
+image: img/background-concept-wordcloud-illustration-of-personality-traits-F40GJ4.jpg
 title: "Trait Generator for Non-Player Characters"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
