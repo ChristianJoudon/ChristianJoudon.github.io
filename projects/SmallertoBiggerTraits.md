@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/Screenshot 2023-08-30 at 9.59.47 PM.jpeg
+image: img/background-concept-wordcloud-illustration-of-personality-traits-F40GJ4.jpeg
 title: "Trait Generator for Non-Player Characters"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
