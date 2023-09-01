@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/Screenshot 2023-08-30 at 5.52.14 PM.jpeg
+image: img/Business_people_icons.jpeg
 title: "NPC Personality Generator"
 date: 2022-01-01  # Adjust the date as necessary
 published: true
