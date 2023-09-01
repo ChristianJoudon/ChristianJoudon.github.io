@@ -12,7 +12,7 @@ labels:
   - TfidfVectorizer
   - Linear Regression
   - Textgenrnn
-  - Pytho
+  - Python
 summary: "This repository employs Python libraries to develop a workflow that analyzes human personality from text, trains models to predict personality traits, and utilizes deep learning to generate text reflecting desired personality scores, offering potential applications in psychology, marketing, and more."
 ---
 
