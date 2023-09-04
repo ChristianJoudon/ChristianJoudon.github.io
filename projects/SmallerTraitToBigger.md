@@ -1,9 +1,4 @@
-# Trait Generator for Non-Player Characters
-
 ```python
-# This script defines smaller personality traits as 3D vectors and groups them under larger personality traits.
-# Traits are represented using correlated multivariate normal distributions.
-# The main goal is to visualize both the smaller and larger traits in a 3D scatter plot using matplotlib.
 
 import matplotlib.pyplot as plt
 import numpy as np
