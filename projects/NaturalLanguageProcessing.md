@@ -1,5 +1,3 @@
-# Natural Language Processing
-
 ```python
 
 import numpy as np
