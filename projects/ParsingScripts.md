@@ -1,9 +1,11 @@
 # Screenplay Analysis Tool
 
-#### This script retrieves a screenplay from a given URL and extracts a specific character's dialogue.
-#### The extracted dialogue is then tokenized, and a keyword extraction technique (RAKE - Rapid Automatic Keyword Extraction) is used.
-#### Additionally, named entity recognition from SpaCy is utilized to filter out named entities from the extracted keywords.
-#### The script finally displays a list of all words spoken by the character and the extracted keywords.
+""" 
+This script fetches a screenplay from a URL and extracts a character's dialogue. 
+It then tokenizes the dialogue and uses RAKE for keyword extraction. 
+Employing SpaCy's NER, it filters out named entities from the keywords. 
+Finally, the script displays the character's spoken words and the identified keywords.
+"""
 
 # Importing required libraries
 import re
