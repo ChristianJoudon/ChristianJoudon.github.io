@@ -50,3 +50,7 @@ This visualization serves as a gateway into understanding the relationships, ove
 ## 6. Conclusion
 
 The computational analysis of personality traits provides a bridge between the abstract world of human characteristics and the tangible realm of numbers and visuals. By mapping traits into a three-dimensional space, we take a significant step toward unraveling the intricate tapestry of human personality, paving the way for deeper insights and discoveries.
+
+## Access the Code
+
+The core implementation of this project can be found in our [main Python file](projects/SmallerTraitToBigger.py).
