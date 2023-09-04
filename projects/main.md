@@ -1,7 +1,3 @@
-# NPC Personality Generator
-
-This section showcases the Python code that powers the NPC Personality Generator:
-
 ```python
 
 import matplotlib.pyplot as plt
