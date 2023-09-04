@@ -52,4 +52,4 @@ To demonstrate the system's capabilities, an example usage is provided at the en
 This pipeline showcases the synergy between traditional machine learning models and deep learning text generation techniques. The innovative approach allows for the creation of text data that can be mapped to specific personality trait scores, which has promising implications for research in psychology, marketing, and other domains.
 ## Access the Code
 
-The core implementation of this project can be found in our [main Python file](projects/Natural Language Processing.py).
+The implementation of this project can be found in our [Natural Language Processing Python file](projects/Natural Language Processing.md).
