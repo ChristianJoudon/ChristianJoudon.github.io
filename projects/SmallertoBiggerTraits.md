@@ -53,4 +53,4 @@ The computational analysis of personality traits provides a bridge between the a
 
 ## Access the Code
 
-The implementation of this project can be found in our [SmallerToBigger Python file](projects/SmallerTraitToBigger.md).
+The implementation of this project can be found in our [SmallerToBigger Python file](SmallerTraitToBigger.md).
