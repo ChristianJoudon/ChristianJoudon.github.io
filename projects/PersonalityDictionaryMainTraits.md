@@ -36,3 +36,7 @@ Thus, by adjusting the weights of these traits, we can craft characters with dis
 ## Conclusion
 
 With this project, we transcend traditional dialogue systems by introducing a layer of personality-driven linguistic choices. It's a melding of psychology and computational linguistics, aiming to make virtual dialogues more dynamic, authentic, and reflective of the myriad shades of human personality. As we step into an era where virtual interactions become increasingly significant, such innovations can reshape the way we communicate, perceive, and relate in digital spaces.
+
+## Access the Code
+
+The core implementation of this project can be found in our [main Python file](projects/main.py).
