@@ -50,3 +50,6 @@ A function named `generate_text_with_personality` is defined, which generates te
 To demonstrate the system's capabilities, an example usage is provided at the end. The goal is to generate a text with a personality trait score of 0.7. Once achieved, the generated text is printed for review.
 
 This pipeline showcases the synergy between traditional machine learning models and deep learning text generation techniques. The innovative approach allows for the creation of text data that can be mapped to specific personality trait scores, which has promising implications for research in psychology, marketing, and other domains.
+## Access the Code
+
+The core implementation of this project can be found in our [main Python file](projects/Natural Language Processing.py).
