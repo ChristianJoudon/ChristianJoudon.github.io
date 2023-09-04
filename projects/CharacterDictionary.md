@@ -63,4 +63,4 @@ The main function targets the dialogue of the "JOKER" character from the "Joker"
 This script integrates web scraping and NLP tools to offer an automated approach to screenplay analysis. By extracting dialogues and identifying keywords, it provides insights into a character's linguistic patterns and recurrent themes. A valuable tool for screenwriters, linguists, and film analysts, offering a fresh, computational perspective to cinematic texts.
 ## Access the Code
 
-The implementation of this project can be found in our [ParsingScripts Python file](ChristianJoudon.github.io/projects/ParsingScripts.py).
+The implementation of this project can be found in our [ParsingScripts Python file](ChristianJoudon.github.io/projects/ParsingScripts.md).
