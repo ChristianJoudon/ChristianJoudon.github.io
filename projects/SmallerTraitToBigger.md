@@ -1,4 +1,4 @@
-#Trait Generator for Non-Player Characters
+# Trait Generator for Non-Player Characters
 
 ```python
 # This script defines smaller personality traits as 3D vectors and groups them under larger personality traits.
