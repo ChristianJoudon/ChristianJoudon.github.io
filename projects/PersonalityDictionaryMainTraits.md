@@ -39,4 +39,4 @@ With this project, we transcend traditional dialogue systems by introducing a la
 
 ## Access the Code
 
-The core implementation of this project can be found in our [main Python file](projects/main.py).
+The implementation of this project can be found in our [main Python file](projects/main.md).
