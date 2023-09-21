@@ -8,7 +8,6 @@ labels:
   - Programming Language Structure
 ---
 
----
 
 # The Profound Impact of Coding Standards in Software Engineering
 
