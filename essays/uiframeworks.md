@@ -1,7 +1,7 @@
 ---
 layout: essay
 type: essay
-title: "Software Engineering: My Journey and Focus"
+title: "UI Frameworks: A Reflection on the Efficacy of Bootstrap 5"
 date: 2023-08-28
 published: true
 labels:
