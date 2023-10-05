@@ -24,8 +24,8 @@ In the ever-evolving landscape of web development, UI frameworks, such as Bootst
 5. **Customizability**: A common misconception is that using a framework results in generic-looking websites. However, the likes of Bootstrap and Semantic UI are highly customizable. With a solid foundational structure, developers have the freedom to override and adapt styles, creating a unique digital identity.
 
 <div style="text-align:center;">
-    <img src="img/Screenshot 2023-10-04 at 10.32.59 PM.png" alt="HTML / CSS" style="display:inline-block; margin-right: 10px;">
-    <img src="img/Screenshot 2023-10-04 at 10.31.47 PM.png" alt="BootStrap" style="display:inline-block;">
+    <img src=img/Screenshot 2023-10-04 at 10.32.59 PM.png alt="HTML / CSS" style="display:inline-block; margin-right: 10px;">
+    <img src=img/Screenshot 2023-10-04 at 10.31.47 PM.png alt="BootStrap" style="display:inline-block;">
 </div>
 
 *Figure 1: A juxtaposition of a webpage crafted with Bootstrap against one built with plain HTML/CSS. The Bootstrap version showcases a streamlined design, with components having a distinct visual hierarchy and responsiveness.*
