@@ -52,3 +52,5 @@ Peering into the platform's future:
 ## Conclusion
 
 "Club Hub" is more than just a platform; it’s a transformative force for the UH Manoa student community. By amalgamating various modern features, "Club Hub" transcends mere club discovery, establishing a new paradigm for club interaction and collaboration. As the world veers more towards virtual experiences, "Club Hub" epitomizes the innovation that blooms when technology meets community.
+
+Authors : Juncell Venzon, Christian Joudon, Jesse Lee Navas-Huang, Yujin Chen, and Bobby Roth
