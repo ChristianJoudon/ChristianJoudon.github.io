@@ -12,7 +12,9 @@ labels:
 
 ## I. Introduction
 
-The advent of Artificial Intelligence (AI) in the educational landscape, especially in software engineering, heralds a transformative era. This shift transcends the mere addition of new tools; it redefines the pedagogical approach itself. In software engineering education, as experienced in ICS 314, AI's role is pivotal, serving as both a subject and an enabler of learning. AI tools like ChatGPT, Bard, and GitHub Copilot have been central to this transformation, aiding in areas ranging from concept clarification to practical application.
+The integration of Artificial Intelligence (AI) into educational frameworks, particularly in software engineering, represents a significant paradigm shift. This transformation is not just about the inclusion of a new set of tools; it involves a fundamental change in how education is delivered and received. In the realm of software engineering, AI's relevance is twofold: it serves as both a subject of study and a facilitative tool for learning. Throughout my experience in ICS 314, various AI tools have been instrumental in enhancing learning and practical application, including ChatGPT, Bard, and GitHub Copilot.
+
+These tools, each with their unique capabilities, have significantly contributed to various aspects of learning. ChatGPT, with its language processing prowess, has been pivotal in providing explanations, coding assistance, and even in generating documentation. Bard, another AI-driven tool, offers insights and helps in problem-solving with its advanced analytical capabilities. GitHub Copilot, a code completion tool, serves as an invaluable companion in coding tasks, making the coding process more efficient and less error-prone.
 
 ## II. Personal Experience with AI in ICS 314
 
