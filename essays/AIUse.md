@@ -44,9 +44,13 @@ For quality assurance tasks, such as identifying issues in code or fixing ESLint
 
 ## III. Impact on Learning and Understanding
 
+The incorporation of AI in my software engineering course has had a profound impact on my learning experience. My understanding of complex concepts has been greatly enhanced through AI-assisted explanations and examples. Tools like ChatGPT have provided instant assistance in clarifying doubts, thus speeding up the learning process. This immediate feedback mechanism has also been beneficial in retaining knowledge and applying it in practical scenarios.
+
 My experience with AI in software engineering education has been transformative. AI, with its linear thought process, has been instrumental in organizing and orienting my approach to complex problems. When faced with a daunting task, the clarity and structured thinking provided by AI tools like ChatGPT have helped me focus and understand the task at hand more effectively. This has been particularly beneficial in situations where I was initially uncertain about how to proceed.
 
 Furthermore, AI's proficiency in explaining details and providing structured instructions has outperformed traditional methods. Its balanced focus on tasks ensures comprehensive understanding without overwhelming or neglecting any aspect. This capability extends to peer-to-peer explanations, where AI's organized thought process can be invaluable.
+
+Moreover, AI tools have played a crucial role in developing problem-solving skills. By providing suggestions and alternative approaches to coding challenges, they have broadened my perspective and approach towards problem-solving. However, it's also worth noting that an over-reliance on AI for solutions can potentially hinder the development of independent problem-solving skills.
 
 ## IV. Practical Applications
 
