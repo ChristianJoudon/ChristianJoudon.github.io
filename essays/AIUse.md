@@ -58,7 +58,11 @@ In practical applications, AI's strengths in error reduction and efficient brain
 
 ## V. Challenges and Opportunities
 
-Despite these advantages, challenges in AI integration persist. Ensuring that AI tools are used as aides rather than crutches is crucial for maintaining independent problem-solving skills. The opportunity lies in harnessing AI's capabilities to enhance, rather than replace, human intellect and creativity.
+Despite its numerous benefits, the use of AI in software engineering education is not without challenges. One primary concern is the potential for students to become overly reliant on AI, which might impede their ability to think independently and solve problems without assistance. Additionally, there is the risk of receiving incorrect or suboptimal solutions from AI tools, which can lead to misunderstandings or misconceptions.
+
+However, these challenges also present opportunities. There is significant scope for the further integration of AI in a way that complements traditional teaching methods, ensuring that students not only become proficient in using these tools but also retain their critical thinking and problem-solving abilities.
+
+Ensuring that AI tools are used as aides rather than crutches is crucial for maintaining independent problem-solving skills. The opportunity lies in harnessing AI's capabilities to enhance, rather than replace, human intellect and creativity.
 
 ## VI. Comparative Analysis
 
