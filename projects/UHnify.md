@@ -56,7 +56,11 @@ For those who want to iterate on the UHnify base:
 
 UHnify is deployed on Digital Ocean, providing a stable and scalable environment for our users. Access the application [here](https://uhnify.online).
 
+
+
 # Reflecting on My Journey with UHnify
+
+
 
 ## My Role in Shaping UHnify
 
