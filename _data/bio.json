@@ -38,72 +38,80 @@
       "studyType": "B.S.",
       "startDate": "2020-09-01",
       "endDate": "Present",
-      "courses": [
-      ]
+      "courses": []
+    },
+    {
+      "institution": "University of Nevada, Las Vegas",
+      "area": "Undeclared/General Studies",
+      "studyType": "Undergraduate Studies",
+      "startDate": "2012-01-01",
+      "endDate": "2013-12-31",
+      "courses": []
+    },
+    {
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Undeclared/General Studies",
+      "studyType": "Undergraduate Studies",
+      "startDate": "2014-01-01",
+      "endDate": "2017-12-31",
+      "courses": []
     }
   ],
   "work": [
     {
       "company": "Self-employed",
       "position": "Writer",
-      "website": "",
       "startDate": "2019-12",
       "endDate": "2020-06",
-      "summary": "Took time to finish screenplay, and start work on novel and short stories. Extended time off due to COVID.",
+      "summary": "Focused on creative writing projects, including screenplay development and literary compositions. Extended due to the global pandemic, this period provided an opportunity to hone storytelling and narrative structuring skills, valuable in both writing and data presentation.",
       "highlights": []
     },
     {
       "company": "Bacchus LLC",
       "position": "Assistant Manager",
-      "website": "",
       "startDate": "2018-08",
       "endDate": "2019-11",
-      "summary": "Managed residential real estate building projects. Collaborated with architects, drafters, builders, and interior designers. Managed budgets and deadlines using Excel. Organized and maintained a small business farm and orchard.",
+      "summary": "Oversaw residential real estate projects, liaising with architects, builders, and designers to achieve project goals. Excelled in budget management and timeline coordination. Also managed a small-scale farm, demonstrating versatility and adaptability.",
       "highlights": []
     },
     {
       "company": "Northside Grille",
       "position": "Server/Bartender",
-      "website": "",
       "startDate": "2018-01",
       "endDate": "2018-06",
-      "summary": "Provided excellent customer service as a server and bartender in a busy restaurant setting.",
+      "summary": "Provided high-quality customer service in a dynamic restaurant environment, developing strong interpersonal and communication skills.",
       "highlights": []
     },
     {
       "company": "Blue Barn Gourmet",
       "position": "Server",
-      "website": "",
       "startDate": "2017-05",
       "endDate": "2017-11",
-      "summary": "Performed front-of-house duties and evening bookkeeping.",
+      "summary": "Managed front-of-house operations and nightly bookkeeping, showcasing attention to detail and a knack for multitasking under pressure.",
       "highlights": []
     },
     {
       "company": "Sushi Girl",
       "position": "Cashier/Food Preparer",
-      "website": "",
       "startDate": "2015-08",
       "endDate": "2016-03",
-      "summary": "Stocked, cleaned, prepared food, and provided customer service.",
+      "summary": "Handled various roles from food preparation to customer interaction, demonstrating flexibility and a keen ability to quickly learn and adapt.",
       "highlights": []
     },
     {
       "company": "The Hanalei Dolphin",
       "position": "Server",
-      "website": "",
       "startDate": "2010-10",
       "endDate": "2012-01",
-      "summary": "Served customers in a fast-paced restaurant environment.",
+      "summary": "Excelled in customer service, efficiently handling busy shifts and maintaining a high level of service quality.",
       "highlights": []
     },
     {
       "company": "Healthy Hut",
       "position": "Clerk/Cook/Barista/Juice and Smoothie Maker",
-      "website": "",
       "startDate": "2013-11",
       "endDate": "2015-08",
-      "summary": "Trained multiple employees and overhauled the Cold Bar recipe book using Excel cost sheets.",
+      "summary": "Trained new employees and revamped menu offerings, utilizing analytical skills in recipe cost analysis and efficiency improvements.",
       "highlights": []
     }
   ]
