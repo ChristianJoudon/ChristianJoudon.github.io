@@ -9,7 +9,7 @@ labels:
 ---
 
 
-# The Profound Impact of Coding Standards in Software Engineering
+# The Impact of Coding Standards in Software Engineering
 
 When the phrase "coding standards" comes to mind, many immediately conjure up images of debates over tabs versus spaces or where to place a closing curly brace. On the surface, these may seem like inconsequential details, mere pedantry of those obsessed with the aesthetics of code. But, dig a little deeper, and one starts to see that coding standards encompass more than just formatting rules. They are crucial tools that can improve code quality, foster a cohesive development team, and even assist programmers in understanding a new programming language.
 
