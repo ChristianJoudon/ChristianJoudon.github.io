@@ -105,7 +105,7 @@ a {
 
 /* Essay Card Styles */
 .essay-card {
-  margin-bottom: 20px; /* Adds more space between cards */
+  margin: 20px; /* Adds more space between cards */
   padding: 20px; /* Adds padding inside each card */
   background-color: white;
   border-radius: 20px;
