@@ -53,6 +53,7 @@ em, .emphasis {
 
 .tf-social:hover {
   fill: var(--tf-icon-hover);
+  transform: scale(1.2);
 }
 
 a {
@@ -80,6 +81,7 @@ a {
 /* Project Card Styles */
 .project-card {
   border-radius: 20px;
+  background-color: white;
 }
 
 .project-card-img-container {
@@ -103,8 +105,11 @@ a {
 
 /* Essay Card Styles */
 .essay-card {
-  background-color: var(--eggshell-white);
+  margin-bottom: 20px; /* Adds more space between cards */
+  padding: 15px; /* Adds padding inside each card */
+  background-color: white;
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
 }
 
 .essay-card-footer {
@@ -130,8 +135,8 @@ a {
 }
 
 /* Footer Styles */
-.custom-footer {
-  border-top: 2px solid var(--light-tropical-green);
+.custom-header, .custom-footer {
+  background-color: transparent;
 }
 
 .custom-footer a {
