@@ -126,8 +126,9 @@ a {
 
 .essay-card-text {
   /* Limit the text block height */
-  max-height: 80px; /* Adjust as needed */
-  color: var(--volcanic-grey);
+  max-height: 60px; /* Adjust the height to limit the text */
+  overflow: hidden;
+  margin-bottom: 10px; /* Reduced bottom margin to bring tags closer */
 }
 
 .essay-card-date {
