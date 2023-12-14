@@ -92,9 +92,10 @@ a {
 }
 
 .project-card-img {
-  height: 205px; /* Adjust the height as needed */
-  border-radius: 20px; /* Rounded edges */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px; /* Optional: if you want rounded corners */
+  object-fit: cover; /* Ensures the image covers the area nicely */
 }
 
 .read-more-btn {
