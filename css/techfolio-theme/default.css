@@ -106,14 +106,14 @@ a {
 /* Essay Card Styles */
 .essay-card {
   margin-bottom: 20px; /* Adds more space between cards */
-  padding: 15px; /* Adds padding inside each card */
+  padding: 20px; /* Adds padding inside each card */
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
 }
 
 .essay-card-footer {
-  background-color: var(--eggshell-white);
+  background-color: white;
   border-top: none;
 }
 
@@ -162,7 +162,7 @@ a {
 }
 
 .about-picture {
-  width: 300px;
+  width: 500px;
   display: block;
   margin: auto;
   border-radius: 50%; /* For rounded-circle effect */
