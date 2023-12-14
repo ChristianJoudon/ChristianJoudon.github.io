@@ -1,5 +1,5 @@
 <div class="col-md-6 col-lg-4" xmlns="http://www.w3.org/1999/html">
-  <div class="card h-100" style="background-color: var(--coconut-white);">
+  <div class="card h-100" style="background-color: var(--eggshell-white);">
     <div class="card-body">
       <h5 class="card-title" style="color: var(--banana-leaf-green);">{{ include.page.title }}</h5>
       <p class="card-text"><small class="text-muted" style="color: var(--light-tropical-green);">{{ include.page.date | date_to_string }}</small></p>
@@ -10,7 +10,7 @@
         {% endfor %}
       </p>
     </div>
-    <div class="card-footer" style="background-color: var(--coconut-white); border-top: none;">
+    <div class="card-footer" style="background-color: var(--eggshell-white); border-top: none;">
       <div class="text-center"><a href="{% if page.essayurl %}{{ page.essayurl }}{% else %}{{ site.baseurl}}{{ include.page.url }}{% endif %}" class="btn" style="background-color: var(--coral-pink); color: var(--coconut-white);">Read More</a></div>
     </div>
   </div>
