@@ -105,7 +105,7 @@ a {
 
 /* Essay Card Styles */
 .essay-card {
-  max-height: 400px!important; /* Set a maximum height */
+  max-height: 500px!important; /* Set a maximum height */
   overflow: hidden; /* Hide content that exceeds the card's height */
   margin: 20px; /* Adds more space between cards */
   padding: 20px; /* Adds padding inside each card */
