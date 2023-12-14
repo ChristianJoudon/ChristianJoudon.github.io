@@ -130,7 +130,7 @@ a {
 
 .essay-card-text {
   /* Limit the text block height */
-  max-height: 160px; /* Adjust the height to limit the text */
+  max-height: 200px; /* Adjust the height to limit the text */
   overflow: hidden;
   margin-bottom: 10px; /* Reduced bottom margin to bring tags closer */
 }
