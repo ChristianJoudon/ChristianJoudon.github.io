@@ -117,6 +117,7 @@ a {
 .essay-card-footer {
   border-top: none;
   background-color: white;
+  padding-top: 10px; /* Reduced padding for the footer */
 }
 
 .essay-card-title {
@@ -142,6 +143,8 @@ a {
   background-color: var(--tf-pill-bg);
   color: var(--coconut-white);
   /* Other styling for labels, if needed */
+  margin-right: 5px; /* Space between tags */
+  margin-bottom: 5px; /* Space below tags */
 }
 
 /* Essays Section Styles */
