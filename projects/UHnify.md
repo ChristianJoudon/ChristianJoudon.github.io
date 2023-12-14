@@ -37,9 +37,9 @@ Combines MongoDB and Meteor for the backend, with a frontend of JavaScript, HTML
 ## User Guide
 
 Each page on UHnify is designed to cater to specific user needs:
-- **Sign In Page**: ![Sign In Page Screenshot](SignIn.png) Here users sign in to their account.
-- **Browse Clubs**: ![Browse Clubs Page Screenshot](FinalBrowseClubsPage.png) Here users can view existing clubs. They can filter through the clubs by category, as well as search for specific clubs. Users are able to join clubs that interest them.
--  **Event Calendar**: ![Calendar Events Screenshot](FinalCalendarPage.png) Located at the bottom of all the event pages, this calendar offers a good reference for users to plan out their week.
+- **Sign In Page**: ![Sign In Page Screenshot](/img/SignIn.png) Here users sign in to their account.
+- **Browse Clubs**: ![Browse Clubs Page Screenshot](/img/FinalBrowseClubsPage.png) Here users can view existing clubs. They can filter through the clubs by category, as well as search for specific clubs. Users are able to join clubs that interest them.
+-  **Event Calendar**: ![Calendar Events Screenshot](/img/FinalCalendarPage.png) Located at the bottom of all the event pages, this calendar offers a good reference for users to plan out their week.
 
 ## Community Feedback
 
