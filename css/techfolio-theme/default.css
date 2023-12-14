@@ -124,6 +124,8 @@ a {
 }
 
 .essay-card-text {
+  /* Limit the text block height */
+  max-height: 80px; /* Adjust as needed */
   color: var(--volcanic-grey);
 }
 
@@ -134,6 +136,12 @@ a {
 .essay-read-more-btn {
   background-color: var(--coral-pink);
   color: var(--coconut-white);
+}
+
+.essay-label {
+  background-color: var(--tf-pill-bg);
+  color: var(--coconut-white);
+  /* Other styling for labels, if needed */
 }
 
 /* Footer Styles */
