@@ -1,7 +1,7 @@
 ---
 layout: essay
 type: essay
-title: "Navigating Design Patterns in Software Development"
+title: "Design Patterns in Software Development"
 date: 2023-11-29
 labels:
   - Design Patterns

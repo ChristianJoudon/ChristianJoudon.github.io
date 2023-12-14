@@ -4,7 +4,6 @@ type: essay
 title: "UHnify: The Ultimate Student Club Experience"
 date: 2023-10-30
 labels:
-  - Software Engineering
   - Meteor
 ---
 
