@@ -1,25 +1,36 @@
-<div style="background-color: var(--eggshell-white)" class="bg-gradient py-3" id="essays">
+<!-- Section for displaying essays with a specific background color -->
+<div class="bg-gradient py-3 essays-section" id="essays">
+  <!-- Container for centering and providing padding -->
   <div class="container">
+    <!-- Row for the heading -->
     <div class="row mb-3">
+      <!-- Column containing the heading 'Essays' -->
       <div class="col-md-6">
         <h1 class="display-4 text-start">Essays</h1>
       </div>
     </div>
 
+    <!-- Row for the essay cards with gutter spacing (g-3) -->
     <div class="row g-3">
+      <!-- Jekyll/Liquid template logic to loop through pages of type 'essay' -->
       {% assign essay_pages = site.pages | where: "type", "essay" | sort: "date" | reverse %}
       {% for page in essay_pages %}
-        {% unless page.draft %}
-          {% include essays/essay-card.html page=page %}
-        {% endunless %}
-        {% if forloop.index == include.limit %}
-          {% break %}
-        {% endif %}
+      <!-- Check to ensure the page is not marked as draft -->
+      {% unless page.draft %}
+      <!-- Include the essay card HTML for each essay page -->
+      {% include essays/essay-card.html page=page %}
+      {% endunless %}
+      <!-- Limit the number of essays displayed based on 'include.limit' -->
+      {% if forloop.index == include.limit %}
+      {% break %}
+      {% endif %}
       {% endfor %}
     </div>
 
+    <!-- Check if the total number of essays exceeds the limit -->
     {% if essay_pages.size > include.limit %}
-      <p class="text-center pt-4"><a href="{{ site.baseurl}}/essays/">See all {{ essay_pages.size }} essays</a></p>
+    <!-- Provide a link to view all essays -->
+    <p class="text-center pt-4"><a href="{{ site.baseurl}}/essays/">See all {{ essay_pages.size }} essays</a></p>
     {% endif %}
 
   </div>

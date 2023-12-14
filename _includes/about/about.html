@@ -1,23 +1,44 @@
+<!-- About Section -->
 <div class="bg-gradient py-3 about-section">
+  <!-- Container to center content and manage width -->
   <div class="container">
+    <!-- Row for layout -->
     <div class="row">
+      <!-- Column for profile picture -->
       <div class="col-lg-4">
+        <!-- Profile Picture -->
         <img src="{{ site.data.bio.basics.picture }}" class="about-picture">
       </div>
+
+      <!-- Column for text content -->
       <div class="col-lg-8">
+        <!-- Name Heading -->
         <h1 class="display-4 about-name">{{ site.data.bio.basics.name }}</h1>
+        <!-- Label/Position -->
         <p class="lead about-label">{{ site.data.bio.basics.label }}</p>
+        <!-- Summary -->
         <p class="lead about-summary">{{ site.data.bio.basics.summary }}</p>
+
+        <!-- Horizontal Rule as a separator -->
         <hr class="about-hr">
+
+        <!-- Interests -->
         <p class="lead m-0 about-interests">
           Interests:
+          <!-- Loop through interests and display each one -->
           {% for interest in site.data.bio.interests %}
-          <span class="about-interests-name">{{ interest.name }}</span>{% if forloop.last != true %}, {% endif %}
+          <span class="about-interests-name">{{ interest.name }}</span>
+          <!-- Add a comma after each interest except the last one -->
+          {% if forloop.last != true %}, {% endif %}
           {% endfor %}
         </p>
-        <hr class="about-hr">
-        <div class="row">
 
+        <!-- Another horizontal rule as a separator -->
+        <hr class="about-hr">
+
+        <!-- Row for social links -->
+        <div class="row">
+          <!-- Check if website is available and display it -->
           {% if site.data.bio.basics.website %}
           {% capture url %}{{ site.data.bio.basics.website }}{% endcapture %}
           <div class="col text-center">
@@ -25,6 +46,7 @@
           </div>
           {% endif %}
 
+          <!-- Check if email is available and display it -->
           {% if site.data.bio.basics.email %}
           {% capture url %}mailto:{{ site.data.bio.basics.email }}{% endcapture %}
           <div class="col text-center">
@@ -32,6 +54,7 @@
           </div>
           {% endif %}
 
+          <!-- Loop through social profiles and display each one -->
           {% for profile in site.data.bio.basics.profiles %}
           {% capture url %}{{ profile.url }}{% endcapture %}
           {% capture name %}{{ profile.network | downcase }}{% endcapture %}
@@ -39,7 +62,6 @@
             {% include about/social.html url=url name=name %}
           </div>
           {% endfor %}
-
         </div>
       </div>
     </div>

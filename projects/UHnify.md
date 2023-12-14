@@ -41,6 +41,8 @@ Combines MongoDB and Meteor for the backend, with a frontend of JavaScript, HTML
 
 - **Event Calendar**:
   <img src="/img/FinalCalendarPage.png" alt="Calendar Events Screenshot" width="600"/>
+
+
 ## Community Feedback
 
 Feedback includes suggestions for improving club addition, landing page event visibility, navbar user experience, and user notifications.
@@ -51,7 +53,11 @@ UHnify is deployed on Digital Ocean, providing a stable and scalable environment
 
 
 
+
+
 # Reflecting on My Journey with UHnify
+
+
 
 
 

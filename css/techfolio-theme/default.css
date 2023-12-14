@@ -144,6 +144,11 @@ a {
   /* Other styling for labels, if needed */
 }
 
+/* Essays Section Styles */
+.essays-section {
+  background-color: var(--eggshell-white);
+}
+
 /* Footer Styles */
 .custom-footer {
   background-color: transparent;
