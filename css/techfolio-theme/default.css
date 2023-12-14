@@ -116,6 +116,7 @@ a {
 
 .essay-card-footer {
   border-top: none;
+  background-color: white;
 }
 
 .essay-card-title {
@@ -145,7 +146,7 @@ a {
 }
 
 .custom-header {
-  background-color: transparent;
+  background-color: var(--eggshell-white);
   border-bottom: none;
 }
 
