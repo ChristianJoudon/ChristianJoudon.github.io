@@ -160,7 +160,7 @@ a {
 
 /* Footer Styles */
 .custom-footer {
-  background-color: transparent;
+  background-color: transparent!important;
 }
 
 .custom-footer a {
