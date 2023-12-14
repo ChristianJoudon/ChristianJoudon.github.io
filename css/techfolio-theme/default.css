@@ -114,10 +114,13 @@ a {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
 }
 
+.essay-tag-wrapper {
+  margin-top: 20px; /* Increase top margin to push tags down further */
+}
+
 .essay-card-footer {
   border-top: none;
   background-color: white;
-  padding-top: 10px; /* Reduced padding for the footer */
 }
 
 .essay-card-title {

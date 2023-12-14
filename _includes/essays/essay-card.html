@@ -11,7 +11,7 @@
       <!-- Essay content, truncated to 20 words for brevity -->
       <p class="card-text essay-card-text">{{ include.page.content | markdownify | strip_html | truncatewords: 20 }}</p>
       <!-- Loop to display each label associated with the essay -->
-      <p>
+      <p class="essay-tag-wrapper">
         {% for label in include.page.labels %}
         <!-- Label displayed as a badge/rounded pill -->
         <span class="badge rounded-pill essay-label">{{ label }}</span>
