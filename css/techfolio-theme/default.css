@@ -12,6 +12,7 @@
   --pale-yellow: #feefd0;
   --coral-pink: #FF9E80;
   --volcanic-grey: #707070;
+  --eggshell-white: #fcfafa;
 
   --bs-font-sans-serif: "Raleway", sans-serif;
   --bs-font-serif: "Playfair Display", serif;
@@ -21,7 +22,7 @@
   --tf-icon-hover: var(--dark-banana-leaf-green);
   --tf-page-bg-color: var(--coconut-white);
   --tf-footer-bg-color: var(--light-tropical-green);
-  --tf-projects-bg-color: var(--pale-yellow);
+  --tf-projects-bg-color: var(--eggshell-white);
 }
 
 /* Typography */
