@@ -17,42 +17,39 @@ summary: "UHnify is designed to be a discovery platform; it's a hub for fosterin
 
 ## Introduction
 
-At UH Manoa, the student body is bustling with clubs and organizations that foster community, learning, and networking. Despite the vibrant scene, there lacks a singular, cohesive platform to manage and engage with these groups. Enter "UHnify," the solution designed to centralize, streamline, and enhance the club experience for UH Manoa students.
+The University of Hawaii at Manoa boasts a diverse and active student body, deeply engaged in a wide range of clubs and organizations. These groups play a crucial role in fostering academic, cultural, and social development on campus. However, a key challenge has been the lack of a centralized platform for efficient management and engagement with these groups.
+
+"UHnify" emerges as a strategic solution to this challenge. Developed with a focus on user-centric design, UHnify aims to streamline the organization and participation processes for both students and club administrators. This platform is engineered to provide an integrated environment where club discovery, event coordination, and membership management are seamlessly unified.
+
+The goal of UHnify is to enrich the club experience at UH Manoa by offering a cohesive and intuitive interface. It not only simplifies administrative tasks for club leaders but also enhances the accessibility of club activities for students, thus fostering a more interconnected and vibrant campus community.
 
 ## Overview
 
-UHnify's key features include club discovery and management, event information, and a personalized user experience.
+UHnify brings forth several key features essential for modern campus life. At its core, it facilitates club discovery and management, coupled with comprehensive event information. It also offers a personalized user experience, adapting to the unique preferences and needs of each student. This multifaceted approach positions UHnify as an indispensable tool in enhancing student engagement and club efficiency at UH Manoa.
 
 ## System Architecture
 
-Combines MongoDB and Meteor for the backend, with a frontend of JavaScript, HTML, and CSS.
+The backbone of UHnify consists of MongoDB for robust data storage and the Meteor framework for seamless real-time data synchronization. The frontend is developed using JavaScript, HTML, and CSS, ensuring a responsive and user-friendly interface.
 
 ## Features
 
-- Club Discovery and Management
-- Event Information
-- My Clubs: View and manage club memberships
+- **Club Discovery and Management:** Streamlines the process of finding and managing club memberships.
+- **Event Information:** Provides up-to-date information on club events and activities.
+- **My Clubs:** Allows students to view and manage their club memberships efficiently.
 
 ## User Guide
 
-- **Sign In Page**:
-  <img src="/img/SignIn.png" alt="Sign In Page Screenshot" width="600"/>
-
-- **Browse Clubs**:
-  <img src="/img/FinalBrowseClubsPage.png" alt="Browse Clubs Page Screenshot" width="600"/>
-
-- **Event Calendar**:
-  <img src="/img/FinalCalendarPage.png" alt="Calendar Events Screenshot" width="600"/>
-
+- **Sign In Page:** ![Sign In Page Screenshot](/img/SignIn.png)
+- **Browse Clubs:** ![Browse Clubs Page Screenshot](/img/FinalBrowseClubsPage.png)
+- **Event Calendar:** ![Calendar Events Screenshot](/img/FinalCalendarPage.png)
 
 ## Community Feedback
 
-Feedback includes suggestions for improving club addition, landing page event visibility, navbar user experience, and user notifications.
+Feedback has highlighted areas for improvement such as club addition processes, event visibility on the landing page, user experience in the navigation bar, and enhancement of user notifications.
 
 ## Deployment
 
-UHnify is deployed on Digital Ocean, providing a stable and scalable environment for our users. Access the application [here](https://uhnify.online).
-
+UHnify is currently deployed on Digital Ocean, offering a reliable and scalable platform for our users. Experience the platform [here](https://uhnify.online).
 
 ## My Role in Shaping UHnify
 
