@@ -68,12 +68,11 @@ a {
 
 /* Project Card Styles */
 .project-card {
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .project-card-img {
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 20px;
 }
 
 .read-more-btn {
@@ -85,6 +84,7 @@ a {
 /* Essay Card Styles */
 .essay-card {
   background-color: var(--eggshell-white);
+  border-radius: 20px;
 }
 
 .essay-card-footer {
