@@ -36,21 +36,17 @@ Combines MongoDB and Meteor for the backend, with a frontend of JavaScript, HTML
 
 ## User Guide
 
-Each page on UHnify is designed to cater to specific user needs:
-- **Sign In Page**: ![Sign In Page Screenshot](/img/SignIn.png) Here users sign in to their account.
-- **Browse Clubs**: ![Browse Clubs Page Screenshot](/img/FinalBrowseClubsPage.png) Here users can view existing clubs. They can filter through the clubs by category, as well as search for specific clubs. Users are able to join clubs that interest them.
--  **Event Calendar**: ![Calendar Events Screenshot](/img/FinalCalendarPage.png) Located at the bottom of all the event pages, this calendar offers a good reference for users to plan out their week.
+- **Sign In Page**:
+  <img src="/img/SignIn.png" alt="Sign In Page Screenshot" width="600"/>
 
+- **Browse Clubs**:
+  <img src="/img/FinalBrowseClubsPage.png" alt="Browse Clubs Page Screenshot" width="600"/>
+
+- **Event Calendar**:
+  <img src="/img/FinalCalendarPage.png" alt="Calendar Events Screenshot" width="600"/>
 ## Community Feedback
 
 Feedback includes suggestions for improving club addition, landing page event visibility, navbar user experience, and user notifications.
-
-## Dev Guide
-
-For those who want to iterate on the UHnify base:
-- **Cloning the repo**: ![Clone Repo](CloneRepo.png) Head to the uhnify repository and make a copy of the repo. We recommend using Github Desktop for this.
-- **Installations**: ![Commands](Installcommands.png) ![More Commands](CalendarInstalls.png) Using the terminal, run these commands in the app directory of the repo.
-- **Start Editing**: Once the installations finish, invoke `meteor npm run start` in the terminal to pull up a local version of the app to make sure everything runs fine. Then, happy editing!
 
 ## Deployment
 
