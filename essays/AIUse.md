@@ -4,7 +4,6 @@ type: essay
 title: "The Integration and Impact of AI in Software Engineering Education"
 date: 2023-11-20
 labels:
-  - Software Engineering
   - AI
 ---
 
