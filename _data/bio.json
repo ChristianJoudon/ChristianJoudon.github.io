@@ -43,5 +43,68 @@
     }
   ],
   "work": [
+    {
+      "company": "Self-employed",
+      "position": "Writer",
+      "website": "",
+      "startDate": "2019-12",
+      "endDate": "2020-06",
+      "summary": "Took time to finish screenplay, and start work on novel and short stories. Extended time off due to COVID.",
+      "highlights": []
+    },
+    {
+      "company": "Bacchus LLC",
+      "position": "Assistant Manager",
+      "website": "",
+      "startDate": "2018-08",
+      "endDate": "2019-11",
+      "summary": "Managed residential real estate building projects. Collaborated with architects, drafters, builders, and interior designers. Managed budgets and deadlines using Excel. Organized and maintained a small business farm and orchard.",
+      "highlights": []
+    },
+    {
+      "company": "Northside Grille",
+      "position": "Server/Bartender",
+      "website": "",
+      "startDate": "2018-01",
+      "endDate": "2018-06",
+      "summary": "Provided excellent customer service as a server and bartender in a busy restaurant setting.",
+      "highlights": []
+    },
+    {
+      "company": "Blue Barn Gourmet",
+      "position": "Server",
+      "website": "",
+      "startDate": "2017-05",
+      "endDate": "2017-11",
+      "summary": "Performed front-of-house duties and evening bookkeeping.",
+      "highlights": []
+    },
+    {
+      "company": "Sushi Girl",
+      "position": "Cashier/Food Preparer",
+      "website": "",
+      "startDate": "2015-08",
+      "endDate": "2016-03",
+      "summary": "Stocked, cleaned, prepared food, and provided customer service.",
+      "highlights": []
+    },
+    {
+      "company": "The Hanalei Dolphin",
+      "position": "Server",
+      "website": "",
+      "startDate": "2010-10",
+      "endDate": "2012-01",
+      "summary": "Served customers in a fast-paced restaurant environment.",
+      "highlights": []
+    },
+    {
+      "company": "Healthy Hut",
+      "position": "Clerk/Cook/Barista/Juice and Smoothie Maker",
+      "website": "",
+      "startDate": "2013-11",
+      "endDate": "2015-08",
+      "summary": "Trained multiple employees and overhauled the Cold Bar recipe book using Excel cost sheets.",
+      "highlights": []
+    }
   ]
 }
