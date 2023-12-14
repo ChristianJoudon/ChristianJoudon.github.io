@@ -39,9 +39,15 @@ The backbone of UHnify consists of MongoDB for robust data storage and the Meteo
 
 ## User Guide
 
-- **Sign In Page:** ![Sign In Page Screenshot](/img/SignIn.png)
-- **Browse Clubs:** ![Browse Clubs Page Screenshot](/img/FinalBrowseClubsPage.png)
-- **Event Calendar:** ![Calendar Events Screenshot](/img/FinalCalendarPage.png)
+- **Sign In Page**:
+  <img src="/img/SignIn.png" alt="Sign In Page Screenshot" width="600"/>
+
+- **Browse Clubs**:
+  <img src="/img/FinalBrowseClubsPage.png" alt="Browse Clubs Page Screenshot" width="600"/>
+
+- **Event Calendar**:
+  <img src="/img/FinalCalendarPage.png" alt="Calendar Events Screenshot" width="600"/>
+
 
 ## Community Feedback
 
