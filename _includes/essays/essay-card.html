@@ -6,6 +6,7 @@
     <div class="card-body">
       <!-- Title of the essay -->
       <h5 class="card-title essay-card-title">{{ include.page.title }}</h5>
+      <hr class="title-separator"> <!-- Thin line separator -->
       <!-- Date of the essay, displayed in a smaller, muted style -->
       <p class="card-text"><small class="text-muted essay-card-date">{{ include.page.date | date_to_string }}</small></p>
       <!-- Essay content, truncated to 20 words for brevity -->
