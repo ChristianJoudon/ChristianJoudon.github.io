@@ -142,17 +142,22 @@ a {
   color: var(--banana-leaf-green);
 }
 
-/* Header Styles */
 .custom-header {
-  border-bottom: 2px solid var(--light-tropical-green);
+  background-color: transparent;
+  border-bottom: none;
 }
 
 .navbar-brand-custom {
   color: var(--volcanic-grey);
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .nav-link-custom {
   color: var(--dark-banana-leaf-green);
+}
+
+.navbar-brand-custom:hover, .nav-link-custom:hover {
+  color: var(--tf-icon-hover); /* Change color on hover */
 }
 
 
