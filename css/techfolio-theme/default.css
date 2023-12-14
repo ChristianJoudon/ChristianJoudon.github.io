@@ -1,26 +1,49 @@
 /* Default theme. Simple, yet elegant. */
 
-/* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans:300,400,500,700|Playfair+Display:400,700");
 
-/* See https://getbootstrap.com/docs/5.2/customize/css-variables/#root-variables for variables to override. */
+/* Theme Colors */
 :root {
-  --bs-font-sans-serif: "Open Sans", sans-serif;
-  --bs-link-color: var(--bs-blue);
-  --tf-pill-bg: var(--bs-gray);
-  --tf-icon-fill: var(--bs-gray);
-  --tf-icon-hover: var(--bs-gray-500);
-  --tf-page-bg-color: var(--bs-white);
-  --tf-footer-bg-color: var(--bs-gray-200);
-  --tf-projects-bg-color: var(--bs-gray-100);
+  --banana-leaf-green: #4F7942;
+  --dark-banana-leaf-green: #3E6335;
+  --light-tropical-green: #DAE8D4;
+  --coconut-white: #FFFFF0;
+  --pale-yellow: #feefd0;
+  --coral-pink: #FF9E80;
+  --volcanic-grey: #707070;
+
+  --bs-font-sans-serif: "Raleway", sans-serif;
+  --bs-font-serif: "Playfair Display", serif;
+  --bs-link-color: var(--coral-pink);
+  --tf-pill-bg: var(--light-tropical-green);
+  --tf-icon-fill: var(--volcanic-grey);
+  --tf-icon-hover: var(--dark-banana-leaf-green);
+  --tf-page-bg-color: var(--coconut-white);
+  --tf-footer-bg-color: var(--light-tropical-green);
+  --tf-projects-bg-color: var(--pale-yellow);
 }
 
-/* Format social media icons */
+/* Typography */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700; /* Bold for headings */
+}
+
+em, .emphasis {
+  font-family: "Playfair Display", serif;
+}
+
+/* Social Media Icons */
 .tf-social {
   display: inline-block;
   fill: var(--tf-icon-fill);
   height: 1.5em;
-  vertical-align: -.1em;
+  vertical-align: -0.1em;
   width: 1.5em;
   transition: 0.2s;
 }
@@ -31,10 +54,11 @@
 
 a {
   text-decoration: none;
+  color: var(--bs-link-color);
 }
 
 /* Simplify the styling of the bottom of Essay cards. */
 .card-footer {
-  background-color: var(--bs-white);
+  background-color: var(--coconut-white);
   border-top: none;
 }

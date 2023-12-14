@@ -13,9 +13,6 @@ labels:
 summary: "UHnify is designed to be a discovery platform; it's a hub for fostering engagement and community spirit. With its modern interface and advanced functionalities, UHnify invites students to immerse themselves in the UH Manoa club ecosystem actively."
 ---
 
-# UHnify: The Ultimate Student Club Experience for UH Manoa
-
-
 ## Introduction
 
 At UH Manoa, the student body is bustling with clubs and organizations that foster community, learning, and networking. Despite the vibrant scene, there lacks a singular, cohesive platform to manage and engage with these groups. Enter "UHnify," the solution designed to centralize, streamline, and enhance the club experience for UH Manoa students.
