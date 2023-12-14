@@ -144,6 +144,7 @@ a {
   background-color: var(--tf-pill-bg);
   color: var(--coconut-white);
   /* Other styling for labels, if needed */
+  margin-top: 15px; /* Increase top margin to push tags down */
   margin-right: 5px; /* Space between tags */
   margin-bottom: 5px; /* Space below tags */
 }
