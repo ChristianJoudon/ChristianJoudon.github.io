@@ -3,6 +3,7 @@ layout: essay
 type: essay
 title: "The Integration and Impact of AI in Education"
 date: 2023-11-20
+published: true
 labels:
   - AI
 ---

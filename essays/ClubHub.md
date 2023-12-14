@@ -3,6 +3,7 @@ layout: essay
 type: essay
 title: "UHnify: The Ultimate Student Club Experience"
 date: 2023-10-30
+published: false
 labels:
   - Meteor
 ---

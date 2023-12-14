@@ -3,6 +3,7 @@ layout: essay
 type: essay
 title: "Design Patterns in Software Development"
 date: 2023-11-29
+published: true
 labels:
   - Design Patterns
 ---
