@@ -133,7 +133,7 @@ a {
 .essay-card-text {
   /* Limit the text block height */
   max-height: 200px; /* Adjust the height to limit the text */
-  overflow: hidden;
+  overflow-y: auto; /* Scroll for overflow text */
   margin-bottom: 10px; /* Reduced bottom margin to bring tags closer */
 }
 
@@ -153,7 +153,6 @@ a {
   background-color: var(--tf-pill-bg);
   color: var(--coconut-white);
   /* Other styling for labels, if needed */
-  margin-top: 15px; /* Increase top margin to push tags down */
   margin-right: 5px; /* Space between tags */
   margin-bottom: 5px; /* Space below tags */
 }
@@ -161,6 +160,25 @@ a {
 /* Essays Section Styles */
 .essays-section {
   background-color: var(--eggshell-white);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .essay-card {
+    padding: 10px;
+  }
+
+  .essay-card-title {
+    font-size: 1.1rem;
+  }
+
+  .essay-card-text {
+    font-size: 0.85rem;
+  }
+
+  .essay-read-more-btn {
+    font-size: 0.8rem;
+  }
 }
 
 /* Footer Styles */
