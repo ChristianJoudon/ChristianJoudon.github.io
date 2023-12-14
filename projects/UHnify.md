@@ -54,15 +54,6 @@ Feedback includes suggestions for improving club addition, landing page event vi
 UHnify is deployed on Digital Ocean, providing a stable and scalable environment for our users. Access the application [here](https://uhnify.online).
 
 
-
-
-
-# Reflecting on My Journey with UHnify
-
-
-
-
-
 ## My Role in Shaping UHnify
 
 As a key member of the UHnify project team, my journey has been both challenging and enriching. My primary responsibility was to develop and refine the frontend interface using HTML, CSS, and JavaScript. This task required me to ensure that the application was not only functional but also visually appealing and intuitive for students at UH Manoa.
