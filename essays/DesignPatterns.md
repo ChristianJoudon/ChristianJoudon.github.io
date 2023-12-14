@@ -4,7 +4,6 @@ type: essay
 title: "Navigating the Landscape of Design Patterns in Software Development"
 date: 2023-11-29
 labels:
-  - Software Engineering
   - Design Patterns
 ---
 
