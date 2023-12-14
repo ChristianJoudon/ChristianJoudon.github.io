@@ -1,13 +1,17 @@
 <div class="card mb-3 project-card">
   <div class="row g-0">
-    <div class="col-sm-6 col-md-4">
-      <img src="{{ site.baseurl }}/{{ include.page.image }}" height="225px" class="rounded-start project-card-img">
+    <div class="col-sm-6 col-md-4 project-card-img-container">
+      <img src="{{ site.baseurl }}/{{ include.page.image }}" class="project-card-img">
     </div>
     <div class="col-sm-6 col-md-8">
       <div class="card-body">
         <h5 class="card-title">{{ include.page.title }} <small class="text-muted float-end">{{ include.page.date }}</small></h5>
         <p class="card-text">{{ include.page.summary }}</p>
-        <p>{% for label in include.page.labels %}<span style="background-color: var(--tf-pill-bg)" class="badge rounded-pill">{{ label }}</span>{% endfor %}</p>
+        <p>
+          {% for label in include.page.labels %}
+          <span style="background-color: var(--tf-pill-bg)" class="badge rounded-pill">{{ label }}</span>
+          {% endfor %}
+        </p>
         {% if page.projecturl %}
         <a href="{{ page.projecturl }}" class="btn btn-outline-dark">Project Site</a>
         {% else %}
