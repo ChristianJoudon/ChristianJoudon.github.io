@@ -104,6 +104,7 @@ a {
   border: none;
 }
 
+
 /* Essay Card Styles */
 .essay-card {
   max-height: 500px!important; /* Set a maximum height */
@@ -120,6 +121,7 @@ a {
 }
 
 .essay-card-footer {
+  padding: 10px 15px; /* Reduced top padding and added horizontal padding */
   border-top: none;
   background-color: transparent;
 }
@@ -140,6 +142,9 @@ a {
 }
 
 .essay-read-more-btn {
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflow */
+  text-overflow: ellipsis; /* Adds an ellipsis for overflow text */
   background-color: var(--coral-pink);
   color: var(--coconut-white);
 }
