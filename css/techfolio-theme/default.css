@@ -155,3 +155,47 @@ a {
 .nav-link-custom {
   color: var(--dark-banana-leaf-green);
 }
+
+
+.about-section {
+  background-color: var(--tf-page-bg-color);
+}
+
+.about-picture {
+  width: 300px;
+  display: block;
+  margin: auto;
+  border-radius: 50%; /* For rounded-circle effect */
+}
+
+.about-name {
+  color: var(--banana-leaf-green);
+  text-align: center;
+}
+
+.about-label {
+  color: var(--dark-banana-leaf-green);
+  text-align: center;
+}
+
+.about-summary {
+  color: var(--volcanic-grey);
+}
+
+.about-interests {
+  color: var(--light-tropical-green);
+}
+
+.about-interests-name {
+  color: var(--coral-pink);
+}
+
+.about-hr {
+  border-color: var(--coral-pink);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-social-col {
+  text-align: center;
+}

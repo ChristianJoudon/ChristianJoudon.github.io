@@ -1,21 +1,21 @@
-<div style="background-color: var(--tf-page-bg-color);" class="bg-gradient py-3">
+<div class="bg-gradient py-3 about-section">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
-        <img width="300px" src="{{ site.data.bio.basics.picture }}" class="d-block mx-auto rounded-circle">
+        <img src="{{ site.data.bio.basics.picture }}" class="about-picture">
       </div>
       <div class="col-lg-8">
-        <h1 class="display-4 text-center" style="color: var(--banana-leaf-green);">{{ site.data.bio.basics.name }}</h1>
-        <p class="lead text-center" style="color: var(--dark-banana-leaf-green);">{{ site.data.bio.basics.label }}</p>
-        <p class="lead" style="color: var(--volcanic-grey);">{{ site.data.bio.basics.summary }}</p>
-        <hr class="my-4" style="border-color: var(--coral-pink);">
-        <p class="lead m-0" style="color: var(--light-tropical-green);">
+        <h1 class="display-4 about-name">{{ site.data.bio.basics.name }}</h1>
+        <p class="lead about-label">{{ site.data.bio.basics.label }}</p>
+        <p class="lead about-summary">{{ site.data.bio.basics.summary }}</p>
+        <hr class="about-hr">
+        <p class="lead m-0 about-interests">
           Interests:
           {% for interest in site.data.bio.interests %}
-          <span style="color: var(--coral-pink);">{{ interest.name }}</span>{% if forloop.last != true %}, {% endif %}
+          <span class="about-interests-name">{{ interest.name }}</span>{% if forloop.last != true %}, {% endif %}
           {% endfor %}
         </p>
-        <hr class="my-4" style="border-color: var(--coral-pink);">
+        <hr class="about-hr">
         <div class="row">
 
           {% if site.data.bio.basics.website %}
