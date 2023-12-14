@@ -1,17 +1,13 @@
 <div class="col-md-6 col-lg-4" xmlns="http://www.w3.org/1999/html">
-  <div class="card h-100" style="background-color: var(--eggshell-white);">
+  <div class="card h-100 essay-card">
     <div class="card-body">
-      <h5 class="card-title" style="color: var(--banana-leaf-green);">{{ include.page.title }}</h5>
-      <p class="card-text"><small class="text-muted" style="color: var(--light-tropical-green);">{{ include.page.date | date_to_string }}</small></p>
-      <p class="card-text" style="color: var(--volcanic-grey);">{{ include.page.content | markdownify | strip_html | truncatewords: 40 }}</p>
-      <p>
-        {% for label in include.page.labels %}
-        <span class="badge rounded-pill" style="background-color: var(--tf-pill-bg); color: var(--coconut-white);">{{ label }}</span>
-        {% endfor %}
-      </p>
+      <h5 class="card-title essay-card-title">{{ include.page.title }}</h5>
+      <p class="card-text"><small class="text-muted essay-card-date">{{ include.page.date | date_to_string }}</small></p>
+      <p class="card-text essay-card-text">{{ include.page.content | markdownify | strip_html | truncatewords: 40 }}</p>
+      <p>{% for label in include.page.labels %}<span class="badge rounded-pill" style="background-color: var(--tf-pill-bg); color: var(--coconut-white);">{{ label }}</span>{% endfor %}</p>
     </div>
-    <div class="card-footer" style="background-color: var(--eggshell-white); border-top: none;">
-      <div class="text-center"><a href="{% if page.essayurl %}{{ page.essayurl }}{% else %}{{ site.baseurl}}{{ include.page.url }}{% endif %}" class="btn" style="background-color: var(--coral-pink); color: var(--coconut-white);">Read More</a></div>
+    <div class="card-footer essay-card-footer">
+      <div class="text-center"><a href="{% if page.essayurl %}{{ page.essayurl }}{% else %}{{ site.baseurl}}{{ include.page.url }}{% endif %}" class="btn essay-read-more-btn">Read More</a></div>
     </div>
   </div>
 </div>

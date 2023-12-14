@@ -65,3 +65,68 @@ a {
   background-color: var(--coconut-white);
   border-top: none;
 }
+
+/* Project Card Styles */
+.project-card {
+  border-radius: 15px;
+}
+
+.project-card-img {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.read-more-btn {
+  background-color: var(--coral-pink);
+  color: white;
+  border: none;
+}
+
+/* Essay Card Styles */
+.essay-card {
+  background-color: var(--eggshell-white);
+}
+
+.essay-card-footer {
+  background-color: var(--eggshell-white);
+  border-top: none;
+}
+
+.essay-card-title {
+  color: var(--banana-leaf-green);
+}
+
+.essay-card-text {
+  color: var(--volcanic-grey);
+}
+
+.essay-card-date {
+  color: var(--light-tropical-green);
+}
+
+.essay-read-more-btn {
+  background-color: var(--coral-pink);
+  color: var(--coconut-white);
+}
+
+/* Footer Styles */
+.custom-footer {
+  border-top: 2px solid var(--light-tropical-green);
+}
+
+.custom-footer a {
+  color: var(--banana-leaf-green);
+}
+
+/* Header Styles */
+.custom-header {
+  border-bottom: 2px solid var(--light-tropical-green);
+}
+
+.navbar-brand-custom {
+  color: var(--volcanic-grey);
+}
+
+.nav-link-custom {
+  color: var(--dark-banana-leaf-green);
+}
