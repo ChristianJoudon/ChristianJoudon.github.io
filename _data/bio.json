@@ -28,16 +28,16 @@
     },
     {
       "name": "Toolsets/OS",
-      "keywords": [ "MacOS", "Git/GitHub", "Anaconda Environment" ]
+      "keywords": [ "MacOS", "Git/GitHub", "Anaconda Environment", "Gephi", "Jupyter Notebook", "Observable HQ", "Databricks" ]
     }
   ],
   "education": [
     {
-      "institution": "University of Hawaii, Honolulu, HI",
-      "area": "Computer Science (expected Spring, 2024)",
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Computer Science",
       "studyType": "B.S.",
       "startDate": "2020-09-01",
-      "endDate": "Present",
+      "endDate": "2024-12-21",
       "courses": []
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "company": "Bacchus LLC",
-      "position": "Assistant Manager",
+      "position": "Assistant Manager / Project Manager",
       "startDate": "2018-08",
       "endDate": "2019-11",
       "summary": "Managed residential real estate projects, liaising with architects, builders, and designers. Tasked with maintaining budgets and ensuring adherence to timelines. Also managed a small-scale farm, adding to a diverse range of responsibilities.",
