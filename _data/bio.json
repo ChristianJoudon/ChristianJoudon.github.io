@@ -1,13 +1,14 @@
 {
   "basics": {
     "name": "Christian Joudon",
-    "label": "Student",
+    "label": "Recent Graduate",
     "picture": "https://avatars.githubusercontent.com/u/92127547?v=4",
     "email": "cjoudon@hawaii.edu",
     "phone": "808-639-8697",
     "website": "https://ChristianJoudon.github.io",
-    "summary": "Currently pursuing a Computer Science degree at the University of Hawaii at Manoa with an expected graduation in Fall 2024. My academic background began in Biochemistry, granting me a deep understanding of chemistry and biology. Coupled with diverse experiences ranging from roles in the restaurant sector to filmmaking and creative endeavors, I'm equipped with strong communication and analytical skills. As I continue my journey in Computer Science, I aim to blend my creativity, analytical expertise, and industry insights to make a significant impact in the field.",
-    "location": { "address": "2569 Dole Street", "postalCode": "96822", "city": "Honolulu", "countryCode": "USA", "region": "Hawaii" },
+    "summary": "My background in Biochemistry provided a strong scientific foundation, while diverse roles in hospitality and project management honed my communication and project coordination skills. My creative pursuits—writing a full-length screenplay and composing over a hundred songs—helped me learn how to express complex ideas and think outside the box.
+Now, as a recent Computer Science graduate, I aim to blend analytical rigor with creativity, developing novel, human-centered systems that are both engaging and meaningful.",
+    "location": { "address": "2212 Ioela Street", "postalCode": "96754", "city": "Kilauea", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network":"linkedin", "username": "ChristianJoudon", "url" : "https://www.linkedin.com/in/christian-joudon-256328b8/" },
       {"network":"github", "username":"ChristianJoudon", "url":"https://github.com/ChristianJoudon"}
@@ -24,11 +25,11 @@
   "skills": [
     {
       "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "Java", "Javascript", "Python" ]
+      "keywords": [ "C", "C++", "Java", "Javascript", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)"  ]
     },
     {
       "name": "Toolsets/OS",
-      "keywords": [ "MacOS", "Git/GitHub" ]
+      "keywords": [ "MacOS", "Git/GitHub", "Anaconda Environment",  ]
     }
   ],
   "education": [
