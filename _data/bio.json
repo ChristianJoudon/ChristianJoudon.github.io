@@ -24,7 +24,7 @@
   "skills": [
     {
       "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "Java", "Javascript", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)"  ]
+      "keywords": [ "C", "C++", "Java", "Javascript", "HTML", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)"  ]
     },
     {
       "name": "Toolsets/OS",
