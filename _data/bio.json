@@ -24,11 +24,11 @@
   "skills": [
     {
       "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "Java", "Javascript", "HTML", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)", "Node.js", "React.js", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "PyTorch", "igraph", "spaCy", "NLTK", "Hugging Face Transformers" ]
+      "keywords": [ "C", "C++", "Java", "Javascript", "HTML", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)", "Node.js", "React.js" ]
     },
     {
       "name": "Toolsets/OS",
-      "keywords": [ "MacOS", "Linux Environments (e.g., Ubuntu)", "Git/GitHub", "Anaconda Environment", "Gephi", "Jupyter Notebook", "Observable HQ", "Databricks", "Plotly", "D3.js", "Apache Spark" ]
+      "keywords": [ "MacOS", "Linux Environments (e.g., Ubuntu)", "Git/GitHub", "Anaconda Environment", "Observable HQ", "Databricks", "Apache Spark" ]
     },
     {
       "name": "Data Science and Visualization",
