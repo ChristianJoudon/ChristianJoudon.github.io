@@ -18,35 +18,24 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      # Step 3: Set up Ruby environment
+      # Step 3: Set up Ruby with a compatible version
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1       # Ensure a compatible Ruby version
+          ruby-version: 3.1  # Ensure Ruby 3.1 is used for compatibility
+          bundler-cache: true # Cache Bundler dependencies automatically
 
-      # Step 4: Update RubyGems
-      - name: Update RubyGems
-        run: gem update --system
-
-      # Step 5: Add missing platforms for Bundler
-      - name: Add missing platforms
-        run: bundle lock --add-platform x86-mingw32 x64-mingw32 x86-mswin32 java
-
-      # Step 6: Install dependencies using Bundler
-      - name: Install Dependencies
-        run: bundle install
-
-      # Step 7: JSON Syntax Check
+      # Step 4: JSON Syntax Check
       - name: Check JSON Syntax
         uses: limitusus/json-syntax-check@v1
         with:
           pattern: "\\bio.json$"
 
-      # Step 8: Build and Deploy Jekyll Site
+      # Step 5: Build and Deploy Jekyll Site
       - name: Build and Deploy Jekyll Site
         uses: helaili/jekyll-action@2.5.0
         with:
