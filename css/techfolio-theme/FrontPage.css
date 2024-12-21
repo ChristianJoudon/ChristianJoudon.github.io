@@ -1,0 +1,65 @@
+/* Default theme. Simple, yet elegant. */
+
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans:300,400,500,700|Playfair+Display:400,700");
+
+/* Theme Colors */
+:root {
+  --banana-leaf-green: #4F7942;
+  --dark-banana-leaf-green: #3E6335;
+  --light-tropical-green: #DAE8D4;
+  --coconut-white: #FFFFF0;
+  --pale-yellow: #feefd0;
+  --coral-pink: #FF9E80;
+  --volcanic-grey: #707070;
+  --eggshell-white: #fcfafa;
+
+  --bs-font-sans-serif: "Raleway", sans-serif;
+  --bs-font-serif: "Playfair Display", serif;
+  --bs-link-color: var(--coral-pink);
+  --tf-pill-bg: var(--light-tropical-green);
+  --tf-icon-fill: var(--volcanic-grey);
+  --tf-icon-hover: var(--dark-banana-leaf-green);
+  --tf-page-bg-color: var(--eggshell-white);
+  --tf-footer-bg-color: var(--light-tropical-green);
+  --tf-projects-bg-color: var(--eggshell-white);
+}
+
+/* Typography */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700; /* Bold for headings */
+}
+
+em, .emphasis {
+  font-family: "Playfair Display", serif;
+}
+
+/* Social Media Icons */
+.tf-social {
+  display: inline-block;
+  fill: var(--tf-icon-fill);
+  height: 1.5em;
+  vertical-align: -0.1em;
+  width: 1.5em;
+  transition: 0.2s;
+}
+
+.tf-social:hover {
+  fill: var(--tf-icon-hover);
+}
+
+a {
+  text-decoration: none;
+  color: var(--bs-link-color);
+}
+
+/* Simplify the styling of the bottom of Essay cards. */
+.card-footer {
+  background-color: var(--eggshell-white);
+  border-top: none;
+}

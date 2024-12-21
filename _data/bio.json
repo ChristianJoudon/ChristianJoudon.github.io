@@ -1,0 +1,126 @@
+{
+  "basics": {
+    "name": "Christian Joudon",
+    "label": "Recent Graduate",
+    "picture": "https://avatars.githubusercontent.com/u/92127547?v=4",
+    "email": "cjoudon@hawaii.edu",
+    "phone": "808-639-8697",
+    "website": "https://ChristianJoudon.github.io",
+    "summary": "My background in Biochemistry provided a strong scientific foundation, while diverse roles in hospitality and project management honed my communication and project coordination skills. My creative pursuits—writing a full-length screenplay and composing over a hundred songs—helped me learn how to express complex ideas and think outside the box. Now, as a recent Computer Science graduate, I aim to blend analytical rigor with creativity, developing novel, human-centered systems that are both engaging and meaningful.",
+    "location": { "address": "2212 Ioela Street", "postalCode": "96754", "city": "Kilauea", "countryCode": "USA", "region": "Hawaii" },
+    "profiles": [
+      { "network":"linkedin", "username": "ChristianJoudon", "url" : "https://www.linkedin.com/in/christian-joudon-256328b8/" },
+      {"network":"github", "username":"ChristianJoudon", "url":"https://github.com/ChristianJoudon"}
+    ]
+  },
+  "interests": [
+    { "name": "Natural Language Processing" },
+    { "name": "Data Engineering" },
+    { "name": "Recommendation Systems" },
+    { "name": "Network Analysis" },
+    { "name": "Generative AI" },
+    { "name": "Machine Learning" }
+  ],
+  "skills": [
+    {
+      "name": "Languages and Frameworks",
+      "keywords": [ "C", "C++", "Java", "Javascript", "HTML", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)", "Node.js", "React.js" ]
+    },
+    {
+      "name": "Toolsets/OS",
+      "keywords": [ "MacOS", "Linux Environments (e.g., Ubuntu)", "Git/GitHub", "Anaconda Environment", "Observable HQ", "Databricks", "Apache Spark" ]
+    },
+    {
+      "name": "Data Science and Visualization",
+      "keywords": [ "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "PyTorch", "Plotly", "D3.js", "igraph", "Gephi" ]
+    },
+    {
+      "name": "Natural Language Processing (NLP)",
+      "keywords": [ "spaCy", "NLTK", "Hugging Face Transformers" ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Computer Science",
+      "studyType": "B.S.",
+      "startDate": "2020-09-01",
+      "endDate": "2024-12-21",
+      "courses": []
+    },
+    {
+      "institution": "University of Nevada, Las Vegas",
+      "area": "Undeclared/General Studies",
+      "studyType": "Undergraduate Studies",
+      "startDate": "2012-01-01",
+      "endDate": "2013-12-31",
+      "courses": []
+    },
+    {
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Undeclared/General Studies",
+      "studyType": "Undergraduate Studies",
+      "startDate": "2014-01-01",
+      "endDate": "2017-12-31",
+      "courses": []
+    }
+  ],
+  "work": [
+    {
+      "company": "Self-employed",
+      "position": "Writer",
+      "startDate": "2019-12",
+      "endDate": "2020-06",
+      "summary": "Focused on creative writing projects, including screenplay development and literary compositions. Extended due to the global pandemic, this period provided an opportunity to hone storytelling and narrative structuring skills, valuable in both writing and data presentation.",
+      "highlights": []
+    },
+    {
+      "company": "Bacchus LLC",
+      "position": "Assistant Manager / Project Manager",
+      "startDate": "2018-08",
+      "endDate": "2019-11",
+      "summary": "Managed residential real estate projects, liaising with architects, builders, and designers. Tasked with maintaining budgets and ensuring adherence to timelines. Also managed a small-scale farm, adding to a diverse range of responsibilities.",
+      "highlights": []
+    },
+    {
+      "company": "Northside Grille",
+      "position": "Server/Bartender",
+      "startDate": "2018-01",
+      "endDate": "2018-06",
+      "summary": "Provided high-quality customer service in a dynamic restaurant environment, developing strong interpersonal and communication skills.",
+      "highlights": []
+    },
+    {
+      "company": "Blue Barn Gourmet",
+      "position": "Server",
+      "startDate": "2017-05",
+      "endDate": "2017-11",
+      "summary": "Managed front-of-house operations and nightly bookkeeping, showcasing attention to detail and a knack for multitasking under pressure.",
+      "highlights": []
+    },
+    {
+      "company": "Sushi Girl",
+      "position": "Cashier/Food Preparer",
+      "startDate": "2015-08",
+      "endDate": "2016-03",
+      "summary": "Performed a variety of roles from food preparation to customer service, adapting to different challenges in a busy setting.",
+      "highlights": []
+    },
+    {
+      "company": "The Hanalei Dolphin",
+      "position": "Server",
+      "startDate": "2010-10",
+      "endDate": "2012-01",
+      "summary": "Excelled in customer service, efficiently handling busy shifts and maintaining a high level of service quality.",
+      "highlights": []
+    },
+    {
+      "company": "Healthy Hut",
+      "position": "Clerk/Cook/Barista/Juice and Smoothie Maker",
+      "startDate": "2013-11",
+      "endDate": "2015-08",
+      "summary": "Trained new employees and revamped menu offerings with recipe cost analysis system, and made efficiency improvements.",
+      "highlights": []
+    }
+  ]
+}

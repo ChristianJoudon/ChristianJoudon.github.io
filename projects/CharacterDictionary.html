@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Character Dictionary | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/projects/CharacterDictionary.html">
+    <meta property="og:title" content="Character Dictionary | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Character Dictionary | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Character Dictionary</h1>
+  <hr>
+ <h1 id="screenplay-analysis-with-natural-language-processing">Screenplay Analysis with Natural Language Processing</h1>
+
+<p>In the age of Big Data and Natural Language Processing (NLP), understanding the linguistic nuances and thematic elements of screenplays becomes more nuanced and systematic. This script offers an efficient way to harness the power of computational methods for screenplay analysis. Specifically, it aims to extract, tokenize, and identify keywords from dialogues of a given character from an online screenplay.</p>
+
+<h2 id="essential-libraries">Essential Libraries</h2>
+
+<p>The script incorporates several essential libraries, each serving a particular function:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">re</code>: Facilitates string operations and word tokenization through regular expressions.</li>
+  <li><code class="language-plaintext highlighter-rouge">requests</code>: Essential for fetching the screenplay from the web.</li>
+  <li><code class="language-plaintext highlighter-rouge">BeautifulSoup</code>: Parses HTML and extracts relevant data.</li>
+  <li><code class="language-plaintext highlighter-rouge">rake_nltk</code> and <code class="language-plaintext highlighter-rouge">nltk</code>: Libraries for keyword extraction and linguistic operations respectively.</li>
+  <li><code class="language-plaintext highlighter-rouge">ssl</code>: Manages SSL certificate verifications for secure web requests.</li>
+  <li><code class="language-plaintext highlighter-rouge">spacy</code>: Employed for named entity recognition (NER).</li>
+</ul>
+
+<h2 id="addressing-ssl-certificate-issues">Addressing SSL Certificate Issues</h2>
+
+<p>To bypass potential SSL certificate verification issues during web requests, the script uses a workaround to override the default SSL context creation with an unverified context.</p>
+
+<h2 id="screenplay-acquisition">Screenplay Acquisition</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">fetch_screenplay</code> function retrieves content from a URL. Using <code class="language-plaintext highlighter-rouge">requests</code>, it fetches the HTML, parsed by <code class="language-plaintext highlighter-rouge">BeautifulSoup</code>, to extract the content inside the <code class="language-plaintext highlighter-rouge">&lt;pre&gt;</code> tags.</p>
+
+<h2 id="dialogue-extraction">Dialogue Extraction</h2>
+
+<p><code class="language-plaintext highlighter-rouge">extract_dialogue</code> filters out lines spoken by a specified character. It tokenizes the screenplay by lines and checks each one for the character’s name. If found, the following line (containing the dialogue) is appended to a list.</p>
+
+<h2 id="dialogue-tokenization">Dialogue Tokenization</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tokenize_dialogue</code> tokenizes extracted dialogue lines into words and calculates word frequencies.</p>
+
+<h2 id="keyword-extraction-and-named-entity-filtering">Keyword Extraction and Named Entity Filtering</h2>
+
+<p><code class="language-plaintext highlighter-rouge">extract_keywords</code> uses the RAKE algorithm (via <code class="language-plaintext highlighter-rouge">rake_nltk</code>) to deduce keywords. SpaCy’s NER system then filters out proper names to ensure relevance.</p>
+
+<h2 id="presentation-function">Presentation Function</h2>
+
+<p><code class="language-plaintext highlighter-rouge">print_words</code> presents words (or keywords) in a structured manner, grouping them for enhanced readability.</p>
+
+<h2 id="main-execution">Main Execution</h2>
+
+<p>The main function targets the dialogue of the “JOKER” character from the “Joker” screenplay. It fetches the screenplay, extracts and tokenizes dialogues, prints all spoken words, and highlights the significant keywords.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This script integrates web scraping and NLP tools to offer an automated approach to screenplay analysis. By extracting dialogues and identifying keywords, it provides insights into a character’s linguistic patterns and recurrent themes. A valuable tool for screenwriters, linguists, and film analysts, offering a fresh, computational perspective to cinematic texts.</p>
+<h2 id="access-the-code">Access the Code</h2>
+
+<p>The implementation of this project can be found in our <a href="ParsingScripts.md">ParsingScripts Python file</a>.</p>
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+

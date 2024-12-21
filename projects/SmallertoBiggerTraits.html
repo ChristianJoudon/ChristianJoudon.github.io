@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Trait Generator for Non-Player Characters | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/projects/SmallertoBiggerTraits.html">
+    <meta property="og:title" content="Trait Generator for Non-Player Characters | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Trait Generator for Non-Player Characters | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Trait Generator for Non-Player Characters</h1>
+  <hr>
+ <h1 id="multidimensional-analysis-of-personality-traits">Multidimensional Analysis of Personality Traits</h1>
+
+<p>The landscape of human personality is vast and diverse, offering a myriad of facets that make each individual unique. To better understand this landscape, we dive deep into a computational analysis that models personality traits within a three-dimensional space, offering a visualization that captures the essence of each trait.</p>
+
+<h2 id="1-libraries-and-dependencies">1. Libraries and Dependencies</h2>
+
+<p>The analysis begins by leveraging two powerful Python libraries:</p>
+
+<ul>
+  <li><strong>Matplotlib</strong>: Used primarily for visualization purposes, enabling the creation of scatter plots in three dimensions.</li>
+  <li><strong>NumPy</strong>: The cornerstone for numerical operations, it provides the tools necessary for matrix operations, random number generation, and other mathematical functions.</li>
+</ul>
+
+<h2 id="2-defining-personality-traits">2. Defining Personality Traits</h2>
+
+<p>The code focuses on two levels of personality traits:</p>
+
+<ul>
+  <li><strong>Smaller Traits</strong>: These are specific characteristics, such as ‘Artistry’, ‘Curiosity’, ‘Decisiveness’, and so on. In total, a comprehensive list of over 100 smaller traits is considered.</li>
+  <li><strong>Larger Traits</strong>: These are umbrella categories, encompassing multiple smaller traits. Examples include ‘Openness’, ‘Conscientiousness’, and ‘Extraversion’, among others.</li>
+</ul>
+
+<h2 id="3-simulating-trait-values">3. Simulating Trait Values</h2>
+
+<p>To breathe life into these traits, the code creates a mathematical model. Each smaller trait is represented as a three-dimensional vector, with values derived from a multivariate normal distribution. This approach ensures correlations among the three dimensions of each trait.</p>
+
+<p>A covariance matrix is constructed to ensure high correlation and variance. This matrix serves as a blueprint, guiding the random number generation for trait values, ensuring they bear realistic relationships to one another.</p>
+
+<h2 id="4-grouping-and-weighting-traits">4. Grouping and Weighting Traits</h2>
+
+<p>Smaller traits are then categorized under their respective larger traits. For instance, qualities like ‘Artistry’, ‘Imagination’, and ‘Curiosity’ are grouped under ‘Openness’.</p>
+
+<p>After grouping, the code calculates weighted values for larger traits based on the smaller traits nested within them. This is essentially an average of the 3D vectors of the encompassed smaller traits, giving a summarized representation of each larger trait.</p>
+
+<h2 id="5-visualization">5. Visualization</h2>
+
+<p>The climax of this analysis is a 3D scatter plot. Both smaller and larger personality traits are plotted within the same space, offering a holistic view. While the smaller traits are marked with circles, the larger ones are represented by triangles, ensuring clear differentiation.</p>
+
+<p>This visualization serves as a gateway into understanding the relationships, overlaps, and distinctions between various traits. The three-dimensional perspective allows viewers to dissect the nuances of each trait from multiple angles, fostering a richer comprehension.</p>
+
+<h2 id="6-conclusion">6. Conclusion</h2>
+
+<p>The computational analysis of personality traits provides a bridge between the abstract world of human characteristics and the tangible realm of numbers and visuals. By mapping traits into a three-dimensional space, we take a significant step toward unraveling the intricate tapestry of human personality, paving the way for deeper insights and discoveries.</p>
+
+<h2 id="access-the-code">Access the Code</h2>
+
+<p>The implementation of this project can be found in our <a href="SmallerTraitToBigger.md">SmallerToBigger Python file</a>.</p>
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
