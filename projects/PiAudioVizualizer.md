@@ -1,3 +1,22 @@
+---
+layout: project
+type: project
+image: img/InteractiveViz.png  # Use the first image as the main project thumbnail
+title: "Advanced SRT & Microphone Audio Visualization and Recording"
+date: 2025-01-05  # Adjust the date as necessary
+published: true
+labels:
+  - Audio Visualization
+  - Python
+  - SRT Streaming
+  - Real-Time Plotting
+  - Matplotlib
+  - FFmpeg
+  - Signal Processing
+  - Sounddevice
+summary: "A Python-based application for real-time audio visualization, recording, and playback using SRT streaming and microphone input."
+---
+
 # Advanced SRT & Microphone Audio Visualization and Recording
 
 This project provides an efficient, extensible Python script for:
