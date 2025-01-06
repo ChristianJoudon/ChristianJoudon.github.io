@@ -34,9 +34,9 @@ The code is designed to handle various modes (record-only, visualize-only, and f
 - [Key Features](#key-features)
 - [Architecture](#architecture)
 - [Usage](#usage)
+- [Final Visualization Example](#final-visualization-example)
+- [Project Context](#additional-context)
 - [Performance Considerations](#performance-considerations)
-- [Future Improvements](#future-improvements)
-- [License](#license)
 
 ---
 
@@ -96,7 +96,7 @@ flowchart LR
 
 ---
 
-## Demonstration of Interactivity
+## Usage
 
 ![Interactive CLI Example](../img/InteractiveViz.png)
 
@@ -112,13 +112,13 @@ flowchart LR
 
 ---
 
-## Additional Context
+## Project Context
 
 [**Remote Monitoring of Coral Reef Underwater Sounds**](../img/Remote%20Monitoring%20of%20Coral%20Reef%20Underwater%20Sounds.pdf)
 
 > **Figure 3**: A presentation poster (PDF) illustrating the application of SRT streaming in marine environmental monitoring, enabling remote acoustic data gathering and real-time auditory feedback.
 
-*(Note: GitHub or certain hosting platforms might not embed the PDF directly; it may appear as a downloadable link.)*
+*(Note: Downloadable link.)*
 
 ---
 
