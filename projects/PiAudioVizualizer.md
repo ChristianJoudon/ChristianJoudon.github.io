@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/InteractiveViz.png  # Use the first image as the main project thumbnail
+image: img/Microphone.png
 title: "Advanced SRT & Microphone Audio Visualization and Recording"
 date: 2025-01-05  # Adjust the date as necessary
 published: true
