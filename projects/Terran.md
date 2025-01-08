@@ -1,7 +1,7 @@
 ---
 layout: project
 type: project
-image: img/Terran.png
+image: img/Terran2.png
 title: "TERRAN: And the Wrath of the Wildwoods"
 date: 2024-12-20  # Adjust the date as necessary
 published: true
