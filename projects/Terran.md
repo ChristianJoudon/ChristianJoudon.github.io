@@ -42,7 +42,7 @@ summary: "TERRAN: And the Wrath of the Wildwoods is a 2D top-down rogue-like gam
 ---
 
 ### **Main Character**
-![Terran: The Forest Spirit](img/Terran.png)
+![Terran: The Forest Spirit](../img/Terran.png)
 
 - Terran is the forest spirit and the protagonist of the game.
 - Designed with tree-like features and a magical bow, Terran embodies the forest's resilience and power.
@@ -50,7 +50,7 @@ summary: "TERRAN: And the Wrath of the Wildwoods is a 2D top-down rogue-like gam
 ---
 
 ### **Map Design and Environment**
-![Game Map](img/Map.png)
+![Game Map](../img/Map.png)
 
 - **Central Grove:** A critical area that must be defended. Large trees with strategic importance are located here.
 - **Outer Ring and Pathways:** Trees encircle the grove, offering layers of defense and choke points.
