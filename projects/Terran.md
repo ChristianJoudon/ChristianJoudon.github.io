@@ -69,12 +69,12 @@ summary: "TERRAN: And the Wrath of the Wildwoods is a 2D top-down rogue-like gam
     - `velocity` and `move_and_slide()`: Manage character navigation and real-time movement mechanics.
 2. **Abilities and Preloaded Scenes:**
     - Abilities are managed via preloaded `.tscn` scenes:
-        - **Ice Spear**
-        - **Tornado**
-        - **Javelin**
+        - **Verdant Arrow**
+        - **Whisp's Wrath**
+        - **Devouring Wolves**
         - **Slash**
-        - **Explosion**
-        - **Dash**
+        - **Indignation**
+        - **Spectral Dash**
     - **Timers (`Timer` Nodes):**
         - Handle ability cooldowns and attack delays.
         - Examples: `iceSpearTimer`, `slashTimer`, `dashTimer`.
