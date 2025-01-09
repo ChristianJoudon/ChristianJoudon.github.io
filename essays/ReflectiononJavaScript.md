@@ -3,7 +3,7 @@ layout: essay
 type: essay
 title: "Reflection on JavaScript"
 date: 2023-08-28
-published: true
+published: false
 labels:
   - Programming Languages
 ---

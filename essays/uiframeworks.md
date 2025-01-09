@@ -3,7 +3,7 @@ layout: essay
 type: essay
 title: "UI Frameworks and the Efficacy of Bootstrap 5"
 date: 2023-08-28
-published: true
+published: false
 labels:
   - UI Frameworks
 ---

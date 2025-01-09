@@ -3,7 +3,7 @@ layout: essay
 type: essay
 title: "Smart Questions"
 date: 2023-09-05
-published: true
+published: false
 labels:
   - Programming
 ---

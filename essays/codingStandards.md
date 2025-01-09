@@ -3,7 +3,7 @@ layout: essay
 type: essay
 title: "Reflection on Coding Standards"
 date: 2023-09-20
-published: true
+published: false
 labels:
   - Programming Language Structure
 ---
