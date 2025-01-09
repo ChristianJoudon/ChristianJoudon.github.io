@@ -158,15 +158,15 @@ Below is a detailed pseudocode example outlining a potential end-to-end workflow
 
 ```python
 ###############################################################################
-# FILE: economic_simulation_pipeline.py
-# DESCRIPTION: Pseudocode illustrating a comprehensive workflow for:
-#    1. Data ingestion
-#    2. Data preprocessing
-#    3. Model training
-#    4. Simulation initialization
-#    5. Event scheduling and simulation stepping
-#    6. Results validation
-#    7. Visualization and dashboard generation
+### FILE: economic_simulation_pipeline.py
+### DESCRIPTION: Pseudocode illustrating a comprehensive workflow for:
+###    1. Data ingestion
+###    2. Data preprocessing
+###    3. Model training
+###    4. Simulation initialization
+###    5. Event scheduling and simulation stepping
+###    6. Results validation
+###    7. Visualization and dashboard generation
 ###############################################################################
 
 import os
