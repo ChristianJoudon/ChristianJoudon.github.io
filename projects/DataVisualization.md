@@ -63,7 +63,7 @@ This project explores the **relationships between global events** (e.g., wars, p
 
 ## Interactive Demo
 
-<iframe src="https://drive.google.com/file/d/1uwyDVY6_x6U2HgVeiJs0qkp0QSGwKXo4/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://drive.google.com/file/d/1uwyDVY6_x6U2HgVeiJs0qkp0QSGwKXo4/preview" width="800" height="520" allow="autoplay"></iframe>
 
 > **Video**: Walkthrough of the website and interactive visualizations.
 
