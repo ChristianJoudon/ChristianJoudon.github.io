@@ -2,7 +2,7 @@
 layout: essay
 type: essay
 title: "Dynamic Environmental Systems in RPGs"
-date: 2025-01-08
+date: 2023-12-13
 published: true
 labels:
   - AI
