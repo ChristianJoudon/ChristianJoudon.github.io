@@ -7,11 +7,7 @@ published: true
 labels:
   - AI
   - Game Development
-  - RPG Design
   - Algorithms
-  - Dynamic Systems
-  - Procedural Generation
-  - Environmental Interaction
 ---
 
 # Dynamic Environmental Systems in RPGs
