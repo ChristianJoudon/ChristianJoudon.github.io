@@ -1,5 +1,4 @@
 ---
-
 layout: project
 type: project
 image: img/TitlePage.png
@@ -15,9 +14,7 @@ labels:
 - Interactive Graphs
 - Geospatial Analysis
 - Stock Market Trends
-  summary: "A comprehensive web-based interactive visualization project showcasing the impact of global events on stock market trends and economic indicators using geospatial and comparative data."
-  
-
+summary: "A comprehensive web-based interactive visualization project showcasing the impact of global events on stock market trends and economic indicators using geospatial and comparative data."
 ---
 
 # Impact of Global Events on Market Trends
