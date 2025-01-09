@@ -86,8 +86,6 @@ To explore the project in greater detail, view the full essay below:
 
 <iframe src="https://docs.google.com/document/d/1mkJHcjZ0n9wVDVSYBVdPsxIUU7rtoXek0WZgmbbCli8/edit?usp=sharing" width="100%" height="800px" style="border: none;"></iframe>
 
-> **Note:** Ensure the Google Document is shared with **"Anyone with the link can view"** permissions for full accessibility.
-
 ---
 
 ## Applications and Broader Impact
