@@ -4,7 +4,7 @@ type: project
 image: img/mid-century-typewriter-icon-flat-style-vector-20822545.jpg
 title: "Text Generation from Personality Traits"
 date: 2022-01-01  # Adjust the date as necessary
-published: true
+published: false
 labels:
   - Numpy
   - Pandas

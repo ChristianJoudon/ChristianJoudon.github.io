@@ -4,7 +4,7 @@ type: project
 image: img/Business_people_icons.jpeg
 title: "NPC Personality Generator"
 date: 2022-01-01  # Adjust the date as necessary
-published: true
+published: false
 labels:
   - Numpy
   - Matplotlib
