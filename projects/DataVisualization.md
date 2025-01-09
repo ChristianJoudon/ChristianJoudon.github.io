@@ -2,7 +2,7 @@
 
 layout: project
 type: project
-image: img/DataVisualization.png
+image: img/TitlePage.png
 title: "Impact of Global Events on Market Trends"
 date: 2025-01-08  # Adjust the date as necessary
 published: true
