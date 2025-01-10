@@ -157,26 +157,24 @@ This software system provides a testbed for experimenting with economic theories
 Below is a detailed pseudocode example outlining a potential end-to-end workflow for building, running, and analyzing an AI-driven economic simulator. While this example remains language-agnostic and high-level, it uses Python-like syntax to illustrate concepts in a clear and approachable manner.
 
 ```python
-###############################################################################
-### FILE: economic_simulation_pipeline.py
-### DESCRIPTION: Pseudocode illustrating a comprehensive workflow for:
-###    1. Data ingestion
-###    2. Data preprocessing
-###    3. Model training
-###    4. Simulation initialization
-###    5. Event scheduling and simulation stepping
-###    6. Results validation
-###    7. Visualization and dashboard generation
-###############################################################################
+#### FILE: economic_simulation_pipeline.py
+#### DESCRIPTION: Pseudocode illustrating a comprehensive workflow for:
+####    1. Data ingestion
+####    2. Data preprocessing
+####   3. Model training
+####   4. Simulation initialization
+####    5. Event scheduling and simulation stepping
+####   6. Results validation
+####   7. Visualization and dashboard generation
 
 import os
 import json
 import logging
 from typing import Dict, Any, List, Optional
 
-# -----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 # GLOBAL CONFIGURATIONS & LOGGING
-# -----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
 
 LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
