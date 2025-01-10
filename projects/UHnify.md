@@ -57,13 +57,31 @@ Feedback has highlighted areas for improvement such as club addition processes, 
 
 UHnify is currently deployed on Digital Ocean, offering a reliable and scalable platform for our users. Experience the platform [here](https://uhnify.online).
 
-## My Role in Shaping UHnify
+# My Role in UHnify
 
-As a key member of the UHnify project team, my journey has been both challenging and enriching. My primary responsibility was to develop and refine the frontend interface using HTML, CSS, and JavaScript. This task required me to ensure that the application was not only functional but also visually appealing and intuitive for students at UH Manoa.
+As a key contributor to the **UHnify project**, I was deeply involved in both **frontend development** and the **backend system design**. My responsibilities spanned **conceptualization**, **implementation**, and **enhancement** of various features.
 
-## Contributions to the Project
+## **Frontend Contributions**
+- Led the design and implementation of the user interface using **HTML**, **CSS**, and **JavaScript**.
+- Ensured the platform was not only visually appealing but also intuitive and accessible for a diverse student body.
+- Focused on **responsive design** to optimize the experience across devices.
 
-I was involved in the initial conceptualization stages, where we identified the core functionalities needed for a comprehensive club management system. During the development phase, I took the lead in implementing these functionalities, focusing particularly on the club discovery and management features.
+## **Backend Development**
+- Designed and implemented the **database schema** in **MongoDB** to ensure efficient storage and retrieval of club-related data.
+- Integrated the **Meteor framework**, enabling real-time updates for club and event information.
+- Developed robust **APIs** to support dynamic features, including event filtering, notifications, and admin controls.
+
+## **Key Contributions**
+### **Initial Conceptualization**
+- Collaborated with the team to identify the core functionalities that the platform required, such as **streamlined club discovery** and **efficient event management**.
+
+### **Development and Refinement**
+- Implemented core features like **club filtering** and the personalized **"My Clubs" page**.
+- Refined the admin dashboard, adding functionality for club leaders to update events and manage memberships.
+
+### **Advanced Integration**
+- Created an automated **CSV parsing tool** to upload large datasets of club information, ensuring seamless data migration.
+- Developed a **category mapping system** to align clubs with relevant interests based on their descriptions.
 
 ## Lessons Learned
 
