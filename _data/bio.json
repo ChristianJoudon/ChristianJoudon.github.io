@@ -23,20 +23,134 @@
   ],
   "skills": [
     {
-      "name": "Languages and Frameworks",
-      "keywords": [ "C", "C++", "Java", "Javascript", "HTML", "Python", "R", "SQL", "Prolog", "Common Lisp (CL)", "GDScript (Godot)", "Node.js", "React.js" ]
+      "name": "Programming Languages and Frameworks",
+      "keywords": [
+        "C",
+        "C++",
+        "Java",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Python",
+        "R",
+        "SQL",
+        "Prolog",
+        "Common Lisp (CL)",
+        "GDScript (Godot)",
+        "Node.js",
+        "React.js",
+        "Vue.js",
+        "Angular",
+        "TypeScript",
+        "Shell Scripting"
+      ]
     },
     {
-      "name": "Toolsets/OS",
-      "keywords": [ "MacOS", "Linux Environments (e.g., Ubuntu)", "Git/GitHub", "Anaconda Environment", "Observable HQ", "Databricks", "Apache Spark" ]
+      "name": "Web Development",
+      "keywords": [
+        "AJAX",
+        "Bootstrap",
+        "JSP",
+        "jQuery",
+        "UI design",
+        "UI development",
+        "User Interface (UI)",
+        "UX",
+        "Wireframing",
+        "Web services",
+        "Responsive design"
+      ]
     },
     {
       "name": "Data Science and Visualization",
-      "keywords": [ "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "PyTorch", "Plotly", "D3.js", "igraph", "Gephi" ]
+      "keywords": [
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Scikit-learn",
+        "TensorFlow",
+        "PyTorch",
+        "Plotly",
+        "D3.js",
+        "igraph",
+        "Gephi"
+      ]
     },
     {
       "name": "Natural Language Processing (NLP)",
-      "keywords": [ "spaCy", "NLTK", "Hugging Face Transformers" ]
+      "keywords": [
+        "spaCy",
+        "NLTK",
+        "Hugging Face Transformers"
+      ]
+    },
+    {
+      "name": "Databases and Back-End Development",
+      "keywords": [
+        "MongoDB",
+        "MySQL",
+        "NoSQL",
+        "Relational databases",
+        "Microsoft SQL Server",
+        "Database design",
+        "Database development",
+        "Databricks",
+        "Apache Spark",
+        "AWS",
+        "APIs",
+        "Meteor"
+      ]
+    },
+    {
+      "name": "Software Development and Tools",
+      "keywords": [
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Agile",
+        "Scrum",
+        "DevOps",
+        "Test automation",
+        "Application development",
+        "Continuous improvement",
+        "Design patterns",
+        "Debugging",
+        "OOP",
+        "Scalability"
+      ]
+    },
+    {
+      "name": "Visualization Platforms",
+      "keywords": [
+        "Observable HQ",
+        "Databricks",
+        "Gephi",
+        "D3.js",
+        "Plotly"
+      ]
+    },
+    {
+      "name": "Toolsets/Operating Systems",
+      "keywords": [
+        "MacOS",
+        "Linux Environments (e.g., Ubuntu)",
+        "Windows",
+        "Anaconda Environment",
+        "VS Code",
+        "Observable HQ"
+      ]
+    },
+    {
+      "name": "Soft Skills",
+      "keywords": [
+        "Time management",
+        "Organizational skills",
+        "Writing skills",
+        "Team collaboration",
+        "Problem-solving",
+        "Adaptability"
+      ]
     }
   ],
   "education": [
