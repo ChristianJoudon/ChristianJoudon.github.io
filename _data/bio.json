@@ -82,16 +82,10 @@
         "Databricks",
         "Apache Spark",
         "AWS",
-        "Meteor"
-      ]
-    },
-    {
-      "name": "Natural Language Processing (NLP)",
-      "keywords": [
+        "Meteor",
         "spaCy",
         "NLTK",
         "Hugging Face Transformers"
-
       ]
     },
     {
@@ -129,11 +123,11 @@
       "studyType": "B.S.",
       "startDate": "2020-09-01",
       "endDate": "2024-12-21",
-      "courses": []
+      "courses": ["Relevant Coursework: Data Structures, Machine Learning, Web Development, Database Systems"]
     },
     {
       "institution": "University of Hawaii at Manoa, Oahu",
-      "area": "Undeclared/General Studies",
+      "area": "Biochemistry",
       "studyType": "Undergraduate Studies",
       "startDate": "2014-01-01",
       "endDate": "2017-12-31",
