@@ -6,7 +6,7 @@
     "email": "cjoudon@hawaii.edu",
     "phone": "808-639-8697",
     "website": "https://ChristianJoudon.github.io",
-    "summary": "My background in Biochemistry provided a strong scientific foundation, while diverse roles in hospitality and project management honed my communication and project coordination skills. My creative pursuits—writing a full-length screenplay and composing over a hundred songs—helped me learn how to express complex ideas and think outside the box. Now, as a recent Computer Science graduate, I aim to blend analytical rigor with creativity, developing novel, human-centered systems that are intuitive, engaging, and meaningful.",
+    "summary": "Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role.",
     "location": { "address": "2212 Ioela Street", "postalCode": "96754", "city": "Kilauea", "countryCode": "USA", "region": "Hawaii" },
     "profiles": [
       { "network":"linkedin", "username": "ChristianJoudon", "url" : "https://www.linkedin.com/in/christian-joudon-256328b8/" },
@@ -23,7 +23,7 @@
   ],
   "skills": [
     {
-      "name": "Programming Languages and Frameworks",
+      "name": "Programming & Development:",
       "keywords": [
         "C",
         "C++",
@@ -46,24 +46,21 @@
       ]
     },
     {
-      "name": "Web Development",
+      "name": "Web Technologies & UI/UX:",
       "keywords": [
         "AJAX",
         "Bootstrap",
         "JSP",
         "jQuery",
-        "UI design",
-        "UI development",
-        "User Interface (UI)",
-        "UX",
+        "UI/UX design",
         "Wireframing",
-        "Web services",
         "Responsive design"
       ]
     },
     {
-      "name": "Data Science and Visualization",
+      "name": "Data & Analytics:",
       "keywords": [
+        "Apache Spark",
         "Pandas",
         "NumPy",
         "Matplotlib",
@@ -74,20 +71,7 @@
         "Plotly",
         "D3.js",
         "igraph",
-        "Gephi"
-      ]
-    },
-    {
-      "name": "Natural Language Processing (NLP)",
-      "keywords": [
-        "spaCy",
-        "NLTK",
-        "Hugging Face Transformers"
-      ]
-    },
-    {
-      "name": "Databases and Back-End Development",
-      "keywords": [
+        "Gephi",
         "MongoDB",
         "MySQL",
         "NoSQL",
@@ -102,7 +86,16 @@
       ]
     },
     {
-      "name": "Software Development and Tools",
+      "name": "Natural Language Processing (NLP)",
+      "keywords": [
+        "spaCy",
+        "NLTK",
+        "Hugging Face Transformers"
+
+      ]
+    },
+    {
+      "name": "Tools & Platforms:",
       "keywords": [
         "Git",
         "GitHub",
@@ -110,27 +103,6 @@
         "Agile",
         "Scrum",
         "DevOps",
-        "Test automation",
-        "Application development",
-        "Design patterns",
-        "Debugging",
-        "OOP",
-        "Scalability"
-      ]
-    },
-    {
-      "name": "Visualization Platforms",
-      "keywords": [
-        "Observable HQ",
-        "Databricks",
-        "Gephi",
-        "D3.js",
-        "Plotly"
-      ]
-    },
-    {
-      "name": "Toolsets/Operating Systems",
-      "keywords": [
         "MacOS",
         "Linux Environments (e.g., Ubuntu)",
         "Windows",
@@ -143,8 +115,7 @@
       "name": "Soft Skills",
       "keywords": [
         "Time management",
-        "Organizational skills",
-        "Writing skills",
+        "Communication",
         "Team collaboration",
         "Problem-solving",
         "Adaptability"
@@ -158,14 +129,6 @@
       "studyType": "B.S.",
       "startDate": "2020-09-01",
       "endDate": "2024-12-21",
-      "courses": []
-    },
-    {
-      "institution": "University of Nevada, Las Vegas",
-      "area": "Undeclared/General Studies",
-      "studyType": "Undergraduate Studies",
-      "startDate": "2012-01-01",
-      "endDate": "2013-12-31",
       "courses": []
     },
     {
