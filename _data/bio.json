@@ -3,7 +3,7 @@
     "name": "Christian Joudon",
     "label": "Recent Graduate",
     "picture": "https://avatars.githubusercontent.com/u/92127547?v=4",
-    "email": "cjoudon@hawaii.edu",
+    "email": "christian.joudon@gmail.com",
     "phone": "808-639-8697",
     "website": "https://ChristianJoudon.github.io",
     "summary": "Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role.",
@@ -136,60 +136,40 @@
   ],
   "work": [
     {
-      "company": "Self-employed",
-      "position": "Writer",
+      "company": "Freelance",
+      "position": "Technical & Creative Writer",
       "startDate": "2019-12",
       "endDate": "2020-06",
-      "summary": "Focused on creative writing projects, including screenplay development and literary compositions. Extended due to the global pandemic, this period provided an opportunity to hone storytelling and narrative structuring skills, valuable in both writing and data presentation.",
-      "highlights": []
+      "summary": "Focused on screenplay development and assisted in creating marketing content for a real estate business. Gained experience in storytelling, structuring narratives, and presenting information clearly.",
+      "highlights": [
+        "Wrote and refined a screenplay, developing skills in narrative structure and dialogue.",
+        "Assisted in creating content for a real estate business, including property descriptions and marketing materials.",
+        "Improved writing techniques through independent study and project work."
+      ]
     },
     {
       "company": "Bacchus LLC",
-      "position": "Assistant Manager / Project Manager",
+      "position": "Assistant Manager / Project Coordinator",
       "startDate": "2018-08",
       "endDate": "2019-11",
-      "summary": "Managed residential real estate projects, liaising with architects, builders, and designers. Tasked with maintaining budgets and ensuring adherence to timelines. Also managed a small-scale farm, adding to a diverse range of responsibilities.",
-      "highlights": []
+      "summary": "Managed residential real estate projects, coordinating with architects and designers to ensure timely completion. Oversaw budget tracking and stakeholder communications, fostering efficiency and transparency.",
+      "highlights": [
+        "Managed multiple real estate projects, ensuring adherence to budget and timelines.",
+        "Liaised with architects, builders, and designers to optimize project workflow.",
+        "Implemented efficient systems for budgeting and communication, improving transparency."
+      ]
     },
     {
-      "company": "Northside Grille",
-      "position": "Server/Bartender",
-      "startDate": "2018-01",
-      "endDate": "2018-06",
-      "summary": "Provided high-quality customer service in a dynamic restaurant environment, developing strong interpersonal and communication skills.",
-      "highlights": []
-    },
-    {
-      "company": "Blue Barn Gourmet",
-      "position": "Server",
-      "startDate": "2017-05",
-      "endDate": "2017-11",
-      "summary": "Managed front-of-house operations and nightly bookkeeping, showcasing attention to detail and a knack for multitasking under pressure.",
-      "highlights": []
-    },
-    {
-      "company": "Sushi Girl",
-      "position": "Cashier/Food Preparer",
-      "startDate": "2015-08",
-      "endDate": "2016-03",
-      "summary": "Performed a variety of roles from food preparation to customer service, adapting to different challenges in a busy setting.",
-      "highlights": []
-    },
-    {
-      "company": "The Hanalei Dolphin",
-      "position": "Server",
+      "company": "Various (Northside Grille, Blue Barn Gourmet, Sushi Girl, The Hanalei Dolphin, Healthy Hut)",
+      "position": "Food & Hospitality Roles",
       "startDate": "2010-10",
-      "endDate": "2012-01",
-      "summary": "Excelled in customer service, efficiently handling busy shifts and maintaining a high level of service quality.",
-      "highlights": []
-    },
-    {
-      "company": "Healthy Hut",
-      "position": "Clerk/Cook/Barista/Juice and Smoothie Maker",
-      "startDate": "2013-11",
-      "endDate": "2015-08",
-      "summary": "Trained new employees and revamped menu offerings with recipe cost analysis system, and made efficiency improvements.",
-      "highlights": []
+      "endDate": "2018-06",
+      "summary": "Developed strong interpersonal and problem-solving skills in dynamic, fast-paced environments. Managed front-of-house operations, team coordination, and customer engagement, demonstrating adaptability and leadership.",
+      "highlights": [
+        "Led front-of-house operations, ensuring high-quality customer service and efficiency.",
+        "Trained and mentored new employees, improving team performance and cohesion.",
+        "Revamped menu offerings and implemented a recipe cost analysis system to enhance profitability."
+      ]
     }
   ]
 }
