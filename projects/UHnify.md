@@ -73,6 +73,13 @@ Key areas for improvement, highlighted by user feedback, include:
 
 UHnify is currently deployed on **Digital Ocean**, offering a reliable and scalable platform for users. Experience the platform [here](https://uhnify.online).
 
+
+---
+
+## **More Info**
+
+More in-depth information can be found on the deployment summary site [here](https://uhnify.github.io/).
+
 ---
 
 # **My Role in UHnify**
