@@ -134,6 +134,35 @@
       "courses": []
     }
   ],
+  "projects": [
+    {
+      "name": "Impact of Global Events on Market Trends",
+      "description": "Developed an interactive visualization system using ObservableHQ, Plotly.js, and D3.js to analyze the impact of global events on stock markets and GDP trends.",
+      "highlights": [
+        "Implemented geospatial visualizations to display economic trends across different regions.",
+        "Designed interactive filtering features, allowing users to explore correlations between wars, pandemics, and market behaviors in real-time."
+      ],
+      "technologies": ["ObservableHQ", "Plotly.js", "D3.js", "Python","Node.js", "React.js", "Vue.js","UI/UX design","Seaborn", "HTML", "CSS"]
+    },
+    {
+      "name": "Advanced SRT & Microphone Audio Visualization and Recording",
+      "description": "Created a Python-based system for streaming, recording, and visualizing audio from SRT streams and microphones.",
+      "highlights": [
+        "Developed real-time waveform, FFT, and spectrogram visualizations using Matplotlib.",
+        "Integrated sounddevice, pyaudio, and FFmpeg for efficient audio processing and playback."
+      ],
+      "technologies": ["Python", "Matplotlib", "sounddevice", "pyaudio", "FFmpeg"]
+    },
+    {
+      "name": "UHnify: Transforming Campus Engagement",
+      "description": "Designed and implemented a student club management platform using MongoDB, Meteor.js, and React.js.",
+      "highlights": [
+        "Developed a streamlined UI for browsing clubs, managing memberships, and viewing event calendars.",
+        "Built real-time synchronization features for updating event details and user interactions dynamically."
+      ],
+      "technologies": ["MongoDB", "Meteor.js", "React.js", "UI/UX design", "Node.js", "Vue.js", "jQuery", "Python", "HTML", "CSS" ]
+    }
+  ],
   "work": [
     {
       "company": "Freelance",
