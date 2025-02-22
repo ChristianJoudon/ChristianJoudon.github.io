@@ -13,7 +13,7 @@
       {"network":"github", "username":"ChristianJoudon", "url":"https://github.com/ChristianJoudon"}
     ]
   },
-  "bio": "Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role.",
+  "bio": ["Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role."],
   "interests": [
     { "name": "Natural Language Processing" },
     { "name": "Data Engineering" },
