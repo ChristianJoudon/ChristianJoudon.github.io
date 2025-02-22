@@ -1,0 +1,253 @@
+/* Default theme. Simple, yet elegant. */
+
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans:300,400,500,700|Playfair+Display:400,700");
+
+/* Theme Colors */
+:root {
+  --banana-leaf-green: #4F7942;
+  --dark-banana-leaf-green: #3E6335;
+  --light-tropical-green: #DAE8D4;
+  --coconut-white: #FFFFF0;
+  --pale-yellow: #feefd0;
+  --coral-pink: #FF9E80;
+  --volcanic-grey: #707070;
+  --eggshell-white: #fcfafa;
+
+  --bs-font-sans-serif: "Raleway", sans-serif;
+  --bs-font-serif: "Playfair Display", serif;
+  --bs-link-color: var(--coral-pink);
+  --tf-pill-bg: var(--light-tropical-green);
+  --tf-icon-fill: var(--volcanic-grey);
+  --tf-icon-hover: var(--dark-banana-leaf-green);
+  --tf-page-bg-color: var(--eggshell-white);
+  --tf-footer-bg-color: var(--light-tropical-green);
+  --tf-projects-bg-color: var(--eggshell-white);
+}
+
+/* Typography */
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--banana-leaf-green);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700; /* Bold for headings */
+  color: var(--dark-banana-leaf-green);
+}
+
+em, .emphasis {
+  font-family: "Playfair Display", serif;
+}
+
+/* Social Media Icons */
+.tf-social {
+  display: inline-block;
+  fill: var(--tf-icon-fill);
+  height: 1.5em;
+  vertical-align: -0.1em;
+  width: 1.5em;
+  transition: 0.2s;
+}
+
+.tf-social:hover {
+  fill: var(--tf-icon-hover);
+  transform: scale(1.2);
+}
+
+a {
+  text-decoration: none;
+  color: var(--bs-link-color);
+}
+
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Simplify the styling of the bottom of Essay cards. */
+.card-footer {
+  background-color: white!important;
+  border-top: none;
+}
+
+/* Project Card Styles */
+.project-card {
+  border-radius: 20px;
+  background-color: white;
+}
+
+.project-card-img-container {
+  padding: 10px; /* Add padding around the image */
+  display: flex; /* Use flexbox for centering the image */
+  align-items: center; /* Aligns the image vertically */
+  justify-content: center; /* Aligns the image horizontally */
+}
+
+.project-card-img {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 15px; /* Optional: if you want rounded corners */
+  object-fit: cover; /* Ensures the image covers the area nicely */
+}
+
+.read-more-btn {
+  background-color: var(--coral-pink);
+  color: white;
+  border: none;
+}
+
+
+/* Essay Card Styles */
+.essay-card {
+  max-height: 500px!important; /* Set a maximum height */
+  overflow: hidden; /* Hide content that exceeds the card's height */
+  margin: 20px; /* Adds more space between cards */
+  padding: 20px; /* Adds padding inside each card */
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+.essay-tag-wrapper {
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.essay-card-footer {
+  padding: 10px 15px; /* Reduced top padding and added horizontal padding */
+  border-top: none;
+  background-color: transparent;
+}
+
+.essay-card-title {
+  color: var(--banana-leaf-green);
+}
+
+.essay-card-text {
+  /* Limit the text block height */
+  max-height: 200px; /* Adjust the height to limit the text */
+  overflow-y: auto; /* Scroll for overflow text */
+  margin-bottom: 10px; /* Reduced bottom margin to bring tags closer */
+}
+
+.essay-card-date {
+  color: var(--light-tropical-green);
+}
+
+.essay-read-more-btn {
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflow */
+  text-overflow: ellipsis; /* Adds an ellipsis for overflow text */
+  background-color: var(--coral-pink);
+  color: var(--coconut-white);
+}
+
+.essay-label {
+  background-color: var(--tf-pill-bg);
+  color: var(--coconut-white);
+  /* Other styling for labels, if needed */
+  margin-right: 5px; /* Space between tags */
+  margin-bottom: 5px; /* Space below tags */
+}
+
+/* Essays Section Styles */
+.essays-section {
+  background-color: var(--eggshell-white);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .essay-card {
+    padding: 10px;
+  }
+
+  .essay-card-title {
+    font-size: 1.1rem;
+  }
+
+  .essay-card-text {
+    font-size: 0.85rem;
+  }
+
+  .essay-read-more-btn {
+    font-size: 0.8rem;
+  }
+}
+
+/* Footer Styles */
+.custom-footer {
+  background-color: transparent!important;
+}
+
+.custom-footer a {
+  color: var(--banana-leaf-green);
+}
+
+.custom-header {
+  background-color: var(--eggshell-white)!important;
+  border-bottom: none!important;
+}
+
+.navbar-brand-custom {
+  color: var(--volcanic-grey);
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-link-custom {
+  color: var(--dark-banana-leaf-green);
+}
+
+.navbar-brand-custom:hover, .nav-link-custom:hover {
+  color: var(--tf-icon-hover); /* Change color on hover */
+}
+
+
+.about-section {
+  background-color: var(--tf-page-bg-color);
+}
+
+.about-picture {
+  width: 300px;
+  display: block;
+  margin: auto;
+  border-radius: 50%; /* For rounded-circle effect */
+}
+
+.about-name {
+  color: var(--banana-leaf-green);
+  text-align: center;
+}
+
+.about-label {
+  color: var(--dark-banana-leaf-green);
+  text-align: center;
+}
+
+.about-summary {
+  color: var(--volcanic-grey);
+}
+
+.about-interests {
+  color: var(--light-tropical-green);
+}
+
+.about-interests-name {
+  color: var(--coral-pink);
+}
+
+.about-hr {
+  border-color: var(--coral-pink);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.about-social-col {
+  text-align: center;
+}
