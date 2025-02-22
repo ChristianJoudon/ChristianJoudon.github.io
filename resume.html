@@ -154,6 +154,32 @@ layout: home
     </div>
     {% endif %}
 
+    {% if site.data.bio.projects %}
+    <div class="row pt-4 align-items-start">
+      <div class="col-lg-3">
+        <h1 class="display-6 text-start m-0">Projects</h1>
+      </div>
+      <div class="col-lg-9">
+        {% for project in site.data.bio.projects %}
+        <div class="row mb-3">
+          <div class="col-9">
+            <p class="mb-0"><b>{{ project.name }}</b></p>
+            <p class="mb-0">{{ project.description }}</p>
+            {% if project.highlights %}
+            <ul>
+              {% for highlight in project.highlights %}
+              <li>{{ highlight }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            <p class="mb-0"><b>Technologies:</b> {{ project.technologies | join: ', ' }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     {% if site.data.bio.volunteer %}
       <div class="row pt-4 align-items-start">
         <div class="col-lg-3">
