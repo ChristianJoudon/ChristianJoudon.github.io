@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Extraction and Analysis of COVID-19 Patient Records | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/projects/TextExtraction.html">
+    <meta property="og:title" content="Extraction and Analysis of COVID-19 Patient Records | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Extraction and Analysis of COVID-19 Patient Records | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Extraction and Analysis of COVID-19 Patient Records</h1>
+  <hr>
+ <h1 id="processing-structuring-and-analyzing-covid-19-medical-records">Processing, Structuring, and Analyzing COVID-19 Medical Records</h1>
+
+<h2 id="1-introduction">1. Introduction</h2>
+
+<p>The overarching aim of this project is to convert large volumes of <strong>unstructured or semi-structured medical records</strong> into <strong>structured, queryable datasets</strong>, and to perform advanced analytical operations that yield actionable insights into <strong>COVID-19 patient outcomes, comorbidities, and treatment patterns</strong>.</p>
+
+<p>This process involves:</p>
+
+<ol>
+  <li><strong>Extracting</strong> crucial clinical details from free-text encounter notes using <strong>Large Language Models (LLMs)</strong>.</li>
+  <li><strong>Standardizing</strong> clinical terminologies (e.g., ICD-10 codes, RxNorm) to ensure consistent, interoperable records.</li>
+  <li><strong>Storing</strong> the output in robust formats (e.g., <strong>Parquet</strong>) for efficient reading and manipulation in <strong>Apache Spark</strong>.</li>
+  <li><strong>Enabling</strong> advanced analytics such as <strong>demographic breakdowns</strong>, <strong>medication frequency analysis</strong>, <strong>co-morbidity insights</strong>, and <strong>machine learning classification</strong>.</li>
+</ol>
+
+<p>Key technologies include <strong>PySpark</strong> for distributed data processing, <strong>FAISS</strong> (Facebook AI Similarity Search) for medication mapping, and <strong>visualization</strong> libraries for rendering clear, interpretable results.</p>
+
+<hr />
+
+<h2 id="2-data-ingestion-and-unstructured-note-processing">2. Data Ingestion and Unstructured Note Processing</h2>
+
+<h3 id="21-input-sources">2.1 Input Sources</h3>
+
+<ul>
+  <li><strong>Multiple .txt Files</strong>: Each file contains semi-structured encounter notes (SOAP format) and free-text observations on demographics, vitals, lab results, and treatments.</li>
+  <li><strong>Batch Ingestion</strong>: For large deployments, an automated pipeline can iterate through directories, reading thousands of text files in parallel.</li>
+</ul>
+
+<h3 id="22-llm-driven-data-extraction">2.2 LLM-Driven Data Extraction</h3>
+
+<p>Leveraging LLMs (e.g., GPT-based APIs) via prompt engineering:</p>
+
+<ul>
+  <li><strong>Entity Recognition</strong>: Identifies patient name, DOB, address, insurance, symptoms, conditions, and lab results.</li>
+  <li><strong>Structured JSON Output</strong>: The pipeline instructs the model to output hierarchical JSON covering demographics, SOAP notes, medical history, etc.</li>
+  <li><strong>Fallback Defaults</strong>: Missing or ambiguous fields are marked with placeholders like <code class="language-plaintext highlighter-rouge">"unknown"</code> or <code class="language-plaintext highlighter-rouge">0</code> to maintain a consistent schema.</li>
+</ul>
+
+<h3 id="23-validation-via-pydantic-models">2.3 Validation via Pydantic Models</h3>
+
+<ul>
+  <li>Once the LLM outputs JSON, <strong>Pydantic</strong> schemas enforce strict typing (e.g., <code class="language-plaintext highlighter-rouge">float</code> for BMI, <code class="language-plaintext highlighter-rouge">List[str]</code> for diagnoses).</li>
+  <li>Invalid or incomplete data triggers errors, ensuring contaminated records do not proceed further.</li>
+</ul>
+
+<hr />
+
+<h2 id="3-data-structuring-and-schema-design">3. Data Structuring and Schema Design</h2>
+
+<h3 id="31-hierarchical-schema">3.1 Hierarchical Schema</h3>
+
+<p>Data is organized into nested fields:</p>
+<ol>
+  <li><strong>Encounter Information</strong> (date, duration, provider, facility).</li>
+  <li><strong>Demographics</strong> (name, DOB, gender, address, insurance, MRN).</li>
+  <li><strong>Conditions</strong> (ICD-10-coded problems, co-morbid diagnoses).</li>
+  <li><strong>Medications</strong> (RxNorm-mapped, usage frequency).</li>
+  <li><strong>Vitals</strong> (temperature, heart rate, BP, oxygen saturation).</li>
+  <li><strong>Laboratory Results</strong> (COVID-19 tests, influenza panels).</li>
+  <li><strong>Plan</strong> (treatments, follow-ups, patient education).</li>
+</ol>
+
+<h3 id="32-transformation-into-parquet">3.2 Transformation into Parquet</h3>
+
+<ul>
+  <li>The validated JSON is flattened into tabular columns using a schema definition.</li>
+  <li>Data is written to <strong>Apache Parquet</strong>:
+    <ul>
+      <li><strong>Columnar storage</strong> for faster reads and queries in Spark.</li>
+      <li><strong>Compression</strong> advantages reducing I/O overhead.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="4-semantic-enrichment-using-faiss">4. Semantic Enrichment Using FAISS</h2>
+
+<p>One central challenge is <strong>free-text medication descriptions</strong>. To standardize these:</p>
+
+<ol>
+  <li><strong>Embedding Generation</strong>: A specialized model (e.g., OpenAI Embeddings) converts each medication name into a vector.</li>
+  <li><strong>FAISS Index</strong>: Builds a similarity index of known medication names or codes (e.g., RxNorm, brand names, generics).</li>
+  <li><strong>Vector Search</strong>: Maps each free-text mention to its nearest standard medication entry, even handling spelling variations or brand/generic differences.</li>
+</ol>
+
+<p>This ensures consistency when counting medication frequencies or analyzing prescription patterns.</p>
+
+<hr />
+
+<h2 id="5-pyspark-workflow-and-analytical-processes">5. PySpark Workflow and Analytical Processes</h2>
+
+<h3 id="51-large-scale-data-handling">5.1 Large-Scale Data Handling</h3>
+
+<ul>
+  <li><strong>Spark DataFrames</strong>: Efficiently processes the flattened Parquet data.</li>
+  <li><strong>SQL-like Transformations</strong>: Complex filtering, grouping, and aggregation logic is performed without enumerating raw code, harnessing Spark’s distributed engine.</li>
+  <li><strong>Schema Inference</strong>: Spark respects the nested structure defined earlier for robust read operations.</li>
+</ul>
+
+<h3 id="52-demographic-and-comorbidity-analysis">5.2 Demographic and Comorbidity Analysis</h3>
+
+<ul>
+  <li><strong>COVID-19 Subset Extraction</strong>: Filters lab results or conditions to focus on positive COVID-19 patients.</li>
+  <li><strong>Age Binning</strong>: Groups patients into brackets such as <code class="language-plaintext highlighter-rouge">[0-5], [6-10], [11-17], [18-30], [31-50], [51-70], [71+]</code> for demographic distribution visualizations.</li>
+  <li><strong>Comorbidity Pairs</strong>: Self-join or cross-tab on patient conditions to rank comorbid pairs (e.g., Hypertension &amp; Diabetes), employing lexicographical ordering to avoid duplications.</li>
+</ul>
+
+<h3 id="53-medication-usage-patterns">5.3 Medication Usage Patterns</h3>
+
+<ul>
+  <li><strong>Medication Frequency</strong>: Ranks prescriptions by usage count among COVID-19 patients.</li>
+  <li><strong>Cross-Matching</strong>: Cross-tabulates top diagnoses vs. top medications, revealing which treatments are common for each condition.</li>
+</ul>
+
+<h3 id="54-vital-signs-and-disease-severity">5.4 Vital Signs and Disease Severity</h3>
+
+<ul>
+  <li><strong>Flattened Vitals</strong>: Temperature, respiratory rate, heart rate, O2 saturation, and blood pressure are extracted into columns.</li>
+  <li><strong>Correlation Analysis</strong>: Compares vital sign anomalies with severity markers (e.g., ICU admission).</li>
+  <li><strong>Time-Series or Seasonal Trends</strong>: If date/time data is present, analyses can show daily or monthly case evolutions.</li>
+</ul>
+
+<hr />
+
+<h2 id="6-data-visualization-and-advanced-insights">6. Data Visualization and Advanced Insights</h2>
+
+<h3 id="61-visualization-approaches">6.1 Visualization Approaches</h3>
+
+<ul>
+  <li><strong>Bar Charts</strong>: Show top comorbidities, medication frequencies, or age-group distributions.</li>
+  <li><strong>Heatmaps</strong>: Display correlations between multiple numeric features (e.g., age, O2 saturation, heart rate) or relationships between conditions and prescribed medications.</li>
+  <li><strong>Line/Area Charts</strong>: Illustrate cumulative case counts or time series of new positives.</li>
+</ul>
+
+<h3 id="62-complex-analyses">6.2 Complex Analyses</h3>
+
+<ul>
+  <li><strong>ICU vs. Non-ICU Patient Comparisons</strong>: Summarize differences in symptom clusters, vitals, and comorbidities.</li>
+  <li><strong>Obesity and COVID-19 Severity</strong>: Test the correlation between BMI and adverse outcomes or ICU admissions.</li>
+  <li><strong>Hypothesis Testing</strong>: T-tests or chi-square tests for differences in medication usage across demographic groups.</li>
+</ul>
+
+<hr />
+
+<h2 id="7-key-technical-challenges-and-solutions">7. Key Technical Challenges and Solutions</h2>
+
+<ol>
+  <li><strong>Nested JSON</strong>: Addressed via Pydantic for structure, then PySpark’s flattening functions.</li>
+  <li><strong>Multiple <code class="language-plaintext highlighter-rouge">explode()</code> Constraints</strong>: Solved by carefully staging transformations or using sub-DataFrames.</li>
+  <li><strong>FAISS Optimization</strong>: Tuning vector dimensions, indexing parameters, and similarity thresholds for medication matching.</li>
+  <li><strong>Missing Data</strong>: Dealt with placeholders (<code class="language-plaintext highlighter-rouge">unknown</code>, <code class="language-plaintext highlighter-rouge">[]</code>, or <code class="language-plaintext highlighter-rouge">0</code>), plus filtering out incomplete rows for certain statistical analyses.</li>
+  <li><strong>Performance</strong>:
+    <ul>
+      <li>Parquet format for efficient data scanning and compression.</li>
+      <li>Spark caching to reduce repeated transformations.</li>
+      <li>Partition pruning to limit memory usage.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="8-conclusion">8. Conclusion</h2>
+
+<p>By merging unstructured textual encounter notes with robust validation, standard taxonomy mapping, and advanced Spark-based analytics, this project delivers a <strong>scalable, end-to-end system</strong> for healthcare data intelligence. The <strong>LLM pipeline</strong> transforms semi-structured notes into high-fidelity JSON records, <strong>FAISS</strong> enforces consistent medication naming, and <strong>PySpark</strong> fosters seamless large-scale queries. Researchers and clinicians can then <strong>visualize</strong> data on demographics, comorbidities, and treatments, supporting critical decision-making in COVID-19 patient care.</p>
+
+<p>Looking forward, the pipeline can expand to real-time ingestion for <strong>ongoing epidemiological surveillance</strong>, incorporate <strong>additional medical taxonomies</strong> like UMLS or SNOMED CT, and implement <strong>predictive modeling</strong> to forecast patient outcomes. Ultimately, it serves as a blueprint for transforming messy clinical data into actionable insights that drive informed policy and evidence-based medicine.</p>
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+

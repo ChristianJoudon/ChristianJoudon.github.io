@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="TERRAN: And the Wrath of the Wildwoods | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/projects/Terran.html">
+    <meta property="og:title" content="TERRAN: And the Wrath of the Wildwoods | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>TERRAN: And the Wrath of the Wildwoods | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">TERRAN: And the Wrath of the Wildwoods</h1>
+  <hr>
+ <h1 id="terran-and-the-wrath-of-the-wildwoods">TERRAN: And the Wrath of the Wildwoods</h1>
+
+<p><strong>TERRAN: And the Wrath of the Wildwoods</strong> is a 2D top-down, rogue-like, wave-based game developed using the <strong>Godot Engine</strong>. The game focuses on fast-paced action, strategic environmental interactions, and immersive gameplay centered around defending the forest from waves of invaders. This project emphasizes dynamic mechanics, resource management, and engaging visual and audio design.</p>
+
+<hr />
+
+<h2 id="project-details"><strong>Project Details</strong></h2>
+
+<h3 id="gameplay-mechanics"><strong>Gameplay Mechanics</strong></h3>
+<ul>
+  <li><strong>Wave-Based Combat:</strong>
+    <ul>
+      <li>Players face escalating waves of enemies with increasing difficulty.</li>
+      <li>Boss enemies appear every 5–10 waves, requiring advanced strategies and ability use.</li>
+    </ul>
+  </li>
+  <li><strong>Abilities and Combat System:</strong>
+    <ul>
+      <li>Four key-bound abilities (<code class="language-plaintext highlighter-rouge">Q</code>, <code class="language-plaintext highlighter-rouge">W</code>, <code class="language-plaintext highlighter-rouge">E</code>, <code class="language-plaintext highlighter-rouge">R</code>) include:
+        <ul>
+          <li><strong>Ranged Attacks</strong></li>
+          <li><strong>Area-of-Effect Abilities</strong></li>
+          <li><strong>Defensive Maneuvers</strong></li>
+          <li><strong>Ultimate Skills</strong></li>
+        </ul>
+      </li>
+      <li>Resource management is crucial for executing abilities and sustaining combat.</li>
+      <li>Abilities can be upgraded and customized through skill trees.</li>
+    </ul>
+  </li>
+  <li><strong>Movement:</strong>
+    <ul>
+      <li><strong>Point-and-Click Navigation</strong> for precise positioning and evasion.</li>
+      <li>Smooth, responsive movement enhances player control.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="main-character"><strong>Main Character</strong></h3>
+<p><img src="../img/Terran.png" alt="Terran: The Forest Spirit" /></p>
+
+<ul>
+  <li>Terran is the forest spirit and the protagonist of the game.</li>
+  <li>Designed with tree-like features and a magical bow, Terran embodies the forest’s resilience and power.</li>
+</ul>
+
+<hr />
+
+<h3 id="map-design-and-environment"><strong>Map Design and Environment</strong></h3>
+<p><img src="../img/Map.png" alt="Game Map" /></p>
+
+<ul>
+  <li><strong>Central Grove:</strong> A critical area that must be defended. Large trees with strategic importance are located here.</li>
+  <li><strong>Outer Ring and Pathways:</strong> Trees encircle the grove, offering layers of defense and choke points.</li>
+  <li><strong>Dynamic Battlefield:</strong>
+    <ul>
+      <li>Environmental elements react to player actions.</li>
+      <li>Interactive features such as releasing spores, triggering barriers, or utilizing terrain for strategic advantage.</li>
+    </ul>
+  </li>
+  <li><strong>Randomized Placement:</strong> Tree and enemy placement change between sessions for replayability.</li>
+</ul>
+
+<hr />
+
+<h2 id="technical-details"><strong>Technical Details</strong></h2>
+
+<h3 id="godot-features-and-tools-used"><strong>Godot Features and Tools Used</strong></h3>
+<ol>
+  <li><strong>Physics and Movement:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CharacterBody2D</code>: Used for precise movement and collision handling.</li>
+      <li><code class="language-plaintext highlighter-rouge">velocity</code> and <code class="language-plaintext highlighter-rouge">move_and_slide()</code>: Manage character navigation and real-time movement mechanics.</li>
+    </ul>
+  </li>
+  <li><strong>Abilities and Preloaded Scenes:</strong>
+    <ul>
+      <li>Abilities are managed via preloaded <code class="language-plaintext highlighter-rouge">.tscn</code> scenes:
+        <ul>
+          <li><strong>Verdant Arrow</strong></li>
+          <li><strong>Whisp’s Wrath</strong></li>
+          <li><strong>Devouring Wolves</strong></li>
+          <li><strong>Slash</strong></li>
+          <li><strong>Indignation</strong></li>
+          <li><strong>Spectral Dash</strong></li>
+        </ul>
+      </li>
+      <li><strong>Timers (<code class="language-plaintext highlighter-rouge">Timer</code> Nodes):</strong>
+        <ul>
+          <li>Handle ability cooldowns and attack delays.</li>
+          <li>Examples: <code class="language-plaintext highlighter-rouge">iceSpearTimer</code>, <code class="language-plaintext highlighter-rouge">slashTimer</code>, <code class="language-plaintext highlighter-rouge">dashTimer</code>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Animations:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">AnimationPlayer</code>: Controls character animations (e.g., “RUN” for movement).</li>
+      <li>Conditional animations such as sprite flipping and attack animations enhance visual clarity.</li>
+    </ul>
+  </li>
+  <li><strong>Dynamic Interactions:</strong>
+    <ul>
+      <li><strong>Signal System:</strong>
+        <ul>
+          <li>Signals manage events like player death, ability usage, and level progression.</li>
+        </ul>
+      </li>
+      <li>Environmental interactions include shaking trees, activating barriers, and spawning resources.</li>
+    </ul>
+  </li>
+  <li><strong>Resource Management:</strong>
+    <ul>
+      <li>Collected resources and upgrades are dynamically tracked using arrays (e.g., <code class="language-plaintext highlighter-rouge">collected_upgrades</code>).</li>
+      <li>GUI components like <code class="language-plaintext highlighter-rouge">HealthBar</code> and <code class="language-plaintext highlighter-rouge">ExperienceBar</code> visually display player stats.</li>
+    </ul>
+  </li>
+  <li><strong>AI and Detection:</strong>
+    <ul>
+      <li>Enemies use proximity detection (<code class="language-plaintext highlighter-rouge">_on_enemy_detection_area_body_entered</code>) for dynamic targeting and engagement.</li>
+      <li>Randomized spawn points increase replayability and challenge.</li>
+    </ul>
+  </li>
+  <li><strong>Player Experience:</strong>
+    <ul>
+      <li>Sound effects (<code class="language-plaintext highlighter-rouge">AudioStreamPlayer</code>) enhance immersion for events like leveling up and defeating enemies.</li>
+      <li><code class="language-plaintext highlighter-rouge">Tween</code> nodes create smooth transitions for GUI elements and animations.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="progression-and-leveling"><strong>Progression and Leveling</strong></h3>
+<ul>
+  <li><strong>Experience System:</strong>
+    <ul>
+      <li>Players gain experience through combat and completing waves.</li>
+      <li>Experience is tracked visually using <code class="language-plaintext highlighter-rouge">ExperienceBar</code> and level-up notifications.</li>
+      <li>Leveling unlocks new abilities and upgrades.</li>
+    </ul>
+  </li>
+  <li><strong>Upgrade System:</strong>
+    <ul>
+      <li>Players collect upgrades to enhance abilities and defenses.</li>
+      <li>Examples of upgrades:
+        <ul>
+          <li><strong>Spell Cooldown Reduction</strong></li>
+          <li><strong>Increased Spell Size</strong></li>
+          <li><strong>Additional Ammo</strong></li>
+        </ul>
+      </li>
+      <li>Randomized upgrade selection ensures varied gameplay each session.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="development-tools"><strong>Development Tools</strong></h3>
+<ul>
+  <li><strong>Godot Engine:</strong> Core game engine for development.</li>
+  <li><strong>GDScript:</strong> Used for scripting gameplay mechanics, animations, and interactions.</li>
+  <li><strong>Graphics and Audio:</strong>
+    <ul>
+      <li>Custom sprites and animations designed using external tools.</li>
+      <li>Immersive audio effects enhance the gameplay experience.</li>
+    </ul>
+  </li>
+  <li><strong>Version Control:</strong>
+    <ul>
+      <li>Managed through Git and GitHub for collaborative development and versioning.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
