@@ -146,6 +146,16 @@
       "technologies": ["ObservableHQ", "Plotly.js", "D3.js", "Python","Node.js", "React.js", "Vue.js","UI/UX design","Seaborn", "HTML", "CSS"]
     },
     {
+      "name": "Extraction and Analysis of COVID-19 Patient Records",
+      "description": "Developed a scalable pipeline to ingest and transform unstructured medical encounter notes into clean, structured datasets for COVID-19 analysis.",
+      "highlights": [
+        "Implemented LLM-driven text processing and Pydantic validation to standardize patient data.",
+        "Integrated FAISS for semantic medication matching, ensuring consistent drug references across free-text fields.",
+        "Leveraged Apache Spark to analyze comorbidities, medication frequencies, and demographic trends, producing data visualizations that informed clinical decision-making."
+      ],
+      "technologies": ["Python", "PySpark", "FAISS", "Pydantic", "Parquet", "LLM", "Data Visualization", "ETL", "Data Analysis"]
+    },
+    {
       "name": "Advanced SRT & Microphone Audio Visualization and Recording",
       "description": "Created a Python-based system for streaming, recording, and visualizing audio from SRT streams and microphones.",
       "highlights": [
