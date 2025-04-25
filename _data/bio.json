@@ -215,15 +215,11 @@
   "references": [
     {
       "name": "Caroline Ross",
-      "position": "General Manager",
-      "organization": "Blue Barn",
-      "contact": "https://www.linkedin.com/in/lomalita/"
+      "reference": "General Manager, Blue Barn — https://www.linkedin.com/in/lomalita/"
     },
     {
       "name": "Stacy Rampton",
-      "position": "Chef",
-      "organization": "The Hanalei Bread Company",
-      "contact": "(805) 729-0418"
+      "reference": "Chef, The Hanalei Bread Company — (805) 729-0418"
     }
   ]
 }
