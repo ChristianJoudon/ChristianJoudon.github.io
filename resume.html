@@ -259,20 +259,20 @@ layout: home
     {% endif %}
 
     {% if site.data.bio.references %}
-    <div class="row pt-4 align-items-center">
+    <div class="row pt-4 align-items-start">
       <div class="col-lg-3">
         <h1 class="display-6 text-start m-0">References</h1>
       </div>
 
       <div class="col-lg-9">
-        <p class="m-0">
-          {% for entry in site.data.bio.references %}
-            {{ entry.name }}
-            {% if entry.reference and entry.reference.size > 0 %}
-              <em>{{ entry.reference }}</em>
-            {% endif %}
-          {% endfor %}
+        {% for entry in site.data.bio.references %}
+        <p class="mb-2">
+          <strong>{{ entry.name }}</strong>
+          {% if entry.reference and entry.reference.size > 0 %}
+          <em>{{ entry.reference }}</em>
+          {% endif %}
         </p>
+        {% endfor %}
       </div>
     </div>
     {% endif %}
