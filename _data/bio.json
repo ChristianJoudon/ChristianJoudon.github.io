@@ -1,0 +1,225 @@
+{
+  "basics": {
+    "name": "Christian Joudon",
+    "label": "Recent Graduate",
+    "picture": "https://avatars.githubusercontent.com/u/92127547?v=4",
+    "email": "christian.joudon@gmail.com",
+    "phone": "808-639-8697",
+    "website": "https://ChristianJoudon.github.io",
+    "summary": "Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role.",
+    "location": { "address": "2212 Ioela Street", "postalCode": "96754", "city": "Kilauea", "countryCode": "USA", "region": "Hawaii" },
+    "profiles": [
+      { "network":"linkedin", "username": "ChristianJoudon", "url" : "https://www.linkedin.com/in/christian-joudon-256328b8/" },
+      {"network":"github", "username":"ChristianJoudon", "url":"https://github.com/ChristianJoudon"}
+    ]
+  },
+  "bio": ["Recent Computer Science graduate with a background in Biochemistry and a passion for data engineering and front-end development. Adept at creating user-centered designs, developing scalable systems, and leveraging data-driven insights. Strong problem-solving skills with experience in programming, data visualization, and web technologies. Looking to apply analytical and creative abilities in a dynamic technical role."],
+  "interests": [
+    { "name": "Natural Language Processing" },
+    { "name": "Data Engineering" },
+    { "name": "Recommendation Systems" },
+    { "name": "Network Analysis" },
+    { "name": "Generative AI" },
+    { "name": "Machine Learning" }
+  ],
+  "skills": [
+    {
+      "name": "Programming & Development:",
+      "keywords": [
+        "C",
+        "C++",
+        "Java",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Python",
+        "R",
+        "SQL",
+        "Prolog",
+        "Common Lisp (CL)",
+        "GDScript (Godot)",
+        "Node.js",
+        "React.js",
+        "Vue.js",
+        "Angular",
+        "TypeScript",
+        "Shell Scripting"
+      ]
+    },
+    {
+      "name": "Web Technologies & UI/UX:",
+      "keywords": [
+        "AJAX",
+        "Bootstrap",
+        "JSP",
+        "jQuery",
+        "UI/UX design",
+        "Wireframing",
+        "Responsive design"
+      ]
+    },
+    {
+      "name": "Data & Analytics:",
+      "keywords": [
+        "Apache Spark",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+        "Scikit-learn",
+        "TensorFlow",
+        "PyTorch",
+        "Plotly",
+        "D3.js",
+        "igraph",
+        "Gephi",
+        "MongoDB",
+        "MySQL",
+        "NoSQL",
+        "Relational databases",
+        "Microsoft SQL Server",
+        "Database design",
+        "Database development",
+        "Databricks",
+        "Apache Spark",
+        "AWS",
+        "Meteor",
+        "spaCy",
+        "NLTK",
+        "Hugging Face Transformers"
+      ]
+    },
+    {
+      "name": "Tools & Platforms:",
+      "keywords": [
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Agile",
+        "Scrum",
+        "DevOps",
+        "MacOS",
+        "Linux Environments (e.g., Ubuntu)",
+        "Windows",
+        "Anaconda Environment",
+        "VS Code",
+        "Observable HQ"
+      ]
+    },
+    {
+      "name": "Soft Skills",
+      "keywords": [
+        "Time management",
+        "Communication",
+        "Team collaboration",
+        "Problem-solving",
+        "Adaptability"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Computer Science",
+      "studyType": "B.S.",
+      "startDate": "2020-09-01",
+      "endDate": "2024-12-21",
+      "courses": ["Relevant Coursework: Data Structures, Machine Learning, Web Development, Database Systems"]
+    },
+    {
+      "institution": "University of Hawaii at Manoa, Oahu",
+      "area": "Biochemistry",
+      "studyType": "Undergraduate Studies",
+      "startDate": "2014-01-01",
+      "endDate": "2017-12-31",
+      "courses": []
+    }
+  ],
+  "projects": [
+    {
+      "name": "Impact of Global Events on Market Trends",
+      "description": "Developed an interactive visualization system using ObservableHQ, Plotly.js, and D3.js to analyze the impact of global events on stock markets and GDP trends.",
+      "highlights": [
+        "Implemented geospatial visualizations to display economic trends across different regions.",
+        "Designed interactive filtering features, allowing users to explore correlations between wars, pandemics, and market behaviors in real-time."
+      ],
+      "technologies": ["ObservableHQ", "Plotly.js", "D3.js", "Python","Node.js", "React.js", "Vue.js","UI/UX design","Seaborn", "HTML", "CSS"]
+    },
+    {
+      "name": "Extraction and Analysis of COVID-19 Patient Records",
+      "description": "Developed a scalable pipeline to ingest and transform unstructured medical encounter notes into clean, structured datasets for COVID-19 analysis.",
+      "highlights": [
+        "Implemented LLM-driven text processing and Pydantic validation to standardize patient data.",
+        "Integrated FAISS for semantic medication matching, ensuring consistent drug references across free-text fields.",
+        "Leveraged Apache Spark to analyze comorbidities, medication frequencies, and demographic trends, producing data visualizations that informed clinical decision-making."
+      ],
+      "technologies": ["Python", "PySpark", "FAISS", "Pydantic", "Parquet", "LLM", "Data Visualization", "ETL", "Data Analysis"]
+    },
+    {
+      "name": "Advanced SRT & Microphone Audio Visualization and Recording",
+      "description": "Created a Python-based system for streaming, recording, and visualizing audio from SRT streams and microphones.",
+      "highlights": [
+        "Developed real-time waveform, FFT, and spectrogram visualizations using Matplotlib.",
+        "Integrated sounddevice, pyaudio, and FFmpeg for efficient audio processing and playback."
+      ],
+      "technologies": ["Python", "Matplotlib", "sounddevice", "pyaudio", "FFmpeg"]
+    },
+    {
+      "name": "UHnify: Transforming Campus Engagement",
+      "description": "Designed and implemented a student club management platform using MongoDB, Meteor.js, and React.js.",
+      "highlights": [
+        "Developed a streamlined UI for browsing clubs, managing memberships, and viewing event calendars.",
+        "Built real-time synchronization features for updating event details and user interactions dynamically."
+      ],
+      "technologies": ["MongoDB", "Meteor.js", "React.js", "UI/UX design", "Node.js", "Vue.js", "jQuery", "Python", "HTML", "CSS" ]
+    }
+  ],
+  "work": [
+    {
+      "company": "Freelance",
+      "position": "Technical & Creative Writer",
+      "startDate": "2019-12",
+      "endDate": "2020-06",
+      "summary": "Focused on screenplay development and assisted in creating marketing content for a real estate business. Gained experience in storytelling, structuring narratives, and presenting information clearly.",
+      "highlights": [
+        "Wrote and refined a screenplay, developing skills in narrative structure and dialogue.",
+        "Assisted in creating content for a real estate business, including property descriptions and marketing materials.",
+        "Improved writing techniques through independent study and project work."
+      ]
+    },
+    {
+      "company": "Bacchus LLC",
+      "position": "Assistant Manager / Project Coordinator",
+      "startDate": "2018-08",
+      "endDate": "2019-11",
+      "summary": "Managed residential real estate projects, coordinating with architects and designers to ensure timely completion. Oversaw budget tracking and stakeholder communications, fostering efficiency and transparency.",
+      "highlights": [
+        "Managed multiple real estate projects, ensuring adherence to budget and timelines.",
+        "Liaised with architects, builders, and designers to optimize project workflow.",
+        "Implemented efficient systems for budgeting and communication, improving transparency."
+      ]
+    },
+    {
+      "company": "Various (Northside Grille, Blue Barn Gourmet, Sushi Girl, The Hanalei Dolphin, Healthy Hut)",
+      "position": "Food & Hospitality Roles",
+      "startDate": "2010-10",
+      "endDate": "2018-06",
+      "summary": "Developed strong interpersonal and problem-solving skills in dynamic, fast-paced environments. Managed front-of-house operations, team coordination, and customer engagement, demonstrating adaptability and leadership.",
+      "highlights": [
+        "Led front-of-house operations, ensuring high-quality customer service and efficiency.",
+        "Trained and mentored new employees, improving team performance and cohesion.",
+        "Revamped menu offerings and implemented a recipe cost analysis system to enhance profitability."
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Caroline Ross",
+      "reference": "General Manager, Blue Barn — https://www.linkedin.com/in/lomalita/"
+    },
+    {
+      "name": "Stacy Rampton",
+      "reference": "Chef, The Hanalei Bread Company — (805) 729-0418"
+    }
+  ]
+}
