@@ -211,5 +211,19 @@
         "Revamped menu offerings and implemented a recipe cost analysis system to enhance profitability."
       ]
     }
+  ],
+  "references": [
+    {
+      "name": "Caroline Ross",
+      "position": "General Manager",
+      "organization": "Blue Barn",
+      "contact": "https://www.linkedin.com/in/lomalita/"
+    },
+    {
+      "name": "Stacy Rampton",
+      "position": "Chef",
+      "organization": "The Hanalei Bread Company",
+      "contact": "(805) 729-0418"
+    }
   ]
 }
