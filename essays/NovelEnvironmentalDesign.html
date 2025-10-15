@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Dynamic Environmental Systems in RPGs | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/essays/NovelEnvironmentalDesign.html">
+    <meta property="og:title" content="Dynamic Environmental Systems in RPGs | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Dynamic Environmental Systems in RPGs | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Dynamic Environmental Systems in RPGs</h1>
+  <span class="date">13 Dec 2023</span>
+  <hr>
+  <h1 id="dynamic-environmental-systems-in-rpgs">Dynamic Environmental Systems in RPGs</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Dynamic Environmental Systems in RPGs aims to revolutionize game environments by transitioning from static, predictable landscapes to immersive, adaptive worlds. The project focuses on creating interactive systems where player actions influence weather, terrain, NPC behavior, and quests in real time. These innovations provide a foundation for greater replayability, deeper storytelling, and enhanced player agency.</p>
+
+<p>This essay explores the development, technical implementation, and broader applications of these dynamic systems in gaming. It is supplemented with a detailed 40-page write-up accessible via an embedded viewer below.</p>
+
+<hr />
+
+<h2 id="key-contributions">Key Contributions</h2>
+
+<h3 id="1-dynamic-weather-and-environmental-effects"><strong>1. Dynamic Weather and Environmental Effects</strong></h3>
+<ul>
+  <li><strong>Features:</strong>
+    <ul>
+      <li>Real-time weather simulations, including storms, rain, and fog, that impact gameplay.</li>
+      <li>Environmental hazards, such as floods or forest fires, that dynamically alter terrain and player strategy.</li>
+    </ul>
+  </li>
+  <li><strong>Technologies:</strong>
+    <ul>
+      <li><strong>ARIMA</strong> for weather pattern predictions.</li>
+      <li><strong>Neural Networks</strong> for simulating storm movements and environmental interactions.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-interactive-objects-and-materials"><strong>2. Interactive Objects and Materials</strong></h3>
+<ul>
+  <li><strong>Features:</strong>
+    <ul>
+      <li>Objects with multi-use functionality based on context (e.g., a tree can provide cover, resources, or obstacles).</li>
+      <li>Rules for object interactions defined using <strong>Finite State Machines (FSM)</strong> and hash tables.</li>
+    </ul>
+  </li>
+  <li><strong>Examples:</strong>
+    <ul>
+      <li>Rocks can be used as barriers or projectiles.</li>
+      <li>Fallen trees alter paths and influence NPC behaviors.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-dynamic-quests-and-storylines"><strong>3. Dynamic Quests and Storylines</strong></h3>
+<ul>
+  <li><strong>Features:</strong>
+    <ul>
+      <li>Goal-Oriented Action Planning (GOAP) ensures quests adapt to environmental changes and player decisions.</li>
+      <li>Trigger-based quest generation introduces dynamic, context-aware storylines.</li>
+    </ul>
+  </li>
+  <li><strong>Example:</strong>
+    <ul>
+      <li>A flood causes an NPC to reroute, introducing a new quest involving rescue or resource collection.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-real-time-terrain-modification"><strong>4. Real-Time Terrain Modification</strong></h3>
+<ul>
+  <li><strong>Features:</strong>
+    <ul>
+      <li>Persistent terrain deformation (e.g., craters, landslides) influenced by player actions and environmental events.</li>
+    </ul>
+  </li>
+  <li><strong>Technologies:</strong>
+    <ul>
+      <li><strong>Sparse Voxel Octrees</strong> and <strong>adaptive tessellation</strong> for efficient real-time updates.</li>
+    </ul>
+  </li>
+  <li><strong>Impact:</strong>
+    <ul>
+      <li>Enables persistent world-building where player actions leave lasting effects on the game world.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="technical-implementation">Technical Implementation</h2>
+
+<h3 id="core-systems-and-tools"><strong>Core Systems and Tools</strong></h3>
+<ol>
+  <li><strong>Physics and Interaction:</strong>
+    <ul>
+      <li><strong>Sparse Voxel Octrees</strong>: Efficient 3D terrain modification and interaction tracking.</li>
+      <li><strong>GDScript (Godot Engine)</strong>: Handles terrain updates, NPC interactions, and environmental triggers.</li>
+    </ul>
+  </li>
+  <li><strong>AI-Driven Features:</strong>
+    <ul>
+      <li><strong>Neural Networks</strong> for predictive modeling of NPC behavior and weather effects.</li>
+      <li><strong>Finite State Machines (FSM)</strong> for rule-based interactions with objects and environments.</li>
+    </ul>
+  </li>
+  <li><strong>Procedural Generation:</strong>
+    <ul>
+      <li><strong>Noise Functions (Perlin/Simplex)</strong> for terrain features.</li>
+      <li><strong>ARIMA and STL</strong> for time-series-based weather simulations.</li>
+    </ul>
+  </li>
+  <li><strong>Optimization Techniques:</strong>
+    <ul>
+      <li>Multi-threaded updates for real-time interactions.</li>
+      <li>Level-of-Detail (LOD) systems for efficient rendering.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="interactive-document-viewer">Interactive Document Viewer</h2>
+
+<p>To explore the project in greater detail, view the full essay below:</p>
+
+<iframe src="https://docs.google.com/document/d/1mkJHcjZ0n9wVDVSYBVdPsxIUU7rtoXek0WZgmbbCli8/edit?usp=sharing" width="100%" height="800px" style="border: none;"></iframe>
+
+<hr />
+
+<h2 id="applications-and-broader-impact">Applications and Broader Impact</h2>
+
+<h3 id="gaming-industry"><strong>Gaming Industry</strong></h3>
+<ul>
+  <li><strong>RPGs and Simulation Games</strong>:
+    <ul>
+      <li>Dynamic systems enhance immersion, replayability, and narrative depth.</li>
+      <li>Real-time environmental feedback improves decision-making and strategy.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="educational-tools"><strong>Educational Tools</strong></h3>
+<ul>
+  <li>Simulations based on these systems can teach environmental science, urban planning, or disaster management.</li>
+</ul>
+
+<h3 id="business-insights"><strong>Business Insights</strong></h3>
+<ul>
+  <li>Use of predictive algorithms in dynamic modeling can inspire innovations in logistics and AI-driven systems.</li>
+</ul>
+
+<hr />
+
+<h2 id="why-this-project-matters">Why This Project Matters</h2>
+
+<p>Dynamic Environmental Systems redefine how players interact with virtual worlds, bridging the gap between immersion and adaptability. By integrating advanced algorithms and procedural systems, this project introduces a new standard for player agency and storytelling in RPGs. It also lays the groundwork for cross-industry applications, demonstrating the versatility of these systems beyond gaming.</p>
+
+<p>This project represents a significant step forward in game development, offering a glimpse into the future of dynamic, interactive worlds.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Dynamic Environmental Systems showcase how advanced AI and procedural techniques can revolutionize the gaming industry and beyond. By offering adaptable worlds that evolve with player actions, this project delivers an experience that is immersive, replayable, and innovative.</p>
+
+<hr />
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+

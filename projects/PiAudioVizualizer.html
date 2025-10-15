@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Advanced SRT &amp; Microphone Audio Visualization and Recording | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/projects/PiAudioVizualizer.html">
+    <meta property="og:title" content="Advanced SRT &amp; Microphone Audio Visualization and Recording | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Advanced SRT & Microphone Audio Visualization and Recording | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Advanced SRT & Microphone Audio Visualization and Recording</h1>
+  <hr>
+ <h1 id="advanced-srt--microphone-audio-visualization-and-recording">Advanced SRT &amp; Microphone Audio Visualization and Recording</h1>
+
+<p>This project provides an efficient, extensible Python script for:</p>
+<ol>
+  <li><strong>Streaming</strong> audio via SRT (Secure Reliable Transport).</li>
+  <li><strong>Recording</strong> microphone or SRT audio to a WAV file.</li>
+  <li><strong>Visualizing</strong> audio data in real-time (waveform, FFT, and spectrogram) with Matplotlib.</li>
+  <li><strong>Playing</strong> live streamed audio through speakers.</li>
+</ol>
+
+<p>The code is designed to handle various modes (record-only, visualize-only, and full playback) with minimal user intervention, while keeping performance in mind for continuous data streams.</p>
+
+<hr />
+
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#project-context">Project Context</a></li>
+  <li><a href="#key-features">Key Features</a></li>
+  <li><a href="#architecture">Architecture</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#final-visualization-example">Final Visualization Example</a></li>
+  <li><a href="#performance-considerations">Performance Considerations</a></li>
+</ul>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+<p>The goal of this project is to offer a <strong>flexible</strong> yet <strong>highly efficient</strong> way of handling audio input from both a local microphone and remote SRT streams. The script allows users to:</p>
+
+<ul>
+  <li>Connect to a remote SRT address, capture incoming audio, and optionally record or visualize it.</li>
+  <li>Use a local microphone for real-time capturing, either to record or to visualize, or both.</li>
+  <li>Maintain a lightweight, fast main loop to minimize delays and lags.</li>
+</ul>
+
+<p><strong>Core Python libraries used include</strong>:</p>
+<ul>
+  <li><a href="https://pypi.org/project/sounddevice/">sounddevice</a> for local microphone streaming</li>
+  <li><a href="https://pypi.org/project/PyAudio/">pyaudio</a> for playback</li>
+  <li><a href="https://docs.python.org/3/library/wave.html">wave</a> for WAV file I/O</li>
+  <li><a href="https://pypi.org/project/matplotlib/">matplotlib</a> for real-time plotting</li>
+  <li>[queue, threading, subprocess] from the standard library for concurrency and SRT streaming via FFmpeg</li>
+</ul>
+
+<hr />
+<h2 id="project-context">Project Context</h2>
+
+<p>This project extends beyond simple audio visualization and playback, finding real-world applications in environmental monitoring and data analysis. For example:</p>
+
+<ul>
+  <li><strong>Marine Ecosystems</strong>: This tool has been successfully deployed in projects such as the <strong>Remote Monitoring of Coral Reef Underwater Sounds</strong>. In this context, SRT streaming is used to transmit underwater acoustic data from hydrophones in marine habitats, enabling researchers to monitor ecological health in real time.</li>
+  <li><strong>Signal Processing Research</strong>: The modular design of this application allows it to be adapted for various signal processing tasks, including real-time acoustic analysis, machine learning integration, and environmental sound classification.</li>
+</ul>
+
+<p><a href="../img/Remote%20Monitoring%20of%20Coral%20Reef%20Underwater%20Sounds.pdf"><strong>Remote Monitoring of Coral Reef Underwater Sounds</strong></a></p>
+
+<blockquote>
+  <p><strong>Figure 1</strong>: A presentation poster highlighting the use of this tool for remote monitoring of underwater environments. <em>(Note: May appear as a downloadable link depending on hosting platform.)</em></p>
+</blockquote>
+
+<hr />
+
+<h2 id="key-features">Key Features</h2>
+
+<ol>
+  <li><strong>Multiple Audio Sources</strong>
+    <ul>
+      <li><strong>Microphone</strong>: Streams live audio from the system’s default recording device.</li>
+      <li><strong>SRT</strong>: Connects to a remote SRT server using FFmpeg, handling packet buffering, jitter, etc.</li>
+    </ul>
+  </li>
+  <li><strong>Multiple Operation Modes</strong>
+    <ul>
+      <li><strong>Record Only</strong>: Saves raw audio (16-bit PCM) to a WAV file without visualizing or playing it.</li>
+      <li><strong>Visualize Only</strong>: Displays live waveform, FFT, and/or spectrogram with no file I/O.</li>
+      <li><strong>Record + Visualize + Playback</strong>: Combines all features, letting users see, hear, and record simultaneously.</li>
+    </ul>
+  </li>
+  <li><strong>Robust Real-Time Visualization</strong>
+    <ul>
+      <li><strong>Waveform</strong>: Displays the amplitude vs. time graph.</li>
+      <li><strong>FFT Plot</strong>: Shows frequency components in near real-time.</li>
+      <li><strong>Spectrogram</strong>: Visualizes frequency intensity over a rolling time window.</li>
+    </ul>
+  </li>
+  <li><strong>Flexible Configuration</strong>
+    <ul>
+      <li><strong>Sample Rate</strong>: Dynamically determined or set for consistent FFT sizing.</li>
+      <li><strong>FFT Window Size</strong>: Chosen to achieve a balance between frequency resolution and real-time responsiveness.</li>
+      <li><strong>Frequency and Time Window</strong>: User can specify the range for FFT or spectrogram (e.g., 0–20 kHz).</li>
+    </ul>
+  </li>
+  <li><strong>Optimized Performance</strong>
+    <ul>
+      <li>Uses separate threads for audio reading, writing, and visualization to reduce blocking.</li>
+      <li>Employs a minimal logic loop for reading SRT or mic data, offloading visualization and file I/O to queues and threads where possible.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="architecture">Architecture</h2>
+
+<p>The project’s architecture follows a streamlined and efficient pipeline for processing audio data in real time:</p>
+
+<ol>
+  <li><strong>Audio Source</strong><br />
+Audio data is sourced either from:
+    <ul>
+      <li><strong>Microphone</strong>: Captured using the system’s default recording device.</li>
+      <li><strong>SRT Stream</strong>: Captured via FFmpeg, ensuring reliable packet delivery and minimal latency.</li>
+    </ul>
+  </li>
+  <li><strong>Main Loop</strong><br />
+The main loop performs minimal processing to avoid delays, delegating tasks to separate threads for:
+    <ul>
+      <li><strong>Audio Callbacks</strong>: Capturing and queuing raw audio data.</li>
+      <li><strong>Visualization Updates</strong>: Rendering waveform, FFT, and spectrogram plots.</li>
+    </ul>
+  </li>
+  <li><strong>Data Enqueuing</strong><br />
+Audio data is organized into separate queues for efficient, non-blocking operations:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">raw_audio_queue</code>: Stores raw PCM audio samples.</li>
+      <li><code class="language-plaintext highlighter-rouge">fft_queue</code>: Stores frequency-domain data for FFT plots.</li>
+      <li><code class="language-plaintext highlighter-rouge">spectrogram_queue</code>: Maintains rolling frequency-intensity data for spectrogram rendering.</li>
+    </ul>
+  </li>
+  <li><strong>Parallel Processing</strong>
+    <ul>
+      <li><strong>Recording Thread</strong>: Writes audio data to a WAV file asynchronously.</li>
+      <li><strong>Visualization Loop</strong>: Updates plots in real time using Matplotlib without interrupting audio acquisition.</li>
+    </ul>
+  </li>
+  <li><strong>Output</strong><br />
+The processed data is presented in two forms:
+    <ul>
+      <li><strong>Visual Outputs</strong>: Waveform, FFT, and spectrogram plots displayed interactively.</li>
+      <li><strong>Audio Files</strong>: Recorded audio saved as high-quality WAV files.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The architecture ensures a balance between high performance and real-time responsiveness, making it suitable for continuous audio streams.</p>
+
+<hr />
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="step-1-interactive-cli-configuration">Step 1: Interactive CLI Configuration</h3>
+<p>The application features an intuitive CLI that guides users through configuration:</p>
+<ul>
+  <li><strong>Source Selection</strong>: Choose between local microphone or SRT stream.</li>
+  <li><strong>Operation Mode</strong>: Record only, visualize only, or combined modes.</li>
+  <li><strong>Visualization Options</strong>: Enable Waveform, FFT, and/or Spectrogram.</li>
+  <li><strong>Time and Frequency Windows</strong>: Set parameters for visualization.</li>
+</ul>
+
+<p><img src="../img/InteractiveViz.png" alt="Interactive CLI Example" /></p>
+
+<blockquote>
+  <p><strong>Figure 2</strong>: CLI prompts for configuring the application. Users select SRT streaming, choose “visualize only,” and configure specific plots, time, and frequency settings.</p>
+</blockquote>
+
+<h3 id="step-2-running-the-application">Step 2: Running the Application</h3>
+<p>Once configured:</p>
+<ul>
+  <li>For microphone input, the audio stream begins instantly.</li>
+  <li>For SRT streams, FFmpeg handles packet buffering, ensuring reliable data reception.</li>
+  <li>
+    <h2 id="visualizations-dynamically-update-as-the-audio-data-is-processed">Visualizations dynamically update as the audio data is processed.</h2>
+  </li>
+</ul>
+
+<h2 id="final-visualization-example">Final Visualization Example</h2>
+
+<p>The following visualizations are generated in real time:</p>
+<ul>
+  <li><strong>Waveform</strong>: Shows amplitude vs. time.</li>
+  <li><strong>FFT Plot</strong>: Displays amplitude vs. frequency.</li>
+  <li><strong>Spectrogram</strong>: Illustrates intensity variations across frequencies over time.</li>
+</ul>
+
+<p><img src="../img/Visualization.png" alt="Real-Time Visualization" /></p>
+
+<blockquote>
+  <p><strong>Figure 3</strong>: Real-time visualizations of waveform (top), FFT plot (middle), and spectrogram (bottom), providing comprehensive insights into the incoming audio stream.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="performance-considerations">Performance Considerations</h2>
+
+<ul>
+  <li><strong>Threaded Approach</strong>: Decouples audio acquisition, file I/O, and visualization tasks to minimize bottlenecks.</li>
+  <li><strong>Asynchronous Visualization</strong>: Uses Matplotlib’s interactive mode for non-blocking updates, ensuring a smooth user experience.</li>
+  <li><strong>Dynamic Resource Management</strong>: FFT window size and queue processing are optimized for responsiveness.</li>
+  <li><strong>Minimal Callback Overhead</strong>: Audio callbacks are streamlined to enqueue data, leaving intensive tasks to background threads.</li>
+</ul>
+
+<hr />
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+

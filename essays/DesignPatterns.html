@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Design Patterns in Software Development | Christian Joudon | Professional Portfolio">
+    <meta name="description" content="">
+    <meta name="image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Christian Joudon | Professional Portfolio">
+    <meta property="og:url" content="https://ChristianJoudon.github.io/essays/DesignPatterns.html">
+    <meta property="og:title" content="Design Patterns in Software Development | Christian Joudon | Professional Portfolio">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/92127547?v=4">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/techfolio-theme/default.css">
+    <link rel="stylesheet" type="text/css" href="/css/rouge/github.css">
+
+    
+
+    <!-- Load MathJax if 'mathjax: true' is found in your _config.yml. -->
+    
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+
+    <title>Design Patterns in Software Development | Christian Joudon | Professional Portfolio</title>
+  </head>
+  <body>
+  <header class="navbar navbar-expand navbar-light custom-header">
+  <div class="container-fluid">
+    <a class="navbar-brand navbar-brand-custom" href="/">Christian Joudon</a>
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <a class="nav-link nav-link-custom" href="/#projects">Projects</a>
+        <a class="nav-link nav-link-custom" href="/#essays">Essays</a>
+        <a class="nav-link nav-link-custom" href="/resume.html">Resume</a>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="container py-4">
+  <h1 class="display-4">Design Patterns in Software Development</h1>
+  <span class="date">29 Nov 2023</span>
+  <hr>
+  <h1 id="navigating-the-landscape-of-design-patterns-in-software-development">Navigating the Landscape of Design Patterns in Software Development</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In the evolving world of software development, design patterns emerge as pivotal elements in crafting efficient, scalable, and maintainable applications. Understanding and utilizing these patterns is not just an academic exercise but a practical necessity for developers aiming to excel in their craft.</p>
+
+<h2 id="understanding-design-patterns">Understanding Design Patterns</h2>
+
+<p>Design patterns in software engineering are best understood as time-tested solutions to common problems encountered during software design and development. These patterns are not ready-to-use code snippets but rather templates or guidelines that can be adapted to solve particular design issues in code. They provide a standard terminology and specific approach to address recurring challenges, enhancing code readability and enabling effective communication among developers.</p>
+
+<h2 id="categories-of-design-patterns">Categories of Design Patterns</h2>
+
+<p>Broadly, design patterns are categorized into three groups:</p>
+
+<ul>
+  <li>
+    <p><strong>Creational Patterns</strong>: These deal with object creation mechanisms, optimizing what objects are created, how they are created, and how they are interconnected. Examples include Singleton, which ensures a class has only one instance and provides a global point of access to it, and Factory Method, which allows a class to defer instantiation to subclasses.</p>
+  </li>
+  <li>
+    <p><strong>Structural Patterns</strong>: Focused on how classes and objects are composed to form larger structures, these patterns ensure that if one part changes, the entire structure doesn’t need to. The Adapter pattern, for instance, allows incompatible interfaces to work together, while the Composite pattern lets clients treat individual objects and compositions uniformly.</p>
+  </li>
+  <li>
+    <p><strong>Behavioral Patterns</strong>: These are concerned with communication between objects, promoting loose coupling and flexibility. The Observer pattern, for example, allows an object to notify other objects of a change without knowing their specifics, and the Strategy pattern enables selecting an algorithm’s behavior at runtime.</p>
+  </li>
+</ul>
+
+<h2 id="design-patterns-in-practice">Design Patterns in Practice</h2>
+
+<ul>
+  <li>
+    <p><strong>Component Pattern (React Components)</strong>: This foundational pattern in React is evident in how the UI is constructed using encapsulated, reusable components. My projects, for instance, extensively use functional components like Club.jsx, Profile.jsx, and SignIn.jsx for rendering the user interface, showcasing the power of component modularity.</p>
+  </li>
+  <li>
+    <p><strong>Container and Presentational Components</strong>: This pattern delineates components focused on functionality (Container) from those concerned with presentation (Presentational). In my work, this is demonstrated in components such as AddClub.jsx and ClubFinder.jsx, ensuring a clean separation of concerns.</p>
+  </li>
+  <li>
+    <p><strong>State Management with Hooks</strong>: The adoption of React’s useState and useEffect hooks in various components like SignIn.jsx and Landing.jsx is a testament to the effective management of local state and lifecycle events in functional React components.</p>
+  </li>
+  <li>
+    <p><strong>Module Pattern</strong>: My project structures illustrate this pattern through the encapsulation of functionalities in modules like Methods.js and Mongo.js. This approach enhances reusability and promotes a clear separation of concerns.</p>
+  </li>
+  <li>
+    <p><strong>API Methods Pattern (Meteor Methods)</strong>: A common pattern in Meteor applications, utilized for defining server-side methods for database operations and business logic, is evident in files like Methods.js.</p>
+  </li>
+  <li>
+    <p><strong>Data Fetching and Publication Pattern</strong>: The integration of useTracker in Meteor with React components such as ClubFinder.jsx and ListEvents.jsx, along with data publications defined in Publications.js, exemplifies this pattern, crucial for efficient data subscriptions and fetching.</p>
+  </li>
+  <li>
+    <p><strong>Configuration Pattern</strong>: Seen in files like Accounts.js and Startup.jsx, this pattern involves defining specific configurations for aspects like user accounts and application initialization.</p>
+  </li>
+  <li>
+    <p><strong>Form Handling Pattern</strong>: Utilizing libraries like uniforms-bootstrap5 in components such as AddClub.jsx and Profile.jsx, this pattern simplifies form creation and validation, a recurrent necessity in web applications.</p>
+  </li>
+  <li>
+    <p><strong>List Rendering Pattern</strong>: This pattern is employed in components like ListClubs.jsx and ListEvents.jsx, where iterating over data to produce UI elements is a common task.</p>
+  </li>
+  <li>
+    <p><strong>Utility Functions Pattern</strong>: The use of specific, reusable utility functions, potentially in files like Accounts.js, is a practical approach for performing common tasks across the application, enhancing code efficiency and maintainability.</p>
+  </li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Design patterns are invaluable tools in a developer’s toolkit, offering structured approaches to common problems in software design. Their correct application can drastically improve the quality of software, making it more scalable, maintainable, and efficient. As the software industry continues to evolve, the relevance of these patterns remains constant, marking them as essential knowledge for any proficient software developer.</p>
+
+</div>
+
+<footer class="navbar navbar-expand navbar-light bg-light bg-gradient custom-footer">
+  <div class="container-fluid">
+    <div class="ms-auto">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <small><a class="nav-link" href="https://techfolios.github.io">Made with Techfolios</a></small>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
