@@ -678,19 +678,7 @@ if __name__ == "__main__":
     results = kernel.run()
     # results is a list of dicts you can export to CSV/Parquet or feed to dashboards.
 
-Why this skeleton is a big step up
 
-Deterministic runs with named RNG streams.
-
-Contracts for Event, GlobalState, and agent batched operations.
-
-Vectorized agents suitable for scaling.
-
-Explicit market dynamics with documented (if simple) price formation.
-
-Recorder produces tidy, analyzable outputs.
-
-Policy and events are clean, orthogonal levers.
 
 11) Testing checklist (practical)
 
