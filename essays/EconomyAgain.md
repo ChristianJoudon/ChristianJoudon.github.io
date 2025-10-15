@@ -157,418 +157,568 @@ This software system provides a testbed for experimenting with economic theories
 Below is a detailed pseudocode example outlining a potential end-to-end workflow for building, running, and analyzing an AI-driven economic simulator. While this example remains language-agnostic and high-level, it uses Python-like syntax to illustrate concepts in a clear and approachable manner.
 
 ```python
-import os
-import json
-import logging
-from typing import Dict, Any, List, Optional
+1) Proposed architecture (clean separation of concerns)
++---------------------------------------------------------------+
+|                    Experiments & Scenarios                    |
+|  (YAML/JSON configs, seeds, policy toggles, event calendars)  |
++--------------------+---------------------------+--------------+
+                     |                           |
+                     v                           v
++-------------------------+       +-----------------------------+
+|  Data Layer             |       |  Model Training Layer       |
+|  - Sources/ETL          |       |  - Macro forecasters        |
+|  - Canonical Tables     |       |  - Agent policies (RL/BC)   |
+|  - Validation + units   |       |  - Offline datasets         |
++------------+------------+       +-----------------------------+
+             |                                        ^
+             v                                        |
++-------------------------+       +-------------------+----------------+
+|  Simulation Kernel      |<----->|  Agent/Market/Policy Plugins      |
+|  - Discrete-event loop  |       |  - Agents (vectorizable)          |
+|  - Event scheduler      |       |  - Markets (clearing rules)       |
+|  - RNG + timebase       |       |  - Policy modules (monetary/fiscal|
+|  - State recorder       |       |  - Shock models                   |
++------------+------------+       +-------------------+----------------+
+             |
+             v
++-------------------------+
+|  Analysis & Viz         |
+|  - KPIs & diagnostics   |
+|  - Backtests/benchmarks |
+|  - Export artifacts     |
++-------------------------+
 
-#-----------------------------------------------------------------------------
-# GLOBAL CONFIGURATIONS & LOGGING
-#-----------------------------------------------------------------------------
 
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
-logger = logging.getLogger("EconomicSimulationPipeline")
+Rule of thumb: the simulator consumes trained models; it doesn’t train them live (except for controlled online-learning experiments behind a feature flag).
 
-SIMULATION_TIMESTEPS = 365  # e.g., 1-year daily steps
-EVENT_CALENDAR_FILE = "event_calendar.json"  # JSON specifying events by day
-REFERENCE_DATA_FILE = "historical_reference.csv"  # For validating results
+2) Data contracts (canonical schemas)
 
-# -----------------------------------------------------------------------------
-# 1. DATA INGESTION
-# -----------------------------------------------------------------------------
+Economic time series (wide or long):
 
-def load_economic_time_series(db_name: str) -> Dict[str, Any]:
-    """
-    Simulates loading economic time-series data (e.g., GDP, inflation rates,
-    interest rates, commodity prices) from a database or data warehouse.
-    
-    :param db_name: The name or path of the database or dataset.
-    :return: A dictionary containing time-indexed economic indicators.
-    """
-    logger.info(f"Loading economic data from {db_name}...")
-    # Pseudocode for data fetching:
-    #   1. Connect to DB or read from CSV/Parquet.
-    #   2. Parse data into a time-series structure (e.g., pandas DataFrame).
-    #   3. Return as a dictionary for simplicity.
-    econ_data = {
-        "dates": ["2020-01-01", "2020-01-02", ...],
-        "indicators": {
-            "gdp": [1.21, 1.22, ...],
-            "inflation": [0.02, 0.021, ...],
-            "interest_rate": [0.01, 0.01, ...]
+table: econ_timeseries
+columns:
+  - ts: datetime (UTC, no tz-aware conversions inside the sim)
+  - region: string (ISO 3166-1 alpha-3)
+  - indicator: enum[gdp, cpi, unemployment, interest_rate, ...]
+  - value: float64
+  - unit: string (e.g., "USD_2015", "pct")
+  - source: string
+constraints:
+  - unique(ts, region, indicator)
+  - non_null(value)
+  - unit_checked_with_registry
+
+
+Event schema:
+
+table: event_calendar
+columns:
+  - ts: datetime
+  - event_type: enum[policy_change, macro_shock, disaster, media, sentiment_spike]
+  - scope: enum[global, region, sector]
+  - target: string (e.g., "US", "Energy")
+  - payload: json (typed by event_type)
+examples:
+  - ts: 2008-09-15T00:00:00Z
+    event_type: macro_shock
+    scope: global
+    target: "*"
+    payload: { credit_spread_bps_delta: 250 }
+
+
+Policy action schema:
+
+table: policy_actions
+columns:
+  - ts: datetime
+  - authority: enum[cbank, treasury, regulator]
+  - instrument: enum[policy_rate, qe, tax_rate, gov_spend, carbon_price]
+  - value: float64
+  - unit: string
+
+
+Enforce these with runtime validators (e.g., pydantic/dataclasses + custom checks). Track units explicitly; conversions happen once at ingestion.
+
+3) Simulation kernel (deterministic, auditable)
+
+Key responsibilities:
+
+Timebase: discrete ticks (e.g., daily) or discrete‑event jumps.
+
+RNG: centralized PRNG with named streams ("agents", "policy", "market") for reproducibility.
+
+Scheduler: merges event calendar + policy schedule into a min‑heap on ts.
+
+Recorder: append‑only store of state deltas per tick (parquet or columnar in‑memory, then flushed).
+
+Invariants to check each tick
+
+Prices > 0, money/asset conservation (subject to creation/destruction rules), no NaNs/inf.
+
+Market clearing converged within tolerance; otherwise fall back to capped adjustment.
+
+4) Agents, markets, policies (plugin contracts)
+
+Agent interface
+
+class Agent:
+    def observe(self, obs: "Observation") -> None: ...
+    def act(self, t: int) -> "OrderBatch": ...
+    def settle(self, fills: "FillBatch") -> None: ...
+
+
+Internals: a policy function πθ(obs) (learned or rule‑based).
+
+Store state in struct-of-arrays (SoA) for vectorization: wealth, inventory, propensity, etc.
+
+Market interface
+
+class Market:
+    def submit(self, orders: "OrderBatch") -> None: ...
+    def clear(self) -> "FillBatch": ...
+    def quote(self) -> "Quote": ...
+
+
+Provide at least one call market (periodic double auction) and one tatonnement-like price adjuster (for toy RBC-style tests). Document limitations.
+
+Policy module
+
+class PolicyModule:
+    def apply(self, t: int, state: "GlobalState") -> None: ...
+
+
+Inputs: scheduled actions + event payloads.
+
+Effects: manipulate global parameters, inject transfers, change constraints.
+
+5) Modeling notes (sharp edges)
+
+Lucas critique / policy invariance: avoid judging real‑world effects from agents trained on pre‑policy regimes without counterfactual retraining or structural modeling.
+
+Offline RL safety: prefer behavior‑cloning→conservative/offline RL pipelines to prevent out‑of‑distribution thrash in simulation.
+
+Endogeneity & identifiability: use instrumental variables–like shocks (or synthetic control) when calibrating causal responses.
+
+Heterogeneity: represent cohorts (income deciles, industries) as coarse but meaningful buckets; vectorize within buckets.
+
+6) Validation & benchmarking
+
+Backtests: fixed windows (e.g., 2005–2011 crisis), holdout periods, and stress scenarios.
+
+Metrics:
+
+Forecast: RMSE/MAE/MAPE for CPI, GDP growth, unemployment.
+
+Structural: Phillips‑like tradeoffs, consumption smoothing, wealth Gini trajectory.
+
+Micro: budget violations ≡ 0, inventory nonnegative rates, default frequencies.
+
+Baselines: naive persistence, simple ARIMA, static representative agent. Always compare to them.
+
+7) Observability & governance
+
+Run manifest: seed, config hash, code commit, data snapshot IDs.
+
+Event log: every applied event/policy with before/after diffs.
+
+Dashboards: (1) macro time series, (2) distributional panels, (3) market microstructure, (4) constraint violations.
+
+Ethics: document policy levers and their caveats; provide “do not interpret as advice” overlays on dashboards.
+
+8) Performance & scaling
+
+Start small: 10–100k agents with vectorized numpy/JAX/PyTorch computations for policy inference.
+
+SoA over AoS: arrays of attributes; avoid Python object loops in hot paths.
+
+Batch everything: observations → policy → orders → matching in blocks.
+
+Checkpoints: periodic snapshots to resume long runs.
+
+Parallelism: scenarios parallel by process; agents batched intra‑process.
+
+9) MVP milestone plan (6–8 weeks)
+
+Week 1–2: Data contracts + loaders + unit registry + seedable RNG + recorder.
+
+Week 2–3: Kernel + scheduler + call‑market clearing + simple policy sliders.
+
+Week 3–4: Cohort agents (rule‑based), macro forecaster (naive + ARIMA).
+
+Week 4–5: Validation harness (crisis backtest) + metrics.
+
+Week 5–6: Replace cohorts’ rules with a BC policy; add dashboards.
+
+Week 7–8: Stress scenarios, profiling, and doc pass.
+
+10) Overhauled, executable‑style skeleton (Pythonic pseudocode)
+
+This is a drop‑in scaffold you can start from. It’s still language‑agnostic in spirit, but it’s executable‑leaning, typed, deterministic, and testable.
+
+# sim/__init__.py
+from __future__ import annotations
+from dataclasses import dataclass, field, asdict
+from typing import Dict, Any, List, Tuple, Iterable, Optional
+import numpy as np
+import math
+import uuid
+
+# ----------------------------
+# 0) Config & reproducibility
+# ----------------------------
+
+@dataclass(frozen=True)
+class SimConfig:
+    run_id: str
+    seed: int
+    ticks: int                       # total steps
+    dt_days: int                     # days per tick
+    region: str                      # e.g., "USA"
+    num_agents: int
+    market_type: str                 # "call" | "tatonnement"
+    initial_interest: float
+    initial_tax_rate: float
+    money_supply: float
+    record_every: int = 1            # snapshot cadence
+
+def make_rngs(seed: int) -> Dict[str, np.random.Generator]:
+    base = np.random.SeedSequence(seed)
+    streams = {name: np.random.default_rng(s)
+               for name, s in zip(["kernel", "agents", "markets", "policy"],
+                                  base.spawn(4))}
+    return streams
+
+# ----------------------------
+# 1) Data contracts (minimal)
+# ----------------------------
+
+@dataclass(frozen=True)
+class EconPoint:
+    ts: np.datetime64
+    indicator: str                   # "cpi", "gdp", "u_rate", "policy_rate"
+    value: float
+    unit: str                        # "pct", "USD_2015", etc.
+
+@dataclass(frozen=True)
+class Event:
+    ts: np.datetime64
+    event_type: str                  # "policy_change", "macro_shock", ...
+    scope: str                       # "global" | "region" | "sector"
+    target: str                      # e.g., "USA", "Energy", "*"
+    payload: Dict[str, Any]
+
+# ----------------------------
+# 2) Global state & recorder
+# ----------------------------
+
+@dataclass
+class GlobalState:
+    t: int
+    ts: np.datetime64
+    interest_rate: float
+    tax_rate: float
+    money_supply: float
+    price_level: float               # CPI proxy
+    output: float                    # GDP proxy
+
+class Recorder:
+    def __init__(self) -> None:
+        self.rows: List[Dict[str, Any]] = []
+
+    def record(self, state: GlobalState, extras: Dict[str, Any]) -> None:
+        row = asdict(state) | extras
+        self.rows.append(row)
+
+    def snapshot(self) -> List[Dict[str, Any]]:
+        # In production: write to parquet; here we just expose memory buffer.
+        return self.rows
+
+# ----------------------------
+# 3) Agents (vectorized cohort)
+# ----------------------------
+
+@dataclass
+class AgentCohort:
+    # Struct-of-arrays to vectorize over N agents
+    ids: np.ndarray                 # shape [N]
+    wealth: np.ndarray              # [N]
+    income: np.ndarray              # [N]
+    propensity_consume: np.ndarray  # [N] in (0,1)
+    inventory: np.ndarray           # [N] units of generic good
+
+    def observe(self, state: GlobalState) -> Dict[str, np.ndarray]:
+        # Minimal observation vector (extend as needed)
+        return {
+            "r": np.full_like(self.wealth, state.interest_rate, dtype=float),
+            "p": np.full_like(self.wealth, state.price_level, dtype=float),
+            "tax": np.full_like(self.wealth, state.tax_rate, dtype=float),
+            "y": self.income
         }
-    }
-    return econ_data
 
-def load_event_metadata(db_events: str) -> Dict[str, Any]:
-    """
-    Loads metadata for significant economic, cultural, or policy-related events
-    that may affect the simulation (e.g., pandemics, technological breakthroughs,
-    political elections).
-    
-    :param db_events: The path or database reference for event data.
-    :return: A dictionary with event details keyed by date or time index.
-    """
-    logger.info(f"Loading event data from {db_events}...")
-    # Pseudocode for event data:
-    event_data = {
-        "2020-01-05": {"type": "policy_change", "details": {"tax_rate_increase": 0.02}},
-        "2020-02-10": {"type": "natural_disaster", "details": {"region": "coastal"}},
-        ...
-    }
-    return event_data
+    def act(self, obs: Dict[str, np.ndarray]) -> Dict[str, np.ndarray]:
+        # Simple rule or learned policy πθ; here: consumption & labor supply toy policy
+        after_tax_income = obs["y"] * (1.0 - obs["tax"])
+        desired_cons = self.propensity_consume * (self.wealth + after_tax_income)
+        orders = {
+            "buy_qty": np.clip(desired_cons - self.inventory, a_min=0.0, a_max=None),
+            "sell_qty": np.clip(self.inventory - desired_cons, a_min=0.0, a_max=None),
+        }
+        return orders
 
-# -----------------------------------------------------------------------------
-# 2. DATA PREPROCESSING
-# -----------------------------------------------------------------------------
+    def settle(self, fills: Dict[str, np.ndarray], price: float) -> None:
+        # Update inventory and wealth given fills
+        buy = fills.get("buy_fill", np.zeros_like(self.wealth))
+        sell = fills.get("sell_fill", np.zeros_like(self.wealth))
+        self.inventory += buy - sell
+        cash_delta = -price * buy + price * sell
+        self.wealth += cash_delta
 
-def preprocess_economic_data(econ_data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Cleans, normalizes, and validates the raw economic data. Handles tasks such as:
-    - Missing-value imputation
-    - Outlier detection
-    - Time alignment
-    
-    :param econ_data: Raw economic data dictionary from load_economic_time_series().
-    :return: A cleaned and validated version of econ_data.
-    """
-    logger.info("Preprocessing economic data...")
-    # Pseudocode for cleaning steps:
-    #  1. Check for NaNs, fill or remove them.
-    #  2. Identify and correct outliers using domain knowledge or statistical methods.
-    #  3. Reindex or resample data if needed for uniform daily intervals.
-    return econ_data  # Return processed data structure
+# ----------------------------
+# 4) Market (call auction)
+# ----------------------------
 
-def preprocess_event_data(event_data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Cleans and validates event metadata. Potential tasks:
-    - Validate event date/time format
-    - Ensure event details have necessary keys (type, magnitude, region, etc.)
-    
-    :param event_data: Raw event data dictionary from load_event_metadata().
-    :return: A cleaned and validated version of event_data.
-    """
-    logger.info("Preprocessing event data...")
-    # Basic checks and transformations:
-    #  1. Filter out incomplete or suspicious events.
-    #  2. Sort events chronologically if required.
-    return event_data
+class CallMarket:
+    def __init__(self, rng: np.random.Generator, tick_size: float = 1e-4) -> None:
+        self.rng = rng
+        self.tick = tick_size
 
-# -----------------------------------------------------------------------------
-# 3. MODEL TRAINING
-# -----------------------------------------------------------------------------
-
-def train_forecasting_model(econ_cleaned: Dict[str, Any]) -> Any:
-    """
-    Trains a forecasting model (e.g., ARIMA, LSTM, Transformer-based model)
-    to predict future economic indicators.
-    
-    :param econ_cleaned: Preprocessed economic time-series data.
-    :return: A trained model object capable of producing forecasts.
-    """
-    logger.info("Training macro-level forecasting model...")
-    # Pseudocode workflow:
-    #   1. Split data into train/validation sets.
-    #   2. Fit model (e.g., ARIMA, RNN, or ensemble methods).
-    #   3. Evaluate on validation set.
-    #   4. Return the trained model object.
-    macro_model = "TrainedMacroModelObject"
-    return macro_model
-
-def train_agent_behavior_model(econ_cleaned: Dict[str, Any], events_cleaned: Dict[str, Any]) -> Any:
-    """
-    Trains an agent behavior model using techniques like:
-    - Reinforcement Learning (RL)
-    - Behavior Cloning from historical data
-    - Hybrid approaches (RL with supervised pre-training)
-    
-    :param econ_cleaned: Preprocessed economic data.
-    :param events_cleaned: Preprocessed event data.
-    :return: A trained agent model object.
-    """
-    logger.info("Training agent behavior model...")
-    # Pseudocode workflow:
-    #   1. Extract relevant features: price movements, policy changes, shocks.
-    #   2. Define action space (buy, sell, invest, etc.) and reward functions.
-    #   3. Train using historical data as offline RL or direct imitation learning.
-    #   4. Return the trained agent model.
-    agent_model = "TrainedAgentModelObject"
-    return agent_model
-
-# -----------------------------------------------------------------------------
-# 4. INITIALIZE SIMULATION
-# -----------------------------------------------------------------------------
-
-class EconomicSimulationEngine:
-    """
-    The central engine that orchestrates agent interactions, market clearing,
-    policy changes, and external events. 
-    """
-
-    def __init__(self, 
-                 macro_model: Any, 
-                 agent_model: Any, 
-                 initial_params: Dict[str, Any]):
+    def clear(self, buy_qty: np.ndarray, sell_qty: np.ndarray, last_price: float) -> Tuple[float, Dict[str, np.ndarray]]:
         """
-        :param macro_model: A forecasting model used for projecting macro trends.
-        :param agent_model: A model governing how agents make decisions.
-        :param initial_params: A dictionary containing initial simulation state, 
-                               such as interest rates, number of agents, etc.
+        Simple price update: move price toward excess demand
+        p_{t+1} = p_t * (1 + k * (D - S) / (|D|+|S|+eps))
+        Then pro‑rata allocate fills at p_{t+1}.
         """
-        self.macro_model = macro_model
-        self.agent_model = agent_model
-        self.state = initial_params  # e.g., global interest rates, money supply
-        self.agents = self._initialize_agents(initial_params)
-        self.current_day = 0
-        logger.info("EconomicSimulationEngine initialized.")
+        eps = 1e-9
+        D = float(np.sum(buy_qty))
+        S = float(np.sum(sell_qty))
+        imbalance = (D - S) / (abs(D) + abs(S) + eps)
+        k = 0.05
+        new_price = max(self.tick, last_price * (1.0 + k * imbalance))
+        # Pro‑rata fills
+        buy_fill = buy_qty * min(1.0, S / (D + eps))
+        sell_fill = sell_qty * min(1.0, D / (S + eps))
+        return new_price, {"buy_fill": buy_fill, "sell_fill": sell_fill}
 
-    def _initialize_agents(self, init_params: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """
-        Creates a list or dictionary of agents with initial wealth, roles,
-        and other attributes.
+# ----------------------------
+# 5) Policy module
+# ----------------------------
 
-        :param init_params: Simulation-wide parameters (e.g., number of households).
-        :return: A list of agent data structures.
-        """
-        logger.info("Initializing agents...")
-        # Pseudocode:
-        #   1. Create N agents with random or seeded initial capital.
-        #   2. Assign them different roles: consumer, producer, banker, regulator, etc.
-        #   3. Store them in a list or dictionary.
-        agents = []
-        for i in range(init_params.get("num_agents", 1000)):
-            agent_profile = {
-                "id": i,
-                "role": "consumer" if i < 800 else "producer",
-                "wealth": 1000.0,  # example
-                "preferences": {}
-            }
-            agents.append(agent_profile)
-        return agents
+class PolicyModule:
+    def __init__(self, schedule: Dict[int, Dict[str, float]]) -> None:
+        self.schedule = schedule
 
-    def apply_event(self, event: Dict[str, Any]) -> None:
-        """
-        Applies an external event to the simulation environment.
-        For instance, a policy change, disaster, or major financial shift.
-        
-        :param event: Dictionary describing the event type and details.
-        """
-        logger.info(f"Applying event: {event}")
-        # Modify self.state or agent properties based on event details
-        # e.g., if event is "tax_rate_increase", raise the global tax parameter
-        if event["type"] == "policy_change":
-            new_tax_rate = event["details"].get("tax_rate_increase", 0.0)
-            self.state["tax_rate"] = self.state.get("tax_rate", 0.0) + new_tax_rate
-        # Additional event logic can be added here
+    def apply(self, t: int, state: GlobalState) -> None:
+        actions = self.schedule.get(t)
+        if not actions:
+            return
+        # Supported instruments: policy_rate, tax_rate
+        if "policy_rate" in actions:
+            state.interest_rate = float(actions["policy_rate"])
+        if "tax_rate" in actions:
+            state.tax_rate = float(actions["tax_rate"])
+
+# ----------------------------
+# 6) Event scheduler
+# ----------------------------
+
+class EventScheduler:
+    def __init__(self, events: List[Event]) -> None:
+        self.by_tick: Dict[int, List[Event]] = {}
+        # In practice convert ts→tick using calendar; here assume aligned ext.
+        for e in events:
+            t = int(e.payload.get("tick", 0))  # placeholder mapping
+            self.by_tick.setdefault(t, []).append(e)
+
+    def get(self, t: int) -> List[Event]:
+        return self.by_tick.get(t, [])
+
+# ----------------------------
+# 7) Kernel
+# ----------------------------
+
+class SimulationKernel:
+    def __init__(
+        self,
+        cfg: SimConfig,
+        cohort: AgentCohort,
+        market,
+        policy: PolicyModule,
+        scheduler: EventScheduler,
+        macro_forecaster: Optional[Any] = None
+    ) -> None:
+        self.cfg = cfg
+        self.rngs = make_rngs(cfg.seed)
+        self.cohort = cohort
+        self.market = market
+        self.policy = policy
+        self.scheduler = scheduler
+        self.recorder = Recorder()
+        self.state = GlobalState(
+            t=0,
+            ts=np.datetime64("2000-01-01"),  # or from config
+            interest_rate=cfg.initial_interest,
+            tax_rate=cfg.initial_tax_rate,
+            money_supply=cfg.money_supply,
+            price_level=1.0,
+            output=1.0,
+        )
+        self.last_price = 1.0
+        self.macro = macro_forecaster
 
     def step(self) -> None:
-        """
-        Advances the simulation by one time step (e.g., one day).
-        During a step, each agent makes decisions, markets clear, 
-        and macro parameters update based on model forecasts.
-        """
-        logger.info(f"Stepping simulation: Day {self.current_day}")
-        
-        # 1. Forecast Macro Trends 
-        #    (Use macro_model to estimate e.g. inflation, interest rates)
-        predicted_trends = self._forecast_macro_trends()
-        
-        # 2. Update Global State 
-        self._update_global_params(predicted_trends)
-        
-        # 3. Agents Make Decisions 
-        for agent in self.agents:
-            self._agent_action(agent)
+        t = self.state.t
 
-        # 4. Resolve Markets and Apply Transactions
-        #    (e.g., sum supply/demand, recalc prices, wealth distribution)
-        self._market_clearing()
+        # 1) Apply scheduled events (convert to state deltas)
+        for e in self.scheduler.get(t):
+            if e.event_type == "macro_shock":
+                # Example: shock to price level or output
+                self.state.price_level *= (1.0 + float(e.payload.get("cpi_jump", 0.0)))
+                self.state.output *= (1.0 + float(e.payload.get("gdp_jump", 0.0)))
+            elif e.event_type == "policy_change":
+                if "tax_rate_delta" in e.payload:
+                    self.state.tax_rate += float(e.payload["tax_rate_delta"])
 
-        # 5. Increment Time
-        self.current_day += 1
+        # 2) Apply policy schedule (authoritative instruments)
+        self.policy.apply(t, self.state)
 
-    def _forecast_macro_trends(self) -> Dict[str, float]:
-        """
-        Uses the macro_model to forecast near-future trends 
-        (e.g. inflation, interest rates, GDP growth, etc.).
-        """
-        # Pseudocode:
-        forecast = {
-            "inflation": 0.02,  # Example forecast
-            "interest_rate": 0.015
-        }
-        return forecast
+        # 3) Macro forecast (optional)
+        if self.macro:
+            macro = self.macro.predict(self.state)  # returns dict with deltas
+            self.state.price_level *= (1.0 + macro.get("inflation", 0.0))
+            self.state.output *= (1.0 + macro.get("gdp_growth", 0.0))
 
-    def _update_global_params(self, forecast: Dict[str, float]) -> None:
-        """
-        Incorporates forecasted trends into the global simulation state.
-        """
-        self.state["inflation_rate"] = forecast["inflation"]
-        self.state["interest_rate"] = forecast["interest_rate"]
+        # 4) Agents observe & act (vectorized)
+        obs = self.cohort.observe(self.state)
+        orders = self.cohort.act(obs)
 
-    def _agent_action(self, agent: Dict[str, Any]) -> None:
-        """
-        Uses the agent_model (behavior logic) to decide an agent's action
-        in this step, then updates the agent's state accordingly.
-        """
-        # Pseudocode:
-        #   1. Observe environment (prices, inflation, interest_rate).
-        #   2. agent_model returns action (buy, sell, invest, produce, etc.).
-        #   3. Update agent state (wealth, inventory).
-        pass
+        # 5) Market clearing
+        new_price, fills = self.market.clear(
+            buy_qty=orders["buy_qty"],
+            sell_qty=orders["sell_qty"],
+            last_price=self.last_price
+        )
+        self.cohort.settle(fills, price=new_price)
+        self.last_price = new_price
 
-    def _market_clearing(self) -> None:
-        """
-        Aggregates all buy/sell actions, determines new prices,
-        and updates agent wealth.
-        """
-        # Pseudocode:
-        #   1. Sum supply and demand for each commodity or asset.
-        #   2. Adjust prices according to supply-demand gaps.
-        #   3. Transfer wealth between agents as needed.
-        logger.info("Market clearing for current timestep...")
-        pass
+        # 6) Invariants / safety
+        if not (new_price > 0.0 and np.all(np.isfinite(self.cohort.wealth))):
+            raise RuntimeError("Market or agent state invalid (price<=0 or non-finite wealth).")
 
-    def get_simulation_output(self) -> Dict[str, Any]:
-        """
-        Returns a snapshot of the current state and possibly 
-        the entire simulation history if stored.
+        # 7) Advance time & record
+        self.state.t += 1
+        self.state.ts = self.state.ts + np.timedelta64(self.cfg.dt_days, "D")
+        if t % self.cfg.record_every == 0:
+            extras = {
+                "price": self.last_price,
+                "mean_wealth": float(np.mean(self.cohort.wealth)),
+                "gini_wealth": gini(self.cohort.wealth),
+            }
+            self.recorder.record(self.state, extras)
 
-        :return: Dictionary containing simulation metrics, agent states, 
-                 and historical logs of each timestep (optional).
-        """
-        output = {
-            "global_state": self.state,
-            "agent_states": self.agents,
-            # "history": self.history  # if you store a history of states
-        }
-        return output
+    def run(self) -> List[Dict[str, Any]]:
+        for _ in range(self.cfg.ticks):
+            self.step()
+        return self.recorder.snapshot()
 
-# -----------------------------------------------------------------------------
-# 5. RUN SIMULATION WITH EVENT TRIGGERS
-# -----------------------------------------------------------------------------
+# ----------------------------
+# 8) Utilities
+# ----------------------------
 
-def load_event_calendar(file_path: str) -> Dict[int, Any]:
-    """
-    Loads a calendar of events from a JSON or CSV file, indexed by day number.
-    Example structure:
-    {
-      10: {"type": "policy_change", "details": {"tax_rate_increase": 0.02}},
-      30: {"type": "natural_disaster", "details": {"region": "coastal"}}
-    }
-    """
-    logger.info(f"Loading event calendar from {file_path}")
-    if not os.path.exists(file_path):
-        logger.warning("Event calendar file not found. Returning empty.")
-        return {}
-    with open(file_path, "r") as f:
-        calendar_data = json.load(f)
-    # Convert day strings to integers as needed
-    return {int(day): details for day, details in calendar_data.items()}
+def gini(x: np.ndarray) -> float:
+    x = np.asarray(x, dtype=float)
+    if np.any(x < 0):
+        x = x - np.min(x)  # shift to nonnegative
+    if x.sum() == 0:
+        return 0.0
+    x = np.sort(x)
+    n = x.size
+    cumx = np.cumsum(x)
+    return (n + 1 - 2 * np.sum(cumx) / cumx[-1]) / n
 
-# -----------------------------------------------------------------------------
-# 6. COLLECT RESULTS AND VALIDATE
-# -----------------------------------------------------------------------------
+# ----------------------------
+# 9) Example wiring (MVP)
+# ----------------------------
 
-def compare_with_historical(sim_results: Dict[str, Any], reference_data: str) -> Dict[str, float]:
-    """
-    Compares simulation outcomes with real-world historical data 
-    to evaluate accuracy.
-    
-    :param sim_results: Output from the simulation engine.
-    :param reference_data: Path to historical data for validation.
-    :return: A dictionary of metrics indicating how closely the simulation 
-             matches real-world outcomes (e.g., MAPE, RMSE).
-    """
-    logger.info("Validating simulation results against historical data...")
-    # Pseudocode:
-    #  1. Load reference data from CSV.
-    #  2. Compute error metrics (e.g., MAPE for inflation or GDP).
-    #  3. Return a dictionary of metrics, e.g. {"gdp_error": 0.05, "inflation_error": 0.02}.
-    validation_metrics = {
-        "inflation_rmse": 0.02,
-        "gdp_rmse": 0.05
-    }
-    return validation_metrics
-
-# -----------------------------------------------------------------------------
-# 7. VISUALIZATION
-# -----------------------------------------------------------------------------
-
-def generate_dashboard(sim_results: Dict[str, Any], validation_metrics: Dict[str, float]) -> None:
-    """
-    Generates or updates a dashboard (e.g., Plotly, Dash, or a static HTML report) 
-    with key graphs:
-     - Time-series of inflation vs. historical benchmarks
-     - GDP evolution vs. forecasts
-     - Wealth distribution among agents over time
-     - Validation metrics summary
-    """
-    logger.info("Generating simulation dashboard...")
-    # Pseudocode:
-    #   1. Prepare figures for each key metric.
-    #   2. Render or save to file/HTML.
-    pass
-
-# -----------------------------------------------------------------------------
-# MAIN PIPELINE
-# -----------------------------------------------------------------------------
-
-def main_workflow() -> Dict[str, float]:
-    """
-    Orchestrates the entire economic simulation workflow.
-    Returns validation metrics that quantify the simulation's realism.
-    """
-    logger.info("Starting main economic simulation workflow...")
-
-    # 1. Data Ingestion
-    economic_data = load_economic_time_series("db_econ")
-    event_data = load_event_metadata("db_events")
-
-    # 2. Data Preprocessing
-    econ_cleaned = preprocess_economic_data(economic_data)
-    events_cleaned = preprocess_event_data(event_data)
-
-    # 3. Model Training
-    macro_model = train_forecasting_model(econ_cleaned)
-    agent_behavior_model = train_agent_behavior_model(econ_cleaned, events_cleaned)
-
-    # 4. Initialize Simulation
-    initial_world_state = {
-        "interest_rate": 0.01,
-        "tax_rate": 0.05,
-        "num_agents": 1000,
-        "money_supply": 1000000.0
-    }
-    sim_env = EconomicSimulationEngine(
-        macro_model=macro_model,
-        agent_model=agent_behavior_model,
-        initial_params=initial_world_state
+def build_mvp(num_agents: int = 10000) -> SimulationKernel:
+    cfg = SimConfig(
+        run_id=str(uuid.uuid4()),
+        seed=42,
+        ticks=365,
+        dt_days=1,
+        region="USA",
+        num_agents=num_agents,
+        market_type="call",
+        initial_interest=0.01,
+        initial_tax_rate=0.05,
+        money_supply=1_000_000.0,
     )
+    rngs = make_rngs(cfg.seed)
+    ids = np.arange(num_agents)
+    wealth = rngs["agents"].lognormal(mean=7.0, sigma=1.0, size=num_agents)  # skewed
+    income = rngs["agents"].normal(loc=100.0, scale=20.0, size=num_agents).clip(min=0.0)
+    propensity = rngs["agents"].beta(a=2.0, b=5.0, size=num_agents)
+    inventory = rngs["agents"].uniform(low=0.0, high=10.0, size=num_agents)
 
-    # 5. Run Simulation with Event Triggers
-    event_calendar = load_event_calendar(EVENT_CALENDAR_FILE)
-    for t in range(SIMULATION_TIMESTEPS):
-        if t in event_calendar:
-            sim_env.apply_event(event_calendar[t])
-        sim_env.step()
-
-    # 6. Collect Results and Validate
-    sim_results = sim_env.get_simulation_output()
-    validation_metrics = compare_with_historical(sim_results, REFERENCE_DATA_FILE)
-
-    # 7. Visualization
-    generate_dashboard(sim_results, validation_metrics)
-
-    logger.info("Main workflow complete.")
-    return validation_metrics
-
-# -----------------------------------------------------------------------------
-# SCRIPT ENTRY POINT
-# -----------------------------------------------------------------------------
+    cohort = AgentCohort(ids, wealth, income, propensity, inventory)
+    market = CallMarket(rng=rngs["markets"])
+    policy = PolicyModule(schedule={
+        30: {"policy_rate": 0.0125},
+        90: {"tax_rate": 0.06}
+    })
+    events = [
+        Event(ts=np.datetime64("2000-02-01"), event_type="macro_shock", scope="global", target="*",
+              payload={"tick": 60, "cpi_jump": 0.02}),
+    ]
+    scheduler = EventScheduler(events)
+    kernel = SimulationKernel(cfg, cohort, market, policy, scheduler, macro_forecaster=None)
+    return kernel
 
 if __name__ == "__main__":
-    metrics = main_workflow()
-    print("Simulation complete. Validation metrics:", metrics)
+    kernel = build_mvp()
+    results = kernel.run()
+    # results is a list of dicts you can export to CSV/Parquet or feed to dashboards.
 
+Why this skeleton is a big step up
+
+Deterministic runs with named RNG streams.
+
+Contracts for Event, GlobalState, and agent batched operations.
+
+Vectorized agents suitable for scaling.
+
+Explicit market dynamics with documented (if simple) price formation.
+
+Recorder produces tidy, analyzable outputs.
+
+Policy and events are clean, orthogonal levers.
+
+11) Testing checklist (practical)
+
+Unit:
+
+Price never ≤ 0; no NaNs/inf after step().
+
+With zero orders, price stays at last_price.
+
+Tax increase reduces mean post‑tax income in next tick.
+
+Property:
+
+Money conservation when the economy is closed and policy doesn’t inject/withdraw.
+
+Gini stays within [0,1].
+
+Integration:
+
+Replaying the same config/seed yields the same time series.
+
+Event replay (policy flip at t=30) changes trajectories in expected direction.
+
+12) Validation harness (outline)
+def validate_against_reference(results: List[Dict[str, Any]], ref_df) -> Dict[str, float]:
+    # Align on ts, compute MAE/RMSE for price_level (CPI proxy) and output (GDP proxy)
+    # Return {"cpi_rmse": ..., "gdp_rmse": ..., "wealth_gini_trend_corr": ...}
+    ...
+
+
+Add scenario bundles: crisis_2008.yml, pandemic_2020.yml, energy_shock_1979.yml, each with calibration targets and acceptance thresholds.
