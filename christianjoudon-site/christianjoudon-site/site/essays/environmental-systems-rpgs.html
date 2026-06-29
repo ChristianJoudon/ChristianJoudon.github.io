@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dynamic Environmental Systems in RPGs · Christian Joudon</title>
+<meta name="description" content="Dynamic Environmental Systems in RPGs">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills">Toolkit</a>
+      <a href="../index.html#writing">Writing</a>
+      <a href="../index.html#essays">Essays</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="subpage">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#essays"><span class="ar">←</span> Essays</a>
+    <div class="essay-head">
+      <span class="kicker">Essay · 2023 · AI · Game Development · Algorithms</span>
+      <h1>Dynamic Environmental Systems in RPGs</h1>
+    </div>
+    <article class="essay-body">
+<h1 id="dynamic-environmental-systems-in-rpgs">Dynamic Environmental
+Systems in RPGs</h1>
+<h2 id="overview">Overview</h2>
+<p>Dynamic Environmental Systems in RPGs aims to revolutionize game
+environments by transitioning from static, predictable landscapes to
+immersive, adaptive worlds. The project focuses on creating interactive
+systems where player actions influence weather, terrain, NPC behavior,
+and quests in real time. These innovations provide a foundation for
+greater replayability, deeper storytelling, and enhanced player
+agency.</p>
+<p>This essay explores the development, technical implementation, and
+broader applications of these dynamic systems in gaming. It is
+supplemented with a detailed 40-page write-up accessible via an embedded
+viewer below.</p>
+<hr />
+<h2 id="key-contributions">Key Contributions</h2>
+<h3 id="1-dynamic-weather-and-environmental-effects"><strong>1. Dynamic
+Weather and Environmental Effects</strong></h3>
+<ul>
+<li><strong>Features:</strong>
+<ul>
+<li>Real-time weather simulations, including storms, rain, and fog, that
+impact gameplay.</li>
+<li>Environmental hazards, such as floods or forest fires, that
+dynamically alter terrain and player strategy.</li>
+</ul></li>
+<li><strong>Technologies:</strong>
+<ul>
+<li><strong>ARIMA</strong> for weather pattern predictions.</li>
+<li><strong>Neural Networks</strong> for simulating storm movements and
+environmental interactions.</li>
+</ul></li>
+</ul>
+<h3 id="2-interactive-objects-and-materials"><strong>2. Interactive
+Objects and Materials</strong></h3>
+<ul>
+<li><strong>Features:</strong>
+<ul>
+<li>Objects with multi-use functionality based on context (e.g., a tree
+can provide cover, resources, or obstacles).</li>
+<li>Rules for object interactions defined using <strong>Finite State
+Machines (FSM)</strong> and hash tables.</li>
+</ul></li>
+<li><strong>Examples:</strong>
+<ul>
+<li>Rocks can be used as barriers or projectiles.</li>
+<li>Fallen trees alter paths and influence NPC behaviors.</li>
+</ul></li>
+</ul>
+<h3 id="3-dynamic-quests-and-storylines"><strong>3. Dynamic Quests and
+Storylines</strong></h3>
+<ul>
+<li><strong>Features:</strong>
+<ul>
+<li>Goal-Oriented Action Planning (GOAP) ensures quests adapt to
+environmental changes and player decisions.</li>
+<li>Trigger-based quest generation introduces dynamic, context-aware
+storylines.</li>
+</ul></li>
+<li><strong>Example:</strong>
+<ul>
+<li>A flood causes an NPC to reroute, introducing a new quest involving
+rescue or resource collection.</li>
+</ul></li>
+</ul>
+<h3 id="4-real-time-terrain-modification"><strong>4. Real-Time Terrain
+Modification</strong></h3>
+<ul>
+<li><strong>Features:</strong>
+<ul>
+<li>Persistent terrain deformation (e.g., craters, landslides)
+influenced by player actions and environmental events.</li>
+</ul></li>
+<li><strong>Technologies:</strong>
+<ul>
+<li><strong>Sparse Voxel Octrees</strong> and <strong>adaptive
+tessellation</strong> for efficient real-time updates.</li>
+</ul></li>
+<li><strong>Impact:</strong>
+<ul>
+<li>Enables persistent world-building where player actions leave lasting
+effects on the game world.</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="technical-implementation">Technical Implementation</h2>
+<h3 id="core-systems-and-tools"><strong>Core Systems and
+Tools</strong></h3>
+<ol type="1">
+<li><p><strong>Physics and Interaction:</strong></p>
+<ul>
+<li><strong>Sparse Voxel Octrees</strong>: Efficient 3D terrain
+modification and interaction tracking.</li>
+<li><strong>GDScript (Godot Engine)</strong>: Handles terrain updates,
+NPC interactions, and environmental triggers.</li>
+</ul></li>
+<li><p><strong>AI-Driven Features:</strong></p>
+<ul>
+<li><strong>Neural Networks</strong> for predictive modeling of NPC
+behavior and weather effects.</li>
+<li><strong>Finite State Machines (FSM)</strong> for rule-based
+interactions with objects and environments.</li>
+</ul></li>
+<li><p><strong>Procedural Generation:</strong></p>
+<ul>
+<li><strong>Noise Functions (Perlin/Simplex)</strong> for terrain
+features.</li>
+<li><strong>ARIMA and STL</strong> for time-series-based weather
+simulations.</li>
+</ul></li>
+<li><p><strong>Optimization Techniques:</strong></p>
+<ul>
+<li>Multi-threaded updates for real-time interactions.</li>
+<li>Level-of-Detail (LOD) systems for efficient rendering.</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="interactive-document-viewer">Interactive Document Viewer</h2>
+<p>To explore the project in greater detail, view the full essay
+below:</p>
+<iframe src="https://docs.google.com/document/d/1mkJHcjZ0n9wVDVSYBVdPsxIUU7rtoXek0WZgmbbCli8/edit?usp=sharing" width="100%" height="800px" style="border: none;"></iframe>
+
+<hr />
+<h2 id="applications-and-broader-impact">Applications and Broader
+Impact</h2>
+<h3 id="gaming-industry"><strong>Gaming Industry</strong></h3>
+<ul>
+<li><strong>RPGs and Simulation Games</strong>:
+<ul>
+<li>Dynamic systems enhance immersion, replayability, and narrative
+depth.</li>
+<li>Real-time environmental feedback improves decision-making and
+strategy.</li>
+</ul></li>
+</ul>
+<h3 id="educational-tools"><strong>Educational Tools</strong></h3>
+<ul>
+<li>Simulations based on these systems can teach environmental science,
+urban planning, or disaster management.</li>
+</ul>
+<h3 id="business-insights"><strong>Business Insights</strong></h3>
+<ul>
+<li>Use of predictive algorithms in dynamic modeling can inspire
+innovations in logistics and AI-driven systems.</li>
+</ul>
+<hr />
+<h2 id="why-this-project-matters">Why This Project Matters</h2>
+<p>Dynamic Environmental Systems redefine how players interact with
+virtual worlds, bridging the gap between immersion and adaptability. By
+integrating advanced algorithms and procedural systems, this project
+introduces a new standard for player agency and storytelling in RPGs. It
+also lays the groundwork for cross-industry applications, demonstrating
+the versatility of these systems beyond gaming.</p>
+<p>This project represents a significant step forward in game
+development, offering a glimpse into the future of dynamic, interactive
+worlds.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Dynamic Environmental Systems showcase how advanced AI and procedural
+techniques can revolutionize the gaming industry and beyond. By offering
+adaptable worlds that evolve with player actions, this project delivers
+an experience that is immersive, replayable, and innovative.</p>
+<hr />
+
+    </article>
+    <nav class="detail-foot">
+      <a href="../index.html#essays"><span>←</span> All essays</a>
+    </nav>
+  </div>
+</main>
+<footer id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="f-kick">Contact</div>
+      <h2>Let’s build something worth shipping.</h2>
+      <div class="f-links">
+        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="tel:+18086398697">(808) 639-8697</a>
+        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
+        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
+        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <div class="colophon">
+        <span>Kauaʻi, Hawaiʻi</span>
+        <span>Designed and built by Christian Joudon · 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

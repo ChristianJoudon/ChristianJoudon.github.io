@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COVID-19 Records: NLP Pipeline · Christian Joudon</title>
+<meta name="description" content="A scalable pipeline turning unstructured medical notes into clean, structured datasets for analysis.">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills">Toolkit</a>
+      <a href="../index.html#writing">Writing</a>
+      <a href="../index.html#essays">Essays</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="subpage">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
+    <div class="detail-head">
+      <span class="kicker">2024 · NLP &amp; Data Engineering</span>
+      <h1>COVID-19 Records: NLP Pipeline</h1>
+      <p class="detail-lead">A scalable pipeline turning unstructured medical notes into clean, structured datasets for analysis.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">FAISS</span><span class="tag">LLMs</span><span class="tag">Pydantic</span><span class="tag">ETL</span></div>
+    </div>
+    <figure class="detail-media"><img src="../assets/img/covid.jpg" alt="COVID-19 Records: NLP Pipeline"></figure>
+    <div class="detail-body">
+<h2>Overview</h2>
+<p>Medical encounter notes are written for people, not databases. This pipeline reads unstructured COVID 19 patient records and produces clean, validated, structured data that can be analyzed at scale.</p>
+<h2>What it does</h2>
+<ul>
+<li>Large language model driven extraction with Pydantic validation to standardize fields.</li>
+<li>FAISS semantic search to keep medication references consistent across free text.</li>
+<li>Apache Spark analysis of comorbidities, medication frequencies, and demographic trends, with visualizations that supported the findings.</li>
+</ul>
+<h2>How it is built</h2>
+<p>Python drives the pipeline end to end, with PySpark for scale, FAISS for semantic matching, Pydantic for validation, and Parquet for storage. An LLM handles the initial extraction step.</p>
+    </div>
+    <nav class="detail-foot">
+      <a href="../index.html#work"><span>←</span> All work</a>
+      <a class="nxt" href="../work/chime.html">Chime: Booking Widget <span>→</span></a>
+    </nav>
+  </div>
+</main>
+<footer id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="f-kick">Contact</div>
+      <h2>Let’s build something worth shipping.</h2>
+      <div class="f-links">
+        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="tel:+18086398697">(808) 639-8697</a>
+        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
+        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
+        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <div class="colophon">
+        <span>Kauaʻi, Hawaiʻi</span>
+        <span>Designed and built by Christian Joudon · 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
