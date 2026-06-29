@@ -1,41 +1,49 @@
-# christianjoudon.github.io — new site
+# christianjoudon.github.io
 
-A single, self-contained personal site. Everything (styles, scripts, and the five
-project screenshots) is built into `index.html`. The only external thing it loads
-is the web fonts from Google Fonts. There is no build step.
+My personal site — a multi-page portfolio served by GitHub Pages at
+**https://christianjoudon.github.io**. Plain static HTML/CSS/JS, no build step.
 
-## What is in this folder
+## Structure
 
-- `index.html` — the entire website, one file.
-- `Christian_Joudon_Resume.pdf` — linked by the "Résumé" buttons in the site.
-- `.nojekyll` — tells GitHub Pages to serve the files exactly as they are.
+```
+index.html                 Homepage (About, Experience, Work, Toolkit, Writing, Essays, Contact)
+favicon.ico
+Christian_Joudon_Resume.pdf
+.nojekyll                  Tells GitHub Pages to serve files as-is (no Jekyll)
+assets/
+  site.css                Shared styling for every page
+  site.js                 Sticky-header + scroll-reveal
+  img/                    Project thumbnails (audio, covid, global, terran, uhnify)
+work/                     10 project detail pages (each Work card links here)
+essays/                   7 essay pages (each Essay row links here)
+```
 
-## How to deploy (GitHub Pages)
+Every project card on the homepage opens its own page under `work/`, and every
+essay opens its own page under `essays/`. Pages use relative links (`../assets/…`
+from subpages, `assets/…` from the homepage), so the structure must stay intact.
 
-Your repository is `ChristianJoudon/ChristianJoudon.github.io`, which already
-contains a `.nojekyll` file, so GitHub serves static files directly.
+## Editing & deploying
 
-1. Replace the old `index.html` at the root of the repo with the `index.html` in this folder.
-2. Upload `Christian_Joudon_Resume.pdf` to the root of the repo (so the Résumé links resolve).
-3. Keep your existing `favicon.ico` if you want the browser tab icon.
-4. Commit and push. The live site at https://christianjoudon.github.io updates within a minute.
+1. Edit the HTML directly (content is plain, readable markup).
+2. Commit and push to the **`main`** branch — GitHub Pages serves from `main` at
+   the repo root and updates within a minute.
+3. Hard-refresh (Cmd+Shift+R) to clear the browser cache.
 
-That is all that is required.
+## Preview locally
 
-## Optional cleanup
+Subpages use root-relative-style paths, so open them through a server, not by
+double-clicking the file:
 
-The old site was built on the TechFolio Jekyll theme. The new site does not use any
-of it. Once you are happy with the new page, you can delete these leftover files and
-folders from the repo to keep it tidy (none of them are referenced anymore):
+```
+python3 -m http.server 8000
+```
 
-`_config.yml`, `_data/`, `_includes/`, `_layouts/`, `css/`, `essays/`, `projects/`,
-`Gemfile`, `Welcome_To_Colab.ipynb`, and the loose stock images at the repo root.
+then visit http://localhost:8000.
 
-Leave `index.html`, `Christian_Joudon_Resume.pdf`, `.nojekyll`, and `favicon.ico`.
+## Adding project thumbnails
 
-## Editing later
-
-Open `index.html` in any editor. The content is plain HTML in readable sections
-(About, Experience, Selected Work, Toolkit, Education, Writing, Contact). To swap a
-project screenshot you would replace the corresponding `data:image/jpeg;base64,...`
-string, but for small text edits you can just type directly into the markup.
+Four Work cards (Chime, HiTech Labs, Workflow Automation, Refund Builder) have no
+image yet and render as text-only cards. To add one, drop a 16:9 JPEG in
+`assets/img/` and add a `<div class="card-media">…</div>` block to that card in
+`index.html` (and the matching `<figure class="detail-media">` on its `work/` page).
+```
