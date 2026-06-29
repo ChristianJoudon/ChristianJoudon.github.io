@@ -41,9 +41,10 @@ python3 -m http.server 8000
 
 then visit http://localhost:8000.
 
-## Adding project thumbnails
+## Adding or swapping project thumbnails
 
-Two Work cards (Chime, HiTech Labs) have no image yet and render as text-only
-cards. To add one, drop a 16:9 JPEG in `assets/img/` and add a
-`<div class="card-media">…</div>` block to that card in `index.html` (and the
-matching `<figure class="detail-media">` on its `work/` page).
+Every Work card now has an image. To swap one, replace the JPEG in
+`assets/img/` (keep the same filename and a ~16:9 ratio). To add a thumbnail to a
+new card, drop a 16:9 JPEG in `assets/img/`, add a `<div class="card-media">…</div>`
+block to that card in `index.html`, and a matching `<figure class="detail-media">`
+on its `work/` page.
