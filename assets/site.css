@@ -137,7 +137,8 @@
   .xp-list li::before{ content:""; position:absolute; left:0; top:.62em; width:6px; height:1px; background:var(--navy); }
 
   /* ---------- projects ---------- */
-  .lead-proj{ margin-bottom: clamp(2rem,5vw,3rem); padding: clamp(1.6rem,4vw,2.6rem); background:var(--navy); border-radius:14px; color:#EDEFF3; }
+  .lead-proj{ display:block; margin-bottom: clamp(2rem,5vw,3rem); padding: clamp(1.6rem,4vw,2.6rem); background:var(--navy); border-radius:14px; color:#EDEFF3; }
+  .lp-logo{ display:block; height: clamp(24px,3.2vw,34px); width:auto; margin-bottom:1.35rem; }
   .lead-proj .lp-kick{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:#9FB0C7; }
   .lead-proj h3{ color:#FCFBF9; font-size: clamp(1.7rem,4vw,2.4rem); font-weight:420; margin:.7rem 0 .9rem; }
   .lead-proj p{ margin:0; max-width:62ch; color:#D7DCE4; font-size:1.08rem; }
@@ -191,6 +192,11 @@
   .work .w-title{ font-family:var(--serif); font-size:1.3rem; color:var(--navy); font-weight:460; }
   .work .w-meta{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-top:.5rem; line-height:1.7; }
   .work .w-status{ display:inline-block; margin-top:.7rem; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy); border:1px solid var(--line-2); border-radius:999px; padding:.18rem .55rem; }
+  .w-links{ display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin-top:.9rem; }
+  .w-links a{ font-family:var(--mono); font-size:0.74rem; letter-spacing:0.03em; color:var(--navy); display:inline-flex; align-items:center; gap:.35rem; border-bottom:1px solid var(--line-2); padding-bottom:2px; transition:border-color .2s ease; }
+  .w-links a:hover{ border-color:var(--navy); }
+  .w-links a .arr{ color:var(--muted-2); transition:transform .2s ease; }
+  .w-links a:hover .arr{ transform:translate(2px,-2px); }
   .music{ margin-top: clamp(1.4rem,3vw,2rem); padding-top: clamp(1.4rem,3vw,2rem); border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; align-items:baseline; }
   .music .m-txt{ max-width:60ch; }
   .music .m-txt b{ color:var(--navy); font-weight:600; font-family:var(--serif); font-size:1.15rem; }
@@ -247,6 +253,8 @@
 .detail-body ul{ list-style:none; padding:0; margin:0 0 1.2rem; }
 .detail-body ul li{ position:relative; padding-left:1.4rem; margin-bottom:.6rem; color:var(--ink); font-size:1.07rem; }
 .detail-body ul li::before{ content:""; position:absolute; left:0; top:.62em; width:7px; height:1px; background:var(--navy); }
+.detail-body a{ color:var(--navy); border-bottom:1px solid var(--line-2); transition:border-color .2s ease; }
+.detail-body a:hover{ border-color:var(--navy); }
 .detail-embed{ position:relative; margin: clamp(1.6rem,4vw,2.4rem) 0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#000; }
 .detail-embed iframe{ width:100%; height:520px; border:0; display:block; }
 

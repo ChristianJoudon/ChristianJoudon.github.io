@@ -13,7 +13,8 @@ Christian_Joudon_Resume.pdf
 assets/
   site.css                Shared styling for every page
   site.js                 Sticky-header + scroll-reveal
-  img/                    Project thumbnails (audio, covid, global, terran, uhnify)
+  img/                    Project thumbnails + haven-logo.png
+  media/                  PDFs (HAVEN market analysis, screenplay scripts & pitch decks)
 work/                     10 project detail pages (each Work card links here)
 essays/                   7 essay pages (each Essay row links here)
 ```
@@ -42,8 +43,7 @@ then visit http://localhost:8000.
 
 ## Adding project thumbnails
 
-Four Work cards (Chime, HiTech Labs, Workflow Automation, Refund Builder) have no
-image yet and render as text-only cards. To add one, drop a 16:9 JPEG in
-`assets/img/` and add a `<div class="card-media">…</div>` block to that card in
-`index.html` (and the matching `<figure class="detail-media">` on its `work/` page).
-```
+Two Work cards (Chime, HiTech Labs) have no image yet and render as text-only
+cards. To add one, drop a 16:9 JPEG in `assets/img/` and add a
+`<div class="card-media">…</div>` block to that card in `index.html` (and the
+matching `<figure class="detail-media">` on its `work/` page).
