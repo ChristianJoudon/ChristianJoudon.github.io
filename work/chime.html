@@ -32,21 +32,29 @@
     <div class="detail-head">
       <span class="kicker">2025 · Frontend</span>
       <h1>Chime: Booking Widget</h1>
-      <p class="detail-lead">A responsive React booking widget with fluid, zero reflow transitions, built for a clean handoff to backend services.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span><span class="tag">Stripe</span></div>
+      <p class="detail-lead">A configurable, drop in scheduling widget that lets any service business take appointment bookings from a single embeddable React component.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Framer Motion</span><span class="tag">Stripe</span><span class="tag">Express</span><span class="tag">PostgreSQL</span></div>
     </div>
     <figure class="detail-media"><img src="../assets/img/chime.jpg" alt="Chime: Booking Widget"></figure>
     <div class="detail-body">
 <h2>Overview</h2>
-<p>Chime is a self contained booking component a business can drop into a site. It moves through service selection, calendar, and confirmation without page reloads or layout jumps, and it is structured so the booking logic hands off cleanly to whatever backend sits behind it.</p>
-<h2>What it does</h2>
+<p>Chime is a configurable, drop in scheduling widget that lets any service business take appointment bookings, service selection, live availability, terms acceptance, customer details, and a refundable card deposit, from a single embeddable React component. It is designed to be embedded on a business's own site and pointed at live scheduling data, with a fully working demo mode out of the box.</p>
+<p>A reference Express and PostgreSQL backend, including schema, seed data, and endpoints, is included to demonstrate the full path from availability to confirmed booking.</p>
+<h2>Highlights</h2>
 <ul>
-<li>State driven service, calendar, and booking views with Framer Motion sliding panes.</li>
-<li>A color coded availability heatmap so open times read at a glance.</li>
-<li>Stripe checkout integrated, with booking logic modularized for reuse.</li>
+<li><strong>Guided booking flow:</strong> service, date and time, terms, details, deposit, and confirmation, with animated step transitions and a progress stepper that adapts to whether a deposit step is required.</li>
+<li><strong>Config driven embedding:</strong> branding, services, availability, terms, customer fields, currency, and API endpoints are all supplied through a single injected config object or environment variables, so deploying for a new business requires no code changes.</li>
+<li><strong>Graceful payment degradation:</strong> with Stripe keys configured, the flow collects a refundable deposit through Stripe Elements; without them, it detects the gap and submits the booking without an online deposit instead of dead ending on a broken payment form.</li>
+<li><strong>Live and demo data modes:</strong> the same UI runs against real services, availability, and booking endpoints, or against built in sample data, selected automatically by environment.</li>
+<li><strong>Scroll gated terms acceptance:</strong> the accept control unlocks only after the full terms document is scrolled, capturing an explicit termsAcceptedAt timestamp with each booking.</li>
 </ul>
-<h2>How it is built</h2>
-<p>React and Tailwind CSS for the interface, Framer Motion for the transitions, and Stripe for checkout.</p>
+<h2>Architecture and engineering</h2>
+<ul>
+<li><strong>Typed domain with a normalization layer:</strong> inbound service and availability data, from config or API, is normalized into strict TypeScript domain types, so the UI always renders from one consistent shape regardless of source.</li>
+<li><strong>Separation of concerns:</strong> presentational step components are decoupled from orchestration, and a single flow controller owns step state, deposit logic, and submission, keeping each screen simple and independently testable.</li>
+<li><strong>Time aware availability:</strong> slot generation and calendar navigation account for the current time, so slots that have already passed on the current day are never offered.</li>
+<li><strong>Custom design system:</strong> a hand built glassmorphism UI with responsive layouts, keyboard focus states, and support for prefers-reduced-motion and prefers-reduced-transparency.</li>
+</ul>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>

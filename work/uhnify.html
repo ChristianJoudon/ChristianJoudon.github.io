@@ -32,21 +32,42 @@
     <div class="detail-head">
       <span class="kicker">2023 · Full Stack</span>
       <h1>UHnify: Campus Engagement</h1>
-      <p class="detail-lead">A student club platform for browsing clubs, managing memberships, and tracking events in real time.</p>
+      <p class="detail-lead">A full stack club discovery platform for University of Hawaiʻi at Mānoa students: search and filter every registered organization, join the ones that fit, and follow their events from one reactive calendar.</p>
       <div class="detail-links"><a class="linkbtn" href="https://uhnify.online" target="_blank" rel="noopener">Live site<span class="arr">↗</span></a><a class="linkbtn" href="https://uhnify.github.io/" target="_blank" rel="noopener">Project page<span class="arr">↗</span></a></div>
-      <div class="tags"><span class="tag">React</span><span class="tag">Meteor.js</span><span class="tag">MongoDB</span><span class="tag">Node.js</span></div>
+      <div class="tags"><span class="tag">Meteor</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">SimpleSchema</span><span class="tag">FullCalendar</span><span class="tag">RBAC</span></div>
     </div>
     <figure class="detail-media"><img src="../assets/img/uhnify.jpg" alt="UHnify: Campus Engagement"></figure>
     <div class="detail-body">
 <h2>Overview</h2>
-<p>UHnify is a discovery platform for the University of Hawaiʻi at Mānoa club ecosystem, built to help students find and join clubs and keep up with events. It was a team project where I worked on the interface and the real time data layer.</p>
-<h2>What it does</h2>
+<p>UHnify is a full stack club discovery platform for University of Hawaiʻi at Mānoa students. It lets them search and filter every registered organization, join the ones that fit, and follow their events from one reactive calendar. It was a team project where I worked on the interface and the real time data layer.</p>
+<h2>Stack</h2>
 <ul>
-<li>A clean interface for browsing clubs, managing memberships, and viewing event calendars.</li>
-<li>Real time synchronization so event details and memberships update live.</li>
+<li><strong>Runtime and data:</strong> Meteor 2.13 (isomorphic JavaScript) on MongoDB, with reactive publications and subscriptions.</li>
+<li><strong>Frontend:</strong> React 18, React Router 6, and React-Bootstrap on Bootstrap 5.</li>
+<li><strong>Forms and validation:</strong> Uniforms 3 with SimpleSchema, wired to collections through collection2.</li>
+<li><strong>Calendar:</strong> FullCalendar 6 in a day grid month view.</li>
+<li><strong>Auth:</strong> Meteor accounts-password with alanning:roles for role based access.</li>
 </ul>
-<h2>How it is built</h2>
-<p>React on the front end, Meteor.js and MongoDB for real time data and the backend, with Node.js underneath.</p>
+<h2>Architecture</h2>
+<ul>
+<li><strong>Server authoritative writes:</strong> every mutation runs through a Meteor method with check-validated arguments, and the insecure package is removed so no client writes to the database directly. Methods are isomorphic, giving latency compensated optimistic UI.</li>
+<li><strong>Schema enforced collections:</strong> all six collections attach a SimpleSchema through collection2, validating documents on insert and update across client and server from one schema definition.</li>
+<li><strong>Normalized relational model:</strong> memberships and event ownership are modeled with dedicated join collections (ProfileClubs, EventClubs) rather than embedded arrays, keeping the many to many relationships queryable.</li>
+<li><strong>Scoped reactive data:</strong> each page subscribes only to the publications it needs, and consumes them through react-meteor-data's useTracker.</li>
+<li><strong>Role based access control:</strong> an admin role gates the admin dashboard and destructive actions behind protected routes and a dedicated not-authorized screen.</li>
+</ul>
+<h2>Core features</h2>
+<ul>
+<li><strong>Directory:</strong> keyword search, multi category filtering, and pagination across the full club catalog, each entry with a details modal and per user join and leave state.</li>
+<li><strong>Personal dashboard:</strong> "My Clubs" tracks memberships, and "My Events" aggregates events from joined clubs into a FullCalendar month view.</li>
+<li><strong>Creation and admin flows:</strong> members create clubs and events through schema generated forms, and admins have full CRUD over clubs, events, and member profiles.</li>
+</ul>
+<h2>Frontend and performance</h2>
+<ul>
+<li><strong>Token driven design system:</strong> a single stylesheet defines the color, type scale, spacing, and elevation tokens behind a consistent component language, on a three face typographic system.</li>
+<li><strong>Accessible by default:</strong> visible keyboard focus, prefers-reduced-motion support, and responsive layouts down to mobile.</li>
+<li><strong>Optimized asset pipeline:</strong> resized and format converted the image set, migrating every reference and cutting the served image payload by roughly 85%.</li>
+</ul>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>

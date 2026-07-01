@@ -38,15 +38,20 @@
     <figure class="detail-media"><img src="../assets/img/covid.jpg" alt="COVID-19 Records: NLP Pipeline"></figure>
     <div class="detail-body">
 <h2>Overview</h2>
-<p>Medical encounter notes are written for people, not databases. This pipeline reads unstructured COVID 19 patient records and produces clean, validated, structured data that can be analyzed at scale.</p>
+<p>Medical encounter notes are written for people, not databases. This pipeline reads unstructured COVID-19 patient records and turns them into clean, validated, structured data that can be analyzed at scale, making free text medical notes queryable without losing the detail that makes them useful.</p>
 <h2>What it does</h2>
 <ul>
-<li>Large language model driven extraction with Pydantic validation to standardize fields.</li>
-<li>FAISS semantic search to keep medication references consistent across free text.</li>
-<li>Apache Spark analysis of comorbidities, medication frequencies, and demographic trends, with visualizations that supported the findings.</li>
+<li><strong>Structured extraction:</strong> a large language model reads each free text record and pulls out the fields that matter, with Pydantic schemas validating and standardizing every result.</li>
+<li><strong>Consistent medication matching:</strong> FAISS semantic search reconciles medication references that vary in wording across notes, so the same drug is recognized however it is written.</li>
+<li><strong>Population scale analysis:</strong> Apache Spark analyzes comorbidities, medication frequencies, and demographic trends across the dataset, with visualizations that support the findings.</li>
 </ul>
-<h2>How it is built</h2>
-<p>Python drives the pipeline end to end, with PySpark for scale, FAISS for semantic matching, Pydantic for validation, and Parquet for storage. An LLM handles the initial extraction step.</p>
+<h2>Architecture and engineering</h2>
+<ul>
+<li><strong>LLM extraction step:</strong> the initial pass turns unstructured notes into candidate structured records, handling the messiness and variability of real clinical text.</li>
+<li><strong>Validation as a gate:</strong> every extracted record passes through Pydantic validation, so downstream analysis always works from one consistent, well typed shape.</li>
+<li><strong>Semantic reconciliation:</strong> FAISS vector search matches medication mentions by meaning rather than exact string, keeping references consistent across the corpus.</li>
+<li><strong>Built for scale:</strong> Python drives the pipeline end to end, with PySpark handling analysis over large volumes and Parquet as the columnar storage format.</li>
+</ul>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>

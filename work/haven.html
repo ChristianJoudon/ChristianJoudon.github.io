@@ -32,24 +32,39 @@
     <div class="detail-head">
       <span class="kicker">2025 to Present · Production · Fintech</span>
       <h1>HAVEN: Trust Accounting &amp; Reservation Platform</h1>
-      <p class="detail-lead">An automation first platform that replaces fragmented accounting and reservation workflows for rental operations.</p>
-      <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">REST APIs</span><span class="tag">Webhooks</span><span class="tag">QuickBooks</span><span class="tag">Trust Accounting</span><span class="tag">Alembic</span></div>
+      <p class="detail-lead">A full stack trust accounting and reservation operations platform for property managers, with financial correctness enforced in the database itself.</p>
+      <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Alembic</span><span class="tag">Trust Accounting</span></div>
       <div class="detail-links">
         <a class="linkbtn" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">Market Analysis &amp; Launch Thesis (PDF) <span class="arr">↗</span></a>
       </div>
     </div>
     <div class="detail-body">
 <h2>Overview</h2>
-<p>HAVEN is the trust accounting and reservation platform I am building at HīTech Labs. It brings bookkeeping, owner accounting, and reservation management into one system, replacing the spreadsheets, separate property manager, and disconnected accounting tools that rental operations tend to juggle today.</p>
-<p>The center of it is a ledger first source of truth, designed to hold up to the scrutiny that trust accounting actually requires.</p>
-<h2>What it does</h2>
+<p>HAVEN is a full stack trust accounting and reservation operations platform for property managers, built at HīTech Labs. It centralizes the daily accounting of a short and long term rental business, double entry AP and AR, bank and card reconciliation, platform payout matching, owner distributions, and month end close, and treats integrity as a first class constraint.</p>
+<p>Trust balances cannot go negative, posted records cannot be silently edited, and every figure traces back to a journal entry and its supporting document.</p>
+<h2>Stack</h2>
 <ul>
-<li>A ledger first financial core with strict trust accounting controls, owner balance protections, and document linked audit trails.</li>
-<li>Bulk reconciliation, payout allocation, and owner distributions computed on a normalized data model.</li>
-<li>Integrations with QuickBooks, Zapier, and reservation channels so data flows in and out without manual re keying.</li>
+<li><strong>Backend:</strong> Python 3.12, FastAPI, SQLAlchemy 2.0, Pydantic v2, Alembic, and PostgreSQL 16 (psycopg 3).</li>
+<li><strong>Frontend:</strong> React 19, TypeScript, Vite, TanStack Query, Table, and Virtual, dnd-kit, Radix UI, pdf.js, and Zod.</li>
+<li><strong>Infrastructure:</strong> Docker Compose, S3 compatible object storage (MinIO), and an outbox worker for integration events.</li>
 </ul>
-<h2>How it is built</h2>
-<p>Python services sit over a normalized PostgreSQL schema, with REST APIs and webhooks handling integrations and Alembic managing migrations. The platform is being built and shipped in active agile sprints.</p>
+<h2>Architecture and engineering decisions</h2>
+<ul>
+<li><strong>Ledger first accounting:</strong> every balance, statement, and report derives from double entry journal entries and subledgers rather than editable summary tables, so figures are always reconstructable and auditable.</li>
+<li><strong>Correctness enforced in the database:</strong> owner and trust subaccounts are blocked from going negative, and posted or finalized records are made immutable through PostgreSQL triggers, so corrections are reversals rather than edits.</li>
+<li><strong>SQL as the source of truth:</strong> the physical schema lives in 18 versioned raw SQL migrations run by Alembic, with check constraints, functional unique indexes, and immutability triggers enforced at the database layer, not just in application code.</li>
+<li><strong>Evidence first audit trail:</strong> invoices, receipts, ACH confirmations, bank statements, and generated packets are content addressed by SHA-256, stored in object storage, and linked directly to the records they support.</li>
+<li><strong>"Food Web" object graph:</strong> a navigation first data model where any record surfaces its related context, money trail, evidence, and downstream accounting impact without hunting across modules.</li>
+<li><strong>Integration first ingestion:</strong> booking platforms, bank and card feeds, and CSV sources map to canonical internal objects through a preview, validate, then commit import pipeline, sync jobs, and webhook events.</li>
+<li><strong>Layered, multi tenant API:</strong> a routers, services, and models backend exposing 200+ organization scoped REST endpoints, with role based access for Accountant, AP Clerk, Controller, and Owner, and a locked down owner portal.</li>
+</ul>
+<h2>Frontend</h2>
+<ul>
+<li><strong>Reusable operations workbench:</strong> a single shell with a command palette, saved views, tabbed workspaces, and keyboard shortcuts hosts around 20 workspaces, including bill entry, bank and card inbox, payment batches, platform payout matching, cash application, reservation financials, trust distributions, month end close, and reporting and audit.</li>
+<li><strong>Edit in place workflows:</strong> virtualized work lists with inline, independently expandable review cards, so most actions happen without leaving the list.</li>
+<li><strong>Live document handling:</strong> in browser PDF viewing with pdf.js, drag and drop evidence attachment with dnd-kit, and file imports that preview and validate before anything is committed.</li>
+<li><strong>Server state architecture:</strong> TanStack Query drives caching and invalidation, with a mock and live data mode toggle that runs the UI against fixtures or the live API.</li>
+</ul>
 <h2>Market analysis &amp; launch thesis</h2>
 <p>A deeper look at the market, positioning, and go to market strategy behind HAVEN. The full document is embedded below — you can also <a href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">open the PDF in a new tab</a>.</p>
 <div class="detail-embed"><iframe src="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" title="HAVEN Market Analysis and Launch Thesis" loading="lazy"></iframe></div>

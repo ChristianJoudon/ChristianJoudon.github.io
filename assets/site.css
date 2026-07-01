@@ -255,6 +255,7 @@
 .detail-body ul li::before{ content:""; position:absolute; left:0; top:.62em; width:7px; height:1px; background:var(--navy); }
 .detail-body a{ color:var(--navy); border-bottom:1px solid var(--line-2); transition:border-color .2s ease; }
 .detail-body a:hover{ border-color:var(--navy); }
+.detail-body strong{ color:var(--navy); font-weight:600; }
 .detail-embed{ position:relative; margin: clamp(1.6rem,4vw,2.4rem) 0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#000; }
 .detail-embed iframe{ width:100%; height:520px; border:0; display:block; }
 
