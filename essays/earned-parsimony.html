@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earned Parsimony &middot; High-Dimensional Data in Economic Modeling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF0F3; --card:#FBFCFE;
+    --ink:#171922; --text:#2B2D38; --muted:#666980; --faint:#9A9DB0;
+    --gold:#8C6A22; --gold-mid:#B08334;
+    --teal:#286760; --teal-mid:#3B8C82;
+    --line:rgba(23,25,34,0.09); --line-2:rgba(23,25,34,0.17); --grid:rgba(23,25,34,0.045);
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --display:'Space Grotesk','IBM Plex Sans',sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  body{
+    margin:0;color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased;
+    background-color:var(--paper);
+  }
+  ::selection{background:rgba(176,131,52,0.20);}
+  a{color:inherit;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+
+  /* ===== MASTHEAD ===== */
+  .masthead{border-bottom:2px solid var(--ink);padding:3.2rem 0 1.6rem;margin-bottom:2.6rem;animation:fade .7s ease both;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.masthead{animation:none;}}
+  .mast__label{display:flex;align-items:center;gap:.8rem;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:1.7rem;}
+  .mast__label::after{content:"";flex:1;height:1px;background:var(--line-2);}
+  .mast__label b{color:var(--muted);font-weight:500;}
+  .mast__title{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1;letter-spacing:-.028em;color:var(--ink);margin:0;}
+  .mast__st{font-family:var(--display);font-weight:400;font-size:clamp(1.2rem,2.6vw,1.75rem);line-height:1.16;letter-spacing:-.01em;color:var(--ink);opacity:.85;margin:.6rem 0 0;max-width:22em;}
+  .mast__sub{font-family:var(--sans);font-size:clamp(1.02rem,2vw,1.28rem);line-height:1.42;color:var(--muted);margin:1.1rem 0 0;max-width:38em;}
+  .mast__meta{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.7rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .mast__meta b{color:var(--ink);font-weight:600;}
+
+  /* method strip (signature) */
+  .moves{margin-top:2.1rem;border:1px solid var(--line-2);background:var(--card);border-radius:8px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;}
+  .move{padding:1.05rem 1.2rem;border-left:1px solid var(--line);}
+  .move:first-child{border-left:0;}
+  .move__i{font-family:var(--mono);font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem;}
+  .move__n{font-family:var(--display);font-weight:600;font-size:1.08rem;color:var(--ink);letter-spacing:-.012em;line-height:1.08;}
+  .move__d{font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:.45rem;line-height:1.35;}
+
+  /* ===== LAYOUT ===== */
+  .layout{display:grid;grid-template-columns:200px minmax(0,672px);gap:0 3.4rem;justify-content:center;padding-bottom:5rem;}
+  .rail{align-self:start;}
+  .rail__inner{position:sticky;top:2rem;}
+  .rail__h{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);padding-bottom:.7rem;margin-bottom:.4rem;border-bottom:1px solid var(--line-2);}
+  .rail a{display:grid;grid-template-columns:1.7rem 1fr;gap:.5rem;text-decoration:none;padding:.36rem 0;border-bottom:1px solid var(--line);}
+  .rail a:last-child{border-bottom:0;}
+  .rail a .rn{font-family:var(--mono);font-size:.7rem;color:var(--gold);font-weight:500;}
+  .rail a .rt{font-size:.79rem;line-height:1.22;color:var(--muted);}
+  .rail a:hover .rt{color:var(--ink);}
+  .rail a.is-active .rt{color:var(--ink);font-weight:600;}
+  .rail a.is-active .rn{color:var(--gold-mid);}
+  .rail a.is-active{position:relative;}
+  .rail a.is-active::before{content:"";position:absolute;left:-14px;top:.5rem;bottom:.5rem;width:2px;background:var(--gold-mid);}
+
+  /* ===== CONTENT ===== */
+  .content{min-width:0;}
+  .block{padding-top:.4rem;}
+  p{margin:0 0 1.35rem;}
+  em{font-style:italic;}
+  .lead-drop::first-letter{font-family:var(--display);font-weight:600;font-size:3.5em;line-height:.82;float:left;margin:.06em .12em -.04em 0;color:var(--ink);}
+
+  .sec{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:1.1rem;border-top:2px solid var(--ink);padding-top:.85rem;margin:3.6rem 0 1.5rem;}
+  .block:first-of-type .sec{margin-top:0;}
+  .sec__n{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);line-height:.82;color:var(--gold-mid);letter-spacing:-.02em;}
+  .sec h2{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.08;letter-spacing:-.015em;color:var(--ink);margin:0;}
+
+  .runin{font-family:var(--display);font-weight:600;color:var(--ink);letter-spacing:-.01em;}
+
+  /* sub-section head */
+  .subhead{margin:2.4rem 0 1rem;}
+  .subhead .eb{display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;}
+  .subhead h3{font-family:var(--display);font-weight:600;font-size:1.16rem;letter-spacing:-.012em;color:var(--ink);margin:0;line-height:1.15;display:flex;align-items:center;gap:.6rem;}
+  .subhead h3::before{content:"";width:.5rem;height:.5rem;background:var(--gold-mid);transform:rotate(45deg);flex:none;}
+
+  /* lists */
+  .list{list-style:none;margin:1rem 0 1.4rem;padding:0;}
+  .list li{position:relative;padding-left:1.4rem;margin:0 0 .5rem;line-height:1.55;}
+  .list li::before{content:"";position:absolute;left:.05rem;top:.62em;width:5px;height:5px;background:var(--gold-mid);transform:translateY(-50%) rotate(45deg);}
+  .list--cols{columns:2;column-gap:2rem;}
+  .list--cols li{break-inside:avoid;}
+  @media(max-width:520px){.list--cols{columns:1;}}
+
+  /* panels / abstract / query */
+  .panel{background:var(--card);border:1px solid var(--line-2);border-radius:8px;padding:1.4rem 1.5rem;margin:1.9rem 0;}
+  .panel--gold{border-left:3px solid var(--gold-mid);}
+  .panel--teal{border-left:3px solid var(--teal-mid);}
+  .panel__t{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--line-2);}
+  .panel p{margin:0;}
+  .rmap{list-style:none;margin:0;padding:0;counter-reset:rm;}
+  .rmap li{position:relative;padding-left:2.2rem;margin:0 0 .7rem;line-height:1.5;font-size:.95rem;}
+  .rmap li:last-child{margin-bottom:0;}
+  .rmap li::before{counter-increment:rm;content:counter(rm,decimal-leading-zero);position:absolute;left:0;top:.06em;font-family:var(--mono);font-size:.72rem;color:var(--gold);font-weight:600;}
+  .qy{font-family:var(--mono);font-size:.88rem;line-height:1.65;color:var(--text);}
+  .qy .k{color:var(--gold);}
+
+  /* figure (card) */
+  .figure{background:var(--card);border:1px solid var(--line-2);border-radius:8px;padding:1.4rem 1.5rem 1.25rem;margin:2rem 0;}
+  .figure__cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem;padding-bottom:.85rem;border-bottom:1px solid var(--line-2);}
+  .figure__cap b{color:var(--ink);font-weight:600;}
+
+  /* comparison (two columns inside figure) */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0 1.6rem;}
+  .compare__col{padding:.2rem 0;}
+  .compare__col:first-child{padding-right:1.6rem;border-right:1px solid var(--line-2);}
+  .compare__col:last-child{padding-left:.2rem;}
+  .compare__h{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.85rem;font-weight:600;}
+  .compare--a .compare__h{color:var(--teal);}
+  .compare--b .compare__h{color:var(--gold);}
+  .compare .list{margin:0;}
+  .compare .list li{font-size:.9rem;line-height:1.45;margin-bottom:.6rem;}
+  @media(max-width:600px){.compare{grid-template-columns:1fr;}.compare__col:first-child{padding-right:0;border-right:0;border-bottom:1px solid var(--line-2);padding-bottom:1rem;margin-bottom:1rem;}.compare__col:last-child{padding-left:0;}}
+
+  /* mapping (Fig 2) */
+  .map__row{display:grid;grid-template-columns:1fr 1.6rem 1fr;align-items:start;gap:.6rem;padding:.85rem 0;}
+  .map__row + .map__row{border-top:1px solid var(--line);}
+  .map__side{font-size:.9rem;line-height:1.45;}
+  .map__side .k{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem;}
+  .map__row .map__side:first-child .k{color:var(--teal);}
+  .map__row .map__side:last-child .k{color:var(--gold);}
+  .map__arrow{font-family:var(--mono);color:var(--gold-mid);text-align:center;padding-top:.9rem;font-size:1rem;}
+  @media(max-width:600px){.map__row{grid-template-columns:1fr;}.map__arrow{display:none;}}
+
+  /* token chips */
+  .tokens{display:flex;flex-wrap:wrap;gap:.55rem;margin:1.1rem 0 1.4rem;}
+  .token{font-family:var(--mono);font-size:.72rem;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:5px;padding:.42rem .68rem;line-height:1.3;}
+  .token .s{color:var(--faint);margin:0 .15rem;}
+  .token .g{color:var(--gold);}
+
+  /* capability grid */
+  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem 1.9rem;margin:1.3rem 0 1.4rem;}
+  @media(max-width:600px){.capgrid{grid-template-columns:1fr;}}
+  .cap__k{font-family:var(--mono);font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:.28rem;}
+  .cap__v{font-size:.9rem;line-height:1.5;color:var(--text);}
+
+  /* tier bars (energy fig) */
+  .tier{padding:.7rem 0;}
+  .tier + .tier{border-top:1px solid var(--line);}
+  .tier__top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.5rem;}
+  .tier__lab{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .tier__val{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em;}
+  .tier__val .u{color:var(--gold-mid);}
+  .tier__bar{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--teal-mid),var(--gold-mid));}
+
+  /* warning callout */
+  .warn{border:1px solid var(--line-2);border-left:3px solid var(--teal-mid);background:var(--card);border-radius:7px;padding:1.15rem 1.4rem;margin:1.9rem 0;}
+  .warn__t{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:.55rem;}
+  .warn p{margin:0;font-size:.94rem;line-height:1.6;}
+
+  /* statements */
+  .statement{margin:2.4rem 0;}
+  .statement__label{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;}
+  .statement::before{content:"";display:block;width:2.6rem;height:3px;background:var(--gold-mid);margin-bottom:1.1rem;}
+  .statement.has-label::before{display:none;}
+  .statement p{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,2.8vw,1.75rem);line-height:1.22;letter-spacing:-.018em;color:var(--ink);margin:0;}
+  .statement .q1{color:var(--muted);}
+  .statement .q2{color:var(--ink);}
+  .statement--close{text-align:center;margin:3.4rem auto 1rem;max-width:32em;}
+  .statement--close::before{margin:0 auto 1.4rem;}
+  .statement--close p{font-size:clamp(1.15rem,2.3vw,1.4rem);color:var(--muted);}
+  .statement--close .big{display:block;margin-top:.7rem;font-size:clamp(1.5rem,3.4vw,2.15rem);color:var(--ink);}
+  .statement--close .big .q2{color:var(--gold-mid);}
+
+  /* references */
+  .refs__list{margin-top:.4rem;}
+  .refs__cat{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:1.5rem 0 .8rem;padding-bottom:.5rem;border-bottom:1px solid var(--line);}
+  .refs__cat:first-child{margin-top:0;}
+  .refs__grid{column-count:2;column-gap:2.6rem;}
+  @media(max-width:600px){.refs__grid{column-count:1;}}
+  .ref{break-inside:avoid;font-size:.82rem;line-height:1.5;color:var(--muted);margin:0 0 .75rem;padding-left:1.3rem;text-indent:-1.3rem;}
+  .ref b{color:var(--text);font-weight:600;}
+
+  .colophon{border-top:2px solid var(--ink);margin-top:3rem;padding-top:1.1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .colophon b{color:var(--gold);font-weight:600;}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:860px){
+    .layout{grid-template-columns:1fr;gap:0;}
+    .rail{margin-bottom:2.4rem;}
+    .rail__inner{position:static;}
+    .rail__nav{display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;}
+    .moves{grid-template-columns:repeat(2,1fr);}
+    .move:nth-child(odd){border-left:0;}
+    .move{border-top:1px solid var(--line);}
+    .move:nth-child(1),.move:nth-child(2){border-top:0;}
+  }
+  @media(max-width:520px){
+    body{font-size:16px;}
+    .moves{grid-template-columns:1fr;}
+    .move{border-left:0;border-top:1px solid var(--line);}
+    .move:first-child{border-top:0;}
+    .rail__nav{grid-template-columns:1fr;}
+    .capgrid{grid-template-columns:1fr;}
+  }
+  @media print{ body{background:#fff;} .rail{display:none;} .layout{grid-template-columns:1fr;} .figure,.panel,.warn,.statement,.exhibit,.ref,.block,.moves,.compare,.capgrid{break-inside:avoid;} }
+</style>
+</head>
+<body>
+
+  <!-- ===== MASTHEAD ===== -->
+  <header class="masthead">
+    <div class="wrap">
+      <a href="../index.html#essays" style="display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;margin-bottom:1.5rem;">&larr;&nbsp;Christian Joudon</a>
+      <div class="mast__label">Working Paper <b>/ High-Dimensional Econometrics</b></div>
+      <h1 class="mast__title">Earned Parsimony</h1>
+      <p class="mast__st">Why economic models should look widely before they simplify.</p>
+      <p class="mast__sub">High-dimensional data should not replace economic discipline. It should expand the hypothesis space, then force better compression.</p>
+      <div class="mast__meta">
+        <span>By <b>Christian Joudon</b></span>
+        <span>March 12, 2025</span>
+        <span>Ten Sections</span>
+      </div>
+
+      <div class="moves" role="group" aria-label="The argument in four moves">
+        <div class="move"><div class="move__i">Move 01</div><div class="move__n">Wide search</div><div class="move__d">Expand the hypothesis space</div></div>
+        <div class="move"><div class="move__i">Move 02</div><div class="move__n">Sparse commitment</div><div class="move__d">Keep only what predicts</div></div>
+        <div class="move"><div class="move__i">Move 03</div><div class="move__n">Rigorous validation</div><div class="move__d">Punish overfitting</div></div>
+        <div class="move"><div class="move__i">Move 04</div><div class="move__n">Causal humility</div><div class="move__d">Prediction is not policy</div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- ===== RAIL ===== -->
+      <nav class="rail" aria-label="Contents">
+        <div class="rail__inner">
+          <div class="rail__h">Contents</div>
+          <div class="rail__nav">
+            <a href="#s1"><span class="rn">01</span><span class="rt">The Question That Breaks the Dashboard</span></a>
+            <a href="#s2"><span class="rn">02</span><span class="rt">Structurally High-Dimensional</span></a>
+            <a href="#s3"><span class="rn">03</span><span class="rt">What Language Models Teach</span></a>
+            <a href="#s4"><span class="rn">04</span><span class="rt">A Sketch: Economic Embeddings</span></a>
+            <a href="#s5"><span class="rn">05</span><span class="rt">Wide Search, Sparse Commitment</span></a>
+            <a href="#s6"><span class="rn">06</span><span class="rt">What Computers Can Do</span></a>
+            <a href="#s7"><span class="rn">07</span><span class="rt">Prediction vs. Causality</span></a>
+            <a href="#s8"><span class="rn">08</span><span class="rt">A Practical Workflow</span></a>
+            <a href="#s9"><span class="rn">09</span><span class="rt">AI as Infrastructure Shock</span></a>
+            <a href="#s10"><span class="rn">10</span><span class="rt">The Strong Version</span></a>
+            <a href="#sc"><span class="rn">&rarr;</span><span class="rt">Conclusion</span></a>
+            <a href="#refs"><span class="rn">&sect;</span><span class="rt">Sources</span></a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ===== BODY ===== -->
+      <main class="content">
+
+        <div class="statement" id="top"><p><span class="q1">The danger is not simplification.</span> <span class="q2">The danger is deciding too early what deserves to be simplified away.</span></p></div>
+
+        <p class="lead-drop">Economics cannot work without simplification. Every model compresses reality. It turns a world too large to hold in the mind into variables, coefficients, equations, assumptions, forecasts, and policy scenarios. That compression is not a flaw. It is the work.</p>
+
+        <p>When simplification follows discovery, it is discipline. When it comes before the model has been allowed to see the system, it can become blindness dressed up as elegance.</p>
+
+        <p>For much of modern economics, low-dimensional modeling was not only preferred. It was necessary. Data were scarce. Computation was expensive. Communication required small dashboards: inflation, unemployment, GDP, interest rates, output gaps, a handful of representative agents, and a limited number of state variables. Those dashboards still matter. But the economy behind them is not a dashboard. It is a network of households, firms, supply chains, platforms, labor markets, credit relationships, energy systems, climate exposures, policy language, media narratives, regional bottlenecks, and shifting expectations.</p>
+
+        <div class="statement has-label"><div class="statement__label">Central Claim</div><p>Economics should not abandon parsimony. It should abandon <em>premature</em> parsimony.</p></div>
+
+        <p>The goal is not to keep every variable forever. The goal is to let broad systems discover candidate structure before humans force that structure into a small set of variables.</p>
+
+        <div class="statement"><p><span class="q2">Let the model look widely.</span> <span class="q1">Then make it prove narrowly.</span></p></div>
+
+        <div class="panel panel--gold">
+          <div class="panel__t">Reading Map</div>
+          <ol class="rmap">
+            <li>Parsimony is valuable, but premature parsimony is dangerous.</li>
+            <li>Economies are structurally high-dimensional, not merely data-rich.</li>
+            <li>Language models offer a useful analogy: context can teach representation.</li>
+            <li>The defensible workflow is wide search, sparse commitment, rigorous validation, and causal humility.</li>
+            <li>High-dimensional economics should be a discovery layer and a prediction layer before it becomes a policy layer.</li>
+          </ol>
+        </div>
+
+        <!-- 01 -->
+        <section class="block" id="s1">
+          <div class="sec"><span class="sec__n">01</span><h2>The Question That Breaks the Dashboard</h2></div>
+
+          <p>A useful starting question is this:</p>
+
+          <div class="statement"><p>Could a web crawler see inflation before the official measurement apparatus did?</p></div>
+
+          <p>That question sounds strange only if we assume economic reality lives only inside official statistical releases. The Billion Prices Project challenged that assumption by collecting large numbers of online prices and constructing high-frequency price indexes. Cavallo and Rigobon showed that online price indexes often co-move with consumer price indexes while also opening new ways to study price stickiness, international price dispersion, and real-time price behavior.</p>
+
+          <p>The point is not that web data make statistical agencies obsolete. They do not. Official measurement has sampling discipline, continuity, revision procedures, and institutional legitimacy. Those things matter. The more interesting point is that economically meaningful signals can live outside the canonical data pipe. A high-dimensional system may notice a pattern before the standard dashboard has a place for it.</p>
+
+          <div class="statement"><p><span class="q1">Not only: what is the cleanest small model I can write down today?</span> <span class="q2">But also: what signals are becoming economically adjacent before I know the name of the mechanism?</span></p></div>
+
+          <div class="subhead"><span class="eb">Historical precedent</span><h3>Fault lines where the omitted dimension was not a detail</h3></div>
+
+          <div class="exhibit">
+            <div class="exhibit__tag">Exhibit A <span class="dot">&bull;</span> The 1970s</div>
+            <h3 class="exhibit__h">When inflation stopped being a simple tradeoff</h3>
+            <p>The 1970s made it difficult to treat inflation as a simple tradeoff against unemployment. Expectations, oil shocks, credibility, productivity, and supply constraints had to enter the story.</p>
+          </div>
+
+          <div class="exhibit">
+            <div class="exhibit__tag">Exhibit B <span class="dot">&bull;</span> 2008</div>
+            <h3 class="exhibit__h">When finance stopped being a frictionless veil</h3>
+            <p>The 2008 financial crisis made it difficult to treat finance as a frictionless veil over the real economy. Balance sheets, leverage, liquidity, collateral chains, and network contagion could not remain peripheral.</p>
+          </div>
+
+          <p>These episodes did not prove that simple models are useless. They proved something subtler: the relevant simplicity changes when the regime changes. A variable that is ignorable in one period can become load-bearing in another.</p>
+        </section>
+
+        <!-- 02 -->
+        <section class="block" id="s2">
+          <div class="sec"><span class="sec__n">02</span><h2>Economies Are Structurally High-Dimensional</h2></div>
+
+          <p>The case for high-dimensional economics is not simply that we now have more data. The deeper case is that the economy itself is high-dimensional.</p>
+
+          <p>Production-network research shows why. In a world of input-output linkages, microeconomic shocks do not necessarily average away. A shock to one supplier, sector, port, commodity, technology, or region can propagate through customers, customers of customers, inventories, substitution patterns, and prices. In networked systems, the importance of a node depends not only on its size, but on its position.</p>
+
+          <p>That means the economy is not well-described by a universal short list of variables. The relevant variables are conditional on the target, the horizon, the regime, and the pathway of propagation. The same electricity-price movement may mean something different during a heat wave, a manufacturing boom, a war-related gas shock, or an AI data-center construction cycle.</p>
+
+          <p>This is why large information sets have long been valuable in macroeconomic forecasting. Stock and Watson showed that many predictors can be summarized through estimated factors when the data have factor structure. Large Bayesian VARs use shrinkage to handle richer dynamic systems. FRED-MD and FRED-QD institutionalize this idea by providing large, regularly updated macroeconomic datasets for big-data empirical analysis. The lesson is not that every variable matters. The lesson is that we should not decide too early which variables cannot matter.</p>
+
+          <div class="figure">
+            <div class="figure__cap">Figure 1 <span>&mdash;</span> <b>A useful distinction:</b> two ways to arrive at a small model</div>
+            <div class="compare">
+              <div class="compare__col compare--a">
+                <div class="compare__h">Premature parsimony</div>
+                <ul class="list">
+                  <li>Starts with a small set of variables</li>
+                  <li>Assumes relevance before discovery</li>
+                  <li>Treats omitted variables as harmless</li>
+                  <li>Optimizes for clarity first</li>
+                </ul>
+              </div>
+              <div class="compare__col compare--b">
+                <div class="compare__h">Disciplined high-dimensionality</div>
+                <ul class="list">
+                  <li>Starts with a broad candidate space</li>
+                  <li>Learns relevance conditional on task and regime</li>
+                  <li>Treats omitted variables as untested exclusions</li>
+                  <li>Optimizes for signal discovery, then restores clarity through pruning and validation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="statement"><p><span class="q1">The question is not whether models should be simple.</span> <span class="q2">It is whether simplicity should be assumed at the beginning or earned at the end.</span></p></div>
+        </section>
+
+        <!-- 03 -->
+        <section class="block" id="s3">
+          <div class="sec"><span class="sec__n">03</span><h2>What Language Models Teach Economics</h2></div>
+
+          <p>The most useful analogy from language modeling is not that economics is language. It is that meaning can be learned from context.</p>
+
+          <p>Word embeddings popularized a simple representational insight. A word can be converted into a vector by training a model on a large corpus to predict words from nearby words, or nearby words from a word. If two words repeatedly appear in similar contexts, their vectors move closer together. The model is not handed a dictionary of meaning. It learns relationships through repeated contextual use.</p>
+
+          <p>The crossover to economics is natural, but imperfect. Economic variables also acquire meaning from context. A rise in diesel prices means one thing near a port disruption, another near a war-related energy shock, and another near a regional construction boom. A spike in job-search queries means one thing in a normal expansion and another during a credit contraction. A data-center permit means one thing in a region with spare grid capacity and another in a region with constrained transmission. In language, context is often a sequence of neighboring tokens. In economics, context can be built from time, geography, sector, network position, policy regime, event windows, and market structure.</p>
+
+          <div class="figure">
+            <div class="figure__cap">Figure 2 <span>&mdash;</span> <b>The crossover in one frame</b></div>
+            <div class="map__row">
+              <div class="map__side"><span class="k">Language context</span>words near a word in a sentence</div>
+              <div class="map__arrow">&rarr;</div>
+              <div class="map__side"><span class="k">Economic context</span>signals near a target in time, region, sector, event, and network space</div>
+            </div>
+            <div class="map__row">
+              <div class="map__side"><span class="k">Word embedding</span>a vector for a word, learned from linguistic co-occurrence</div>
+              <div class="map__arrow">&rarr;</div>
+              <div class="map__side"><span class="k">Economic embedding</span>a vector for a variable, firm, sector, region, or event, learned from economic co-movement and prediction</div>
+            </div>
+          </div>
+
+          <p>This does not make embeddings causal. It makes them useful maps. A good embedding system can say: these things repeatedly become relevant together. That is not the final answer. It is a better starting point than waiting for a human to guess the connection in advance.</p>
+
+          <div class="subhead"><span class="eb">The limit of the analogy</span><h3>Where language modeling stops helping</h3></div>
+
+          <p>Economics is harder than language in several important ways. Economic data are temporal, revised, policy-sensitive, strategic, often sparse at the macro level, and deeply entangled with causality. A language model can learn that two words are related without asking whether one caused the other. A policy economist cannot avoid that question. What works for language may be useful for economics at the representation and discovery layer. It does not automatically solve causal identification, welfare analysis, or policy design.</p>
+        </section>
+
+        <!-- 04 -->
+        <section class="block" id="s4">
+          <div class="sec"><span class="sec__n">04</span><h2>A Technical Sketch: Economic Embeddings</h2></div>
+
+          <p>An economic embedding system would not begin by deciding that only GDP, inflation, unemployment, and interest rates matter. It would build a broad economic corpus and let the model learn which signals carry information for a given target and regime.</p>
+
+          <div class="subhead"><span class="eb">Step 01</span><h3>Build the corpus</h3></div>
+          <p>The corpus would combine structured and unstructured signals. The purpose is not to worship data volume. The purpose is to reduce blind spots created by siloed datasets.</p>
+          <ul class="list list--cols">
+            <li>Macroeconomic time series</li>
+            <li>Firm-level data</li>
+            <li>Sector data</li>
+            <li>Regional labor markets</li>
+            <li>Online prices</li>
+            <li>Shipping data</li>
+            <li>Credit conditions</li>
+            <li>Building permits</li>
+            <li>Energy loads</li>
+            <li>Earnings calls</li>
+            <li>Central-bank speeches</li>
+            <li>News</li>
+            <li>Search behavior</li>
+            <li>Policy documents</li>
+            <li>Supply-chain graphs</li>
+            <li>Geospatial variables</li>
+          </ul>
+
+          <div class="subhead"><span class="eb">Step 02</span><h3>Define economic tokens</h3></div>
+          <p>A token is not only a word. In an economic corpus, a token can be a variable at a time and place, a firm in a supply network, a sector in an input-output table, a sentence in a central-bank speech, an event in a policy calendar, a price change in a product category, or a supplier-customer edge weighted by revenue exposure.</p>
+          <div class="tokens">
+            <span class="token"><span class="g">CPI_food</span><span class="s">&middot;</span>2026-02<span class="s">&middot;</span>United States</span>
+            <span class="token"><span class="g">Transformer_orders</span><span class="s">&middot;</span>2025-Q4<span class="s">&middot;</span>North America</span>
+            <span class="token"><span class="g">Data_center_permit</span><span class="s">&middot;</span>Loudoun County<span class="s">&middot;</span>2026-Q1</span>
+            <span class="token">&ldquo;persistent services inflation&rdquo;<span class="s">&middot;</span>central-bank statement</span>
+            <span class="token"><span class="g">Supplier A</span> &rarr; <span class="g">Customer B</span><span class="s">&middot;</span>weighted by exposure</span>
+          </div>
+
+          <div class="subhead"><span class="eb">Step 03</span><h3>Learn representations</h3></div>
+          <p>Different encoders can learn different parts of the economy. Time-series encoders can model macro and market data. Text encoders can model documents, speeches, earnings calls, and news. Graph neural networks can model supplier-customer networks or financial networks. Geospatial encoders can model regional exposure. Event encoders can model policy shifts, geopolitical shocks, or natural disasters. Training objectives could include masked economic modeling, next-period forecasting, link prediction in economic networks, contrastive learning between similar and dissimilar shocks, and event-conditioned response prediction. The model learns embeddings by being forced to predict what is missing, what comes next, or what propagates.</p>
+
+          <div class="subhead"><span class="eb">Step 04</span><h3>Let relevance be conditional</h3></div>
+          <p>Attention is useful because relevance is conditional. In a transformer, attention scores how much each token should matter for a particular prediction. In economics, an attention-like mechanism could score which variables, lags, regions, sectors, documents, or network neighbors matter for a specific target.</p>
+
+          <div class="panel panel--teal">
+            <div class="panel__t">Example &mdash; A target query</div>
+            <p class="qy"><span class="k">Target:</span> six-month regional electricity inflation.<br>
+            <span class="k">Candidate signals:</span> data-center permits, gas prices, transformer lead times, weather, utility capex, power-purchase activity, local demand, transmission constraints.<br>
+            <span class="k">Attention-like output:</span> a weighted, task-specific signal rather than a universal claim that every variable matters equally.</p>
+          </div>
+
+          <p>The model does not have to believe that all variables matter. It only has to be allowed to consider them before it learns which ones to ignore.</p>
+        </section>
+
+        <!-- 05 -->
+        <section class="block" id="s5">
+          <div class="sec"><span class="sec__n">05</span><h2>Wide Search, Sparse Commitment</h2></div>
+
+          <p>Can computers control scope and parsimony? Yes, but only if we distinguish exploration from commitment. It is not unreasonable to let a model develop a very wide candidate space. That is exactly where computers are strong. They can scan thousands of variables, align mixed-frequency data, test many lag structures, map co-movements, track text, detect regime changes, and search for interactions that no human economist would write down first.</p>
+
+          <p>It becomes unreasonable only when we treat everything the model finds as truth. The right architecture is: wide search, sparse commitment. Let the computer expand the hypothesis space. Then let economic discipline, statistical discipline, and causal reasoning constrain it.</p>
+
+          <div class="subhead"><span class="eb">The toolkit</span><h3>The compression tools</h3></div>
+          <div class="capgrid">
+            <div class="cap"><div class="cap__k">Sparse attention &amp; top-k routing</div><div class="cap__v">Inspect many signals but use only a small subset for a specific prediction.</div></div>
+            <div class="cap"><div class="cap__k">Learned gates &amp; feature masks</div><div class="cap__v">Turn variables on or off depending on target, region, horizon, and regime.</div></div>
+            <div class="cap"><div class="cap__k">LASSO, elastic net, shrinkage</div><div class="cap__v">Force weak or redundant effects toward zero while preserving strong distributed signals.</div></div>
+            <div class="cap"><div class="cap__k">Dropout &amp; feature bagging</div><div class="cap__v">Prevent dependence on fragile or accidental correlations.</div></div>
+            <div class="cap"><div class="cap__k">Pruning &amp; distillation</div><div class="cap__v">Discover structure with a large model, then compress it into a smaller, interpretable one.</div></div>
+            <div class="cap"><div class="cap__k">Rolling out-of-sample validation</div><div class="cap__v">Require the model to work on future periods, not just the history it already saw.</div></div>
+          </div>
+
+          <p>This gives economics a different kind of parsimony. Instead of human beings preselecting a small variable set because it is easy to communicate, the model is allowed to search broadly and then forced to compress under statistical discipline.</p>
+
+          <div class="statement has-label"><div class="statement__label">A better definition of rigor</div><p><span class="q2">The computer expands the hypothesis space.</span> <span class="q1">The economist disciplines it.</span></p></div>
+
+          <div class="warn">
+            <div class="warn__t">Warning &mdash; Attention is not explanation</div>
+            <p>Attention weights can help allocate computational focus, but they should not automatically be treated as explanations. Machine-learning research has shown that attention weights can fail to correspond to feature importance. Attention can suggest where to look. It cannot replace identification.</p>
+          </div>
+        </section>
+
+        <!-- 06 -->
+        <section class="block" id="s6">
+          <div class="sec"><span class="sec__n">06</span><h2>What Computers Can Do for Economic Modeling</h2></div>
+
+          <p>A high-dimensional economic system is not valuable because it is fashionable. It is valuable because it can perform tasks that are difficult for humans to do manually, repeatedly, and consistently.</p>
+
+          <div class="capgrid">
+            <div class="cap"><div class="cap__k">Ingest</div><div class="cap__v">Pull structured series, text, market data, microdata, networks, and events into one schema, reducing blind spots from siloed datasets.</div></div>
+            <div class="cap"><div class="cap__k">Align</div><div class="cap__v">Match mixed frequencies, vintages, revisions, lags, regions, and sectors, preventing false signals from timing mismatches and leakage.</div></div>
+            <div class="cap"><div class="cap__k">Represent</div><div class="cap__v">Learn embeddings for variables, firms, regions, sectors, events, and documents, creating a map of latent economic proximity.</div></div>
+            <div class="cap"><div class="cap__k">Gate</div><div class="cap__v">Use attention-like routing to select relevant signals conditional on target and regime, controlling scope without a narrow model.</div></div>
+            <div class="cap"><div class="cap__k">Detect</div><div class="cap__v">Find anomalies, regime shifts, weak signals, and emerging co-movements, becoming an early-warning layer.</div></div>
+            <div class="cap"><div class="cap__k">Forecast</div><div class="cap__v">Combine many weak predictors under regularization and validation, improving short-horizon nowcasts and baselines.</div></div>
+            <div class="cap"><div class="cap__k">Simulate</div><div class="cap__v">Condition on events or shocks and trace likely spillovers through networks, supporting scenario analysis and stress testing.</div></div>
+            <div class="cap"><div class="cap__k">Audit</div><div class="cap__v">Run ablations, placebo tests, holdouts, and feature removals, separating robust structure from attractive noise.</div></div>
+          </div>
+        </section>
+
+        <!-- 07 -->
+        <section class="block" id="s7">
+          <div class="sec"><span class="sec__n">07</span><h2>Prediction, Explanation, and Causality Must Be Separated</h2></div>
+
+          <p>A high-dimensional system may forecast well without explaining causally. It may predict inflation using energy loads, news sentiment, wage data, shipping delays, and policy text. That does not mean every input caused inflation. It means the inputs helped predict the target.</p>
+
+          <p>This distinction is central. Machine learning is often strongest at prediction. Many economic questions are about structural parameters, treatment effects, and welfare. A model can help discover candidate mechanisms, estimate nuisance functions, and improve forecasts. But policy interpretation requires identification. For causal economics, high-dimensional models should be paired with natural experiments, instruments, difference-in-differences designs, structural assumptions, double/debiased machine learning, or other frameworks that explicitly separate the target causal parameter from high-dimensional background prediction.</p>
+
+          <div class="statement"><p><span class="q2">High-dimensional economics is a discovery layer and a prediction layer.</span> <span class="q1">It becomes a policy layer only after identification, validation, and domain reasoning.</span></p></div>
+        </section>
+
+        <!-- 08 -->
+        <section class="block" id="s8">
+          <div class="sec"><span class="sec__n">08</span><h2>A Practical Research Workflow</h2></div>
+
+          <p>The strongest version of this argument is not abstract. It suggests a concrete workflow for researchers, institutions, and policy teams.</p>
+
+          <p><span class="runin">Start wide.</span> Build the candidate corpus before narrowing. Include official data, market data, text, networks, geography, and events.</p>
+          <p><span class="runin">Prevent leakage.</span> Use real-time vintages, temporal masks, and rolling-origin splits so the model cannot learn from the future.</p>
+          <p><span class="runin">Learn representations.</span> Train embeddings and encoders to predict missing values, next-period movements, sector spillovers, or event-conditioned shifts.</p>
+          <p><span class="runin">Gate and shrink.</span> Use attention-like relevance, sparse routing, shrinkage, and learned masks to move from broad search to conditional parsimony.</p>
+          <p><span class="runin">Validate brutally.</span> Use out-of-sample tests, holdout sectors, holdout regions, placebo periods, ablations, and stress tests.</p>
+          <p><span class="runin">Translate into hypotheses.</span> Ask what the model discovered. Which signals became adjacent? Which lags mattered? Which network paths carried the shock? Which variables mattered only under one regime and not another?</p>
+          <p><span class="runin">Identify causally.</span> Only then move to causal designs, structural models, or policy simulations.</p>
+        </section>
+
+        <!-- 09 -->
+        <section class="block" id="s9">
+          <div class="sec"><span class="sec__n">09</span><h2>The Modern Test Case: AI as Infrastructure Shock</h2></div>
+
+          <p>The AI economy is an ideal test case because its most important near-term macro effects may not sit where a parsimonious model expects them. The usual question is: how much productivity will AI create? That question matters. But a high-dimensional system would ask a second question: where is the physical infrastructure of AI already becoming an economic constraint?</p>
+
+          <div class="statement"><p><span class="q1">Does AI raise productivity?</span> <span class="q2">Or does AI's physical footprint become a regional price, power, labor, construction, and finance shock?</span></p></div>
+
+          <p>AI is not only software. It is also data centers, grid interconnections, power-purchase agreements, transformers, gas turbines, batteries, water permits, construction labor, land use, local electricity prices, municipal bonds, and industrial real estate. That makes the energy question timely.</p>
+
+          <div class="figure">
+            <div class="figure__cap">Figure 3 <span>&mdash;</span> <b>Projected global data-center electricity demand</b> (IEA)</div>
+            <div class="tier">
+              <div class="tier__top"><span class="tier__lab">2025</span><span class="tier__val">485 <span class="u">TWh</span></span></div>
+              <div class="tier__bar" style="width:51%"></div>
+            </div>
+            <div class="tier">
+              <div class="tier__top"><span class="tier__lab">2030 (projected)</span><span class="tier__val">950 <span class="u">TWh</span></span></div>
+              <div class="tier__bar" style="width:100%"></div>
+            </div>
+          </div>
+
+          <p>The International Energy Agency projects data-center electricity consumption roughly doubling from 485 TWh in 2025 to 950 TWh in 2030, with AI-focused data centers growing faster than overall data-center electricity use. The U.S. Energy Information Administration has also identified large computing centers as a major driver of the strongest four-year growth in U.S. electricity demand since 2000.</p>
+
+          <p>A narrow model might put AI into a productivity variable or a capital-expenditure variable. A wide model would ask whether the AI boom is simultaneously an energy shock, a construction shock, a regional housing shock, a utility-finance shock, and a local-price shock. It could track local data-center permits, interconnection queues, power-purchase agreements, gas-turbine lead times, transformer orders, utility capital spending, regional power prices, grid congestion, water permits, construction employment, land values, municipal bond issuance, local rent inflation, and industrial displacement. Then it could ask whether those variables begin moving together before the standard macro dashboard registers the shock.</p>
+
+          <p>That is the point of wide data. It does not merely add more columns to a spreadsheet. It gives the model a chance to discover that the live economic question may not be the one the modeler would have asked first.</p>
+        </section>
+
+        <!-- 10 -->
+        <section class="block" id="s10">
+          <div class="sec"><span class="sec__n">10</span><h2>The Strong Version of the Wide-Data Argument</h2></div>
+
+          <p>There is a weak version and a strong version of the wide-data argument. The weak version says: more data is always better. That is false. More data can mean more noise, more leakage, more spurious correlation, more overfitting, more privacy risk, and more false confidence.</p>
+
+          <p>The strong version says: when the economy is a networked, heterogeneous, regime-dependent system, premature restriction of the candidate space can hide the mechanisms that matter. Therefore, the model should be allowed to explore widely under strict regularization, validation, pruning, and causal discipline. This is the position worth defending.</p>
+
+          <p>Let the system develop a large map of possible relationships. Then prune it. Stress it. Hold it out. Break it. Ask whether it survives future data, alternative samples, placebo periods, and causal tests. The goal is not maximal complexity. The goal is faithful compression.</p>
+
+          <div class="statement"><p><span class="q1">Parsimony should not be the opening move.</span> <span class="q2">It should be the model's earned conclusion.</span></p></div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="block" id="sc">
+          <div class="sec"><span class="sec__n">&rarr;</span><h2>Conclusion: Let the Model Look</h2></div>
+
+          <p>Economics will always need simplification. No one can reason from an infinite model. The real question is whether simplification is imposed by habit or learned through disciplined search. The next generation of economic modeling should combine the strengths of economics and machine learning.</p>
+
+          <ul class="list">
+            <li><span class="runin">Theory</span> to define meaningful questions.</li>
+            <li><span class="runin">Wide data</span> to expand the hypothesis space.</li>
+            <li><span class="runin">Embeddings</span> to learn economic context.</li>
+            <li><span class="runin">Attention-like mechanisms</span> to gate relevance.</li>
+            <li><span class="runin">Pruning</span> to restore parsimony.</li>
+            <li><span class="runin">Validation</span> to punish overfitting.</li>
+            <li><span class="runin">Causal inference</span> to separate prediction from policy truth.</li>
+          </ul>
+
+          <div class="statement statement--close">
+            <p>The computer should not replace the economist. It should make the economist harder to fool.
+            <span class="big"><span class="q1">Let the model look.</span> <span class="q2">Then make it prove what it found.</span></span></p>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="block" id="refs">
+          <div class="sec"><span class="sec__n">&sect;</span><h2>Selected Sources &amp; Further Reading</h2></div>
+
+          <div class="refs__list">
+            <div class="refs__cat">Econometrics, machine learning, and causal inference</div>
+            <div class="refs__grid">
+              <p class="ref">Varian, H. R. (2014). &ldquo;Big Data: New Tricks for Econometrics.&rdquo; <i>Journal of Economic Perspectives</i>, 28(2), 3&ndash;28.</p>
+              <p class="ref">Mullainathan, S., &amp; Spiess, J. (2017). &ldquo;Machine Learning: An Applied Econometric Approach.&rdquo; <i>Journal of Economic Perspectives</i>, 31(2), 87&ndash;106.</p>
+              <p class="ref">Belloni, A., Chernozhukov, V., &amp; Hansen, C. (2014). &ldquo;High-Dimensional Methods and Inference on Structural and Treatment Effects.&rdquo; <i>Journal of Economic Perspectives</i>, 28(2), 29&ndash;50.</p>
+              <p class="ref">Chernozhukov, V., et al. (2018). &ldquo;Double/Debiased Machine Learning for Treatment and Structural Parameters.&rdquo; <i>The Econometrics Journal</i>, 21(1), C1&ndash;C68.</p>
+            </div>
+
+            <div class="refs__cat">Large information sets and macroeconomic forecasting</div>
+            <div class="refs__grid">
+              <p class="ref">Stock, J. H., &amp; Watson, M. W. (2002). &ldquo;Forecasting Using Principal Components from a Large Number of Predictors.&rdquo; <i>JASA</i>, 97(460), 1167&ndash;1179.</p>
+              <p class="ref">Banbura, M., Giannone, D., &amp; Reichlin, L. (2010). &ldquo;Large Bayesian Vector Autoregressions.&rdquo; <i>Journal of Applied Econometrics</i>, 25(1), 71&ndash;92.</p>
+              <p class="ref">Giannone, D., Lenza, M., &amp; Primiceri, G. (2021). &ldquo;Economic Predictions with Big Data: The Illusion of Sparsity.&rdquo; <i>Econometrica</i>, 89(5), 2409&ndash;2437.</p>
+              <p class="ref">McCracken, M. W., &amp; Ng, S. FRED-MD and FRED-QD databases. Federal Reserve Bank of St. Louis.</p>
+            </div>
+
+            <div class="refs__cat">Networks, text, representation, and attention</div>
+            <div class="refs__grid">
+              <p class="ref">Cavallo, A., &amp; Rigobon, R. (2016). &ldquo;The Billion Prices Project: Using Online Prices for Measurement and Research.&rdquo; <i>Journal of Economic Perspectives</i>, 30(2), 151&ndash;178.</p>
+              <p class="ref">Acemoglu, D., Carvalho, V. M., Ozdaglar, A., &amp; Tahbaz-Salehi, A. (2012). &ldquo;The Network Origins of Aggregate Fluctuations.&rdquo; <i>Econometrica</i>, 80(5), 1977&ndash;2016.</p>
+              <p class="ref">Gentzkow, M., Kelly, B., &amp; Taddy, M. (2019). &ldquo;Text as Data.&rdquo; <i>Journal of Economic Literature</i>, 57(3), 535&ndash;574.</p>
+              <p class="ref">de Araujo, D. K. G., Bokan, N., Comazzi, F. A., &amp; Lenza, M. (2025). &ldquo;Word2Prices: Embedding Central Bank Communications for Inflation Prediction.&rdquo; BIS Working Paper No. 1253.</p>
+              <p class="ref">Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). &ldquo;Efficient Estimation of Word Representations in Vector Space.&rdquo; arXiv:1301.3781.</p>
+              <p class="ref">Vaswani, A., et al. (2017). &ldquo;Attention Is All You Need.&rdquo; NeurIPS.</p>
+              <p class="ref">Jain, S., &amp; Wallace, B. C. (2019). &ldquo;Attention Is Not Explanation.&rdquo; NAACL.</p>
+            </div>
+
+            <div class="refs__cat">AI, energy, and infrastructure</div>
+            <div class="refs__grid">
+              <p class="ref">International Energy Agency. (2026). <i>Key Questions on Energy and AI.</i></p>
+              <p class="ref">U.S. Energy Information Administration. (2026). <i>EIA forecasts strongest four-year growth in U.S. electricity demand since 2000, fueled by data centers.</i></p>
+            </div>
+          </div>
+
+          <div class="colophon">
+            <span><b>Earned Parsimony</b> &middot; High-Dimensional Data in Economic Modeling</span>
+            <span>Christian Joudon</span>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+<script>
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var secs = Array.prototype.slice.call(document.querySelectorAll('.block[id]'));
+    if(!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('is-active'); });
+          var a = map[e.target.id];
+          if(a) a.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-42% 0px -52% 0px', threshold: 0 });
+    secs.forEach(function(s){ obs.observe(s); });
+  })();
+</script>
+</body>
+</html>
