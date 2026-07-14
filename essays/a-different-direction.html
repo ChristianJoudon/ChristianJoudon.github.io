@@ -249,7 +249,7 @@ CL.forEach(([name,col,vals,v25],k)=>{
  const pi=vals.indexOf(Math.max(...vals));
  g.append("circle").attr("cx",x(2003+pi)).attr("cy",y(vals[pi])).attr("r",7.5).attr("fill","#fff").attr("class","cl");
  g.append("circle").attr("cx",x(2003+pi)).attr("cy",y(vals[pi])).attr("r",4.6).attr("fill",col).attr("stroke",C.eye).attr("stroke-width",.6).attr("class","cl");
- g.append("text").attr("x",x(2003+pi)).attr("y",y(vals[pi])-13).attr("text-anchor","middle").attr("font-size",9.5).attr("fill",C.mid).attr("font-weight",600).attr("class","cl").text("&rsquo;"+String(2003+pi).slice(2));
+ g.append("text").attr("x",x(2003+pi)).attr("y",y(vals[pi])-13).attr("text-anchor","middle").attr("font-size",9.5).attr("fill",C.mid).attr("font-weight",600).attr("class","cl").text("’"+String(2003+pi).slice(2));
  const e=ends.find(d=>d.name===name);
  g.append("line").attr("x1",x(2025)+8).attr("x2",x(2025)+18).attr("y1",e.y-3).attr("y2",e.y-3).attr("stroke",col).attr("stroke-width",3).attr("class","cl");
  const t=g.append("text").attr("x",x(2025)+24).attr("y",e.y).attr("font-size",11).attr("class","cl");
@@ -344,9 +344,9 @@ s.append("text").attr("x",t(2024.45)).attr("y",AX+38).attr("font-size",10.5).att
 s.append("line").attr("x1",t(2023.63)).attr("x2",t(2023.63)).attr("y1",AX).attr("y2",268).attr("stroke",C.pollen).attr("stroke-width",2).attr("opacity",.55);
 s.append("circle").attr("cx",t(2023.63)).attr("cy",AX).attr("r",8).attr("fill",C.pollen).attr("stroke",C.eye).attr("stroke-width",1);
 s.append("text").attr("x",t(2023.63)).attr("y",AX+32).attr("text-anchor","middle").attr("font-size",11.5).attr("fill",C.eye).attr("font-weight",700).text("THE TURN · AUG 2023");
-const ev=[[2022.96,116,"Dec 2022 · X-waiver eliminated","buprenorphine prescribers: 130,000 → 1.8 million","start",false,C.amber],
-[2024.12,44,"Feb 2024 · methadone rules modernized","take-home flexibility made permanent","start",false,C.amber],
-[2025.96,104,"Dec 2025 · telemedicine rule takes effect","buprenorphine prescribing by telehealth","end",false,C.amber],
+const ev=[[2022.96,52,"Dec 2022 · X-waiver eliminated","buprenorphine prescribers: 130,000 → 1.8 million","end",false,C.amber],
+[2024.12,118,"Feb 2024 · methadone rules modernized","take-home flexibility made permanent","start",false,C.amber],
+[2025.96,52,"Dec 2025 · telemedicine rule takes effect","buprenorphine prescribing by telehealth","end",false,C.amber],
 [2023.21,52,"Mar 2023 · first OTC naloxone approved","","end",true,C.poppy],
 [2023.71,96,"Sep 2023 · naloxone on store shelves nationwide","doses dispensed doubled, 2020→2023","start",true,C.poppy]];
 ev.forEach(([yr,dep,l1,l2,anc,up,kc])=>{const X=t(yr),yb=up?AX-dep:AX+dep;
