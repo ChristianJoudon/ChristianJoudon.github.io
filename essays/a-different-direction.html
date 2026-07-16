@@ -57,6 +57,12 @@ footer{margin-top:70px}
 .close .k{font-size:11.5px;letter-spacing:.24em;font-weight:600;opacity:.85;text-transform:uppercase}
 .close h2{font-size:32px;font-weight:700;line-height:1.2;margin:22px 0 18px}
 .close p{max-width:720px;font-size:16px}
+.companion-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 44px;padding:24px 30px;background:var(--card);border:1px solid rgba(41,10,14,.06);border-left:7px solid var(--amber);border-radius:9px;text-decoration:none;color:var(--eye);box-shadow:0 9px 25px rgba(41,10,14,.06);transition:transform .3s,box-shadow .3s}
+.companion-cta:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(41,10,14,.13)}
+.companion-cta .t{display:block;font-weight:800;font-size:19px;letter-spacing:-.01em}
+.companion-cta .s{display:block;margin-top:4px;color:var(--cap);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.companion-cta .go{color:var(--poppy);font-weight:900;font-size:27px;flex:none;transition:transform .3s}
+.companion-cta:hover .go{transform:translateX(8px)}
 .notes h3{color:var(--poppy);font-size:11.5px;letter-spacing:.2em;font-weight:600;margin-bottom:14px}
 .notes li{list-style:none;position:relative;padding-left:18px;font-size:12.5px;color:var(--mid);margin-bottom:10px}
 .notes li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;background:var(--poppy)}
@@ -87,7 +93,6 @@ footer{margin-top:70px}
 <div id="progress"></div><div class="topbar"></div>
 <header class="wrap">
   <a href="../index.html#essays" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--poppy);font-weight:600;letter-spacing:.18em;font-size:12px;text-transform:uppercase;text-decoration:none;margin-bottom:20px;">&larr;&nbsp;Christian Joudon</a>
-  <a href="a-different-direction-article.html" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--amber);font-weight:600;letter-spacing:.18em;font-size:12px;text-transform:uppercase;text-decoration:none;margin-bottom:20px;margin-left:28px;">Read the companion article&nbsp;&rarr;</a>
   <div class="kicker">The Turn After Twenty Years</div>
   <h1>A Different<br><span class="red">Direction <svg class="chevx" viewBox="0 0 82 46" aria-hidden="true"><path fill="currentColor" d="M0 0h15l23 23-23 23H0l23-23z"/><path fill="currentColor" d="M42 0h15l23 23-23 23H42l23-23z"/></svg></span></h1>
   <div class="dek">The overdose curve finally began to fall.</div>
@@ -133,6 +138,10 @@ footer{margin-top:70px}
 <footer class="wrap"><div class="close reveal"><div class="k">A Different Direction</div>
 <h2>The crisis is not over.<br>But the question has changed.</h2>
 <p>For twenty years we asked whether the line could turn at all. Now we know it can. The harder, more useful question is what is turning it, and how we keep it moving.</p></div>
+<a class="companion-cta reveal" href="a-different-direction-article.html">
+  <span><span class="t">Read the companion article</span><span class="s">The written story behind the numbers &middot; four-minute read</span></span>
+  <span class="go">&rarr;</span>
+</a>
 <div class="notes reveal"><h3>SOURCE AND METHOD NOTES</h3><ul>
 <li>Why these numbers: the headline figures come from CDC&rsquo;s May 13, 2026 release &mdash; the same estimates the article quotes (69,973 deaths; 38,084 involving fentanyl).</li>
 <li>The state map and rankings use CDC&rsquo;s newer June 2026 update, in which eight states show increases. Releases can differ slightly; every chart says which one it uses.</li>
@@ -149,7 +158,7 @@ const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const YRS=[...Array(27)].map((_,i)=>1999+i);
 const ANN=[16849,17415,19394,23518,25785,27424,29813,34425,36010,36450,37004,38329,41340,41502,43982,47055,52404,63632,70237,67367,70630,91799,106699,107941,105007,81313,69973];
 const CY=[...Array(22)].map((_,i)=>2003+i);
-const CL=[["Any opioid",C.carmine,[25785,27424,29813,34425,36010,36450,37004,38329,41340,41502,43982,47055,52404,63632,70237,67367,70630,91799,106699,107941,105007,54045],44708],
+const CL=[["All drug overdoses",C.carmine,[25785,27424,29813,34425,36010,36450,37004,38329,41340,41502,43982,47055,52404,63632,70237,67367,70630,91799,106699,107941,105007,81313],69973],
 ["Synthetic opioids (largely fentanyl)",C.poppy,[1400,1664,1742,2707,2213,2306,2946,3007,2666,2628,3105,5544,9580,19413,28466,31335,36359,56516,70601,73838,72776,47735],38200],
 ["Psychostimulants (incl. meth)",C.stone,[1925,1878,2165,2660,2269,2264,2582,3627,4137,4298,5017,5837,7663,9843,13070,16167,20698,23837,32537,34022,34855,28722],26201],
 ["Cocaine",C.pollen,[5199,5443,6208,7448,6512,5129,4350,4183,4681,4404,5319,5856,7324,11316,14556,15883,16196,19447,24486,27569,29449,21945],19687],
@@ -270,6 +279,7 @@ CL.forEach(([name,col,vals,v25],k)=>{
  g.append("circle").attr("cx",x(2003+pi)).attr("cy",y(vals[pi])).attr("r",7.5).attr("fill","#fff").attr("class","cl");
  g.append("circle").attr("cx",x(2003+pi)).attr("cy",y(vals[pi])).attr("r",4.6).attr("fill",col).attr("stroke",C.eye).attr("stroke-width",.6).attr("class","cl");
  g.append("text").attr("x",x(2003+pi)).attr("y",y(vals[pi])-13).attr("text-anchor","middle").attr("font-size",9.5).attr("fill",C.mid).attr("font-weight",600).attr("class","cl").text("\u2019"+String(2003+pi).slice(2));
+ if(k===0)g.append("text").attr("x",x(2003+pi)-14).attr("y",y(vals[pi])-13).attr("text-anchor","end").attr("font-size",9.5).attr("fill",C.mid).attr("font-weight",600).attr("class","cl").text(vals[pi].toLocaleString()+" \u00b7 the 2022 peak");
  const e=ends.find(d=>d.name===name);
  g.append("line").attr("x1",x(2025)+8).attr("x2",x(2025)+18).attr("y1",e.y-3).attr("y2",e.y-3).attr("stroke",col).attr("stroke-width",3).attr("class","cl");
  const cw_=(v25.toLocaleString().length+name.length)*6+26;
@@ -402,7 +412,7 @@ capEl.innerHTML=`<div class="caprow"><div class="capwrap" style="position:relati
 capEl.querySelector(".capimg").src=CAPB64URI;
 const ov=d3.select(capEl).select(".capov");
 const K=400/460;
-const FX=47.63,FY=52.65,TR=26.03;
+const FX=49.14,FY=54.06,TR=26.03;
 const ovg=ov.append("g").attr("transform",`translate(${FX},${FY}) scale(${K}) translate(${-FX},${-FY})`);
 ovg.append("circle").attr("cx",FX).attr("cy",FY).attr("r",TR).attr("fill","none").attr("stroke","#E4E0DE").attr("stroke-width",TR*.16);
 ovg.append("circle").attr("cx",FX).attr("cy",FY).attr("r",TR*.70).attr("fill","none").attr("stroke",C.pollen).attr("stroke-width",.35).attr("stroke-dasharray",".4 1.4");
