@@ -522,5 +522,110 @@
     secs.forEach(function(s){ obs.observe(s); });
   })();
 </script>
+
+<style>
+/* ============ MOTION & INTERACTION ============ */
+#progress{position:fixed;top:0;left:0;z-index:99;height:3px;width:0;
+  background:linear-gradient(90deg,var(--gold-bright),var(--gold))}
+
+.rv{opacity:0;transform:translateY(24px);
+  transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+/* statements slide out of their gold border */
+.statement.rv{transform:translateX(-28px)}
+.statement.rv.on{transform:none}
+.statement--close.rv{transform:translateY(24px)}
+.statement--close.rv.on{transform:none}
+
+/* comparison columns approach from opposite sides */
+.compare__col.rv:first-child{transform:translateX(-26px)}
+.compare__col.rv:last-child{transform:translateX(26px)}
+.compare__col.rv.on{transform:none}
+
+/* gold section rules draw themselves */
+.sec::before{transform:scaleX(0);transform-origin:left;
+  transition:transform .8s .1s cubic-bezier(.2,.6,.2,1)}
+.sec.on::before{transform:scaleX(1)}
+
+/* subhead diamonds pop */
+.subhead h3::before{transform:scale(0) rotate(45deg);
+  transition:transform .5s .25s cubic-bezier(.2,.7,.3,1.4)}
+.subhead.on h3::before{transform:scale(1) rotate(45deg)}
+
+/* tier bars grow */
+.tier__bar{transform:scaleX(0);transform-origin:left;
+  transition:transform .9s .2s cubic-bezier(.2,.6,.2,1)}
+.tier.on .tier__bar{transform:scaleX(1)}
+
+/* token chips pop in */
+.token.rv{transform:translateY(12px) scale(.92)}
+.token.rv.on{transform:none}
+
+/* hover life */
+.exhibit{transition:transform .35s,box-shadow .35s,opacity .7s cubic-bezier(.2,.6,.2,1)}
+.exhibit:hover{transform:translateY(-4px);box-shadow:0 18px 36px -20px rgba(23,25,34,.28)}
+.capgrid .cap{transition:transform .3s,opacity .7s cubic-bezier(.2,.6,.2,1)}
+.capgrid .cap:hover{transform:translateX(6px)}
+.capgrid .cap:hover .cap__k{color:var(--gold)}
+.cap__k{transition:color .3s}
+.map__arrow{transition:transform .3s}
+.map__row:hover .map__arrow{transform:translateX(5px)}
+.rmap li{transition:transform .3s,opacity .7s cubic-bezier(.2,.6,.2,1)}
+.rmap li:hover{transform:translateX(5px)}
+
+@media (prefers-reduced-motion:reduce){
+  #progress{display:none}
+  .rv{opacity:1 !important;transform:none !important;transition:none !important}
+  .sec::before,.subhead h3::before,.tier__bar{transform:none !important;transition:none !important}
+}
+@media print{
+  #progress{display:none}
+  .rv{opacity:1 !important;transform:none !important}
+  .sec::before,.subhead h3::before,.tier__bar{transform:none !important}
+}
+</style>
+<script>
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pr = document.createElement('div'); pr.id = 'progress';
+  document.body.insertBefore(pr, document.body.firstChild);
+  function onScroll(){
+    var h = document.documentElement, m = h.scrollHeight - h.clientHeight;
+    pr.style.width = (m > 0 ? (h.scrollTop / m) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  var single = '.content > p, .block > p, .sec, .statement, .exhibit, .figure, ' +
+               '.panel, .warn, .subhead, .tier, .map__row, .refs__list, .colophon';
+  document.querySelectorAll(single).forEach(function(el){ el.classList.add('rv'); });
+
+  [['.kpi__cell',90],['.moves .move',90],['.capgrid .cap',100],
+   ['.tokens .token',70],['.rmap li',90],['.compare__col',160]].forEach(function(g){
+    document.querySelectorAll(g[0]).forEach(function(el,i){
+      el.classList.add('rv'); el.style.transitionDelay = (i % 12) * g[1] + 'ms';
+    });
+  });
+  document.querySelectorAll('.list').forEach(function(list){
+    if (list.closest('.compare')) return;
+    list.querySelectorAll(':scope > li').forEach(function(li,i){
+      li.classList.add('rv'); li.style.transitionDelay = (i % 10) * 80 + 'ms';
+    });
+  });
+
+  var all = document.querySelectorAll('.rv');
+  if (RM || !('IntersectionObserver' in window)){
+    all.forEach(function(el){ el.classList.add('on'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, {threshold:.14, rootMargin:'0px 0px -5% 0px'});
+    all.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
 </body>
 </html>
