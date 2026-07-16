@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Different Direction | The Turn After Twenty Years</title>
+  <meta name="description" content="After two decades of rising overdose deaths, three consecutive annual declines offer the clearest evidence yet of a sustained turn.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --eye:#290A0E;
+      --poppy:#D52F2C;
+      --petal:#E6443A;
+      --carmine:#A9181F;
+      --pollen:#D4B542;
+      --amber:#C96C2A;
+      --hair:#E4DFDE;
+      --cap:#8D8082;
+      --mid:#746668;
+      --card:#FAF8F8;
+      --white:#FFFFFF;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      color:var(--eye);
+      background:var(--white);
+      font-family:'Libre Franklin','Franklin Gothic Medium','Helvetica Neue',Arial,sans-serif;
+      line-height:1.62;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .topbar { height:8px; background:var(--poppy); }
+    .wrap { width:min(1180px, calc(100% - 64px)); margin:0 auto; }
+
+    .masthead {
+      position:relative;
+      padding:62px 0 34px;
+      border-bottom:1px solid var(--hair);
+    }
+    .kicker {
+      color:var(--poppy);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.26em;
+      text-transform:uppercase;
+    }
+    h1 {
+      max-width:840px;
+      margin:17px 0 13px;
+      font-size:clamp(58px, 7.5vw, 94px);
+      font-weight:900;
+      line-height:.94;
+      letter-spacing:-.055em;
+    }
+    h1 .red { color:var(--poppy); }
+    h1 .arrows { letter-spacing:-.12em; white-space:nowrap; }
+    .dek {
+      margin-bottom:32px;
+      color:var(--cap);
+      font-size:clamp(20px, 2.2vw, 27px);
+      line-height:1.3;
+    }
+    .lede {
+      max-width:820px;
+      color:var(--mid);
+      font-size:17px;
+      line-height:1.62;
+    }
+    .lede p { margin:0 0 17px; }
+    .sideblock {
+      position:absolute;
+      top:0;
+      right:0;
+      width:112px;
+      height:418px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,var(--poppy),var(--carmine));
+      box-shadow:0 13px 30px rgba(41,10,14,.14);
+    }
+    .sideblock::before {
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:-19px;
+      width:8px;
+      background:var(--pollen);
+    }
+    .sideblock span {
+      color:#fff;
+      font-size:17px;
+      font-weight:700;
+      letter-spacing:.33em;
+      writing-mode:vertical-rl;
+    }
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+      margin:38px 0 22px;
+    }
+    .stat {
+      min-height:132px;
+      padding:19px 20px;
+      border:1px solid rgba(41,10,14,.025);
+      border-radius:9px;
+      background:var(--card);
+      box-shadow:0 9px 25px rgba(41,10,14,.06);
+    }
+    .stat .label {
+      color:var(--cap);
+      font-size:10.5px;
+      font-weight:700;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .stat .value {
+      margin:5px 0 1px;
+      color:var(--poppy);
+      font-size:31px;
+      font-weight:800;
+      letter-spacing:-.025em;
+      font-variant-numeric:tabular-nums;
+    }
+    .stat .sub { color:var(--cap); font-size:11px; }
+
+    .fall-banner {
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+      margin-bottom:0;
+      padding:23px 32px;
+      background:rgba(230,68,58,.075);
+    }
+    .fall-banner::before,
+    .fall-banner::after {
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:7px;
+    }
+    .fall-banner::before { left:0; background:var(--poppy); }
+    .fall-banner::after { right:0; background:var(--pollen); }
+    .fall-banner .small {
+      color:var(--poppy);
+      font-size:10.5px;
+      font-weight:700;
+      letter-spacing:.19em;
+    }
+    .fall-banner .years {
+      margin-top:3px;
+      font-size:27px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    .fall-banner .change { text-align:right; }
+    .fall-banner .change strong {
+      display:block;
+      color:var(--poppy);
+      font-size:35px;
+      line-height:1;
+    }
+
+    .byline {
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      padding:24px 0;
+      border-bottom:1px solid var(--hair);
+      color:var(--cap);
+      font-size:12px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .byline b { color:var(--eye); }
+
+    .article-grid {
+      display:grid;
+      grid-template-columns:170px minmax(0,760px);
+      justify-content:center;
+      gap:64px;
+      padding:62px 0 90px;
+    }
+    .rail {
+      align-self:start;
+      position:sticky;
+      top:28px;
+      color:var(--cap);
+      font-size:10px;
+      line-height:1.55;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .rail::before {
+      content:"";
+      display:block;
+      width:48px;
+      height:5px;
+      margin-bottom:16px;
+      background:var(--poppy);
+    }
+    .rail strong { display:block; margin-bottom:8px; color:var(--poppy); }
+    .rail span { display:block; margin-bottom:13px; }
+
+    article { min-width:0; }
+    article p {
+      margin:0 0 25px;
+      color:#40383A;
+      font-size:18px;
+      line-height:1.72;
+    }
+    article .opening::first-letter {
+      float:left;
+      margin:.08em .12em 0 0;
+      color:var(--poppy);
+      font-size:4.1em;
+      font-weight:900;
+      line-height:.72;
+    }
+    article h2 {
+      margin:62px 0 20px;
+      color:var(--eye);
+      font-size:25px;
+      line-height:1.2;
+      letter-spacing:-.018em;
+    }
+    article h2::before {
+      content:"";
+      display:block;
+      width:52px;
+      height:5px;
+      margin-bottom:17px;
+      background:var(--poppy);
+    }
+    .pullquote {
+      margin:46px 0;
+      padding:29px 34px 31px;
+      border-left:7px solid var(--poppy);
+      background:var(--card);
+      color:var(--eye);
+      font-size:25px;
+      font-weight:700;
+      line-height:1.32;
+      letter-spacing:-.02em;
+    }
+    .pullquote em {
+      display:block;
+      margin-top:12px;
+      color:var(--cap);
+      font-size:11px;
+      font-style:normal;
+      font-weight:600;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .evidence-box {
+      margin:38px 0 45px;
+      padding:30px 32px 31px;
+      border-top:5px solid var(--poppy);
+      background:var(--card);
+    }
+    .evidence-box h3 {
+      margin:0 0 7px;
+      color:var(--poppy);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .evidence-box > p {
+      margin-bottom:21px;
+      color:var(--cap);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .forces {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px 28px;
+    }
+    .force {
+      padding-top:13px;
+      border-top:1px solid var(--hair);
+    }
+    .force strong {
+      display:block;
+      margin-bottom:4px;
+      color:var(--eye);
+      font-size:14px;
+    }
+    .force span { color:var(--mid); font-size:12.5px; line-height:1.45; }
+
+    .close {
+      position:relative;
+      margin-top:58px;
+      padding:45px 47px 48px;
+      background:var(--poppy);
+      color:#fff;
+    }
+    .close::before {
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:-8px;
+      width:8px;
+      background:var(--pollen);
+    }
+    .close .label {
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      opacity:.84;
+    }
+    .close h2 {
+      margin:16px 0 14px;
+      color:#fff;
+      font-size:29px;
+    }
+    .close h2::before { display:none; }
+    .close p { margin:0; color:#fff; font-size:16px; line-height:1.62; }
+
+    .notes {
+      margin-top:54px;
+      padding-top:27px;
+      border-top:1px solid var(--hair);
+    }
+    .notes h3 {
+      margin:0 0 16px;
+      color:var(--poppy);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .notes ul { margin:0; padding:0; }
+    .notes li {
+      position:relative;
+      margin:0 0 10px;
+      padding-left:18px;
+      list-style:none;
+      color:var(--mid);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+    .notes li::before {
+      content:"";
+      position:absolute;
+      top:.55em;
+      left:0;
+      width:5px;
+      height:5px;
+      background:var(--poppy);
+    }
+    .source-line {
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      margin-top:32px;
+      padding:18px 0 40px;
+      border-top:1px solid var(--hair);
+      color:var(--cap);
+      font-size:10px;
+    }
+
+    /* ============ MOTION & INTERACTION ============ */
+    #progress {
+      position:fixed; top:0; left:0; z-index:99;
+      height:5px; width:0%;
+      background:linear-gradient(90deg,var(--poppy),var(--pollen));
+    }
+
+    /* masthead entrance cascade */
+    @keyframes riseIn { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+    @keyframes slideL { from{opacity:0;transform:translateX(64px)} to{opacity:1;transform:none} }
+    .masthead .kicker { animation:riseIn .6s .05s cubic-bezier(.2,.6,.2,1) both }
+    .masthead h1      { animation:riseIn .7s .16s cubic-bezier(.2,.6,.2,1) both }
+    .masthead .dek    { animation:riseIn .6s .30s cubic-bezier(.2,.6,.2,1) both }
+    .masthead .lede   { animation:riseIn .6s .42s cubic-bezier(.2,.6,.2,1) both }
+    .masthead .byline { animation:riseIn .6s .55s cubic-bezier(.2,.6,.2,1) both }
+    .sideblock        { animation:slideL .7s .45s cubic-bezier(.2,.6,.2,1) both }
+
+    /* the >> arrows march forward */
+    @keyframes march { 0%,100%{transform:translateX(0)} 50%{transform:translateX(10px)} }
+    h1 .arrows { display:inline-block; animation:march 2.4s 1.4s ease-in-out infinite }
+
+    /* scroll reveals */
+    .rv { opacity:0; transform:translateY(26px);
+      transition:opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1) }
+    .rv.on { opacity:1; transform:none }
+    .pullquote.rv { transform:translateX(-30px) }
+    .pullquote.rv.on { transform:none }
+
+    /* h2 red rule draws in */
+    article h2::before { transform:scaleX(0); transform-origin:left;
+      transition:transform .7s .15s cubic-bezier(.2,.6,.2,1) }
+    article h2.on::before { transform:scaleX(1) }
+
+    /* stat cards: accent sweep, hover lift, cursor tilt (JS) */
+    .stat { position:relative; overflow:hidden; cursor:pointer; will-change:transform;
+      transition:transform .35s cubic-bezier(.2,.6,.2,1), box-shadow .35s, opacity .7s cubic-bezier(.2,.6,.2,1) }
+    .stat::after { content:""; position:absolute; top:0; left:0; width:100%; height:4px;
+      background:linear-gradient(90deg,var(--poppy),var(--pollen));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .8s .25s cubic-bezier(.2,.6,.2,1) }
+    .stat.on::after { transform:scaleX(1) }
+    .stat:hover { box-shadow:0 18px 38px rgba(41,10,14,.14) }
+
+    /* fall banner: edge bars grow, years stamp in */
+    .fall-banner::before { transform:scaleY(0); transform-origin:top;
+      transition:transform .7s .10s ease }
+    .fall-banner::after  { transform:scaleY(0); transform-origin:bottom;
+      transition:transform .7s .25s ease }
+    .fall-banner.on::before, .fall-banner.on::after { transform:scaleY(1) }
+    @keyframes stamp { from{opacity:0;transform:translateY(14px) scale(.82)} to{opacity:1;transform:none} }
+    .fall-banner .years span { display:inline-block; opacity:0 }
+    .fall-banner.on .years span { animation:stamp .5s cubic-bezier(.2,.7,.3,1.35) both }
+
+    /* evidence forces: hover nudge */
+    .force { transition:transform .3s, opacity .7s cubic-bezier(.2,.6,.2,1) }
+    .force strong { transition:color .3s }
+    .force:hover { transform:translateX(6px) }
+    .force:hover strong { color:var(--poppy) }
+
+    /* closing block: rises in like the rest; pollen edge grows as decoration */
+    .close::before { transform:scaleY(0); transform-origin:top;
+      transition:transform .8s .25s cubic-bezier(.2,.6,.2,1) }
+    .close.on::before { transform:scaleY(1) }
+
+    /* companion cross-link card */
+    .companion { display:flex; align-items:center; justify-content:space-between; gap:18px;
+      margin:0 0 34px; padding:18px 24px;
+      border:1px solid var(--hair); border-left:7px solid var(--pollen);
+      background:var(--card); text-decoration:none; color:var(--eye);
+      transition:transform .3s, box-shadow .3s, opacity .7s cubic-bezier(.2,.6,.2,1) }
+    .companion:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(41,10,14,.10) }
+    .companion .t { font-weight:700; font-size:15px }
+    .companion .s { display:block; margin-top:2px; color:var(--cap); font-size:11px;
+      letter-spacing:.1em; text-transform:uppercase }
+    .companion .go { color:var(--poppy); font-weight:900; font-size:24px;
+      transition:transform .3s }
+    .companion:hover .go { transform:translateX(7px) }
+
+    .backlink { display:inline-flex; align-items:center; gap:.4rem; margin-bottom:20px;
+      color:var(--poppy); font-size:12px; font-weight:600;
+      letter-spacing:.18em; text-transform:uppercase; text-decoration:none }
+
+    @media (prefers-reduced-motion:reduce) {
+      * { animation:none !important; transition:none !important }
+      .rv { opacity:1 !important; transform:none !important; clip-path:none !important }
+      .fall-banner .years span { opacity:1 !important }
+      .fall-banner::before, .fall-banner::after { transform:none !important }
+      article h2::before, .stat::after, .close::before { transform:none !important }
+    }
+
+    @media (max-width:1080px) {
+      .sideblock { display:none; }
+      .lede { max-width:900px; }
+      .article-grid { grid-template-columns:minmax(0,760px); }
+      .rail { display:none; }
+    }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 36px, 680px); }
+      .masthead { padding-top:42px; }
+      h1 { font-size:clamp(50px,16vw,72px); }
+      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .fall-banner { align-items:flex-start; flex-direction:column; }
+      .fall-banner .change { text-align:left; }
+      .byline { align-items:flex-start; flex-direction:column; }
+      .article-grid { padding-top:43px; }
+      article p { font-size:17px; }
+      .forces { grid-template-columns:1fr; }
+      .pullquote { margin-left:-8px; margin-right:-8px; padding:25px; font-size:22px; }
+      .close { margin-left:8px; padding:36px 28px 39px; }
+      .source-line { flex-direction:column; }
+    }
+    @media print {
+      @page { size:letter; margin:.5in; }
+      body { font-size:10pt; }
+      .topbar { height:5px; }
+      .wrap { width:100%; }
+      .masthead { padding-top:30px; }
+      .sideblock { display:none; }
+      h1 { font-size:54px; }
+      .lede { font-size:13px; }
+      .stats { gap:8px; }
+      .stat { min-height:96px; padding:12px; }
+      .stat .value { font-size:24px; }
+      .article-grid { grid-template-columns:1fr; padding-top:34px; }
+      .rail { display:none; }
+      article p { font-size:11.5pt; }
+      article h2, .evidence-box, .pullquote, .close, .notes { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress"></div>
+  <div class="topbar"></div>
+
+  <header class="masthead wrap">
+    <a class="backlink" href="../index.html#essays">&larr;&nbsp;Christian Joudon</a>
+    <div class="kicker">The Turn After Twenty Years</div>
+    <h1>A Different<br><span class="red">Direction <span class="arrows">&gt;&gt;</span></span></h1>
+    <div class="dek">The overdose curve finally began to fall.</div>
+
+    <div class="lede">
+      <p>For two decades, America's overdose curve moved in one direction. Every year the number climbed, and every year the climb felt permanent. When the first decline came, it was easy to read as a pause: a single breath before the line resumed its rise.</p>
+      <p>By 2025, the pattern was harder to dismiss. Three consecutive years of decline now sit where the ascent used to be, and with them the clearest evidence yet that the curve has genuinely bent.</p>
+    </div>
+
+    <div class="sideblock"><span>AFTER TWENTY YEARS</span></div>
+
+    <div class="stats" aria-label="Key statistics">
+      <div class="stat"><div class="label">2025 predicted deaths</div><div class="value">69,973</div><div class="sub">May 2026 release</div></div>
+      <div class="stat"><div class="label">From 2024</div><div class="value">-14%</div><div class="sub">third annual fall</div></div>
+      <div class="stat"><div class="label">From the final 2022 peak</div><div class="value">-35%</div><div class="sub">107,941 to 69,973</div></div>
+      <div class="stat"><div class="label">Synthetic opioids</div><div class="value">-22%</div><div class="sub">48,913 to 38,084</div></div>
+    </div>
+
+    <div class="fall-banner">
+      <div><div class="small">THREE CONSECUTIVE FALLS</div><div class="years">2023 / 2024 / 2025</div></div>
+      <div class="change"><strong>-35%</strong><div class="small">FROM THE FINAL 2022 PEAK</div></div>
+    </div>
+
+    <div class="byline"><span>By <b>Christian Joudon</b></span><span>Data story | Prepared July 2026</span></div>
+  </header>
+
+  <main class="article-grid wrap">
+    <aside class="rail">
+      <strong>A Different Direction</strong>
+      <span>Preliminary 2025 data</span>
+      <span>National and state context</span>
+      <span>Four-minute read</span>
+    </aside>
+
+    <article>
+      <a class="companion" href="a-different-direction.html">
+        <span><span class="t">Explore the interactive infographic</span><span class="s">Charts &middot; state map &middot; timeline &mdash; the full data story</span></span>
+        <span class="go">&rarr;</span>
+      </a>
+
+      <p class="opening">Preliminary CDC figures record 69,973 overdose deaths in 2025, from all drugs. That is roughly 14% fewer than the year before and about 35% below the final 2022 peak, when the yearly toll reached 107,941.</p>
+
+      <p>The first decline could still be read as noise. The second suggested a pattern. A third consecutive fall makes the direction harder to dismiss. It does not erase the scale of the loss, but it changes what the national record now permits us to say: the curve can turn.</p>
+
+      <div class="pullquote">A decline once looked like a pause. Three consecutive falls look like a direction.<em>National predicted provisional estimates</em></div>
+
+      <h2>Fentanyl remains central to both the crisis and the decline</h2>
+
+      <p>Deaths involving synthetic opioids, chiefly fentanyl, remain just over half of the total. They also fell fastest, from an estimated 48,913 deaths to 38,084, a decline of roughly 22%.</p>
+
+      <p>The drug categories overlap and cannot be added together. Even so, the movement within them matters. In 2024, every major class in the record declined at once. The broad national fall was not confined to a single drug or a single measurement.</p>
+
+      <h2>A national turn still contains local curves that climb</h2>
+
+      <p>The progress is real, but uneven. Eight jurisdictions moved in the opposite direction in the most recent state count. New Mexico, Arizona, and Colorado each rose by 10% or more even as most of the country fell.</p>
+
+      <p>Four of the increases occurred in states with fewer than 175 predicted deaths, where small changes can create large percentages. The West also peaked later than much of the country. Its curve may be behind the national turn rather than exempt from it. Either way, a falling national total cannot be mistaken for a uniform local experience.</p>
+
+      <h2>No single cause owns the reversal</h2>
+
+      <p>Naloxone became easier to carry and easier to reach. Barriers to treatment eased. A disrupted, sometimes less potent fentanyl supply may have played its part. Awareness also deepened in quiet, practical ways: test strips, counterfeit-pill warnings, carrying naloxone, and the discipline of never using alone.</p>
+
+      <p>These forces likely overlap. The mortality data do not divide the decline into causal shares, and no single intervention can claim the whole change. The responsible question is not which explanation wins, but which combination is saving lives and can be sustained.</p>
+
+      <div class="evidence-box">
+        <h3>Plausible contributors, not shares of a measured total</h3>
+        <p>These are forces identified in the reporting and public-health record. They should be read as interacting explanations, not a causal decomposition.</p>
+        <div class="forces">
+          <div class="force"><strong>Naloxone access</strong><span>More people could carry and administer an opioid-overdose reversal medication.</span></div>
+          <div class="force"><strong>Treatment access</strong><span>Medication and treatment became easier to enter in more settings.</span></div>
+          <div class="force"><strong>Drug-supply change</strong><span>A disrupted or less potent fentanyl supply may have reduced some exposure.</span></div>
+          <div class="force"><strong>Public awareness</strong><span>Test strips, counterfeit-pill warnings, and never-use-alone practices made risk more visible.</span></div>
+        </div>
+      </div>
+
+      <p>None of this makes 69,973 deaths acceptable. It makes the direction meaningful. Public-health progress is often visible first as a line that stops worsening, then as a fall that survives another year.</p>
+
+      <div class="close">
+        <div class="label">A Different Direction</div>
+        <h2>The crisis is not over.<br>But the question has changed.</h2>
+        <p>For twenty years we asked whether the line could turn at all. Now we know it can. The harder, more useful question is what is turning it, and how we keep it moving.</p>
+      </div>
+
+      <div class="notes">
+        <h3>Source and method notes</h3>
+        <ul>
+          <li>National figures use the May 13, 2026 release to preserve the article's 69,973 and 38,084 estimates.</li>
+          <li>State change views use the later June 2026 VSRR extract. That release shows eight jurisdictions increasing.</li>
+          <li>Final national data are residence-based; provisional state changes are occurrence-based. They provide context but are not interchangeable.</li>
+          <li>Drug categories overlap. They are discussed independently and must not be summed.</li>
+          <li>The final 2022 national peak was 107,941. The May 2026 estimate of 69,973 is 35.2% lower, rounded here to 35%.</li>
+        </ul>
+      </div>
+
+      <div class="source-line"><span>CDC/NCHS final mortality data | CDC VSRR provisional estimates | Data Briefs 522 and 549 | SAMHSA/NSDUH</span><span>A curve turning, not a crisis ending.</span></div>
+    </article>
+  </main>
+
+<script>
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- reading progress bar ----
+  var pr = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    pr.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // ---- count-up numbers (69,973 / -14% / -35% / -22%) ----
+  function animateValue(el){
+    if (el._busy) return;
+    var raw = el.dataset.v || el.textContent.trim(); el.dataset.v = raw;
+    var m = raw.match(/^(-?)([\d,]+)(%?)$/);
+    if (!m) return;
+    if (RM){ el.textContent = raw; return; }
+    el._busy = true;
+    var neg = m[1] === '-', target = parseInt(m[2].replace(/,/g,''),10),
+        suf = m[3], comma = m[2].indexOf(',') > -1,
+        t0 = performance.now(), dur = 1300;
+    function step(t){
+      var p = Math.min(1,(t-t0)/dur), e = 1 - Math.pow(1-p,3),
+          v = Math.round(target*e);
+      el.textContent = (neg?'-':'') + (comma ? v.toLocaleString('en-US') : v) + suf;
+      if (p < 1) requestAnimationFrame(step); else el._busy = false;
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ---- fall banner: split years into stampable spans ----
+  var yrs = document.querySelector('.fall-banner .years');
+  if (yrs){
+    yrs.innerHTML = yrs.textContent.trim().split(/\s+/).map(function(w,i){
+      return '<span style="animation-delay:' + (200 + i*150) + 'ms">' + w + '</span>';
+    }).join(' ');
+  }
+
+  // ---- reveal targets ----
+  var sel = ['article > p','article h2','.pullquote','.evidence-box','.close',
+             '.notes','.source-line','.stats .stat','.fall-banner','.companion'];
+  var targets = document.querySelectorAll(sel.join(','));
+  targets.forEach ? null : (targets = Array.prototype.slice.call(targets));
+  Array.prototype.forEach.call(targets, function(el){ el.classList.add('rv'); });
+  document.querySelectorAll('.stats .stat').forEach(function(el,i){ el.style.transitionDelay = (i*90)+'ms'; });
+  document.querySelectorAll('.force').forEach(function(el,i){ el.classList.add('rv'); el.style.transitionDelay = (i*110)+'ms'; });
+  document.querySelectorAll('.notes li').forEach(function(el,i){ el.classList.add('rv'); el.style.transitionDelay = (i*80)+'ms'; });
+
+  function fire(el){
+    if (el.classList.contains('stat')){
+      var v = el.querySelector('.value'); if (v) animateValue(v);
+    }
+    if (el.classList.contains('fall-banner')){
+      var c = el.querySelector('.change strong'); if (c) animateValue(c);
+    }
+  }
+
+  var all = document.querySelectorAll('.rv');
+  if (RM || !('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(all, function(el){ el.classList.add('on'); fire(el); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('on');
+          fire(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.16, rootMargin:'0px 0px -6% 0px'});
+    Array.prototype.forEach.call(all, function(el){ io.observe(el); });
+  }
+
+  // ---- stat cards: cursor tilt + click to replay the count ----
+  document.querySelectorAll('.stat').forEach(function(card){
+    card.addEventListener('mousemove', function(ev){
+      if (RM) return;
+      var r = card.getBoundingClientRect();
+      var x = (ev.clientX - r.left)/r.width - .5,
+          y = (ev.clientY - r.top)/r.height - .5;
+      card.style.transform = 'perspective(600px) translateY(-5px) rotateX(' + (-y*5).toFixed(2) + 'deg) rotateY(' + (x*5).toFixed(2) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+    card.addEventListener('click', function(){
+      var v = card.querySelector('.value'); if (v) animateValue(v);
+    });
+  });
+})();
+</script>
+</body>
+</html>
