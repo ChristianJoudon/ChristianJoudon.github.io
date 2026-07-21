@@ -56,7 +56,7 @@
       --score-asia: #765700;
       --score-china: #9b5200;
       --coal: #beb8aa;
-      --coal-strong: #30302c;
+      --coal-strong: #8f897e;
       --graph-coal: var(--coal);
       --graph-coal-strong: var(--coal-strong);
       --charcoal: #30302c;
@@ -2657,6 +2657,12 @@
       fill: var(--balance-yellow-bright);
     }
 
+    #power-in-the-balance .balance-object {
+      image-rendering: auto;
+      overflow: visible;
+      pointer-events: bounding-box;
+    }
+
     #power-in-the-balance .weight-label {
       fill: var(--balance-ink);
       font-size: 0.72rem;
@@ -2804,7 +2810,7 @@
 
   <figure class="plot-wrap">
     <svg class="balance-svg" id="power-balance-svg" viewBox="0 0 736 390" width="736" height="390" role="img" aria-labelledby="power-balance-title power-balance-desc">
-      <desc id="power-balance-desc">Coal begins heavier on the left side of a pedestal balance in 2000. Compact loads in the shallow pans grow with electricity generation. The tapered beam moves continuously toward level and ends with all renewables slightly lower on the right in Ember’s live 2025 estimate.</desc>
+      <desc id="power-balance-desc">Coal begins heavier on the left side of a pedestal balance in 2000. A textured coal rock sits in the left pan and a sun representing all renewables sits in the right; both grow with electricity generation. The tapered beam moves continuously toward level and ends with all renewables slightly lower on the right in Ember’s live 2025 estimate.</desc>
       <defs>
         <linearGradient id="power-balance-coal-gradient" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stop-color="var(--balance-coal)"></stop>
@@ -2824,8 +2830,8 @@
       <polygon class="scale-beam" id="power-balance-beam"></polygon>
       <path class="scale-support" id="power-balance-left-support"></path>
       <path class="scale-support" id="power-balance-right-support"></path>
-      <path class="coal-weight" id="power-balance-coal-weight" tabindex="0" role="img" aria-label="Coal generation weight"></path>
-      <path class="renewables-weight" id="power-balance-renewables-weight" tabindex="0" role="img" aria-label="All renewables generation weight"></path>
+      <image class="coal-weight balance-object" id="power-balance-coal-weight" href="../assets/img/a-near-tie/coal-scale-object.png" preserveAspectRatio="xMidYMax meet" data-aspect-ratio="1.091684" tabindex="0" role="img" aria-label="Coal generation weight shown as a piece of coal"></image>
+      <image class="renewables-weight balance-object" id="power-balance-renewables-weight" href="../assets/img/a-near-tie/sun-scale-object.png" preserveAspectRatio="xMidYMax meet" data-aspect-ratio="0.994141" tabindex="0" role="img" aria-label="All renewables generation weight shown as a sun"></image>
       <path class="scale-pan" id="power-balance-left-pan"></path>
       <path class="scale-pan" id="power-balance-right-pan"></path>
 
@@ -3078,10 +3084,15 @@
 
       function setLoadPosition(load, label, valueLabel, centerX, panTop, value) {
         const scale = Math.sqrt(value / maxGeneration);
-        const loadWidth = geometry.panWidth * 0.78 * scale;
-        const loadHeight = geometry.panHeight * 0.76 * scale;
-        const baseline = panTop + 1;
-        load.setAttribute("d", `M ${centerX - loadWidth / 2} ${baseline} Q ${centerX} ${baseline - loadHeight * 2} ${centerX + loadWidth / 2} ${baseline} Z`);
+        const panFill = geometry.width < 520 ? 1 : 0.86;
+        const loadWidth = geometry.panWidth * panFill * scale;
+        const aspectRatio = Number(load.dataset.aspectRatio) || 1;
+        const loadHeight = loadWidth / aspectRatio;
+        const baseline = panTop + geometry.panHeight * 0.18;
+        load.setAttribute("x", String(centerX - loadWidth / 2));
+        load.setAttribute("y", String(baseline - loadHeight));
+        load.setAttribute("width", String(loadWidth));
+        load.setAttribute("height", String(loadHeight));
         label.setAttribute("x", String(centerX));
         label.setAttribute("y", String(geometry.labelY));
         valueLabel.setAttribute("x", String(centerX));
@@ -5788,7 +5799,7 @@
     }
 
     #renewables-coal-battery-race[data-energy-focus="renewables"] .battery-unit-coal,
-    #renewables-coal-battery-race[data-energy-focus="charcoal"] .battery-unit-renewables {
+    #renewables-coal-battery-race[data-energy-focus="coal"] .battery-unit-renewables {
       opacity: 0.22;
     }
 
@@ -5830,7 +5841,7 @@
     }
 
     #renewables-coal-battery-race .fill-coal {
-      fill: var(--energy-coal);
+      fill: var(--charcoal, #30302c);
     }
 
     #renewables-coal-battery-race .battery-name {
@@ -7686,7 +7697,7 @@
     }
 
     #solar-coal-capacity .capacity-bar-coal {
-      fill: var(--coal);
+      fill: var(--charcoal, #30302c);
     }
 
     #solar-coal-capacity .bar-name {
@@ -7781,7 +7792,7 @@
     }
 
     #solar-coal-capacity .change-bar-coal {
-      fill: var(--coal);
+      fill: var(--charcoal, #30302c);
     }
 
     #solar-coal-capacity .change-name {
