@@ -355,7 +355,7 @@
     }
 
     #renewable-transition-infographic .article-masthead {
-      margin: clamp(2.5rem, 6vw, 5rem) 0 0;
+      margin: clamp(2.5rem, 6vw, 5rem) auto 0;
       max-width: 68rem;
       padding-right: clamp(0rem, 6vw, 5rem);
       position: relative;
@@ -401,7 +401,7 @@
 
     #renewable-transition-infographic .story-prose-right {
       margin-left: auto;
-      margin-right: 0;
+      margin-right: auto;
     }
 
     #renewable-transition-infographic .story-prose-opening {
@@ -1977,6 +1977,20 @@
       padding-top: clamp(2.25rem, 5vw, 4rem);
     }
 
+    #renewable-transition-infographic .story-prose + #renewables-coal-proof,
+    #renewable-transition-infographic .story-prose + #global-current-2025,
+    #renewable-transition-infographic .story-prose + #solar-coal-capacity {
+      margin-top: clamp(3.25rem, 6vw, 5rem);
+    }
+
+    #renewable-transition-infographic .story-stage.stage-05 {
+      margin-top: clamp(3.75rem, 7vw, 6rem);
+    }
+
+    #renewable-transition-infographic .story-stage.stage-05 > .story-prose:first-child {
+      margin-top: 0;
+    }
+
     #renewable-transition-infographic .stage-title {
       color: var(--muted-foreground);
       font-size: clamp(1.18rem, 2.3vw, 1.65rem);
@@ -2327,7 +2341,7 @@
 
       #renewable-transition-infographic .article-masthead {
         border-left-width: 0.38rem;
-        margin-inline: -0.2rem;
+        margin-inline: auto;
         padding: 1.4rem 1rem 1.7rem;
       }
 
@@ -2422,13 +2436,13 @@
   <header class="article-masthead">
     <p class="article-kicker">Global electricity · 2025</p>
     <h1 class="article-title">A Near Tie, Decades in the Making</h1>
-    <p class="article-deck">In 2025, renewable electricity reached coal’s scale. The final order remains uncertain; the larger shift does not.</p>
+    <p class="article-deck">In 2025, renewable electricity caught up with coal. The estimates differ at the margin, but the larger change is unmistakable.</p>
   </header>
 
   
   <section class="story-prose story-prose-opening" aria-label="Introduction" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body story-prose-lede">
-      <p>Energy transitions rarely arrive as a clean, ceremonial moment. More often, they rely on us to notice when years of practical decisions have quietly changed the balance, and then decide what to build around that change.</p>
+      <p>Energy transitions rarely arrive as a clean, ceremonial moment. More often, years of practical decisions accumulate until the balance has quietly changed. The milestone comes later, when the change becomes impossible to overlook.</p>
       <p class="article-standalone">That is what happened in 2025.</p>
     </div>
   </section>
@@ -3288,20 +3302,17 @@
   
   <section class="story-prose story-prose-opening-evidence" aria-label="How close renewables and coal came" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
-      <p>In <a href="https://ember-energy.org/data/yearly-electricity-data/">Ember’s live 2000–2025 series</a>, all renewable sources together moved slightly ahead of coal for the first time: 10,717 terawatt-hours, compared with 10,490 TWh from coal, a lead of 227 TWh. In the <a href="https://www.iea.org/reports/electricity-2026">International Energy Agency’s preliminary accounting</a>, the order was narrowly reversed: 10,734 TWh from renewables and 10,760 TWh from coal, a difference of just 26 TWh.</p>
-      <p>Both sources place each side at roughly one-third of global electricity generation. One leaves renewables slightly ahead; the other leaves coal slightly ahead. The figures should not be averaged because their methods and data vintages differ, but they lead to the same conclusion.</p>
+      <p>Two leading accounts disagree only at the margin. <a href="https://ember-energy.org/data/yearly-electricity-data/">Ember’s live series</a> places renewables just ahead; the <a href="https://www.iea.org/reports/electricity-2026">International Energy Agency’s preliminary accounting</a> gives coal a narrow lead. Their methods differ, and either estimate may still be revised. What they share is more important: both show the two sources effectively level.</p>
       <p class="article-declaration">In 2025, renewables drew level with coal.</p>
-      <p>“Roughly” is doing honest work here. The latest figures remain live or preliminary and may be revised. Coal is also one fuel, while “renewables” is a family: hydro, wind, solar, bioenergy and other renewable sources. The comparison is asymmetric, but it is meaningful.</p>
+      <p>The comparison is not perfectly symmetrical. Coal is one fuel; renewables are a family of sources. Even so, the meeting matters. Together, sources once far below coal had caught it.</p>
     </div>
   </section>
 
 
   <section class="story-prose story-prose-right" aria-label="The distance between coal and renewables" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
-      <p class="article-cadence">For most of the modern power era, that entire family remained well below coal. Now the old distance has almost vanished.</p>
-      <p>In 2000, coal produced 5,809 TWh of electricity worldwide. All renewables combined produced 2,860 TWh. Coal’s lead was not marginal; it generated slightly more than twice as much.</p>
-      <p>The next quarter-century did not follow a simple story of one source rising while the other declined. Coal grew too: its 2025 output was about 81% higher than in 2000. Renewable generation, however, grew by about 275%.</p>
-      <p>The final year brought the two together. Ember’s series shows renewable generation rising by 840 TWh in 2025, slightly more than the entire net increase in global electricity output, while coal generation fell by 49 TWh. A 662 TWh coal lead in 2024 became a 227 TWh renewable lead one year later.</p>
+      <p>For most of the modern power era, that entire family remained well below coal. At the beginning of the series, coal generated slightly more than twice as much electricity. Now the old distance has almost vanished.</p>
+      <p>The next quarter-century was not a simple story of one source replacing another. Both lines rose. The graph below shows the distance between them narrowing slowly for years, then almost all at once.</p>
     </div>
   </section>
 
@@ -4308,7 +4319,8 @@
   
   <div class="story-prose story-prose-bridge" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
-      <p>The crossover is striking because it is both sudden and slow. The last gap closed in a year; the conditions that closed it took decades to build. It is not evidence that coal has disappeared. Coal remains the world’s largest individual source of electricity. What changed is that renewables became large enough, together, to meet it at the scale of the global system.</p>
+      <p>The crossover is striking because it is both sudden and slow. The last gap closed in a year; the conditions that closed it took decades to build.</p>
+      <p>Coal has not disappeared. It remains the world’s largest individual source of electricity. What changed is that renewables became large enough, together, to stand beside it in the global power mix.</p>
     </div>
   </div>
 
@@ -4322,10 +4334,8 @@
       <h2 class="story-prose-title" id="article-mix-title">The total changed from within</h2>
     </header>
     <div class="story-prose-body">
-      <p>“Renewables” can sound like a single technology. It is better understood as a mixture whose proportions have been changing almost as quickly as its size.</p>
-      <p>At the beginning of the century, hydropower supplied about 92% of renewable electricity. It established the base on which the larger total was built, and it remains the largest individual renewable source: 4,432 TWh in 2025. But hydro’s output was nearly flat that year, edging down by 3 TWh.</p>
-      <p>The growth came elsewhere. Solar generation rose by 636 TWh in 2025, an increase of nearly 30%. Wind added another 204 TWh. Together, solar and wind supplied virtually all of the net increase in renewable generation.</p>
-      <p>They also changed the balance of the mix. Solar and wind produced 5,491 TWh in 2025, which was 51.2% of all renewable electricity and 1,058 TWh more than hydro. In Ember’s current series, their combined output first moved above hydro in 2024. A year later, solar also edged just past wind.</p>
+      <p>“Renewables” can sound like a single technology. It is better understood as a changing coalition.</p>
+      <p>At the beginning of the century, hydropower carried nearly the entire total. By 2025, the center of growth had shifted. Solar and wind supplied virtually all of the year’s increase. Together, they produced more renewable electricity than hydro.</p>
     </div>
   </section>
 
@@ -4366,7 +4376,7 @@
 
   <div class="story-stage stage-03">
 
-<section id="renewable-mix-growth" aria-label="The changing composition of global renewable electricity generation from 2000 to 2025">
+<section id="renewable-mix-growth" aria-label="The changing composition of global renewable electricity generation from 2000 to 2025" data-reveal data-reveal-mode="rise">
   <!--
     Sunflower-led graph system. Locked mapping across every chart:
     solar vivid yellow, wind soft gold, hydro pale straw,
@@ -4512,11 +4522,13 @@
     }
 
     #renewable-mix-growth .mix-chart {
+      clip-path: inset(0 0 0 0);
       display: block;
       width: 100%;
       height: clamp(21rem, 48vw, 28rem);
       overflow: visible;
       touch-action: pan-y pinch-zoom;
+      transition: clip-path 1900ms cubic-bezier(0.16, 1, 0.3, 1) 500ms;
     }
 
     #renewable-mix-growth .mix-chart text {
@@ -4752,14 +4764,89 @@
       transform-box: fill-box;
       transform-origin: center bottom;
       transition:
-        transform 840ms cubic-bezier(0.16, 1, 0.3, 1) var(--supplement-delay, 0ms),
-        opacity 540ms ease var(--supplement-delay, 0ms);
+        transform 840ms cubic-bezier(0.16, 1, 0.3, 1) calc(1350ms + var(--supplement-delay, 0ms)),
+        opacity 540ms ease calc(1350ms + var(--supplement-delay, 0ms));
     }
 
     #renewable-mix-growth.is-chart-ready .supplement-bar {
       opacity: 1;
       transform: scaleY(1);
     }
+
+    /* Graph 03 enters as a complete reading sequence, then settles into direct inspection. */
+    #renewable-mix-growth .figure-header > *,
+    #renewable-mix-growth .editorial-detail,
+    #renewable-mix-growth .editorial-breakdown,
+    #renewable-mix-growth .plot-wrap,
+    #renewable-mix-growth .supplementary-chart,
+    #renewable-mix-growth .source-note,
+    #renewable-mix-growth .data-receipt {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition:
+        opacity 680ms ease,
+        transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #renewable-mix-growth #renewable-mix-grid,
+    #renewable-mix-growth #renewable-mix-end-labels,
+    #renewable-mix-growth .estimate-boundary,
+    #renewable-mix-growth .key-stat-rule,
+    #renewable-mix-growth .key-stat,
+    #renewable-mix-growth .key-stat-label,
+    #renewable-mix-growth #renewable-mix-supplement-grid,
+    #renewable-mix-growth #renewable-mix-supplement-estimate {
+      opacity: 1;
+      transition: opacity 680ms ease;
+    }
+
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .figure-header > *,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .editorial-detail,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .editorial-breakdown,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .plot-wrap,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .supplementary-chart,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .source-note,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .data-receipt {
+      opacity: 0;
+      transform: translate3d(0, 0.8rem, 0);
+    }
+
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .area-shape {
+      opacity: 0;
+    }
+
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .mix-chart {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) #renewable-mix-grid,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) #renewable-mix-end-labels,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .estimate-boundary,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .key-stat-rule,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .key-stat,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) .key-stat-label,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) #renewable-mix-supplement-grid,
+    #renewable-transition-infographic.motion-enabled #renewable-mix-growth:not(.is-chart-ready) #renewable-mix-supplement-estimate {
+      opacity: 0;
+    }
+
+    #renewable-mix-growth.is-chart-ready .section-ghost { transition-delay: 0ms; }
+    #renewable-mix-growth.is-chart-ready .figure-title { transition-delay: 90ms; }
+    #renewable-mix-growth.is-chart-ready .figure-deck { transition-delay: 180ms; }
+    #renewable-mix-growth.is-chart-ready .editorial-detail { transition-delay: 290ms; }
+    #renewable-mix-growth.is-chart-ready .editorial-breakdown { transition-delay: 390ms; }
+    #renewable-mix-growth.is-chart-ready .plot-wrap { transition-delay: 470ms; }
+    #renewable-mix-growth.is-chart-ready #renewable-mix-grid { transition-delay: 520ms; }
+    #renewable-mix-growth.is-chart-ready .estimate-boundary,
+    #renewable-mix-growth.is-chart-ready .key-stat-rule,
+    #renewable-mix-growth.is-chart-ready .key-stat,
+    #renewable-mix-growth.is-chart-ready .key-stat-label { transition-delay: 1220ms; }
+    #renewable-mix-growth.is-chart-ready #renewable-mix-end-labels { transition-delay: 1420ms; }
+    #renewable-mix-growth.is-chart-ready .supplementary-chart { transition-delay: 1320ms; }
+    #renewable-mix-growth.is-chart-ready #renewable-mix-supplement-grid,
+    #renewable-mix-growth.is-chart-ready #renewable-mix-supplement-estimate { transition-delay: 1420ms; }
+    #renewable-mix-growth.is-chart-ready .source-note { transition-delay: 2180ms; }
+    #renewable-mix-growth.is-chart-ready .data-receipt { transition-delay: 2290ms; }
 
     #renewable-mix-growth .supplement-bar:focus-visible {
       outline: none;
@@ -5565,7 +5652,7 @@
         root.classList.add("is-chart-ready");
       } else if (root.closest("#renewable-transition-infographic")) {
         root.addEventListener("storyreveal", () => {
-          requestAnimationFrame(() => root.classList.add("is-chart-ready"));
+          requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("is-chart-ready")));
         }, { once: true });
       } else {
         const revealObserver = new IntersectionObserver((entries) => {
@@ -5583,7 +5670,7 @@
   <div class="story-prose story-prose-right story-prose-bridge" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
       <p class="article-cadence">Hydropower built the floor. Wind widened it. Solar changed the slope.</p>
-      <p>That internal handoff matters because it explains why the total is now moving so quickly. Hydropower depends on long project timelines and specific geography. Wind broadened the field. Solar made new generating capacity modular: it could be added in vast utility projects, on commercial roofs and behind household meters. The result is not simply more renewable electricity. It is a different pattern of growth.</p>
+      <p>That handoff helps explain why the total is moving so quickly. Hydropower depends on long project timelines and specific geography. Wind broadened the field. Solar made new generating capacity modular: it could be added in vast utility projects, on commercial roofs and behind household meters. The result is more than a larger total. It is a different pattern of growth.</p>
     </div>
   </div>
 
@@ -6454,6 +6541,25 @@
     })();
   </script>
 </section>
+
+
+  <div class="story-prose story-prose-bridge" data-reveal data-reveal-mode="rise">
+    <div class="story-prose-body">
+      <p>The 2025 near tie is only the final frame. Set the years in motion and the deeper pattern appears.</p>
+      <p class="article-cadence">Coal grew. Renewables grew faster.</p>
+    </div>
+  </div>
+
+
+  <section class="story-prose story-prose-right" aria-labelledby="article-geography-title" data-reveal data-reveal-mode="rise">
+    <header class="story-prose-header">
+      <p class="article-kicker">The geography beneath the total</p>
+      <h2 class="story-prose-title" id="article-geography-title">One current, many power systems</h2>
+    </header>
+    <div class="story-prose-body">
+      <p>The global total also hides its geography. There is no single renewable power system operating at planetary scale; there are many regional systems, built from different resources and moving at different speeds.</p>
+    </div>
+  </section>
 
 
 <section id="global-current-2025" aria-label="Regional contributions to global renewable electricity generation in 2025">
@@ -7375,18 +7481,13 @@
     </div>
   </section>
 
-  
-  <section class="story-prose story-prose-right" aria-labelledby="article-geography-title" data-reveal data-reveal-mode="rise">
-    <header class="story-prose-header">
-      <p class="article-kicker">The geography beneath the total</p>
-      <h2 class="story-prose-title" id="article-geography-title">One current, many power systems</h2>
-    </header>
+
+  <div class="story-prose story-prose-bridge" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
-      <p>The global total also hides geography. There is no single renewable power system operating at planetary scale; there are many regional systems, developing at different speeds and from different starting points.</p>
-      <p>Asia supplied 5,350 TWh of renewable electricity in 2025, almost exactly half of the world total. Europe contributed about one-fifth, North America 14.7%, and Latin America and the Caribbean 10.9%. Among Ember’s published country figures, China alone produced 3,912 TWh, or 36.5% of global renewable generation.</p>
-      <p>The regional mixes are as different as their totals. Renewables supplied nearly two-thirds of generation in Latin America and the Caribbean, but about one-third in Asia. Europe drew heavily from wind, hydro and solar; Asia’s much larger flow was spread across all three at greater scale.</p>
+      <p>Asia supplied almost half of the world’s renewable electricity in 2025; China alone supplied more than a third. Other regions contributed smaller totals, but often very different mixes.</p>
+      <p>The ribbons show how one global figure is assembled, not electricity physically moving across borders. The total is shared. The build beneath it is uneven.</p>
     </div>
-  </section>
+  </div>
 
 
   </div>
@@ -7399,10 +7500,8 @@
       <h2 class="story-prose-title" id="article-capacity-title">The machinery beneath the milestone</h2>
     </header>
     <div class="story-prose-body">
-      <p>Generation measures what the power system produced. Capacity measures the maximum net generating capability installed and connected at year-end. The two describe related changes, but they are not interchangeable.</p>
-      <p>That distinction reveals a second crossover.</p>
-      <p>At the end of 2024, global solar generating capacity stood at 1,880 gigawatts, 227 GW behind coal. By the end of 2025, solar had reached 2,392 GW, while coal stood at 2,193 GW. Solar was now 198 GW ahead.</p>
-      <p>The change in the underlying stock was just as telling. Solar’s year-end capacity stock increased by 511 GW between the two observations. Coal’s increased by 87 GW. Solar’s net increase was 5.9 times as large.</p>
+      <p>Generation tells us what the power system produced. Capacity tells us what has been built. The two are related, but they are not interchangeable.</p>
+      <p>That distinction reveals a second crossover: in 2025, solar’s installed capacity moved from behind coal to ahead of it. The chart carries the distance; the direction is the story.</p>
     </div>
   </section>
 
@@ -8278,9 +8377,9 @@
   
   <div class="story-prose story-prose-right story-prose-bridge" data-reveal data-reveal-mode="rise">
     <div class="story-prose-body">
-      <p>This does not mean solar generated more electricity than coal. A gigawatt of solar and a gigawatt of coal do not produce the same amount of electricity over a year. Sunlight varies; plants operate for different numbers of hours; grids curtail or dispatch resources according to local conditions. Capacity is not output.</p>
-      <p>It is, however, a record of what is in place and how that installed stock is changing. <a href="https://www.irena.org/Publications/2026/Mar/Renewable-capacity-statistics-2026">IRENA’s 2025 statistics</a> put total renewable capacity at 5,149 GW, up 692 GW from the previous year-end stock. Solar supplied 73.9% of that increase and wind another 22.9%. Together, they accounted for 96.8% of the change.</p>
-      <p class="article-cadence">The energy generation tie records what the system produced. The capacity crossover shows the machinery taking shape beneath it.</p>
+      <p>Capacity is not output. A gigawatt of solar and a gigawatt of coal do not generate the same amount of electricity over a year, and what is built is not always fully used.</p>
+      <p>It is, however, a record of what is being put in place. Solar and wind accounted for nearly all of the 2025 increase in renewable capacity.</p>
+      <p class="article-cadence">The generation near-tie records what the system produced. The capacity crossover shows the machinery taking shape beneath it.</p>
     </div>
   </div>
 
@@ -8294,10 +8393,10 @@
       <h2 class="story-prose-title" id="article-closing-title">A threshold, not a finish line</h2>
     </header>
     <div class="story-prose-body">
-      <p>There is a temptation to treat a crossover as a conclusion. It is better understood as a coordinate: a precise place on a much longer route.</p>
-      <p>Coal remains immense. Power-sector carbon dioxide emissions were still about 13.9 billion tonnes in 2025, according to the IEA. Renewable growth also remains highly concentrated, and the infrastructure required to carry it is not keeping pace everywhere. More than 2,500 GW of renewable, storage and large-load projects are stalled in grid-connection queues worldwide. The IEA estimates that annual grid investment must rise by roughly 50% by 2030.</p>
-      <p>These are not secondary details. Solar capacity can often be added faster than transmission can be planned, permitted and built. Capacity can be installed without being fully used. Electricity can be abundant in one place and difficult to deliver in another. The next phase of the transition will depend as much on networks, storage, planning and institutions as it does on turbines and modules.</p>
-      <p>Still, the near tie changes the terms of the conversation. Renewables no longer need to prove that they can become consequential. They already operate at the scale of the power source that defined the industrial age.</p>
+      <p>There is a temptation to treat a crossover as a conclusion. It is better understood as a coordinate: a place on a much longer route.</p>
+      <p>The final graphic makes the remaining work visible. Solar capacity can be added faster than the transmission and storage needed to support it. Electricity can be abundant in one place and difficult to deliver in another. The next phase will depend as much on networks, planning and institutions as it does on turbines and modules.</p>
+      <p>Coal remains immense. Renewable growth remains uneven. Still, the near tie changes the terms of the conversation.</p>
+      <p>Renewables no longer need to prove that they can become consequential. They already operate at the scale of the power source that defined the industrial age.</p>
       <p class="article-final">The lines have converged. What comes next depends on whether grids, storage, finance and public institutions can change around them at the same speed.</p>
     </div>
   </section>
@@ -8382,9 +8481,6 @@
         node.querySelectorAll("[data-count-to]").forEach(animateCount);
         if (node.matches("[data-count-to]")) animateCount(node);
         node.dispatchEvent(new CustomEvent("storyreveal"));
-        if (node.id === "renewable-mix-growth") {
-          node.classList.add("is-chart-ready");
-        }
         if (node === graphFive && !lowMotion) {
           requestAnimationFrame(() => requestAnimationFrame(() => graphFive.classList.add("is-ready")));
           window.setTimeout(() => graphFive.classList.add("motion-complete"), 1800);
@@ -8770,6 +8866,5 @@
     })();
   </script>
 </section>
-
 </body>
 </html>
