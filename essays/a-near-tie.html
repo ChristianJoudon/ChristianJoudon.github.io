@@ -1344,138 +1344,202 @@
       grid-template-columns: 1fr;
     }
 
-    #renewable-transition-infographic .geo-circles {
-      aspect-ratio: auto;
-      height: clamp(31rem, 55vw, 40rem);
-      margin: 0 auto;
-      max-width: none;
-      overflow: visible;
+    #renewable-transition-infographic .geo-composition {
+      background: #ffffff;
+      height: clamp(34rem, 58vw, 43rem);
+      margin: 0;
+      overflow: hidden;
       position: relative;
       width: 100%;
     }
 
-    #renewable-transition-infographic .geo-disc {
-      appearance: none;
-      border: 0;
-      border-radius: 50%;
-      color: var(--foreground);
-      cursor: pointer;
-      font: inherit;
-      margin: 0;
-      padding: 0;
+    #renewable-transition-infographic .geo-composition-art {
+      inset: 0;
       position: absolute;
-      touch-action: manipulation;
-      transform: translate3d(0, 0, 0) scale(1);
-      transform-origin: center;
-      clip-path: circle(72% at 50% 50%);
-      transition: clip-path 900ms var(--ease-editorial), opacity var(--motion-mark) ease, transform var(--motion-hover) var(--ease-editorial);
-      -webkit-tap-highlight-color: transparent;
     }
 
-    #renewable-transition-infographic .geo-disc:focus-visible {
-      outline: 0.18rem solid var(--charcoal);
-      outline-offset: 0.22rem;
+    #renewable-transition-infographic .geo-composition-texture,
+    #renewable-transition-infographic .geo-composition-line {
+      display: block;
+      height: auto;
+      pointer-events: none;
+      position: absolute;
+      user-select: none;
     }
 
-    #renewable-transition-infographic .geo-disc-world {
-      background: var(--geo-world);
-      left: 0;
-      top: 0;
-      width: 52%;
+    #renewable-transition-infographic .geo-composition-texture-world {
+      left: -3%;
+      top: 2%;
+      width: 53%;
       z-index: 1;
     }
 
-    #renewable-transition-infographic .geo-disc-asia {
-      background: var(--geo-asia);
-      left: 4%;
-      top: 18%;
-      width: 36.74%;
+    #renewable-transition-infographic .geo-composition-texture-asia {
+      left: 2.5%;
+      top: 31%;
+      width: 37.45%;
       z-index: 2;
     }
 
-    #renewable-transition-infographic .geo-disc-china {
-      background: var(--geo-china);
-      left: 1%;
-      top: 35%;
-      width: 31.42%;
+    #renewable-transition-infographic .geo-composition-texture-china {
+      left: -1.5%;
+      top: 50%;
+      width: 32.02%;
       z-index: 3;
     }
 
-    #renewable-transition-infographic .geo-disc::before {
-      content: "";
-      display: block;
-      padding-top: 100%;
+    #renewable-transition-infographic .geo-composition-line {
+      z-index: 5;
     }
 
-    #renewable-transition-infographic .geo-disc-label {
+    #renewable-transition-infographic .geo-composition-line-world {
+      left: 29%;
+      top: 22%;
+      width: 28%;
+    }
+
+    #renewable-transition-infographic .geo-composition-line-asia {
+      left: 31%;
+      top: 51%;
+      width: 26%;
+    }
+
+    #renewable-transition-infographic .geo-composition-line-china {
+      left: 19%;
+      top: 69%;
+      width: 38%;
+    }
+
+    #renewable-transition-infographic .geo-composition-label {
+      color: var(--foreground);
       display: block;
       pointer-events: none;
       position: absolute;
-      z-index: 1;
+      z-index: 7;
     }
 
-    #renewable-transition-infographic .geo-disc-world .geo-world-label {
-      right: 10%;
-      text-align: right;
-      top: 11%;
+    #renewable-transition-infographic .geo-composition-label-world {
+      left: 11%;
+      text-align: center;
+      top: 14%;
+      width: 18%;
     }
 
-    #renewable-transition-infographic .geo-disc-asia .geo-asia-label {
-      right: 8%;
-      text-align: right;
-      top: 28%;
+    #renewable-transition-infographic .geo-composition-label-asia {
+      left: 17%;
+      text-align: center;
+      top: 42%;
+      width: 16%;
     }
 
-    #renewable-transition-infographic .geo-disc-china .geo-china-label {
-      left: 12%;
+    #renewable-transition-infographic .geo-composition-label-china {
+      left: 3%;
       text-align: left;
-      top: 48%;
+      top: 69%;
+      width: 16%;
     }
 
-    #renewable-transition-infographic .geo-number {
-      font-size: clamp(1.55rem, 4.7vw, 3.45rem);
+    #renewable-transition-infographic .geo-composition .geo-number {
+      font-size: clamp(1.7rem, 4.5vw, 3.65rem);
     }
 
-    #renewable-transition-infographic .geo-circles.has-selection .geo-disc:not(.is-selected) {
-      opacity: 0.36;
-      transform: translate3d(-3%, -1%, 0) scale(0.92);
-    }
-
-    #renewable-transition-infographic .geo-disc.is-selected {
-      opacity: 1;
+    #renewable-transition-infographic .geo-composition-copy {
+      color: var(--foreground);
+      left: 57%;
+      margin: 0;
+      position: absolute;
+      top: 28%;
+      width: 40%;
       z-index: 8;
     }
 
-    #renewable-transition-infographic.motion-enabled .aux-geography:not(.is-visible) .geo-disc {
-      clip-path: circle(0 at 50% 50%);
-      opacity: 0;
+    #renewable-transition-infographic .geo-composition-declaration {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4.2vw, 3.55rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      margin: 0;
     }
 
-    #renewable-transition-infographic .aux-geography.is-visible .geo-disc-asia { transition-delay: 140ms; }
-    #renewable-transition-infographic .aux-geography.is-visible .geo-disc-china { transition-delay: 280ms; }
+    #renewable-transition-infographic .geo-composition-note {
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      line-height: 1.35;
+      margin: clamp(2.5rem, 6vw, 5.25rem) 0 0;
+      max-width: 20rem;
+    }
 
-    @media (hover: hover) and (pointer: fine) {
-      #renewable-transition-infographic .geo-circles:not(.has-selection):has(.geo-disc:hover) .geo-disc:not(:hover) {
-        opacity: 0.48;
+    @media (max-width: 720px) {
+      #renewable-transition-infographic .geo-composition {
+        height: auto;
+        overflow: visible;
       }
 
-      #renewable-transition-infographic .geo-circles:not(.has-selection) .geo-disc:hover {
-        transform: translate3d(0, -3px, 0) scale(1.012);
-        z-index: 7;
+      #renewable-transition-infographic .geo-composition-art {
+        height: clamp(27rem, 118vw, 35rem);
+        position: relative;
       }
-    }
 
-    #renewable-transition-infographic .geo-disc-world.is-selected { transform: translate3d(80%, 1%, 0) scale(0.72); }
-    #renewable-transition-infographic .geo-disc-asia.is-selected { transform: translate3d(125%, -4%, 0) scale(0.95); }
-    #renewable-transition-infographic .geo-disc-china.is-selected { transform: translate3d(165%, 2%, 0) scale(1); }
+      #renewable-transition-infographic .geo-composition-texture-world {
+        left: -16%;
+        top: 0;
+        width: 96%;
+      }
 
-    #renewable-transition-infographic .geo-scoreboard.has-selection .geo-score-card:not(.is-highlighted) {
-      opacity: 0.48;
-    }
+      #renewable-transition-infographic .geo-composition-texture-asia {
+        left: -10%;
+        top: 23%;
+        width: 67.8%;
+      }
 
-    #renewable-transition-infographic .geo-scoreboard .geo-score-card.is-highlighted {
-      opacity: 1;
-      transform: translate3d(0, -3px, 0);
+      #renewable-transition-infographic .geo-composition-texture-china {
+        left: -14%;
+        top: 43%;
+        width: 58%;
+      }
+
+      #renewable-transition-infographic .geo-composition-line {
+        display: none;
+      }
+
+      #renewable-transition-infographic .geo-composition-label-world {
+        left: 24%;
+        top: 13%;
+        width: 34%;
+      }
+
+      #renewable-transition-infographic .geo-composition-label-asia {
+        left: 13%;
+        top: 34%;
+        width: 34%;
+      }
+
+      #renewable-transition-infographic .geo-composition-label-china {
+        left: 2%;
+        top: 59%;
+        width: 32%;
+      }
+
+      #renewable-transition-infographic .geo-composition .geo-number {
+        font-size: clamp(2.05rem, 12vw, 3.3rem);
+      }
+
+      #renewable-transition-infographic .geo-composition-copy {
+        left: auto;
+        padding: 0.75rem 0.15rem 0;
+        position: relative;
+        top: auto;
+        width: 100%;
+      }
+
+      #renewable-transition-infographic .geo-composition-declaration {
+        font-size: clamp(2rem, 10vw, 3rem);
+        max-width: 27rem;
+      }
+
+      #renewable-transition-infographic .geo-composition-note {
+        margin-top: 1.4rem;
+      }
     }
 
     #renewable-transition-infographic .aux-source {
@@ -7478,17 +7542,25 @@
           <span class="score-context">3,912 of 5,350 TWh</span>
         </article>
       </div>
-      <div class="geo-circles" id="renewable-geo-circles" role="group" aria-label="Renewable generation by geography. Select a circle to pull it away from the group.">
-        <button class="geo-disc geo-disc-world" type="button" data-geo="world" aria-pressed="false" aria-label="World renewable generation: 10,717 terawatt-hours">
-          <span class="geo-disc-label geo-world-label"><span class="geo-number" data-count-to="10717">10,717</span><span class="geo-name">World · TWh</span></span>
-        </button>
-        <button class="geo-disc geo-disc-asia" type="button" data-geo="asia" aria-pressed="false" aria-label="Asia renewable generation: 5,350 terawatt-hours">
-          <span class="geo-disc-label geo-asia-label"><span class="geo-number" data-count-to="5350">5,350</span><span class="geo-name">Asia · TWh</span></span>
-        </button>
-        <button class="geo-disc geo-disc-china" type="button" data-geo="china" aria-pressed="false" aria-label="China renewable generation: 3,912 terawatt-hours">
-          <span class="geo-disc-label geo-china-label"><span class="geo-number" data-count-to="3912">3,912</span><span class="geo-name">China · TWh</span></span>
-        </button>
-      </div>
+      <figure class="geo-composition">
+        <div class="geo-composition-art">
+          <img class="geo-composition-texture geo-composition-texture-world" src="../assets/img/a-near-tie/geo-world-texture.png" width="768" height="761" alt="" loading="lazy" decoding="async">
+          <img class="geo-composition-texture geo-composition-texture-asia" src="../assets/img/a-near-tie/geo-asia-texture.png" width="768" height="768" alt="" loading="lazy" decoding="async">
+          <img class="geo-composition-texture geo-composition-texture-china" src="../assets/img/a-near-tie/geo-china-texture.png" width="763" height="768" alt="" loading="lazy" decoding="async">
+
+          <span class="geo-composition-label geo-composition-label-world"><span class="geo-number" data-count-to="10717">10,717</span><span class="geo-name">World · TWh</span></span>
+          <span class="geo-composition-label geo-composition-label-asia"><span class="geo-number" data-count-to="5350">5,350</span><span class="geo-name">Asia · TWh</span></span>
+          <span class="geo-composition-label geo-composition-label-china"><span class="geo-number" data-count-to="3912">3,912</span><span class="geo-name">China · TWh</span></span>
+
+          <img class="geo-composition-line geo-composition-line-world" src="../assets/img/a-near-tie/geo-world-connector.png" width="1400" height="302" alt="" loading="lazy" decoding="async">
+          <img class="geo-composition-line geo-composition-line-asia" src="../assets/img/a-near-tie/geo-asia-connector.png" width="1400" height="27" alt="" loading="lazy" decoding="async">
+          <img class="geo-composition-line geo-composition-line-china" src="../assets/img/a-near-tie/geo-china-connector.png" width="1400" height="181" alt="" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="geo-composition-copy">
+          <p class="geo-composition-declaration">Half of the world’s renewable electricity is generated in Asia.</p>
+          <p class="geo-composition-note">China accounts for 73% of Asia’s total.</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -8525,41 +8597,6 @@
         root.classList.toggle("motion-enabled", !lowMotion);
         if (lowMotion) reveals.forEach(revealNode);
       });
-
-      /* The geography keeps one physical interaction: pull a selected region out of the stack. */
-      const geoGroup = document.getElementById("renewable-geo-circles");
-      if (geoGroup) {
-        const geoDiscs = [...geoGroup.querySelectorAll(".geo-disc")];
-        const geoSection = geoGroup.closest(".aux-geography");
-        const geoScoreboard = geoSection && geoSection.querySelector(".geo-scoreboard");
-        const geoScoreCards = geoScoreboard ? [...geoScoreboard.querySelectorAll(".geo-score-card")] : [];
-
-        const setGeoSelection = (selection) => {
-          const hasSelection = Boolean(selection);
-          geoGroup.classList.toggle("has-selection", hasSelection);
-          if (geoScoreboard) geoScoreboard.classList.toggle("has-selection", hasSelection);
-          geoDiscs.forEach((disc) => {
-            const selected = disc.dataset.geo === selection;
-            disc.classList.toggle("is-selected", selected);
-            disc.setAttribute("aria-pressed", String(selected));
-          });
-          geoScoreCards.forEach((card) => {
-            const relationships = (card.dataset.geoScore || "").split(/\s+/).filter(Boolean);
-            card.classList.toggle("is-highlighted", hasSelection && relationships.includes(selection));
-          });
-        };
-
-        geoDiscs.forEach((disc) => {
-          disc.addEventListener("click", () => {
-            setGeoSelection(disc.classList.contains("is-selected") ? "" : disc.dataset.geo);
-          });
-        });
-        geoGroup.addEventListener("keydown", (event) => {
-          if (event.key !== "Escape") return;
-          setGeoSelection("");
-          geoGroup.querySelector(".geo-disc:focus")?.blur();
-        });
-      }
 
       /* The capacity ring is a direct label: each segment names itself on hover or focus. */
       const capacityDonut = root.querySelector("[data-capacity-donut]");
