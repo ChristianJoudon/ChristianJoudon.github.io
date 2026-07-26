@@ -3,12 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HAVEN: Trust Accounting and Reservation Platform · Christian Joudon</title>
-<meta name="description" content="An automation first platform that replaces fragmented accounting and reservation workflows for rental operations.">
+<title>HAVEN · Finance Operations Platform · Christian Joudon</title>
+<meta name="description" content="A technical product case study of HAVEN, an evidence-first finance operations workspace for property management.">
+<meta property="og:title" content="HAVEN · Finance Operations Platform">
+<meta property="og:description" content="An evidence-first, ledger-first operations workspace connecting bills, payments, banking, trust funds, reservations, documents, and team review.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://christianjoudon.github.io/work/haven.html">
+<meta property="og:image" content="https://christianjoudon.github.io/assets/img/haven/dashboard.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -26,62 +32,355 @@
     </nav>
   </div>
 </header>
-<main class="subpage">
+
+<main class="subpage haven-case">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2025 to Present · Production · Fintech</span>
-      <h1>HAVEN: Trust Accounting &amp; Reservation Platform</h1>
-      <p class="detail-lead">A full stack trust accounting and reservation operations platform for property managers, with financial correctness enforced in the database itself.</p>
-      <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">SQLAlchemy</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Alembic</span><span class="tag">Trust Accounting</span></div>
-      <div class="detail-links">
-        <a class="linkbtn" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">Market Analysis &amp; Launch Thesis (PDF) <span class="arr">↗</span></a>
+
+    <section class="haven-hero" aria-labelledby="haven-title">
+      <div class="haven-hero-copy">
+        <span class="kicker">2025–Present · Product Engineering Case Study</span>
+        <h1 id="haven-title">HAVEN</h1>
+        <p class="haven-deck">An evidence-first finance operations workspace for property management.</p>
+        <p class="haven-intro">HAVEN connects bills, payments, banking, trust funds, owner distributions, reservations, document evidence, and team review in one operational system—without treating financial controls as an afterthought.</p>
+        <div class="haven-actions">
+          <a class="haven-button haven-button--primary" href="#case-study">Read the case study <span aria-hidden="true">↓</span></a>
+          <a class="haven-button" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">Market analysis <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-    </div>
-    <div class="detail-body">
-<h2>Overview</h2>
-<p>HAVEN is a full stack trust accounting and reservation operations platform for property managers, built at HīTech Labs. It centralizes the daily accounting of a short and long term rental business, double entry AP and AR, bank and card reconciliation, platform payout matching, owner distributions, and month end close, and treats integrity as a first class constraint.</p>
-<p>Trust balances cannot go negative, posted records cannot be silently edited, and every figure traces back to a journal entry and its supporting document.</p>
-<h2>Stack</h2>
-<ul>
-<li><strong>Backend:</strong> Python 3.12, FastAPI, SQLAlchemy 2.0, Pydantic v2, Alembic, and PostgreSQL 16 (psycopg 3).</li>
-<li><strong>Frontend:</strong> React 19, TypeScript, Vite, TanStack Query, Table, and Virtual, dnd-kit, Radix UI, pdf.js, and Zod.</li>
-<li><strong>Infrastructure:</strong> Docker Compose, S3 compatible object storage (MinIO), and an outbox worker for integration events.</li>
-</ul>
-<h2>Architecture and engineering decisions</h2>
-<ul>
-<li><strong>Ledger first accounting:</strong> every balance, statement, and report derives from double entry journal entries and subledgers rather than editable summary tables, so figures are always reconstructable and auditable.</li>
-<li><strong>Correctness enforced in the database:</strong> owner and trust subaccounts are blocked from going negative, and posted or finalized records are made immutable through PostgreSQL triggers, so corrections are reversals rather than edits.</li>
-<li><strong>SQL as the source of truth:</strong> the physical schema lives in 18 versioned raw SQL migrations run by Alembic, with check constraints, functional unique indexes, and immutability triggers enforced at the database layer, not just in application code.</li>
-<li><strong>Evidence first audit trail:</strong> invoices, receipts, ACH confirmations, bank statements, and generated packets are content addressed by SHA-256, stored in object storage, and linked directly to the records they support.</li>
-<li><strong>"Food Web" object graph:</strong> a navigation first data model where any record surfaces its related context, money trail, evidence, and downstream accounting impact without hunting across modules.</li>
-<li><strong>Integration first ingestion:</strong> booking platforms, bank and card feeds, and CSV sources map to canonical internal objects through a preview, validate, then commit import pipeline, sync jobs, and webhook events.</li>
-<li><strong>Layered, multi tenant API:</strong> a routers, services, and models backend exposing 200+ organization scoped REST endpoints, with role based access for Accountant, AP Clerk, Controller, and Owner, and a locked down owner portal.</li>
-</ul>
-<h2>Frontend</h2>
-<ul>
-<li><strong>Reusable operations workbench:</strong> a single shell with a command palette, saved views, tabbed workspaces, and keyboard shortcuts hosts around 20 workspaces, including bill entry, bank and card inbox, payment batches, platform payout matching, cash application, reservation financials, trust distributions, month end close, and reporting and audit.</li>
-<li><strong>Edit in place workflows:</strong> virtualized work lists with inline, independently expandable review cards, so most actions happen without leaving the list.</li>
-<li><strong>Live document handling:</strong> in browser PDF viewing with pdf.js, drag and drop evidence attachment with dnd-kit, and file imports that preview and validate before anything is committed.</li>
-<li><strong>Server state architecture:</strong> TanStack Query drives caching and invalidation, with a mock and live data mode toggle that runs the UI against fixtures or the live API.</li>
-</ul>
-<h2>Market analysis &amp; launch thesis</h2>
-<p>A deeper look at the market, positioning, and go to market strategy behind HAVEN. The full document is embedded below — you can also <a href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">open the PDF in a new tab</a>.</p>
-<div class="detail-embed"><iframe src="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" title="HAVEN Market Analysis and Launch Thesis" loading="lazy"></iframe></div>
-    </div>
+      <aside class="haven-brief" aria-label="Project summary">
+        <div class="haven-brief-mark" aria-hidden="true">HΛVEN</div>
+        <dl>
+          <div><dt>My role</dt><dd>Product strategy, UX/UI, architecture, and full-stack engineering</dd></div>
+          <div><dt>Product</dt><dd>Property finance operations and trust accounting</dd></div>
+          <div><dt>Current state</dt><dd>Engineering-grade prototype in active development</dd></div>
+          <div><dt>Core stack</dt><dd>React, TypeScript, FastAPI, PostgreSQL</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <a class="haven-hero-screen reveal" href="../assets/img/haven/dashboard.png" target="_blank" rel="noopener" aria-label="Open the HAVEN dashboard screenshot at full size">
+      <img src="../assets/img/haven/dashboard.png" alt="HAVEN dashboard showing operational metrics, workload health, a priority bill queue, and daily review cards" fetchpriority="high">
+      <span class="haven-screen-note">Live API · Synthetic demonstration data</span>
+    </a>
+    <p class="haven-caption">A command center for workload, cash movement, readiness, and exceptions—not a collection of disconnected reports.</p>
+
+    <nav class="haven-local-nav" aria-label="HAVEN case study sections">
+      <a href="#product">Product</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#controls">Controls</a>
+      <a href="#quality">Engineering quality</a>
+    </nav>
+
+    <section class="haven-stats reveal" aria-label="Repository snapshot">
+      <div><strong>18</strong><span>lazy-loaded workspaces</span></div>
+      <div><strong>288</strong><span>REST route declarations</span></div>
+      <div><strong>143</strong><span>SQLAlchemy table models</span></div>
+      <div><strong>30</strong><span>versioned migrations</span></div>
+      <div><strong>624</strong><span>Python test functions</span></div>
+    </section>
+    <p class="haven-stats-note">Repository snapshot, July 2026. Counts describe implemented source—not production usage.</p>
+  </div>
+
+  <div id="case-study" class="haven-case-body">
+    <section id="product" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">01 · The Product</span>
+          <h2>One operational layer across a fragmented financial process.</h2>
+        </div>
+        <div class="haven-problem-grid">
+          <div class="haven-prose reveal">
+            <p>Property accounting rarely lives in one place. Invoices arrive as PDFs or scans. Transactions appear in banking and card portals. Reservation activity originates in property-management platforms. Approval evidence is buried in email, folders, spreadsheets, and memory.</p>
+            <p>HAVEN was designed as the working layer across those systems. The interface concentrates information where decisions happen; the backend preserves the lineage, permissions, and accounting rules behind every action.</p>
+          </div>
+          <blockquote class="haven-thesis reveal">
+            <span class="kicker">Product question</span>
+            <p>How can an operator understand, verify, and move a financial record forward without repeatedly leaving the task at hand?</p>
+          </blockquote>
+        </div>
+
+        <div class="haven-principles">
+          <article class="reveal">
+            <span class="haven-principle-number">01</span>
+            <h3>Stay in the work</h3>
+            <p>Dense queues, inline review, expandable detail, and bulk actions reduce page changes and context loss.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">02</span>
+            <h3>Evidence travels with the record</h3>
+            <p>Invoices, receipts, proofs, statements, and generated packets remain visible beside the accounting object they support.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">03</span>
+            <h3>Make the next action legible</h3>
+            <p>Status, readiness, exceptions, and permitted actions are explicit at both the row and workflow level.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">02 · The Operating Model</span>
+          <h2>From source document to reconciled financial event.</h2>
+          <p>The workbench follows the real lifecycle rather than forcing each department into a separate tool.</p>
+        </div>
+        <ol class="haven-lifecycle" aria-label="Financial record lifecycle">
+          <li><span>01</span><strong>Ingest</strong><small>Upload, scan, import, or sync</small></li>
+          <li><span>02</span><strong>Structure</strong><small>Extract fields and preserve source context</small></li>
+          <li><span>03</span><strong>Review</strong><small>Code, validate, and resolve exceptions</small></li>
+          <li><span>04</span><strong>Post</strong><small>Create balanced, traceable accounting entries</small></li>
+          <li><span>05</span><strong>Pay</strong><small>Batch, approve, send, and attach proof</small></li>
+          <li><span>06</span><strong>Reconcile</strong><small>Match the bank and close the loop</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="haven-section">
+      <div class="wrap">
+        <div class="haven-feature-copy reveal">
+          <span class="kicker">Bill Entry Desk</span>
+          <h2>List-first review, with the source document kept in frame.</h2>
+          <p>Payment state, due date, workflow status, evidence, invoice number, amount, and vendor context are visible before a row is opened. Search and high-dimensional filters work across operational fields and lifecycle metadata.</p>
+        </div>
+        <figure class="haven-shot reveal">
+          <a href="../assets/img/haven/bill-entry-desk.png" target="_blank" rel="noopener" aria-label="Open the Bill Entry Desk screenshot at full size">
+            <img src="../assets/img/haven/bill-entry-desk.png" alt="HAVEN Bill Entry Desk with a searchable bill queue and invoice evidence rail" loading="lazy">
+          </a>
+          <figcaption><strong>Queue and evidence in one surface.</strong> Synthetic demonstration records make payment and review states easy to compare.</figcaption>
+        </figure>
+
+        <div class="haven-feature-split haven-feature-split--stacked">
+          <div class="haven-feature-copy reveal">
+            <span class="kicker">Inline Review</span>
+            <h2>Detail appears in context—not on a disconnected page.</h2>
+            <p>An expanded bill exposes vendor and invoice fields, line coding, readiness checks, related records, next actions, and the original PDF together. The operator can verify the decision before moving the bill forward.</p>
+            <ul class="haven-checklist">
+              <li>Independent bill- and line-level validation</li>
+              <li>Visible balanced-versus-coded totals</li>
+              <li>Related vendor, property, invoice, and amount context</li>
+              <li>Persistent source evidence throughout approval</li>
+            </ul>
+          </div>
+          <figure class="haven-shot haven-shot--detail reveal">
+            <a href="../assets/img/haven/bill-review.png" target="_blank" rel="noopener" aria-label="Open the expanded bill review screenshot at full size">
+              <img src="../assets/img/haven/bill-review.png" alt="Expanded HAVEN bill review showing coding, readiness, related records, and a PDF invoice" loading="lazy">
+            </a>
+            <figcaption>Coding, validation, and the source invoice meet before approval.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="haven-section haven-section--soft">
+      <div class="wrap">
+        <div class="haven-feature-split haven-feature-split--reverse">
+          <figure class="haven-shot haven-shot--portrait reveal">
+            <a href="../assets/img/haven/extraction-review.png" target="_blank" rel="noopener" aria-label="Open the extraction review screenshot at full size">
+              <img src="../assets/img/haven/extraction-review.png" alt="HAVEN extraction review mapping a synthetic invoice document into bill fields" loading="lazy">
+            </a>
+            <figcaption>Invoice fields are mapped with source evidence and explicit human review.</figcaption>
+          </figure>
+          <div class="haven-feature-copy reveal">
+            <span class="kicker">Document Intelligence</span>
+            <h2>Structured suggestions without silent accounting changes.</h2>
+            <p>The current extractor parses text-native invoice documents with deterministic rules, returns field-level confidence, and routes incomplete results into human review. It does not silently post extracted data to the ledger.</p>
+            <p>Corrections preserve the original value, replacement, actor, reason, and source context. They are audited feedback for that document—not an unreviewed global model retraining loop.</p>
+            <div class="haven-honesty">
+              <strong>Current boundary</strong>
+              <span>OCR and connected AI providers are planned integration points; the present implementation is rules-based.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">03 · Architecture</span>
+          <h2>A canonical financial model between source systems and operator decisions.</h2>
+          <p>External providers can change. Core accounting logic should not have to.</p>
+        </div>
+
+        <div class="haven-architecture reveal" role="img" aria-label="Architecture diagram showing source systems flowing through ingestion, canonical domain records, ledger controls, and operational workspaces">
+          <div class="haven-arch-layer">
+            <span class="haven-arch-label">Sources</span>
+            <div><span>PDF &amp; scans</span><span>Bank &amp; cards</span><span>PMS platforms</span><span>CSV &amp; APIs</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--blue">
+            <span class="haven-arch-label">Ingestion &amp; lineage</span>
+            <div><span>Validation</span><span>External IDs</span><span>Extraction</span><span>Source evidence</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--navy">
+            <span class="haven-arch-label">Canonical domain + ledger</span>
+            <div><span>Bills</span><span>Payments</span><span>Reservations</span><span>Trust</span><span>Journal entries</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--green">
+            <span class="haven-arch-label">Operational workspaces</span>
+            <div><span>Review queues</span><span>Reconciliation</span><span>Owner statements</span><span>Reports &amp; packets</span></div>
+          </div>
+        </div>
+
+        <div class="haven-tech-grid">
+          <article class="reveal">
+            <span class="kicker">Frontend</span>
+            <h3>A reusable workbench shell</h3>
+            <p>React 19 and TypeScript with Vite, TanStack Query/Table/Virtual, Zustand, Zod, Radix primitives, dnd-kit, and PDF.js.</p>
+          </article>
+          <article class="reveal">
+            <span class="kicker">Backend</span>
+            <h3>Explicit service boundaries</h3>
+            <p>FastAPI and SQLAlchemy expose organization-scoped workflows over PostgreSQL, with Pydantic contracts and Alembic-backed evolution.</p>
+          </article>
+          <article class="reveal">
+            <span class="kicker">Documents &amp; events</span>
+            <h3>Evidence and asynchronous work</h3>
+            <p>S3-compatible object storage keeps documents separate from relational state; an outbox worker handles deferred processing without losing intent.</p>
+          </article>
+          <article class="reveal">
+            <span class="kicker">Food Web</span>
+            <h3>A navigable object graph</h3>
+            <p>Each record exposes its related context, evidence, money trail, and downstream accounting impact instead of hiding them in separate modules.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="controls" class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">04 · Financial Controls</span>
+          <h2>Correctness remains enforceable when the interface is not in the room.</h2>
+          <p>Critical rules live in service and database layers, not only in client-side validation.</p>
+        </div>
+        <div class="haven-controls">
+          <article class="reveal">
+            <span>Balanced ledger</span>
+            <h3>Invalid journals cannot post.</h3>
+            <p>Entries must balance, and posted financial records become immutable. Corrections use explicit reversals rather than hidden edits.</p>
+          </article>
+          <article class="reveal">
+            <span>Trust safety</span>
+            <h3>Available balance is a hard boundary.</h3>
+            <p>Trust debits are blocked when they would reduce an owner or property subaccount beneath its required reserve.</p>
+          </article>
+          <article class="reveal">
+            <span>Maker–checker</span>
+            <h3>The creator cannot self-approve.</h3>
+            <p>Independent approval is enforced across bills, payment batches, trust distributions, owner statements, transfers, and reconciliations.</p>
+          </article>
+          <article class="reveal">
+            <span>Evidence lineage</span>
+            <h3>Every decision keeps its proof.</h3>
+            <p>Content-addressed documents link directly to the records and accounting events they support.</p>
+          </article>
+        </div>
+
+        <figure class="haven-shot haven-shot--dark reveal">
+          <a href="../assets/img/haven/trust-distribution.png" target="_blank" rel="noopener" aria-label="Open the trust distribution workflow screenshot at full size">
+            <img src="../assets/img/haven/trust-distribution.png" alt="HAVEN trust distribution builder with run setup, owner item, allocation, and approval stages" loading="lazy">
+          </a>
+          <figcaption><strong>Trust distribution workflow.</strong> Run totals, exact allocation, no-overdraft preflight, and approval state stay visible through payment handoff.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="haven-section">
+      <div class="wrap">
+        <div class="haven-feature-split haven-feature-split--stacked">
+          <div class="haven-feature-copy reveal">
+            <span class="kicker">Team Work</span>
+            <h2>Exceptions become owned work—not passive warnings.</h2>
+            <p>Universal work control turns exceptions, tasks, approvals, and comments into one reviewable queue. Saved views, filters, priority, evidence, status, and next action make operational responsibility explicit.</p>
+          </div>
+          <figure class="haven-shot haven-shot--detail reveal">
+            <a href="../assets/img/haven/team-work.png" target="_blank" rel="noopener" aria-label="Open the Team Work screenshot at full size">
+              <img src="../assets/img/haven/team-work.png" alt="HAVEN Team Work queue showing exceptions, priorities, evidence, and workflow status" loading="lazy">
+            </a>
+            <figcaption>Exceptions, tasks, and approvals share a consistent ownership model.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality" class="haven-section haven-section--soft">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">05 · Security &amp; Engineering Quality</span>
+          <h2>A fail-closed production design, paired with an honest prototype boundary.</h2>
+        </div>
+        <div class="haven-quality-grid">
+          <article class="reveal">
+            <h3>Identity and tenant isolation</h3>
+            <p>Production configuration requires OIDC, MFA evidence, asymmetric access-token verification, bounded token lifetime, and exact external-identity mapping. Tenant context is applied transaction-locally and protected by PostgreSQL row-level security.</p>
+          </article>
+          <article class="reveal">
+            <h3>Separated database responsibility</h3>
+            <p>API, worker, migration, and maintenance workloads use distinct restricted principals so ordinary runtime processes do not own the schema or bypass tenant policy.</p>
+          </article>
+          <article class="reveal">
+            <h3>Defensive document handling</h3>
+            <p>Uploads are size-bounded, signature-checked, restricted by type, protected from active content and CSV injection, and designed to pass through malware scanning. Access URLs are short-lived.</p>
+          </article>
+          <article class="reveal">
+            <h3>Action-ready practice data</h3>
+            <p>Deterministic fictional records exercise real workflow states without presenting scraped or customer data. Synthetic documents remain visibly labeled throughout the demo.</p>
+          </article>
+        </div>
+
+        <div class="haven-quality-band reveal">
+          <div><strong>105</strong><span>test modules</span></div>
+          <div><strong>624</strong><span>test functions</span></div>
+          <div><strong>30</strong><span>schema revisions</span></div>
+          <p>Coverage includes authentication, tenant isolation, upload security, maker–checker controls, extraction corrections, financial guardrails, and complete trust-distribution lifecycles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">06 · Reflection</span>
+          <h2>The project is as much about operational clarity as accounting depth.</h2>
+        </div>
+        <div class="haven-reflection">
+          <div class="haven-prose reveal">
+            <p>HAVEN demonstrates how I approach complex product work: begin with the real operating model, design the interface and data model together, put irreversible rules at the lowest reliable layer, and make every abstraction earn its place in the user’s day.</p>
+            <p>It is an engineering prototype and architecture package—not a claim of banking certification or jurisdiction-specific legal readiness. A production deployment would still require provider certification, independent security review, jurisdictional trust-accounting review, and hardened live integrations.</p>
+          </div>
+          <aside class="haven-next reveal">
+            <span class="kicker">Supporting work</span>
+            <h3>Market analysis &amp; launch thesis</h3>
+            <p>The companion document covers positioning, market structure, product scope, and a potential launch path.</p>
+            <a class="haven-button haven-button--primary" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">Open the PDF <span aria-hidden="true">↗</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
       <a class="nxt" href="../work/global-events.html">Global Events &amp; Market Trends <span>→</span></a>
     </nav>
   </div>
 </main>
+
 <footer id="contact">
   <div class="wrap">
     <div class="reveal">
       <div class="f-kick">Contact</div>
       <h2>Let’s build something worth shipping.</h2>
       <div class="f-links">
-        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="mailto:christianjoudon@gmail.com">christian.joudon@gmail.com</a>
         <a href="tel:+18086398697">(808) 639-8697</a>
         <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
         <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
