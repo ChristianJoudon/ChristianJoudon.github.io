@@ -17,6 +17,7 @@ assets/
   media/                  PDFs (HAVEN market analysis, screenplay scripts & pitch decks)
 work/                     10 project detail pages (each Work card links here)
 essays/                   7 essay pages (each Essay row links here)
+cookies/                  Static butterhäus recipe site
 ```
 
 Every project card on the homepage opens its own page under `work/`, and every
