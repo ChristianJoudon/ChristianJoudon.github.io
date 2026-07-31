@@ -42,7 +42,7 @@
         <span class="kicker">2025–Present · Product Engineering Case Study</span>
         <h1 id="haven-title">HAVEN</h1>
         <p class="haven-deck">An evidence-first finance operations workspace for property management.</p>
-        <p class="haven-intro">HAVEN connects bills, payments, banking, trust funds, owner distributions, reservations, document evidence, and team review in one operational system—without treating financial controls as an afterthought.</p>
+        <p class="haven-intro">HAVEN connects bills, payments, banking, trust funds, owner distributions, reservations, document evidence, and team review in one operational system, without treating financial controls as an afterthought.</p>
         <div class="haven-actions">
           <a class="haven-button haven-button--primary" href="#case-study">Read the case study <span aria-hidden="true">↓</span></a>
           <a class="haven-button" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" target="_blank" rel="noopener">Market analysis <span aria-hidden="true">↗</span></a>
@@ -63,7 +63,7 @@
       <img src="../assets/img/haven/dashboard.png" alt="HAVEN dashboard showing operational metrics, workload health, a priority bill queue, and daily review cards" fetchpriority="high">
       <span class="haven-screen-note">Live API · Synthetic demonstration data</span>
     </a>
-    <p class="haven-caption">A command center for workload, cash movement, readiness, and exceptions—not a collection of disconnected reports.</p>
+    <p class="haven-caption">A command center for workload, cash movement, readiness, and exceptions, not a collection of disconnected reports.</p>
 
     <nav class="haven-local-nav" aria-label="HAVEN case study sections">
       <a href="#product">Product</a>
@@ -80,7 +80,7 @@
       <div><strong>30</strong><span>versioned migrations</span></div>
       <div><strong>624</strong><span>Python test functions</span></div>
     </section>
-    <p class="haven-stats-note">Repository snapshot, July 2026. Counts describe implemented source—not production usage.</p>
+    <p class="haven-stats-note">Repository snapshot, July 2026. Counts describe implemented source, not production usage.</p>
   </div>
 
   <div id="case-study" class="haven-case-body">
@@ -156,7 +156,7 @@
         <div class="haven-feature-split haven-feature-split--stacked">
           <div class="haven-feature-copy reveal">
             <span class="kicker">Inline Review</span>
-            <h2>Detail appears in context—not on a disconnected page.</h2>
+            <h2>Detail appears in context, not on a disconnected page.</h2>
             <p>An expanded bill exposes vendor and invoice fields, line coding, readiness checks, related records, next actions, and the original PDF together. The operator can verify the decision before moving the bill forward.</p>
             <ul class="haven-checklist">
               <li>Independent bill- and line-level validation</li>
@@ -188,7 +188,7 @@
             <span class="kicker">Document Intelligence</span>
             <h2>Structured suggestions without silent accounting changes.</h2>
             <p>The current extractor parses text-native invoice documents with deterministic rules, returns field-level confidence, and routes incomplete results into human review. It does not silently post extracted data to the ledger.</p>
-            <p>Corrections preserve the original value, replacement, actor, reason, and source context. They are audited feedback for that document—not an unreviewed global model retraining loop.</p>
+            <p>Corrections preserve the original value, replacement, actor, reason, and source context. They are audited feedback for that document, not an unreviewed global model retraining loop.</p>
             <div class="haven-honesty">
               <strong>Current boundary</strong>
               <span>OCR and connected AI providers are planned integration points; the present implementation is rules-based.</span>
@@ -245,7 +245,7 @@
             <p>S3-compatible object storage keeps documents separate from relational state; an outbox worker handles deferred processing without losing intent.</p>
           </article>
           <article class="reveal">
-            <span class="kicker">Food Web</span>
+            <span class="kicker">Object Graph</span>
             <h3>A navigable object graph</h3>
             <p>Each record exposes its related context, evidence, money trail, and downstream accounting impact instead of hiding them in separate modules.</p>
           </article>
@@ -257,7 +257,7 @@
       <div class="wrap">
         <div class="haven-section-head reveal">
           <span class="kicker">04 · Financial Controls</span>
-          <h2>Correctness remains enforceable when the interface is not in the room.</h2>
+          <h2>Correctness does not depend on the interface being open.</h2>
           <p>Critical rules live in service and database layers, not only in client-side validation.</p>
         </div>
         <div class="haven-controls">
@@ -272,7 +272,7 @@
             <p>Trust debits are blocked when they would reduce an owner or property subaccount beneath its required reserve.</p>
           </article>
           <article class="reveal">
-            <span>Maker–checker</span>
+            <span>Maker-checker</span>
             <h3>The creator cannot self-approve.</h3>
             <p>Independent approval is enforced across bills, payment batches, trust distributions, owner statements, transfers, and reconciliations.</p>
           </article>
@@ -297,8 +297,8 @@
         <div class="haven-feature-split haven-feature-split--stacked">
           <div class="haven-feature-copy reveal">
             <span class="kicker">Team Work</span>
-            <h2>Exceptions become owned work—not passive warnings.</h2>
-            <p>Universal work control turns exceptions, tasks, approvals, and comments into one reviewable queue. Saved views, filters, priority, evidence, status, and next action make operational responsibility explicit.</p>
+            <h2>Exceptions become owned work, not passive warnings.</h2>
+            <p>Every exception, task, approval, and comment lands in one reviewable queue. Saved views, filters, priority, evidence, status, and next action make operational responsibility explicit.</p>
           </div>
           <figure class="haven-shot haven-shot--detail reveal">
             <a href="../assets/img/haven/team-work.png" target="_blank" rel="noopener" aria-label="Open the Team Work screenshot at full size">
@@ -330,7 +330,7 @@
             <p>Uploads are size-bounded, signature-checked, restricted by type, protected from active content and CSV injection, and designed to pass through malware scanning. Access URLs are short-lived.</p>
           </article>
           <article class="reveal">
-            <h3>Action-ready practice data</h3>
+            <h3>Realistic practice data</h3>
             <p>Deterministic fictional records exercise real workflow states without presenting scraped or customer data. Synthetic documents remain visibly labeled throughout the demo.</p>
           </article>
         </div>
@@ -339,7 +339,7 @@
           <div><strong>105</strong><span>test modules</span></div>
           <div><strong>624</strong><span>test functions</span></div>
           <div><strong>30</strong><span>schema revisions</span></div>
-          <p>Coverage includes authentication, tenant isolation, upload security, maker–checker controls, extraction corrections, financial guardrails, and complete trust-distribution lifecycles.</p>
+          <p>Coverage includes authentication, tenant isolation, upload security, maker-checker controls, extraction corrections, financial guardrails, and complete trust-distribution lifecycles.</p>
         </div>
       </div>
     </section>
@@ -353,7 +353,7 @@
         <div class="haven-reflection">
           <div class="haven-prose reveal">
             <p>HAVEN demonstrates how I approach complex product work: begin with the real operating model, design the interface and data model together, put irreversible rules at the lowest reliable layer, and make every abstraction earn its place in the user’s day.</p>
-            <p>It is an engineering prototype and architecture package—not a claim of banking certification or jurisdiction-specific legal readiness. A production deployment would still require provider certification, independent security review, jurisdictional trust-accounting review, and hardened live integrations.</p>
+            <p>It is an engineering prototype and architecture package, not a claim of banking certification or jurisdiction-specific legal readiness. A production deployment would still require provider certification, independent security review, jurisdictional trust-accounting review, and hardened live integrations.</p>
           </div>
           <aside class="haven-next reveal">
             <span class="kicker">Supporting work</span>
