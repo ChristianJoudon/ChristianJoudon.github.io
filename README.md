@@ -13,9 +13,9 @@ Christian_Joudon_Resume.pdf
 assets/
   site.css                Shared styling for every page
   site.js                 Sticky-header + scroll-reveal
-  img/                    Project thumbnails + haven-logo.png
+  img/                    Project thumbnails + HAVEN and CheckInn brand assets
   media/                  PDFs (HAVEN market analysis, screenplay scripts & pitch decks)
-work/                     10 project detail pages (each Work card links here)
+work/                     11 project detail pages (each Work card links here)
 essays/                   7 essay pages (each Essay row links here)
 cookies/                  Static butterhäus recipe site
 ```

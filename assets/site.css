@@ -1009,3 +1009,539 @@
   .haven-quality-band > div:nth-child(3){ border-bottom:0; }
   .haven-quality-band p{ grid-column:1; }
 }
+
+/* ============================================================
+   CHECKINN PRODUCT VISION
+   Matte evergreen, warm ivory, and clay — intentionally scoped
+   so the HAVEN case study keeps its own visual language.
+   ============================================================ */
+.checkinn-lead{
+  background:#143b2b;
+  border:1px solid #234c3b;
+  color:#f8f0e6;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.checkinn-lead:hover{
+  transform:translateY(-3px);
+  border-color:#527866;
+}
+.checkinn-lead .lp-logo{
+  height:clamp(34px,4.5vw,48px);
+  margin-bottom:1.55rem;
+}
+.checkinn-lead .lp-kick{ color:#a8c0b1; }
+.checkinn-lead h3{ color:#fff8ee; }
+.checkinn-lead p{ color:#e6ddd1; }
+.checkinn-lead .lp-points li{ color:#d5dcd4; }
+.checkinn-lead .lp-points li::before{ background:#d25732; }
+.checkinn-lead .tags .tag{
+  border-color:#52705f;
+  color:#c8d7cd;
+}
+
+.checkinn-case{
+  --paper:#f7f0e6;
+  --paper-2:#fffaf2;
+  --card:#fffaf2;
+  --ink:#1d2c24;
+  --navy:#1b4936;
+  --navy-deep:#113426;
+  --muted:#5d6e64;
+  --muted-2:#7b877f;
+  --line:#dfd5c8;
+  --line-2:#cdbfae;
+  --haven-blue:#2f7652;
+  --haven-blue-soft:#e3eee7;
+  --haven-green:#2f7652;
+  --haven-green-soft:#e3eee7;
+  --haven-coral:#c74f2c;
+  --haven-coral-soft:#f2ddd3;
+  --haven-gold:#76591c;
+  --haven-gold-soft:#f2ead7;
+  background:var(--paper);
+}
+.checkinn-case .haven-hero h1{
+  max-width:8ch;
+  font-size:clamp(4rem,11vw,8rem);
+  font-weight:600;
+  letter-spacing:-.075em;
+  line-height:.88;
+}
+.checkinn-case .haven-deck{
+  max-width:19ch;
+  color:#244b39;
+}
+.checkinn-case .haven-brief{
+  background:#143b2b;
+  border:1px solid #2a513f;
+  box-shadow:none;
+}
+.checkinn-case .haven-brief dt{ color:#a8c0b1; }
+.checkinn-case .haven-brief dd{ color:#fff8ee; }
+.checkinn-brief-mark{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  padding-bottom:1.25rem;
+  margin-bottom:.3rem;
+  border-bottom:1px solid rgba(255,255,255,.16);
+}
+.checkinn-brief-mark img{
+  width:auto;
+  height:38px;
+  max-width:180px;
+  object-fit:contain;
+}
+.checkinn-case .haven-button{
+  background:#fffaf2;
+  border-color:#b9aa97;
+  color:#1b4936;
+}
+.checkinn-case .haven-button--primary{
+  background:#173e2e;
+  border-color:#173e2e;
+  color:#fff8ee;
+}
+.checkinn-case .haven-button--primary:hover{
+  background:#24533e;
+  border-color:#24533e;
+}
+.checkinn-case .haven-local-nav{
+  background:#fffaf2;
+  border-color:#d8ccbd;
+  box-shadow:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.checkinn-case .haven-local-nav a:hover{
+  background:#e7eee8;
+  color:#173e2e;
+}
+.checkinn-case .haven-stats{
+  background:#fffaf2;
+  border-color:#d8ccbd;
+}
+.checkinn-case .haven-stats strong{ color:#1b4936; }
+.checkinn-case .haven-section--soft{ background:#eee7dc; }
+.checkinn-case .haven-section--ink{ background:#123629; }
+.checkinn-case .haven-section--ink .haven-section-head .kicker,
+.checkinn-case .haven-lifecycle li > span,
+.checkinn-case .haven-controls article > span{ color:#a9c1b2; }
+.checkinn-case .haven-section--ink .haven-section-head > p,
+.checkinn-case .haven-lifecycle small,
+.checkinn-case .haven-controls p{ color:#c8d6cc; }
+.checkinn-case .haven-thesis{
+  border-left-color:#c74f2c;
+  background:#fffaf2;
+  box-shadow:none;
+}
+.checkinn-case .haven-thesis .kicker{ color:#a94327; }
+.checkinn-case .haven-principles article{
+  background:#fffaf2;
+  border-color:#d8ccbd;
+}
+.checkinn-case .haven-principles article:nth-child(1) .haven-principle-number,
+.checkinn-case .haven-principles article:nth-child(2) .haven-principle-number{
+  background:#e3eee7;
+  color:#2f7652;
+}
+.checkinn-case .haven-principles article:nth-child(3) .haven-principle-number{
+  background:#f2ddd3;
+  color:#b74829;
+}
+.checkinn-case .haven-lifecycle,
+.checkinn-case .haven-controls article{ border-color:rgba(255,248,238,.17); }
+.checkinn-case .haven-controls article{ background:#1a4132; }
+.checkinn-case .haven-honesty{
+  border-color:#d4c5a5;
+  background:#f2ead7;
+  color:#664f20;
+}
+.checkinn-case .haven-arch-layer{
+  background:#fffaf2;
+  border-color:#d8ccbd;
+}
+.checkinn-case .haven-arch-layer > div span{ border-color:#d8ccbd; }
+.checkinn-case .haven-arch-layer--blue{
+  background:#e3eee7;
+  border-color:#bcd1c3;
+}
+.checkinn-case .haven-arch-layer--blue > div span{ border-color:#afc9b7; }
+.checkinn-case .haven-arch-layer--navy{
+  background:#143b2b;
+  border-color:#143b2b;
+}
+.checkinn-case .haven-arch-layer--navy .haven-arch-label{ color:#a8c0b1; }
+.checkinn-case .haven-arch-layer--navy > div span{
+  border-color:#557565;
+  color:#fff8ee;
+}
+.checkinn-case .haven-arch-layer--green{
+  background:#f2ddd3;
+  border-color:#ddbbaa;
+}
+.checkinn-case .haven-arch-layer--green .haven-arch-label{ color:#a94327; }
+.checkinn-case .haven-arch-layer--green > div span{ border-color:#d5aa96; }
+.checkinn-case .haven-tech-grid{
+  background:#d8ccbd;
+  border-color:#d8ccbd;
+}
+.checkinn-case .haven-tech-grid article{ background:#fffaf2; }
+.checkinn-case .haven-next{
+  background:#fffaf2;
+  border-color:#d8ccbd;
+}
+
+.checkinn-product-frame{
+  margin:0;
+  overflow:hidden;
+  border:1px solid #d2c5b5;
+  border-radius:20px;
+  background:#eee6da;
+}
+.checkinn-product-frame figcaption{
+  padding:.8rem 1rem;
+  border-top:1px solid #d2c5b5;
+  color:#6b776f;
+  background:#fffaf2;
+  font-family:var(--mono);
+  font-size:.66rem;
+  letter-spacing:.02em;
+}
+.checkinn-demo-shell{
+  display:grid;
+  grid-template-columns:180px minmax(500px,1fr) 220px;
+  min-height:510px;
+  background:#fbf5ec;
+}
+.checkinn-demo-rail{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  padding:1.25rem .9rem;
+  background:#143b2b;
+  color:#dce6df;
+}
+.checkinn-demo-rail img{
+  width:46px;
+  height:46px;
+  margin-bottom:.35rem;
+  border-radius:12px;
+}
+.checkinn-demo-rail strong{
+  margin:0 0 1.15rem .25rem;
+  color:#fff8ee;
+  font-size:1.02rem;
+}
+.checkinn-demo-rail span{
+  padding:.55rem .7rem;
+  border-radius:7px;
+  font-size:.73rem;
+}
+.checkinn-demo-rail span.is-active{
+  background:#315a46;
+  color:#fff8ee;
+  font-weight:600;
+}
+.checkinn-demo-main{
+  min-width:0;
+  padding:1.45rem 1.25rem;
+  overflow:hidden;
+  background:#fbf5ec;
+}
+.checkinn-demo-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1rem;
+}
+.checkinn-demo-heading div{ display:flex; flex-direction:column; }
+.checkinn-demo-heading small{
+  color:#708077;
+  font-family:var(--mono);
+  font-size:.58rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.checkinn-demo-heading strong{
+  color:#1c3228;
+  font-size:1.55rem;
+}
+.checkinn-demo-heading > span,
+.checkinn-demo-toolbar span{
+  padding:.36rem .62rem;
+  border:1px solid #d5c8b9;
+  border-radius:7px;
+  background:#fffaf2;
+  color:#55675c;
+  font-size:.65rem;
+}
+.checkinn-demo-toolbar{
+  display:flex;
+  gap:.4rem;
+  margin-top:1rem;
+}
+.checkinn-demo-toolbar .is-wide{ flex:1; color:#88938c; }
+.checkinn-demo-calendar{
+  min-width:570px;
+  margin-top:1rem;
+  border:1px solid #d9cdbf;
+  border-radius:9px;
+  overflow:hidden;
+  background:#fffaf2;
+}
+.checkinn-calendar-head,
+.checkinn-calendar-row{
+  display:grid;
+  grid-template-columns:138px repeat(5,minmax(68px,1fr));
+}
+.checkinn-calendar-head{
+  min-height:48px;
+  border-bottom:1px solid #d9cdbf;
+  background:#f5ede2;
+}
+.checkinn-calendar-head strong,
+.checkinn-calendar-head span{
+  display:flex;
+  align-items:center;
+  padding:.55rem;
+  color:#607068;
+  font-size:.64rem;
+}
+.checkinn-calendar-head span{ border-left:1px solid #d9cdbf; }
+.checkinn-calendar-row{
+  position:relative;
+  min-height:70px;
+  border-bottom:1px solid #e1d7ca;
+}
+.checkinn-calendar-row:last-child{ border-bottom:0; }
+.checkinn-calendar-row::after{
+  content:"";
+  z-index:0;
+  grid-column:2/-1;
+  grid-row:1;
+  background-image:repeating-linear-gradient(to right,transparent 0 calc(20% - 1px),#e1d7ca calc(20% - 1px) 20%);
+  pointer-events:none;
+}
+.checkinn-calendar-row > strong{
+  z-index:1;
+  grid-column:1;
+  grid-row:1;
+  display:flex;
+  align-items:center;
+  padding:.65rem;
+  color:#294437;
+  font-size:.65rem;
+  line-height:1.3;
+}
+.checkinn-fill{
+  z-index:2;
+  grid-row:1;
+  align-self:center;
+  height:38px;
+  display:flex;
+  align-items:center;
+  padding:0 .65rem;
+  margin-inline:5px;
+  border:1px solid #aebcaf;
+  border-radius:5px;
+  background:#cdd6cd;
+  color:#234436;
+  font-size:.63rem;
+  white-space:nowrap;
+}
+.checkinn-fill--one{ grid-column:2/span 2; }
+.checkinn-fill--two{ grid-column:3/span 2; background:#c4cec5; }
+.checkinn-fill--three{
+  grid-column:4/span 2;
+  border-color:#d6a38d;
+  background:#ead0c4;
+  color:#76402d;
+}
+.checkinn-fill--four{ grid-column:2/span 4; background:#bbc8bc; }
+.checkinn-demo-inspector{
+  display:flex;
+  flex-direction:column;
+  padding:1.45rem 1.1rem;
+  border-left:1px solid #d9cdbf;
+  background:#f0e8dc;
+  color:#234436;
+}
+.checkinn-demo-inspector > small{
+  color:#748078;
+  font-family:var(--mono);
+  font-size:.57rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.checkinn-demo-inspector > strong{ margin-top:.35rem; font-size:.9rem; }
+.checkinn-demo-inspector > b{
+  margin-top:1.4rem;
+  color:#1c4936;
+  font-size:3.2rem;
+  line-height:1;
+}
+.checkinn-demo-inspector > span{ color:#6d786f; font-size:.66rem; }
+.checkinn-demo-inspector > div{
+  display:flex;
+  gap:.55rem;
+  align-items:flex-start;
+  margin-top:1.15rem;
+  padding-top:.9rem;
+  border-top:1px solid #d9cdbf;
+}
+.checkinn-demo-inspector i{
+  flex:0 0 8px;
+  width:8px;
+  height:8px;
+  margin-top:.25rem;
+  border-radius:50%;
+  background:#2f7652;
+}
+.checkinn-demo-inspector div:nth-of-type(2) i{ background:#c74f2c; }
+.checkinn-demo-inspector p{ margin:0; line-height:1.2; }
+.checkinn-demo-inspector p b{ display:block; font-size:.64rem; }
+.checkinn-demo-inspector p small{ color:#78837c; font-size:.58rem; }
+
+.checkinn-surface-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+}
+.checkinn-surface-grid article{
+  min-height:210px;
+  display:flex;
+  flex-direction:column;
+  padding:1.35rem;
+  border:1px solid #d8ccbd;
+  border-radius:12px;
+  background:#fffaf2;
+}
+.checkinn-surface-grid article:last-child{ grid-column:span 2; }
+.checkinn-surface-grid article > span,
+.checkinn-adoption-grid article > span{
+  color:#a94327;
+  font-family:var(--mono);
+  font-size:.64rem;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.checkinn-surface-grid h3{
+  margin:auto 0 .55rem;
+  font-size:1.35rem;
+  font-weight:470;
+}
+.checkinn-surface-grid p{ margin:0; color:#5d6e64; font-size:.89rem; line-height:1.5; }
+.checkinn-adoption-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+.checkinn-adoption-grid article{
+  min-height:250px;
+  padding:1.45rem;
+  border:1px solid #d3c6b6;
+  border-radius:12px;
+  background:#fffaf2;
+}
+.checkinn-adoption-grid h3{
+  margin:clamp(2rem,5vw,3.5rem) 0 .65rem;
+  font-size:1.35rem;
+  font-weight:470;
+}
+.checkinn-adoption-grid p{ margin:0; color:#5d6e64; font-size:.9rem; line-height:1.55; }
+.checkinn-connection-map{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(130px,.7fr) auto minmax(0,1fr);
+  gap:1rem;
+  align-items:center;
+  margin-top:clamp(2rem,5vw,3.5rem);
+  padding:1.25rem;
+  border:1px solid #cfc1b0;
+  border-radius:12px;
+  background:#e7ded1;
+}
+.checkinn-connection-map > div{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.4rem;
+}
+.checkinn-connection-map > div span{
+  padding:.35rem .58rem;
+  border:1px solid #cabbaa;
+  border-radius:999px;
+  background:#fffaf2;
+  color:#53665b;
+  font-size:.72rem;
+}
+.checkinn-connection-map > b{
+  color:#987765;
+  font-family:var(--mono);
+  font-weight:400;
+}
+.checkinn-connection-map > strong{
+  padding:1.3rem .8rem;
+  border-radius:9px;
+  background:#143b2b;
+  color:#fff8ee;
+  text-align:center;
+}
+.checkinn-trust-strip{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  padding-top:1.35rem;
+  border-top:1px solid rgba(255,248,238,.16);
+}
+.checkinn-trust-strip span{
+  padding:.38rem .68rem;
+  border:1px solid #52705f;
+  border-radius:999px;
+  color:#c8d6cc;
+  font-family:var(--mono);
+  font-size:.63rem;
+}
+
+@media (max-width:1040px){
+  .checkinn-demo-shell{ grid-template-columns:170px minmax(500px,1fr); }
+  .checkinn-demo-inspector{ display:none; }
+  .checkinn-surface-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .checkinn-surface-grid article:last-child{ grid-column:span 2; }
+}
+
+@media (max-width:800px){
+  .checkinn-demo-shell{ grid-template-columns:145px minmax(500px,1fr); }
+  .checkinn-demo-rail{ padding-inline:.7rem; }
+  .checkinn-adoption-grid{ grid-template-columns:1fr; }
+  .checkinn-adoption-grid article{ min-height:0; }
+  .checkinn-adoption-grid h3{ margin:1.8rem 0 .65rem; }
+  .checkinn-connection-map{
+    grid-template-columns:1fr;
+    justify-items:center;
+  }
+  .checkinn-connection-map > b{ transform:rotate(90deg); }
+  .checkinn-connection-map > strong{ width:min(240px,100%); }
+}
+
+@media (max-width:620px){
+  .checkinn-case .haven-hero h1{
+    font-size:clamp(3.25rem,19vw,5rem);
+    letter-spacing:-.07em;
+  }
+  .checkinn-demo-shell{ display:block; min-height:0; }
+  .checkinn-demo-rail{ display:none; }
+  .checkinn-demo-main{
+    padding:1rem;
+    overflow-x:auto;
+  }
+  .checkinn-demo-heading,
+  .checkinn-demo-toolbar{ min-width:570px; }
+  .checkinn-product-frame figcaption{ font-size:.6rem; }
+  .checkinn-surface-grid{ grid-template-columns:1fr; }
+  .checkinn-surface-grid article,
+  .checkinn-surface-grid article:last-child{
+    grid-column:auto;
+    min-height:180px;
+  }
+}

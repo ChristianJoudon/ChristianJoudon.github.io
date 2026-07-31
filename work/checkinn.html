@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CheckInn · Property Operations Platform · Christian Joudon</title>
+<meta name="description" content="A product vision and technical case study for CheckInn, a calm property-operations workspace designed for owner-operators and growing property teams.">
+<meta property="og:title" content="CheckInn · Property Operations Platform">
+<meta property="og:description" content="One calm operating layer for stays, properties, and the work between them.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://christianjoudon.github.io/work/checkinn.html">
+<meta property="og:image" content="https://christianjoudon.github.io/assets/img/checkinn-icon.png">
+<meta property="og:image:alt" content="CheckInn app icon in matte ivory and evergreen">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills">Toolkit</a>
+      <a href="../index.html#writing">Writing</a>
+      <a href="../index.html#essays">Essays</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="subpage haven-case checkinn-case">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
+
+    <section class="haven-hero" aria-labelledby="checkinn-title">
+      <div class="haven-hero-copy">
+        <span class="kicker">In development · Product vision &amp; interface design</span>
+        <h1 id="checkinn-title">CheckInn</h1>
+        <p class="haven-deck">One calm operating layer for stays, properties, and the work between them.</p>
+        <p class="haven-intro">CheckInn is designed for owner-operators and small property-management teams to manage availability, reservations, guests, pricing, readiness, housekeeping, maintenance, and channel connections from one property to a growing portfolio.</p>
+        <div class="haven-actions">
+          <a class="haven-button haven-button--primary" href="#case-study">Explore the product vision <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <aside class="haven-brief" aria-label="Project summary">
+        <div class="checkinn-brief-mark" aria-hidden="true">
+          <img src="../assets/img/checkinn-wordmark-light.png" alt="">
+        </div>
+        <dl>
+          <div><dt>My role</dt><dd>Product strategy, UX/UI, architecture, and full-stack engineering</dd></div>
+          <div><dt>Product</dt><dd>Responsive property operations and reservation management</dd></div>
+          <div><dt>Designed for</dt><dd>Owner-operators and growing property teams</dd></div>
+          <div><dt>Project state</dt><dd>In development · product vision and interface prototype</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <figure class="checkinn-product-frame reveal">
+      <div class="checkinn-demo-shell" role="img" aria-label="Illustrative CheckInn calendar workspace with a property rail, wide unit-night grid, stay blocks, and contextual inspector">
+        <aside class="checkinn-demo-rail" aria-hidden="true">
+          <img src="../assets/img/checkinn-icon.png" alt="">
+          <strong>CheckInn</strong>
+          <span class="is-active">Calendar</span>
+          <span>Arrivals</span>
+          <span>Reservations</span>
+          <span>Guests</span>
+          <span>Housekeeping</span>
+          <span>Operations</span>
+        </aside>
+        <div class="checkinn-demo-main" aria-hidden="true">
+          <div class="checkinn-demo-heading">
+            <div><small>Portfolio operations</small><strong>Calendar</strong></div>
+            <span>All properties</span>
+          </div>
+          <div class="checkinn-demo-toolbar">
+            <span>Today</span><span class="is-wide">Search unit or property</span><span>Filters</span>
+          </div>
+          <div class="checkinn-demo-calendar">
+            <div class="checkinn-calendar-head"><strong>Units</strong><span>Sun 18</span><span>Mon 19</span><span>Tue 20</span><span>Wed 21</span><span>Thu 22</span></div>
+            <div class="checkinn-calendar-row"><strong>Grandview · 101</strong><span class="checkinn-fill checkinn-fill--one">Guest stay</span></div>
+            <div class="checkinn-calendar-row"><strong>Grandview · 102</strong><span class="checkinn-fill checkinn-fill--two">Guest stay</span></div>
+            <div class="checkinn-calendar-row"><strong>Harbor · 201</strong><span class="checkinn-fill checkinn-fill--three">Owner block</span></div>
+            <div class="checkinn-calendar-row"><strong>Pinecrest · 301</strong><span class="checkinn-fill checkinn-fill--four">Guest stay</span></div>
+          </div>
+        </div>
+        <aside class="checkinn-demo-inspector" aria-hidden="true">
+          <small>Portfolio pulse</small>
+          <strong>Today’s arrivals</strong>
+          <b>4</b>
+          <span>Across three properties</span>
+          <div><i></i><p><b>Grandview · 102</b><small>Ready for arrival</small></p></div>
+          <div><i></i><p><b>Harbor · 201</b><small>Turn in progress</small></p></div>
+        </aside>
+      </div>
+      <figcaption>Illustrative target-state interface composition—not a live customer account.</figcaption>
+    </figure>
+
+    <nav class="haven-local-nav" aria-label="CheckInn case study sections">
+      <a href="#product">Product</a>
+      <a href="#lifecycle">Stay lifecycle</a>
+      <a href="#connections">Connections</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#trust">Trust</a>
+    </nav>
+
+    <section class="haven-stats reveal" aria-label="Target product model">
+      <div><strong>7</strong><span>core operating surfaces</span></div>
+      <div><strong>1–5</strong><span>unit starting audience</span></div>
+      <div><strong>3</strong><span>connectivity levels</span></div>
+      <div><strong>1</strong><span>isolated operational database</span></div>
+      <div><strong>0</strong><span>required HAVEN dependencies</span></div>
+    </section>
+    <p class="haven-stats-note">Target product model—not production usage.</p>
+  </div>
+
+  <div id="case-study" class="haven-case-body">
+    <section id="product" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">01 · The Product</span>
+          <h2>A front door for the entire stay—not another channel dashboard.</h2>
+        </div>
+        <div class="haven-problem-grid">
+          <div class="haven-prose reveal">
+            <p>Independent owners and small property teams often grow into a patchwork: one calendar for direct stays, separate Airbnb and Vrbo views, guest details in messages, cleaning notes in texts, and accounting in another system entirely.</p>
+            <p>CheckInn is designed as the shared operational picture across that work. It gives the team one place to understand what is happening, what is ready, what is blocked, and what needs attention—without forcing a one-property operator into enterprise software.</p>
+          </div>
+          <blockquote class="haven-thesis reveal">
+            <span class="kicker">Product question</span>
+            <p>What would property operations feel like if every stay, task, and handoff shared the same calm context?</p>
+          </blockquote>
+        </div>
+
+        <div class="haven-principles">
+          <article class="reveal">
+            <span class="haven-principle-number">01</span>
+            <h3>See the day</h3>
+            <p>Arrivals, departures, readiness, exceptions, and upcoming work resolve into one legible operating picture.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">02</span>
+            <h3>Stay in context</h3>
+            <p>Calendar, guest, reservation, and unit details open beside the work instead of sending the operator through disconnected screens.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">03</span>
+            <h3>Grow without a reset</h3>
+            <p>The same mental model serves a single owner-managed home, a small portfolio, or a front office connected to specialized systems.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lifecycle" class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">02 · The Stay Lifecycle</span>
+          <h2>One continuous operating model from open night to ready home.</h2>
+          <p>Each team sees the same stay from the perspective of the work they own.</p>
+        </div>
+        <ol class="haven-lifecycle" aria-label="Target stay lifecycle">
+          <li><span>01</span><strong>Plan</strong><small>Availability, pricing, and restrictions</small></li>
+          <li><span>02</span><strong>Publish</strong><small>Direct inventory and approved channels</small></li>
+          <li><span>03</span><strong>Reserve</strong><small>Guest, stay, economics, and source</small></li>
+          <li><span>04</span><strong>Prepare</strong><small>Readiness, access, and housekeeping</small></li>
+          <li><span>05</span><strong>Host</strong><small>Arrival, in-stay needs, and service</small></li>
+          <li><span>06</span><strong>Turn</strong><small>Departure, inspection, and reset</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">The Operating Surface</span>
+          <h2>Seven workspaces, one shared property model.</h2>
+          <p>Every surface answers a different operational question while preserving the same units, dates, roles, and source lineage.</p>
+        </div>
+        <div class="checkinn-surface-grid">
+          <article class="reveal"><span>01</span><h3>Today</h3><p>Priorities, arrivals, departures, readiness, and exceptions.</p></article>
+          <article class="reveal"><span>02</span><h3>Calendar</h3><p>Wide unit-night planning across direct and connected inventory.</p></article>
+          <article class="reveal"><span>03</span><h3>Reservations</h3><p>The complete stay record, source, economics, and lifecycle.</p></article>
+          <article class="reveal"><span>04</span><h3>Guests</h3><p>Minimum necessary identity, communication, and stay context.</p></article>
+          <article class="reveal"><span>05</span><h3>Arrivals</h3><p>Readiness, access, handoffs, and day-of-arrival confidence.</p></article>
+          <article class="reveal"><span>06</span><h3>Housekeeping</h3><p>Turns, inspections, supplies, issues, and team ownership.</p></article>
+          <article class="reveal"><span>07</span><h3>Operations</h3><p>Maintenance, tasks, exceptions, and portfolio-level control.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="connections" class="haven-section haven-section--soft">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">03 · Channel Adoption</span>
+          <h2>Useful before certification, extensible after approval.</h2>
+          <p>Connectivity is designed as a graduated path so a property can begin simply without locking the product to one provider.</p>
+        </div>
+        <div class="checkinn-adoption-grid">
+          <article class="reveal">
+            <span>Level 01</span><h3>Native portfolio</h3>
+            <p>Direct inventory, reservations, units, guests, and daily operations are designed to live in CheckInn’s own operational model.</p>
+          </article>
+          <article class="reveal">
+            <span>Level 02</span><h3>Calendar interoperability</h3>
+            <p>Availability-only calendar feeds are designed to provide a bounded bridge for sources that do not yet expose an approved native connection.</p>
+          </article>
+          <article class="reveal">
+            <span>Level 03</span><h3>Approved provider adapters</h3>
+            <p>Airbnb, Vrbo, and future channels will connect through versioned adapters when official partner access and certification are available.</p>
+          </article>
+        </div>
+
+        <div class="checkinn-connection-map reveal" role="img" aria-label="Connection model showing Airbnb, Vrbo, and direct reservations feeding CheckInn, with optional versioned connections to HAVEN and other services">
+          <div><span>Airbnb</span><span>Vrbo</span><span>Direct</span></div>
+          <b aria-hidden="true">→</b>
+          <strong>CheckInn</strong>
+          <b aria-hidden="true">→</b>
+          <div><span>HAVEN</span><span>Messaging</span><span>Reporting</span></div>
+        </div>
+        <div class="haven-honesty reveal">
+          <strong>Integration boundary</strong>
+          <span>Airbnb and Vrbo connections depend on approved provider access. HAVEN is an optional accounting consumer behind a versioned API seam; its database and CheckInn’s database remain entirely separate.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">04 · Architecture</span>
+          <h2>A provider-neutral core between channel activity and daily work.</h2>
+          <p>The product is designed to own operational truth while every external system remains an explicit, replaceable connection.</p>
+        </div>
+
+        <div class="haven-architecture reveal" role="img" aria-label="Target architecture showing channels flowing through adapters into an isolated CheckInn operational domain, then into responsive workspaces and optional external consumers">
+          <div class="haven-arch-layer">
+            <span class="haven-arch-label">Demand &amp; inventory</span>
+            <div><span>Direct stays</span><span>Airbnb</span><span>Vrbo</span><span>Future channels</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--blue">
+            <span class="haven-arch-label">Connectivity boundary</span>
+            <div><span>Approved adapters</span><span>Calendar feeds</span><span>External IDs</span><span>Source lineage</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--navy">
+            <span class="haven-arch-label">CheckInn domain + database</span>
+            <div><span>Units</span><span>Inventory</span><span>Reservations</span><span>Guests</span><span>Operations</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--green">
+            <span class="haven-arch-label">Experience &amp; seams</span>
+            <div><span>Responsive workspaces</span><span>Event contracts</span><span>HAVEN API</span><span>Future services</span></div>
+          </div>
+        </div>
+
+        <div class="haven-tech-grid">
+          <article class="reveal"><span class="kicker">Experience</span><h3>Responsive by default</h3><p>A Next.js and TypeScript interface designed for the front desk, the owner’s laptop, and the phone used during a property turn.</p></article>
+          <article class="reveal"><span class="kicker">Contracts</span><h3>One explicit web-to-API seam</h3><p>Versioned OpenAPI contracts are intended to keep interface behavior, authorization, errors, and provider adapters understandable as the product grows.</p></article>
+          <article class="reveal"><span class="kicker">Operational data</span><h3>A database with one job</h3><p>PostgreSQL is intended to hold CheckInn’s property, stay, inventory, guest, and operations model without sharing tables or identifiers with HAVEN.</p></article>
+          <article class="reveal"><span class="kicker">Integrations</span><h3>Adapters around a stable core</h3><p>Channel, accounting, messaging, and payment providers are designed to connect at controlled boundaries instead of defining the internal product model.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trust" class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">05 · Trust &amp; Quality</span>
+          <h2>A hospitable interface with serious operational boundaries.</h2>
+          <p>Calm presentation does not mean ambiguous authority, hidden automation, or loose handling of guest information.</p>
+        </div>
+        <div class="haven-controls">
+          <article class="reveal"><span>Tenant boundary</span><h3>Every portfolio stays scoped.</h3><p>Organization and unit access are designed to be enforced before operational rows, counts, or identifiers are composed.</p></article>
+          <article class="reveal"><span>Minimum detail</span><h3>Guest data appears only where needed.</h3><p>Calendar and daily-operation surfaces expose the least information required for the work at hand.</p></article>
+          <article class="reveal"><span>Explicit state</span><h3>Availability is never invented.</h3><p>Freshness, source, hold, block, and reservation states are designed to remain visible so uncertainty cannot masquerade as a confirmed night.</p></article>
+          <article class="reveal"><span>Safe connections</span><h3>External systems stay outside the core.</h3><p>Provider failures, retries, and approvals are designed to stay isolated from local operational commitments and to be recorded through auditable seams.</p></article>
+        </div>
+        <div class="checkinn-trust-strip reveal">
+          <span>Role-scoped access</span><span>Idempotent commands</span><span>Source lineage</span><span>Separate databases</span><span>Practice-first validation</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">06 · Reflection</span>
+          <h2>A small operator should not need a small idea of what software can be.</h2>
+        </div>
+        <div class="haven-reflection">
+          <div class="haven-prose reveal">
+            <p>CheckInn is the product expression of a simple belief: the systems around a stay should feel coherent to the people doing the work. A beautiful calendar matters, but only because it can become the shared language between reservations, guests, readiness, housekeeping, maintenance, and the financial systems downstream.</p>
+            <p>The architecture is intentionally portable. CheckInn is designed to stand alone for a single owner, coordinate a small portfolio, or fit beside specialized systems without collapsing their responsibilities into one database.</p>
+          </div>
+          <aside class="haven-next reveal">
+            <span class="kicker">Designed relationship</span>
+            <h3>CheckInn + HAVEN</h3>
+            <p>CheckInn owns the stay and the property operation. HAVEN can receive versioned accounting events as a separate consumer. Two distinct systems, designed to meet cleanly.</p>
+            <a class="haven-button haven-button--primary" href="../work/haven.html">Read the HAVEN case study <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <nav class="detail-foot">
+      <a href="../index.html#work"><span>←</span> All work</a>
+      <a class="nxt" href="../work/haven.html">HAVEN case study <span>→</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="f-kick">Contact</div>
+      <h2>Let’s build something worth shipping.</h2>
+      <div class="f-links">
+        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="tel:+18086398697">(808) 639-8697</a>
+        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
+        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
+        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <div class="colophon"><span>Kauaʻi, Hawaiʻi</span><span>Designed and built by Christian Joudon · 2026</span></div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
