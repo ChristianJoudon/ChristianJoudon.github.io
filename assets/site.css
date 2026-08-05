@@ -1547,7 +1547,9 @@
 }
 
 /* ============================================================
-   MATCHBOOK CASE STUDY — match orange · paper · charcoal
+   MATCHBOOK CASE STUDY — match orange lead · tangerine · paper
+   #F47A38 is sampled directly from the wordmark letterforms and is
+   the lead colour: filled surfaces, accents, buttons, and numbers.
    ============================================================ */
 .matchbook-case{
   --paper:#fcfcfb;
@@ -1560,11 +1562,11 @@
   --muted-2:#8a857f;
   --line:#eee7df;
   --line-2:#ddd2c6;
-  --haven-blue:#eb6219;
+  --haven-blue:#F47A38;
   --haven-blue-soft:#fde7dc;
   --haven-green:#b74b11;
   --haven-green-soft:#fde7dc;
-  --haven-coral:#eb6219;
+  --haven-coral:#F47A38;
   --haven-coral-soft:#fde7dc;
   --haven-gold:#8a4a12;
   --haven-gold-soft:#f7e9da;
@@ -1573,9 +1575,9 @@
 .matchbook-h1{ margin:0; }
 .matchbook-h1 img{ width:min(470px,92%); height:auto; display:block; }
 .matchbook-case .haven-deck{ color:#b74b11; max-width:22ch; }
-.matchbook-case .haven-brief{ background:#26282a; border:1px solid #3a3d3f; box-shadow:none; }
-.matchbook-case .haven-brief dt{ color:#b0aaa3; }
-.matchbook-case .haven-brief dd{ color:#fcfcfb; }
+.matchbook-case .haven-brief{ background:#F47A38; border:1px solid #f79461; box-shadow:0 20px 44px -30px rgba(183,75,17,.55); }
+.matchbook-case .haven-brief dt{ color:#ffffff; }
+.matchbook-case .haven-brief dd{ color:#ffffff; }
 .matchbook-brief-mark{
   min-height:52px; display:flex; align-items:center;
   padding-bottom:1.2rem; margin-bottom:.3rem;
@@ -1583,20 +1585,40 @@
 }
 .matchbook-brief-mark img{ width:auto; height:30px; max-width:190px; object-fit:contain; }
 .matchbook-case .haven-button{ background:#ffffff; border-color:#ddd2c6; color:#303234; }
-.matchbook-case .haven-button--primary{ background:#eb6219; border-color:#eb6219; color:#fff; }
-.matchbook-case .haven-button--primary:hover{ background:#f56f28; border-color:#f56f28; }
+.matchbook-case .haven-button--primary{ background:#F47A38; border-color:#F47A38; color:#fff; }
+.matchbook-case .haven-button--primary:hover{ background:#e26a24; border-color:#e26a24; }
 .matchbook-case .haven-local-nav{
   background:#ffffff; border-color:#e6dcd2; box-shadow:none;
   backdrop-filter:none; -webkit-backdrop-filter:none;
 }
 .matchbook-case .haven-local-nav a:hover{ background:#fde7dc; color:#b74b11; }
 .matchbook-case .haven-stats{ background:#ffffff; border-color:#e6dcd2; }
-.matchbook-case .haven-stats strong{ color:#eb6219; }
+.matchbook-case .haven-stats strong{ color:#F47A38; }
 .matchbook-case .haven-section--soft{ background:#f6efe7; }
-.matchbook-case .haven-section--ink{ background:#26282a; }
+.matchbook-case .haven-section--ink{ background:#F47A38; }
 .matchbook-case .haven-section--ink .haven-section-head .kicker,
 .matchbook-case .haven-lifecycle li > span,
-.matchbook-case .haven-controls article > span{ color:#f0a377; }
+.matchbook-case .haven-controls article > span{ color:#ffffff; }
+.matchbook-case .haven-section--ink .haven-section-head > p,
+.matchbook-case .haven-lifecycle small,
+.matchbook-case .haven-controls p{ color:rgba(255,255,255,.96); }
+/* reflection block sits on tangerine here, so lift its type off the base greys */
+.matchbook-case .haven-section--ink .haven-prose p{ color:#ffffff; }
+.matchbook-case .haven-section--ink .haven-next{
+  background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.28);
+}
+.matchbook-case .haven-section--ink .haven-next .kicker{ color:#ffffff; }
+.matchbook-case .haven-section--ink .haven-next h3{ color:#ffffff; }
+.matchbook-case .haven-section--ink .haven-next p{ color:rgba(255,255,255,.96); }
+.matchbook-case .haven-section--ink .haven-next .haven-button--primary{
+  background:#ffffff; border-color:#ffffff; color:#b0450e;
+}
+.matchbook-case .haven-section--ink .haven-next .haven-button--primary:hover{
+  background:#fff1e6; border-color:#fff1e6;
+}
+.matchbook-case .haven-lifecycle,
+.matchbook-case .haven-lifecycle li,
+.matchbook-case .haven-controls article{ border-color:rgba(255,255,255,.26); }
 
 /* screens gallery */
 .matchbook-screens{
@@ -1640,7 +1662,11 @@
 @media (max-width:760px){ .matchbook-motifs{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 
 /* homepage flagship card */
-.matchbook-lead{ background:#26282a; }
-.matchbook-lead .lp-kick{ color:#f0a377; }
-.matchbook-lead .lp-points li::before{ background:#c8763f; }
-.matchbook-lead:hover{ box-shadow:0 18px 44px -26px rgba(31,33,35,.6); }
+.matchbook-lead{ background:#F47A38; color:#ffffff; }
+.matchbook-lead .lp-kick{ color:#ffffff; }
+.matchbook-lead h3{ color:#ffffff; }
+.matchbook-lead p{ color:#ffffff; }
+.matchbook-lead .lp-points li{ color:rgba(255,255,255,.96); }
+.matchbook-lead .lp-points li::before{ background:rgba(255,255,255,.75); }
+.matchbook-lead .tags .tag{ border-color:rgba(255,255,255,.42); color:rgba(255,255,255,.92); }
+.matchbook-lead:hover{ box-shadow:0 20px 46px -24px rgba(183,75,17,.5); }
