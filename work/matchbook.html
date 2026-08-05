@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MatchBook · Community Platform for Kauaʻi · Christian Joudon</title>
+<meta name="description" content="A product case study of MatchBook, a community events and groups platform built for Kauaʻi — find something worth showing up for.">
+<meta property="og:title" content="MatchBook · Community Platform for Kauaʻi">
+<meta property="og:description" content="Events and groups around you, matched to the things you actually care about. Built for one island, not every city on earth.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://christianjoudon.github.io/work/matchbook.html">
+<meta property="og:image" content="https://christianjoudon.github.io/assets/img/matchbook/screen-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills">Toolkit</a>
+      <a href="../index.html#writing">Writing</a>
+      <a href="../index.html#essays">Essays</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="subpage haven-case matchbook-case">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
+
+    <section class="haven-hero" aria-labelledby="matchbook-title">
+      <div class="haven-hero-copy">
+        <span class="kicker">Working prototype · Community platform for Kauaʻi</span>
+        <h1 id="matchbook-title" class="matchbook-h1"><img src="../assets/img/matchbook/wordmark-underline.png" alt="MatchBook"></h1>
+        <p class="haven-deck">Find something worth showing up for.</p>
+        <p class="haven-intro">MatchBook is an events and groups platform built for one island instead of every city on earth. It matches Kauaʻi residents to the gatherings, markets, music, and community groups they actually care about — then helps them show up.</p>
+        <div class="haven-actions">
+          <a class="haven-button haven-button--primary" href="#case-study">Read the case study <span aria-hidden="true">↓</span></a>
+          <a class="haven-button" href="#screens">See the screens <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <aside class="haven-brief" aria-label="Project summary">
+        <div class="matchbook-brief-mark" aria-hidden="true">
+          <img src="../assets/img/matchbook/wordmark.png" alt="">
+        </div>
+        <dl>
+          <div><dt>My role</dt><dd>Product, brand identity, UX/UI, and full-stack engineering</dd></div>
+          <div><dt>Product</dt><dd>Community events and groups, matched to interests</dd></div>
+          <div><dt>Built for</dt><dd>Kauaʻi — one island, real local data</dd></div>
+          <div><dt>Core stack</dt><dd>Meteor, React, MongoDB</dd></div>
+          <div><dt>Current state</dt><dd>Working prototype seeded with island events</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <a class="haven-hero-screen reveal" href="../assets/img/matchbook/screen-home.jpg" target="_blank" rel="noopener" aria-label="Open the MatchBook landing page screenshot at full size">
+      <img src="../assets/img/matchbook/screen-home.jpg" alt="MatchBook landing page: 'Find something worth showing up for', an interest and time search bar, and three nearby event cards" fetchpriority="high">
+      <span class="haven-screen-note">Live app · Seeded Kauaʻi data</span>
+    </a>
+    <p class="haven-caption">The front door: what is on, nearby, this week — before a single account setting is touched.</p>
+
+    <nav class="haven-local-nav" aria-label="MatchBook case study sections">
+      <a href="#product">Product</a>
+      <a href="#experience">Experience</a>
+      <a href="#screens">Screens</a>
+      <a href="#brand">Brand</a>
+      <a href="#architecture">Architecture</a>
+    </nav>
+
+    <section class="haven-stats reveal" aria-label="Prototype snapshot">
+      <div><strong>283</strong><span>seeded island events</span></div>
+      <div><strong>24</strong><span>community groups</span></div>
+      <div><strong>9</strong><span>interest topics</span></div>
+      <div><strong>7</strong><span>core surfaces</span></div>
+      <div><strong>1</strong><span>island</span></div>
+    </section>
+    <p class="haven-stats-note">Prototype snapshot, August 2026. Counts describe the seeded Kauaʻi dataset and implemented product surfaces.</p>
+  </div>
+
+  <div id="case-study" class="haven-case-body">
+    <section id="product" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">01 · The Product</span>
+          <h2>Big-city event platforms skip small islands. MatchBook starts there.</h2>
+        </div>
+        <div class="haven-problem-grid">
+          <div class="haven-prose reveal">
+            <p>On Kauaʻi, community life is rich but scattered: farmers markets in county PDFs, live music on flyers, club meetings passed along by word of mouth. The platforms built for this — Meetup, Eventbrite, Facebook Events — assume metro density and drown a small island in noise from somewhere else.</p>
+            <p>MatchBook flips the assumption. Every event and group in it is on the island, and the product’s job is matching: learn what someone cares about, put the right three things in front of them, and make “I’m in” one tap.</p>
+          </div>
+          <blockquote class="haven-thesis reveal">
+            <span class="kicker">Product question</span>
+            <p>What does a community platform look like when it is built for one island instead of every city on earth?</p>
+          </blockquote>
+        </div>
+
+        <div class="haven-principles">
+          <article class="reveal">
+            <span class="haven-principle-number">01</span>
+            <h3>Matched, not listed</h3>
+            <p>Interests decide what shows up first. A directory you scroll becomes a feed that already knows you like live music and hiking.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">02</span>
+            <h3>Showing up is the point</h3>
+            <p>Every surface ends at the same button — “I’m in” — and everything saved lands on one calendar you can actually follow.</p>
+          </article>
+          <article class="reveal">
+            <span class="haven-principle-number">03</span>
+            <h3>Organizers are users too</h3>
+            <p>Starting a group, publishing an event, and managing the directory live in the same product, behind the same design language.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">02 · The Experience</span>
+          <h2>From “what do you care about” to “see you there.”</h2>
+          <p>One loop, walked in either direction: browse wide or swipe one card at a time.</p>
+        </div>
+        <ol class="haven-lifecycle" aria-label="MatchBook experience loop">
+          <li><span>01</span><strong>Pick interests</strong><small>Nine topics decide what leads</small></li>
+          <li><span>02</span><strong>Discover</strong><small>Best matches first, filtered by when</small></li>
+          <li><span>03</span><strong>Match</strong><small>One card at a time — pass, save, or in</small></li>
+          <li><span>04</span><strong>Save</strong><small>Events and groups worth keeping</small></li>
+          <li><span>05</span><strong>Plan</strong><small>Calendar and agenda views of everything</small></li>
+          <li><span>06</span><strong>Show up</strong><small>The only metric that matters</small></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="screens" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">03 · The Screens</span>
+          <h2>Seven surfaces, one warm design language.</h2>
+          <p>Captured from the running prototype with its seeded Kauaʻi dataset — real markets, real venues, real weekly rhythms.</p>
+        </div>
+        <div class="matchbook-screens">
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-discover.jpg" alt="Discover page with interest category cards and event listings" loading="lazy">
+            <figcaption><strong>Discover</strong>Events near you, best matches first — browsable by topic, time window, or both.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-match.jpg" alt="Match view showing a single event card with pass, save, and in controls" loading="lazy">
+            <figcaption><strong>Match</strong>One card at a time for the undecided: rewind, pass, or heart it and it’s on your calendar.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-calendar.jpg" alt="Month calendar densely filled with color-coded Kauai events" loading="lazy">
+            <figcaption><strong>Calendar</strong>The whole island’s month at a glance, color-coded by topic, with day drill-downs.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-agenda.jpg" alt="Agenda view merging saved events and group meetings on one month page" loading="lazy">
+            <figcaption><strong>Agenda</strong>Everything you saved and every group you joined, merged onto one personal month.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-profile.jpg" alt="Profile page with coming-up events, group memberships, and friends" loading="lazy">
+            <figcaption><strong>Profile</strong>Coming up, been to, your groups, and the people you show up with.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="../assets/img/matchbook/screen-customize.jpg" alt="Customize page with profile fields and interest topic pickers" loading="lazy">
+            <figcaption><strong>Customize</strong>The matching contract, in the user’s hands: identity, bio, and the interests that steer the feed.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="brand" class="haven-section haven-section--soft">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">04 · The Brand</span>
+          <h2>Strike up something.</h2>
+          <p>A full identity system drawn around one object: the humble matchbook, where every match is a plan waiting to catch.</p>
+        </div>
+        <div class="matchbook-brand">
+          <div class="matchbook-brand-art reveal">
+            <img src="../assets/img/matchbook/strike.png" alt="Illustration of a match at the moment of striking" loading="lazy">
+          </div>
+          <div class="haven-prose reveal">
+            <p>The name carries the whole metaphor — a book of matches, a perfect match, striking one. The identity leans into it: a drawn serif wordmark in match orange, hand-textured match illustrations for empty states and moments of delight, and a warm paper-and-charcoal palette that feels more like a favorite café’s flyer wall than a tech product.</p>
+            <p>Each of the nine interest topics gets its own hand-drawn motif and tint, so a music night, a farmers market, and a trail cleanup read differently at a glance — on cards, calendars, and category walls alike.</p>
+          </div>
+        </div>
+        <div class="matchbook-motifs" aria-label="Interest topic motifs">
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-music.png" alt="" loading="lazy"><figcaption>Music</figcaption></figure>
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-food.png" alt="" loading="lazy"><figcaption>Food</figcaption></figure>
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-outdoors.png" alt="" loading="lazy"><figcaption>Outdoors</figcaption></figure>
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-community.png" alt="" loading="lazy"><figcaption>Community</figcaption></figure>
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-books.png" alt="" loading="lazy"><figcaption>Books</figcaption></figure>
+          <figure class="reveal"><img src="../assets/img/matchbook/motif-art.png" alt="" loading="lazy"><figcaption>Make</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="haven-section">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">05 · Architecture</span>
+          <h2>A reactive full-stack core with server-held rules.</h2>
+          <p>The interface feels instant because the data layer is reactive; it stays trustworthy because every write goes through the server.</p>
+        </div>
+
+        <div class="haven-architecture reveal" role="img" aria-label="Architecture showing the React interface over Meteor methods and publications, over MongoDB collections, over the seeded Kauai dataset">
+          <div class="haven-arch-layer">
+            <span class="haven-arch-label">Experience</span>
+            <div><span>React 18 SPA</span><span>Seven surfaces</span><span>FullCalendar views</span><span>Swipe matching</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--blue">
+            <span class="haven-arch-label">Server boundary</span>
+            <div><span>Meteor methods</span><span>Check-validated writes</span><span>Scoped publications</span><span>Role-based access</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--navy">
+            <span class="haven-arch-label">Data model</span>
+            <div><span>Groups</span><span>Events</span><span>Profiles</span><span>Memberships</span><span>Event links</span></div>
+          </div>
+          <span class="haven-arch-arrow" aria-hidden="true">↓</span>
+          <div class="haven-arch-layer haven-arch-layer--green">
+            <span class="haven-arch-label">Island dataset</span>
+            <div><span>283 events</span><span>24 groups</span><span>Real venues</span><span>Weekly rhythms</span></div>
+          </div>
+        </div>
+
+        <div class="haven-tech-grid">
+          <article class="reveal"><span class="kicker">Reactivity</span><h3>Live by default</h3><p>Meteor publications stream exactly the data each page needs; joins, saves, and edits appear everywhere they matter without a refresh.</p></article>
+          <article class="reveal"><span class="kicker">Integrity</span><h3>No client writes</h3><p>The insecure package is gone. Every mutation is a server method with check-validated arguments, so the swipe deck and the admin dashboard obey the same rules.</p></article>
+          <article class="reveal"><span class="kicker">Matching</span><h3>Topics as the contract</h3><p>Nine interest topics are defined once and drive the category walls, the match deck ordering, the calendar color coding, and the motif system.</p></article>
+          <article class="reveal"><span class="kicker">Administration</span><h3>Organize is a surface, not a backdoor</h3><p>Directory management — groups, events, profiles — runs through the same validated methods behind an admin role gate.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="haven-section haven-section--ink">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">06 · Reflection</span>
+          <h2>Small places deserve software with this much care.</h2>
+        </div>
+        <div class="haven-reflection">
+          <div class="haven-prose reveal">
+            <p>MatchBook is what happens when product thinking, brand illustration, and full-stack engineering are aimed at a community of seventy thousand people instead of a market of seven billion. The constraint is the feature: with one island’s worth of events, matching can be personal, the calendar can be complete, and showing up can actually be the metric.</p>
+            <p>It is also a study in evolving a codebase — the platform grew out of an earlier campus project, rebuilt surface by surface into a different product with its own identity, audience, and data.</p>
+          </div>
+          <aside class="haven-next reveal">
+            <span class="kicker">Where it began</span>
+            <h3>From campus to island</h3>
+            <p>MatchBook’s foundations started as UHnify, a club-discovery platform for UH Mānoa students — same reactive core, rebuilt into a community product.</p>
+            <a class="haven-button haven-button--primary" href="../work/uhnify.html">Read the UHnify project <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <nav class="detail-foot">
+      <a href="../index.html#work"><span>←</span> All work</a>
+      <a class="nxt" href="../work/covid-nlp.html">COVID-19 Records: NLP Pipeline <span>→</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="f-kick">Contact</div>
+      <h2>Let’s build something worth shipping.</h2>
+      <div class="f-links">
+        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="tel:+18086398697">(808) 639-8697</a>
+        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
+        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
+        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <div class="colophon"><span>Kauaʻi, Hawaiʻi</span><span>Designed and built by Christian Joudon · 2026</span></div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
