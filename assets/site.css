@@ -2331,14 +2331,48 @@
   background: #f6ece3;
 }
 
+.matchbook-case #experience.haven-section--ink,
+.matchbook-case .haven-section--ink:not(#experience) {
+  background: #f6ece3;
+}
+
+.matchbook-case #architecture {
+  background: var(--mb-paper);
+}
+
 .matchbook-case #roadmap .mb-chips {
   box-sizing: border-box;
   padding: clamp(1.25rem, 2.4vw, 1.75rem);
+  border-color: #ead8cb;
+  background: #f6ece3;
+}
+
+.matchbook-case #roadmap .mb-privacy {
+  border-color: #ead8cb;
+  background: #f6ece3;
 }
 
 .matchbook-case #roadmap .mb-privacy li,
 .matchbook-case #roadmap .mb-privacy li > small {
   color: var(--mb-ink);
+}
+
+#work .matchbook-lead,
+#work .matchbook-lead .lp-kick,
+#work .matchbook-lead h3,
+#work .matchbook-lead > p,
+#work .matchbook-lead .lp-points li,
+#work .matchbook-lead .tags .tag {
+  color: #ffffff;
+}
+
+#work .matchbook-lead .lp-points li::before {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+#work .matchbook-lead .tags .tag {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(48, 50, 52, 0.1);
 }
 
 /* MatchBook alone uses the compact flagship footprint. */
