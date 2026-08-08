@@ -1825,3 +1825,510 @@
   content:""; flex:1; height:1px; background:#eadfd2;
 }
 .mb-divider img{ height:34px; width:auto; opacity:.9; }
+/* MatchBook art direction: confident tangerine, paper, and match-striker ink. */
+.matchbook-case {
+  --mb-orange: #f47a38;
+  --mb-orange-bright: #ff8b4b;
+  --mb-orange-deep: #d85b20;
+  --mb-ink: #2b211c;
+  --mb-paper: #fffaf6;
+  --mb-cream: #f6ece3;
+  --mb-line: rgba(43, 33, 28, 0.14);
+  background:
+    radial-gradient(circle at 8% 18%, rgba(244, 122, 56, 0.055), transparent 24rem),
+    var(--mb-paper);
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr);
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2rem, 5vw, 4.75rem);
+  border: 1px solid rgba(43, 33, 28, 0.24);
+  border-radius: 1.75rem;
+  background: var(--mb-orange);
+  box-shadow:
+    0 1.5rem 4.5rem rgba(93, 45, 21, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.matchbook-case .haven-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: clamp(15rem, 33vw, 31rem);
+  aspect-ratio: 1;
+  right: clamp(-12rem, -9vw, -5rem);
+  top: clamp(-11rem, -8vw, -4rem);
+  border: clamp(2.5rem, 5vw, 5.5rem) solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.matchbook-case .haven-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: clamp(13rem, 24vw, 22rem);
+  height: 1.25rem;
+  right: 5%;
+  bottom: 7%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 82%, rgba(43, 33, 28, 0.22) 82% 100%);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.matchbook-case .haven-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.matchbook-case .haven-hero .kicker {
+  color: rgba(43, 33, 28, 0.76);
+  font-weight: 700;
+}
+
+.matchbook-case .matchbook-h1 {
+  margin-block: clamp(1.1rem, 2.4vw, 2rem) clamp(1rem, 2vw, 1.6rem);
+}
+
+.matchbook-case .matchbook-h1 img {
+  width: min(100%, 34rem);
+  filter: brightness(0) invert(1) drop-shadow(0 3px 0 rgba(43, 33, 28, 0.13));
+}
+
+.matchbook-case .haven-deck {
+  max-width: 17ch;
+  color: var(--mb-ink);
+  text-wrap: balance;
+}
+
+.matchbook-case .haven-intro {
+  max-width: 42rem;
+  color: rgba(43, 33, 28, 0.9);
+}
+
+.matchbook-case .haven-actions a {
+  border-color: rgba(43, 33, 28, 0.42);
+  color: var(--mb-ink);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.matchbook-case .haven-actions a:first-child {
+  border-color: var(--mb-ink);
+  background: var(--mb-ink);
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-actions a:hover {
+  border-color: #fffaf6;
+  background: #fffaf6;
+  color: var(--mb-ink);
+  transform: translateY(-2px);
+}
+
+.matchbook-case .haven-brief {
+  align-self: stretch;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1.25rem;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 1.45rem, rgba(255, 255, 255, 0.024) 1.5rem),
+    var(--mb-ink);
+  color: #fffaf6;
+  box-shadow: 0 1.25rem 3rem rgba(57, 29, 16, 0.22);
+}
+
+.matchbook-case .haven-brief p,
+.matchbook-case .haven-brief strong,
+.matchbook-case .haven-brief b {
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-brief .brief-label,
+.matchbook-case .haven-brief dt {
+  color: #ffb58f;
+}
+
+.matchbook-case .haven-brief .brief-row,
+.matchbook-case .haven-brief dd {
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.matchbook-case .haven-media img {
+  border-color: var(--mb-line);
+  border-radius: 1.5rem;
+  box-shadow: 0 1.35rem 3.5rem rgba(58, 35, 24, 0.13);
+}
+
+.matchbook-case .haven-section-nav {
+  border-color: var(--mb-line);
+  background: rgba(255, 250, 246, 0.94);
+  box-shadow: 0 0.8rem 2.4rem rgba(66, 40, 26, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.matchbook-case .haven-section-nav a:hover,
+.matchbook-case .haven-section-nav a:focus-visible {
+  background: var(--mb-ink);
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-kpis,
+.matchbook-case .haven-card {
+  border-color: var(--mb-line);
+  background: #ffffff;
+  box-shadow: 0 0.9rem 2.8rem rgba(66, 40, 26, 0.07);
+}
+
+.matchbook-case .haven-kpi strong,
+.matchbook-case .haven-kpi b {
+  color: var(--mb-orange-deep);
+}
+
+.matchbook-case .haven-section.is-soft {
+  border-color: var(--mb-line);
+  background: var(--mb-cream);
+}
+
+.matchbook-case .haven-section.is-ink {
+  border-color: var(--mb-ink);
+  background: var(--mb-ink);
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-section.is-ink h2,
+.matchbook-case .haven-section.is-ink h3,
+.matchbook-case .haven-section.is-ink p {
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-section.is-ink .kicker {
+  color: #ffb58f;
+}
+
+.matchbook-case h2,
+.matchbook-case h3 {
+  color: var(--mb-ink);
+  text-wrap: balance;
+}
+
+/* Homepage flagship card: the same brand promise as the case-study hero. */
+.matchbook-lead {
+  border-color: rgba(43, 33, 28, 0.24);
+  background: #f47a38;
+  color: #2b211c;
+  box-shadow:
+    0 1.5rem 4rem rgba(93, 45, 21, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.matchbook-lead:hover {
+  border-color: rgba(43, 33, 28, 0.36);
+  background: #ff8445;
+  box-shadow:
+    0 1.9rem 4.8rem rgba(93, 45, 21, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.matchbook-lead .lp-logo {
+  box-sizing: border-box;
+  width: min(100%, 34rem);
+  height: auto;
+  margin-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1) drop-shadow(0 3px 0 rgba(43, 33, 28, 0.13));
+}
+
+.matchbook-lead .lp-kick {
+  color: rgba(43, 33, 28, 0.72);
+  font-weight: 700;
+}
+
+.matchbook-lead h3 {
+  max-width: 18ch;
+  color: #2b211c;
+  text-wrap: balance;
+}
+
+.matchbook-lead p,
+.matchbook-lead .why,
+.matchbook-lead .why li {
+  color: rgba(43, 33, 28, 0.9);
+}
+
+.matchbook-lead .tags span {
+  border-color: rgba(43, 33, 28, 0.22);
+  background: rgba(43, 33, 28, 0.09);
+  color: #2b211c;
+}
+
+@media (max-width: 860px) {
+  .matchbook-case .haven-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    padding: clamp(1.5rem, 7vw, 2.5rem);
+    border-radius: 1.35rem;
+  }
+
+  .matchbook-case .haven-hero::after {
+    right: -4rem;
+    bottom: 2.5rem;
+  }
+
+  .matchbook-case .haven-brief {
+    border-radius: 1rem;
+  }
+
+  .matchbook-case .matchbook-h1 img,
+  .matchbook-lead .lp-logo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .matchbook-case .haven-hero {
+    padding: 1.4rem 1.2rem 1.2rem;
+  }
+
+  .matchbook-case .haven-deck {
+    max-width: 14ch;
+  }
+
+  .matchbook-case .haven-actions {
+    gap: 0.65rem;
+  }
+
+  .matchbook-case .haven-actions a {
+    flex: 1 1 9rem;
+    justify-content: center;
+  }
+
+  .matchbook-lead {
+    padding: 1.65rem 1.35rem;
+  }
+}
+
+/* MatchBook final presentation pass: correct cascade targets and narrative rhythm. */
+.matchbook-case .haven-brief dt {
+  color: #ffb58f;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.matchbook-case .haven-brief dd {
+  color: #fffaf6;
+  opacity: 0.92;
+}
+
+.matchbook-case .haven-brief dl > div {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.matchbook-case .haven-local-nav {
+  position: sticky;
+  top: 4.6rem;
+  z-index: 20;
+  border: 1px solid var(--mb-line);
+  background: rgba(255, 250, 246, 0.94);
+  box-shadow: 0 0.8rem 2.4rem rgba(66, 40, 26, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.matchbook-case .haven-local-nav a {
+  color: rgba(43, 33, 28, 0.72);
+}
+
+.matchbook-case .haven-local-nav a:hover,
+.matchbook-case .haven-local-nav a:focus-visible {
+  background: var(--mb-ink);
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-stats {
+  border-color: var(--mb-line);
+  background: #ffffff;
+  box-shadow: 0 1rem 3rem rgba(66, 40, 26, 0.08);
+}
+
+.matchbook-case .haven-stats > div {
+  border-color: var(--mb-line);
+}
+
+.matchbook-case .haven-stats strong,
+.matchbook-case .haven-stats b {
+  color: var(--mb-orange-deep);
+}
+
+.matchbook-case .haven-section {
+  scroll-margin-top: 8rem;
+}
+
+.matchbook-case .haven-section-head {
+  max-width: 68rem;
+  margin-bottom: clamp(2.25rem, 5vw, 4.25rem);
+}
+
+.matchbook-case .haven-section-head h2 {
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.matchbook-case .haven-section-head p {
+  max-width: 64ch;
+}
+
+.matchbook-case .haven-section--soft {
+  border-color: var(--mb-line);
+  background: var(--mb-cream);
+}
+
+.matchbook-case .haven-section--ink {
+  border-color: var(--mb-ink);
+  background: var(--mb-ink);
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-section--ink .wrap,
+.matchbook-case .haven-section--ink h2,
+.matchbook-case .haven-section--ink h3,
+.matchbook-case .haven-section--ink p,
+.matchbook-case .haven-section--ink li {
+  color: #fffaf6;
+}
+
+.matchbook-case .haven-section--ink .kicker {
+  color: #ffb58f;
+}
+
+.matchbook-case #roadmap {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(244, 122, 56, 0.08), transparent 25rem),
+    var(--mb-paper);
+}
+
+.matchbook-case #roadmap .mb-sub {
+  margin-top: clamp(3rem, 7vw, 6.5rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 2px solid var(--mb-orange);
+}
+
+.matchbook-case #roadmap .mb-register,
+.matchbook-case #roadmap .mb-rec {
+  margin-top: 1.5rem;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  border: 1px solid var(--mb-line);
+  border-radius: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 1.1rem 3.4rem rgba(66, 40, 26, 0.08);
+}
+
+.matchbook-case #roadmap .mb-rule {
+  margin-block: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.35rem, 3vw, 2.25rem);
+  border: 0;
+  border-left: 0.45rem solid var(--mb-orange);
+  border-radius: 0 1.1rem 1.1rem 0;
+  background: var(--mb-ink);
+  color: #fffaf6;
+  box-shadow: 0 1rem 2.8rem rgba(43, 33, 28, 0.16);
+}
+
+.matchbook-case #roadmap .mb-rule .kicker {
+  color: #ffb58f;
+}
+
+.matchbook-case #roadmap .mb-rule p,
+.matchbook-case #roadmap .mb-rule strong {
+  color: #fffaf6;
+}
+
+.matchbook-case #roadmap .mb-chips,
+.matchbook-case #roadmap .mb-privacy {
+  border-color: var(--mb-line);
+  border-radius: 1.15rem;
+  background: var(--mb-cream);
+}
+
+.matchbook-case #roadmap .mb-pipeline li,
+.matchbook-case #roadmap .mb-tiers li {
+  border-color: var(--mb-line);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 0.65rem 1.8rem rgba(66, 40, 26, 0.06);
+}
+
+.matchbook-case #roadmap .mb-divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--mb-orange), rgba(244, 122, 56, 0));
+}
+
+.matchbook-case #roadmap .mb-gate-note {
+  padding: 1.1rem 1.3rem;
+  border-left: 3px solid var(--mb-orange);
+  background: rgba(244, 122, 56, 0.08);
+}
+
+@media (max-width: 860px) {
+  .matchbook-case .haven-local-nav {
+    top: 3.75rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .matchbook-case .haven-local-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .matchbook-case .haven-local-nav .wrap,
+  .matchbook-case .haven-local-nav ul {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .matchbook-case .haven-section {
+    scroll-margin-top: 7rem;
+  }
+
+  .matchbook-case #roadmap .mb-register,
+  .matchbook-case #roadmap .mb-rec {
+    padding: 1.25rem;
+    border-radius: 1.1rem;
+  }
+}
+
+/* Ensure legacy heading rules cannot reduce contrast in dark MatchBook chapters. */
+.matchbook-case .haven-section--ink h2,
+.matchbook-case .haven-section--ink h3,
+.matchbook-case .haven-section--ink p,
+.matchbook-case .haven-section--ink li {
+  color: #fffaf6 !important;
+}
+
+.matchbook-case .haven-section--ink .kicker,
+.matchbook-case .haven-section--ink dt {
+  color: #ffb58f !important;
+}
+
+.matchbook-case .haven-section--ink li > span {
+  color: #ffb58f !important;
+}
+
+.matchbook-case .haven-section--ink li > strong {
+  color: #fffaf6 !important;
+}
+
+.matchbook-case .haven-section--ink li > small {
+  color: rgba(255, 250, 246, 0.74) !important;
+}
