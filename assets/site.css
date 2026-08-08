@@ -2318,17 +2318,26 @@
   outline-offset: 3px;
 }
 
-/* Homepage flagship cards share one exact desktop footprint. */
+/* MatchBook alone uses the compact flagship footprint. */
 @media (min-width: 901px) {
-  #work .wrap > .lead-proj {
+  .matchbook-lead {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     height: 30.5rem;
     min-height: 30.5rem;
     box-sizing: border-box;
   }
 
-  #work .wrap > .lead-proj .tags {
+  .matchbook-lead > .lp-kick,
+  .matchbook-lead > h3,
+  .matchbook-lead > p,
+  .matchbook-lead > .lp-points,
+  .matchbook-lead > .tags {
+    width: 100%;
+  }
+
+  .matchbook-lead .tags {
     margin-top: auto;
   }
 }
@@ -2443,7 +2452,7 @@
 }
 
 @media (max-width: 900px) {
-  #work .wrap > .lead-proj {
+  .matchbook-lead {
     height: auto;
     min-height: 0;
   }
