@@ -1825,47 +1825,59 @@
   content:""; flex:1; height:1px; background:#eadfd2;
 }
 .mb-divider img{ height:34px; width:auto; opacity:.9; }
-/* MatchBook art direction: confident tangerine, paper, and match-striker ink. */
+
+/* ============================================================
+   MATCHBOOK LIGHT SYSTEM
+   App-native tangerine, white space, and soft event-card colors.
+   Charcoal is reserved for type and small controls, never fields.
+   ============================================================ */
 .matchbook-case {
   --mb-orange: #f47a38;
-  --mb-orange-bright: #ff8b4b;
-  --mb-orange-deep: #d85b20;
-  --mb-ink: #2b211c;
-  --mb-paper: #fffaf6;
-  --mb-cream: #f6ece3;
-  --mb-line: rgba(43, 33, 28, 0.14);
-  background:
-    radial-gradient(circle at 8% 18%, rgba(244, 122, 56, 0.055), transparent 24rem),
-    var(--mb-paper);
+  --mb-orange-hover: #e96e2f;
+  --mb-orange-soft: #fff0e8;
+  --mb-ink: #303234;
+  --mb-muted: #696a6b;
+  --mb-paper: #fcfcfb;
+  --mb-white: #ffffff;
+  --mb-line: #e7e2dc;
+  --mb-butter: #fff7d8;
+  --mb-blush: #fbefee;
+  --mb-mint: #eff6ed;
+  --mb-sky: #f1f6f8;
+  background: var(--mb-paper);
   color: var(--mb-ink);
+}
+
+.matchbook-case h2,
+.matchbook-case h3 {
+  color: var(--mb-ink);
+  text-wrap: balance;
 }
 
 .matchbook-case .haven-hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr);
-  align-items: stretch;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  padding: clamp(2rem, 5vw, 4.75rem);
-  border: 1px solid rgba(43, 33, 28, 0.24);
-  border-radius: 1.75rem;
-  background: var(--mb-orange);
-  box-shadow:
-    0 1.5rem 4.5rem rgba(93, 45, 21, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.68fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid var(--mb-line);
+  border-radius: 1.5rem;
+  background: var(--mb-white);
+  box-shadow: 0 1.5rem 4rem rgba(48, 50, 52, 0.07);
 }
 
 .matchbook-case .haven-hero::before {
   content: "";
   position: absolute;
   z-index: 0;
-  width: clamp(15rem, 33vw, 31rem);
+  width: clamp(15rem, 30vw, 28rem);
   aspect-ratio: 1;
-  right: clamp(-12rem, -9vw, -5rem);
-  top: clamp(-11rem, -8vw, -4rem);
-  border: clamp(2.5rem, 5vw, 5.5rem) solid rgba(255, 255, 255, 0.11);
+  right: clamp(-10rem, -7vw, -4rem);
+  top: clamp(-10rem, -7vw, -4rem);
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 122, 56, 0.11), rgba(244, 122, 56, 0) 68%);
   pointer-events: none;
 }
 
@@ -1873,14 +1885,11 @@
   content: "";
   position: absolute;
   z-index: 0;
-  width: clamp(13rem, 24vw, 22rem);
-  height: 1.25rem;
-  right: 5%;
-  bottom: 7%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 82%, rgba(43, 33, 28, 0.22) 82% 100%);
-  transform: rotate(-8deg);
-  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mb-orange) 0 38%, #f4cfd0 38% 62%, #f4df91 62% 82%, #dbe9d8 82%);
 }
 
 .matchbook-case .haven-hero > * {
@@ -1889,17 +1898,19 @@
 }
 
 .matchbook-case .haven-hero .kicker {
-  color: rgba(43, 33, 28, 0.76);
+  color: #b84e1f;
   font-weight: 700;
 }
 
 .matchbook-case .matchbook-h1 {
-  margin-block: clamp(1.1rem, 2.4vw, 2rem) clamp(1rem, 2vw, 1.6rem);
+  margin-block: clamp(1rem, 2.2vw, 1.7rem) clamp(0.9rem, 1.8vw, 1.35rem);
 }
 
 .matchbook-case .matchbook-h1 img {
-  width: min(100%, 34rem);
-  filter: brightness(0) invert(1) drop-shadow(0 3px 0 rgba(43, 33, 28, 0.13));
+  display: block;
+  width: min(100%, 30rem);
+  height: auto;
+  filter: none;
 }
 
 .matchbook-case .haven-deck {
@@ -1910,195 +1921,582 @@
 
 .matchbook-case .haven-intro {
   max-width: 42rem;
-  color: rgba(43, 33, 28, 0.9);
+  color: var(--mb-muted);
 }
 
 .matchbook-case .haven-actions a {
-  border-color: rgba(43, 33, 28, 0.42);
+  border-color: #d9d4ce;
+  background: var(--mb-white);
   color: var(--mb-ink);
-  background: rgba(255, 255, 255, 0.2);
   box-shadow: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .matchbook-case .haven-actions a:first-child {
-  border-color: var(--mb-ink);
-  background: var(--mb-ink);
-  color: #fffaf6;
+  border-color: var(--mb-orange);
+  background: var(--mb-orange);
+  color: #ffffff;
 }
 
-.matchbook-case .haven-actions a:hover {
-  border-color: #fffaf6;
-  background: #fffaf6;
-  color: var(--mb-ink);
+.matchbook-case .haven-actions a:hover,
+.matchbook-case .haven-actions a:focus-visible {
+  border-color: var(--mb-orange);
+  background: var(--mb-orange-soft);
+  color: #a9461b;
   transform: translateY(-2px);
 }
 
+.matchbook-case .haven-actions a:first-child:hover,
+.matchbook-case .haven-actions a:first-child:focus-visible {
+  border-color: var(--mb-orange-hover);
+  background: var(--mb-orange-hover);
+  color: #ffffff;
+}
+
 .matchbook-case .haven-brief {
-  align-self: stretch;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 1.25rem;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 1.45rem, rgba(255, 255, 255, 0.024) 1.5rem),
-    var(--mb-ink);
-  color: #fffaf6;
-  box-shadow: 0 1.25rem 3rem rgba(57, 29, 16, 0.22);
+  align-self: center;
+  width: 100%;
+  border: 1px solid #eadfba;
+  border-top: 4px solid var(--mb-orange);
+  border-radius: 1.1rem;
+  padding: clamp(1.25rem, 2.5vw, 1.8rem);
+  background: var(--mb-butter);
+  color: var(--mb-ink);
+  box-shadow: none;
 }
 
-.matchbook-case .haven-brief p,
-.matchbook-case .haven-brief strong,
-.matchbook-case .haven-brief b {
-  color: #fffaf6;
+.matchbook-case .haven-brief dl > div {
+  border-color: rgba(48, 50, 52, 0.11);
 }
 
-.matchbook-case .haven-brief .brief-label,
 .matchbook-case .haven-brief dt {
-  color: #ffb58f;
+  color: #b84e1f;
+  font-weight: 700;
+  letter-spacing: 0.15em;
 }
 
-.matchbook-case .haven-brief .brief-row,
 .matchbook-case .haven-brief dd {
-  border-color: rgba(255, 255, 255, 0.13);
+  color: var(--mb-ink);
+  opacity: 1;
 }
 
-.matchbook-case .haven-media img {
-  border-color: var(--mb-line);
-  border-radius: 1.5rem;
-  box-shadow: 0 1.35rem 3.5rem rgba(58, 35, 24, 0.13);
+.matchbook-case .matchbook-mission {
+  gap: 0.75rem;
+  overflow: visible;
+  border: 0;
+  background: transparent;
 }
 
-.matchbook-case .haven-section-nav {
+.matchbook-case .matchbook-mission > div {
+  border: 1px solid var(--mb-line);
+  border-radius: 1rem;
+  background: var(--mb-white);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.matchbook-case .matchbook-mission > div:nth-child(2) {
+  background: var(--mb-blush);
+}
+
+.matchbook-case .matchbook-mission > div:nth-child(3) {
+  background: var(--mb-butter);
+}
+
+.matchbook-case .matchbook-mission > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(244, 122, 56, 0.42);
+  box-shadow: 0 0.8rem 2rem rgba(48, 50, 52, 0.06);
+}
+
+.matchbook-case .haven-hero-screen img {
   border-color: var(--mb-line);
-  background: rgba(255, 250, 246, 0.94);
-  box-shadow: 0 0.8rem 2.4rem rgba(66, 40, 26, 0.08);
+  border-radius: 1.35rem;
+  box-shadow: 0 1.25rem 3rem rgba(48, 50, 52, 0.08);
+  transition: transform 420ms cubic-bezier(.2, .7, .2, 1), box-shadow 420ms ease;
+}
+
+.matchbook-case .haven-hero-screen:hover img {
+  transform: translateY(-4px) scale(1.004);
+  box-shadow: 0 1.8rem 4rem rgba(48, 50, 52, 0.11);
+}
+
+.matchbook-case .haven-screen-note {
+  background: var(--mb-orange);
+  color: #ffffff;
+}
+
+.matchbook-case .haven-local-nav {
+  top: 4.6rem;
+  border: 1px solid var(--mb-line);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 0.75rem 2rem rgba(48, 50, 52, 0.06);
   backdrop-filter: blur(14px);
 }
 
-.matchbook-case .haven-section-nav a:hover,
-.matchbook-case .haven-section-nav a:focus-visible {
-  background: var(--mb-ink);
-  color: #fffaf6;
+.matchbook-case .haven-local-nav a {
+  color: var(--mb-muted);
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
 }
 
-.matchbook-case .haven-kpis,
-.matchbook-case .haven-card {
+.matchbook-case .haven-local-nav a:hover,
+.matchbook-case .haven-local-nav a:focus-visible {
+  background: var(--mb-orange-soft);
+  color: #a9461b;
+  transform: translateY(-1px);
+}
+
+.matchbook-case .haven-stats {
   border-color: var(--mb-line);
-  background: #ffffff;
-  box-shadow: 0 0.9rem 2.8rem rgba(66, 40, 26, 0.07);
+  background: var(--mb-white);
+  box-shadow: none;
 }
 
-.matchbook-case .haven-kpi strong,
-.matchbook-case .haven-kpi b {
-  color: var(--mb-orange-deep);
-}
-
-.matchbook-case .haven-section.is-soft {
+.matchbook-case .haven-stats > div {
   border-color: var(--mb-line);
-  background: var(--mb-cream);
 }
 
-.matchbook-case .haven-section.is-ink {
-  border-color: var(--mb-ink);
-  background: var(--mb-ink);
-  color: #fffaf6;
+.matchbook-case .haven-stats strong {
+  color: var(--mb-orange);
 }
 
-.matchbook-case .haven-section.is-ink h2,
-.matchbook-case .haven-section.is-ink h3,
-.matchbook-case .haven-section.is-ink p {
-  color: #fffaf6;
+.matchbook-case .haven-section {
+  scroll-margin-top: 8rem;
+  border-top: 0 !important;
 }
 
-.matchbook-case .haven-section.is-ink .kicker {
-  color: #ffb58f;
+.matchbook-case .haven-section-head {
+  max-width: 68rem;
+  margin-bottom: clamp(2.25rem, 5vw, 4rem);
 }
 
-.matchbook-case h2,
-.matchbook-case h3 {
+.matchbook-case .haven-section-head h2 {
+  max-width: 18ch;
   color: var(--mb-ink);
-  text-wrap: balance;
 }
 
-/* Homepage flagship card: the same brand promise as the case-study hero. */
+.matchbook-case .haven-section-head > p {
+  max-width: 62ch;
+  color: var(--mb-muted);
+}
+
+.matchbook-case .haven-section--soft {
+  background: var(--mb-blush);
+}
+
+.matchbook-case #experience.haven-section--ink {
+  background: var(--mb-butter);
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-section--ink:not(#experience) {
+  background: var(--mb-mint);
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-section--ink .haven-section-head h2,
+.matchbook-case .haven-section--ink .haven-feature-copy h2,
+.matchbook-case .haven-section--ink .haven-prose p,
+.matchbook-case .haven-section--ink h3,
+.matchbook-case .haven-section--ink li {
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-section--ink .haven-section-head .kicker,
+.matchbook-case .haven-section--ink .haven-next .kicker,
+.matchbook-case .haven-section--ink li > span {
+  color: #b84e1f;
+}
+
+.matchbook-case .haven-section--ink .haven-section-head > p,
+.matchbook-case .haven-section--ink li > small {
+  color: var(--mb-muted);
+}
+
+.matchbook-case .haven-lifecycle {
+  gap: 0.75rem;
+  border: 0;
+  background: transparent;
+}
+
+.matchbook-case .haven-lifecycle li {
+  min-height: 12rem;
+  border: 1px solid #eadfba;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.74);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.matchbook-case .haven-lifecycle li:hover {
+  transform: translateY(-5px);
+  border-color: rgba(244, 122, 56, 0.45);
+  background: #ffffff;
+  box-shadow: 0 0.9rem 2.4rem rgba(48, 50, 52, 0.07);
+}
+
+.matchbook-case .haven-lifecycle li > span {
+  color: var(--mb-orange);
+}
+
+.matchbook-case .haven-lifecycle li > strong {
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-lifecycle li > small {
+  color: var(--mb-muted);
+}
+
+.matchbook-case .haven-principles article,
+.matchbook-case .haven-tech-grid article,
+.matchbook-case .matchbook-screen-card,
+.matchbook-case .matchbook-brand-grid figure,
+.matchbook-case .matchbook-motifs figure {
+  border-color: var(--mb-line);
+  background: var(--mb-white);
+  box-shadow: none;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.matchbook-case .haven-principles article:hover,
+.matchbook-case .haven-tech-grid article:hover,
+.matchbook-case .matchbook-screen-card:hover,
+.matchbook-case .matchbook-brand-grid figure:hover,
+.matchbook-case .matchbook-motifs figure:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244, 122, 56, 0.4);
+  box-shadow: 0 1rem 2.8rem rgba(48, 50, 52, 0.07);
+}
+
+.matchbook-case .matchbook-screen-card img {
+  transition: transform 420ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.matchbook-case .matchbook-screen-card:hover img {
+  transform: scale(1.012);
+}
+
+.matchbook-case #architecture {
+  background: var(--mb-sky);
+}
+
+.matchbook-case #roadmap {
+  background: var(--mb-paper);
+}
+
+.matchbook-case #roadmap .mb-sub {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: 0;
+  border: 0;
+}
+
+.matchbook-case #roadmap .mb-sub .kicker {
+  color: #b84e1f;
+}
+
+.matchbook-case #roadmap .mb-register,
+.matchbook-case #roadmap .mb-rec {
+  margin-top: 1.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.matchbook-case #roadmap .mb-rule {
+  margin-block: clamp(1.5rem, 3vw, 2.25rem);
+  padding: clamp(1.25rem, 2.5vw, 1.8rem);
+  border: 1px solid var(--mb-line);
+  border-left: 5px solid var(--mb-orange);
+  border-radius: 0 1rem 1rem 0;
+  background: var(--mb-white);
+  color: var(--mb-ink);
+  box-shadow: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.matchbook-case #roadmap .mb-rule:hover {
+  transform: translateX(4px);
+  box-shadow: 0 0.8rem 2rem rgba(48, 50, 52, 0.06);
+}
+
+.matchbook-case #roadmap .mb-rule .kicker {
+  color: #b84e1f;
+}
+
+.matchbook-case #roadmap .mb-rule p,
+.matchbook-case #roadmap .mb-rule strong {
+  color: var(--mb-ink);
+}
+
+.matchbook-case #roadmap .mb-chips {
+  border-color: #eadfba;
+  border-radius: 1rem;
+  background: var(--mb-butter);
+}
+
+.matchbook-case #roadmap .mb-chips > div > span {
+  border-color: #eadfba;
+  background: var(--mb-white);
+  color: #79513b;
+}
+
+.matchbook-case #roadmap .mb-pipeline li,
+.matchbook-case #roadmap .mb-tiers li {
+  border-color: var(--mb-line);
+  border-radius: 1rem;
+  background: var(--mb-white);
+  box-shadow: none;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.matchbook-case #roadmap .mb-pipeline li:hover,
+.matchbook-case #roadmap .mb-tiers li:hover {
+  transform: translateY(-3px);
+  border-color: rgba(244, 122, 56, 0.42);
+  box-shadow: 0 0.8rem 2rem rgba(48, 50, 52, 0.06);
+}
+
+.matchbook-case #roadmap .mb-pipeline::before {
+  background: var(--mb-orange);
+}
+
+.matchbook-case #roadmap .mb-pipeline li::before {
+  border-color: var(--mb-orange);
+  background: var(--mb-white);
+}
+
+.matchbook-case #roadmap .mb-privacy {
+  border-color: #d9e6d6;
+  border-radius: 1rem;
+  background: var(--mb-mint);
+}
+
+.matchbook-case #roadmap .mb-gate-note {
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--mb-orange);
+  background: var(--mb-blush);
+  color: var(--mb-muted);
+}
+
+.matchbook-case .mb-divider {
+  display: none !important;
+}
+
+.matchbook-case .haven-reflection {
+  align-items: start;
+}
+
+.matchbook-case .haven-section--ink .haven-next {
+  border: 1px solid var(--mb-line);
+  border-top: 4px solid var(--mb-orange);
+  background: var(--mb-white);
+  color: var(--mb-ink);
+  box-shadow: none;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.matchbook-case .haven-section--ink .haven-next:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2.6rem rgba(48, 50, 52, 0.07);
+}
+
+.matchbook-case .haven-section--ink .haven-next h3 {
+  color: var(--mb-ink);
+}
+
+.matchbook-case .haven-section--ink .haven-next p {
+  color: var(--mb-muted);
+}
+
+.matchbook-case .haven-section--ink .haven-next .haven-button--primary {
+  border-color: var(--mb-orange);
+  background: var(--mb-orange);
+  color: #ffffff;
+}
+
+.matchbook-case :focus-visible {
+  outline: 3px solid rgba(244, 122, 56, 0.42);
+  outline-offset: 3px;
+}
+
+/* Homepage flagship cards share one exact desktop footprint. */
+@media (min-width: 901px) {
+  #work .wrap > .lead-proj {
+    display: flex;
+    flex-direction: column;
+    height: 30.5rem;
+    min-height: 30.5rem;
+    box-sizing: border-box;
+  }
+
+  #work .wrap > .lead-proj .tags {
+    margin-top: auto;
+  }
+}
+
 .matchbook-lead {
-  border-color: rgba(43, 33, 28, 0.24);
+  border-color: rgba(48, 50, 52, 0.16);
   background: #f47a38;
-  color: #2b211c;
-  box-shadow:
-    0 1.5rem 4rem rgba(93, 45, 21, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  color: #303234;
+  box-shadow: none;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
 
 .matchbook-lead:hover {
-  border-color: rgba(43, 33, 28, 0.36);
-  background: #ff8445;
-  box-shadow:
-    0 1.9rem 4.8rem rgba(93, 45, 21, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  border-color: rgba(48, 50, 52, 0.24);
+  background: #f47a38;
+  box-shadow: 0 1.2rem 3rem rgba(48, 50, 52, 0.12);
+  transform: translateY(-4px);
 }
 
 .matchbook-lead .lp-logo {
   box-sizing: border-box;
-  width: min(100%, 34rem);
-  height: auto;
-  margin-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  width: auto;
+  max-width: 16.25rem;
+  height: 3rem;
+  margin: 0 0 1.35rem;
   padding: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
   object-fit: contain;
   object-position: left center;
-  filter: brightness(0) invert(1) drop-shadow(0 3px 0 rgba(43, 33, 28, 0.13));
+  filter: brightness(0) invert(1);
+  transition: transform 220ms ease;
+}
+
+.matchbook-lead:hover .lp-logo {
+  transform: translateX(3px);
 }
 
 .matchbook-lead .lp-kick {
-  color: rgba(43, 33, 28, 0.72);
+  color: rgba(48, 50, 52, 0.76);
   font-weight: 700;
 }
 
 .matchbook-lead h3 {
-  max-width: 18ch;
-  color: #2b211c;
-  text-wrap: balance;
+  max-width: none;
+  color: #303234;
+  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .matchbook-lead p,
-.matchbook-lead .why,
-.matchbook-lead .why li {
-  color: rgba(43, 33, 28, 0.9);
+.matchbook-lead .lp-points li {
+  color: rgba(48, 50, 52, 0.9);
 }
 
-.matchbook-lead .tags span {
-  border-color: rgba(43, 33, 28, 0.22);
-  background: rgba(43, 33, 28, 0.09);
-  color: #2b211c;
+.matchbook-lead .lp-points li::before {
+  background: rgba(48, 50, 52, 0.58);
 }
 
-@media (max-width: 860px) {
+.matchbook-lead .tags .tag {
+  border-color: rgba(48, 50, 52, 0.22);
+  background: rgba(255, 255, 255, 0.2);
+  color: #303234;
+}
+
+@keyframes mb-shell-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes mb-rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mb-slide-in {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
   .matchbook-case .haven-hero {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.75rem;
-    padding: clamp(1.5rem, 7vw, 2.5rem);
-    border-radius: 1.35rem;
+    animation: mb-shell-in 700ms cubic-bezier(.2, .7, .2, 1) both;
   }
 
-  .matchbook-case .haven-hero::after {
-    right: -4rem;
-    bottom: 2.5rem;
+  .matchbook-case .haven-hero-copy > * {
+    animation: mb-rise-in 560ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  .matchbook-case .haven-hero-copy > :nth-child(1) { animation-delay: 80ms; }
+  .matchbook-case .haven-hero-copy > :nth-child(2) { animation-delay: 140ms; }
+  .matchbook-case .haven-hero-copy > :nth-child(3) { animation-delay: 200ms; }
+  .matchbook-case .haven-hero-copy > :nth-child(4) { animation-delay: 260ms; }
+  .matchbook-case .haven-hero-copy > :nth-child(5) { animation-delay: 320ms; }
+
+  .matchbook-case .haven-brief {
+    animation: mb-slide-in 650ms 260ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  .matchbook-case .matchbook-mission > div {
+    animation: mb-rise-in 520ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  .matchbook-case .matchbook-mission > :nth-child(1) { animation-delay: 360ms; }
+  .matchbook-case .matchbook-mission > :nth-child(2) { animation-delay: 430ms; }
+  .matchbook-case .matchbook-mission > :nth-child(3) { animation-delay: 500ms; }
+
+  .matchbook-case .reveal.in {
+    transition-timing-function: cubic-bezier(.2, .7, .2, 1);
+  }
+}
+
+@media (max-width: 900px) {
+  #work .wrap > .lead-proj {
+    height: auto;
+    min-height: 0;
+  }
+
+  .matchbook-lead h3 {
+    max-width: 20ch;
+    text-wrap: balance;
+    white-space: normal;
+  }
+
+  .matchbook-case .haven-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: clamp(1.5rem, 6vw, 2.5rem);
+    border-radius: 1.25rem;
   }
 
   .matchbook-case .haven-brief {
-    border-radius: 1rem;
+    max-width: none;
   }
 
-  .matchbook-case .matchbook-h1 img,
-  .matchbook-lead .lp-logo {
-    width: 100%;
+  .matchbook-case .matchbook-mission {
+    grid-template-columns: 1fr;
+  }
+
+  .matchbook-case .haven-local-nav {
+    top: 3.75rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .matchbook-case .haven-local-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .matchbook-case .haven-section {
+    scroll-margin-top: 7rem;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
+  .matchbook-lead .lp-logo {
+    max-width: 14rem;
+    height: 2.6rem;
+  }
+
   .matchbook-case .haven-hero {
-    padding: 1.4rem 1.2rem 1.2rem;
+    padding: 1.35rem 1.15rem 1.15rem;
+  }
+
+  .matchbook-case .matchbook-h1 img {
+    width: 100%;
   }
 
   .matchbook-case .haven-deck {
@@ -2114,221 +2512,19 @@
     justify-content: center;
   }
 
+  .matchbook-case .haven-lifecycle {
+    grid-template-columns: 1fr;
+  }
+
+  .matchbook-case .haven-lifecycle li {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchbook-case *,
   .matchbook-lead {
-    padding: 1.65rem 1.35rem;
+    animation: none !important;
+    transition-duration: 0.01ms !important;
   }
-}
-
-/* MatchBook final presentation pass: correct cascade targets and narrative rhythm. */
-.matchbook-case .haven-brief dt {
-  color: #ffb58f;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.matchbook-case .haven-brief dd {
-  color: #fffaf6;
-  opacity: 0.92;
-}
-
-.matchbook-case .haven-brief dl > div {
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.matchbook-case .haven-local-nav {
-  position: sticky;
-  top: 4.6rem;
-  z-index: 20;
-  border: 1px solid var(--mb-line);
-  background: rgba(255, 250, 246, 0.94);
-  box-shadow: 0 0.8rem 2.4rem rgba(66, 40, 26, 0.08);
-  backdrop-filter: blur(16px);
-}
-
-.matchbook-case .haven-local-nav a {
-  color: rgba(43, 33, 28, 0.72);
-}
-
-.matchbook-case .haven-local-nav a:hover,
-.matchbook-case .haven-local-nav a:focus-visible {
-  background: var(--mb-ink);
-  color: #fffaf6;
-}
-
-.matchbook-case .haven-stats {
-  border-color: var(--mb-line);
-  background: #ffffff;
-  box-shadow: 0 1rem 3rem rgba(66, 40, 26, 0.08);
-}
-
-.matchbook-case .haven-stats > div {
-  border-color: var(--mb-line);
-}
-
-.matchbook-case .haven-stats strong,
-.matchbook-case .haven-stats b {
-  color: var(--mb-orange-deep);
-}
-
-.matchbook-case .haven-section {
-  scroll-margin-top: 8rem;
-}
-
-.matchbook-case .haven-section-head {
-  max-width: 68rem;
-  margin-bottom: clamp(2.25rem, 5vw, 4.25rem);
-}
-
-.matchbook-case .haven-section-head h2 {
-  max-width: 18ch;
-  text-wrap: balance;
-}
-
-.matchbook-case .haven-section-head p {
-  max-width: 64ch;
-}
-
-.matchbook-case .haven-section--soft {
-  border-color: var(--mb-line);
-  background: var(--mb-cream);
-}
-
-.matchbook-case .haven-section--ink {
-  border-color: var(--mb-ink);
-  background: var(--mb-ink);
-  color: #fffaf6;
-}
-
-.matchbook-case .haven-section--ink .wrap,
-.matchbook-case .haven-section--ink h2,
-.matchbook-case .haven-section--ink h3,
-.matchbook-case .haven-section--ink p,
-.matchbook-case .haven-section--ink li {
-  color: #fffaf6;
-}
-
-.matchbook-case .haven-section--ink .kicker {
-  color: #ffb58f;
-}
-
-.matchbook-case #roadmap {
-  background:
-    radial-gradient(circle at 92% 10%, rgba(244, 122, 56, 0.08), transparent 25rem),
-    var(--mb-paper);
-}
-
-.matchbook-case #roadmap .mb-sub {
-  margin-top: clamp(3rem, 7vw, 6.5rem);
-  padding-top: clamp(2rem, 4vw, 3.5rem);
-  border-top: 2px solid var(--mb-orange);
-}
-
-.matchbook-case #roadmap .mb-register,
-.matchbook-case #roadmap .mb-rec {
-  margin-top: 1.5rem;
-  padding: clamp(1.4rem, 3vw, 2.5rem);
-  border: 1px solid var(--mb-line);
-  border-radius: 1.5rem;
-  background: #ffffff;
-  box-shadow: 0 1.1rem 3.4rem rgba(66, 40, 26, 0.08);
-}
-
-.matchbook-case #roadmap .mb-rule {
-  margin-block: clamp(1.5rem, 3vw, 2.5rem);
-  padding: clamp(1.35rem, 3vw, 2.25rem);
-  border: 0;
-  border-left: 0.45rem solid var(--mb-orange);
-  border-radius: 0 1.1rem 1.1rem 0;
-  background: var(--mb-ink);
-  color: #fffaf6;
-  box-shadow: 0 1rem 2.8rem rgba(43, 33, 28, 0.16);
-}
-
-.matchbook-case #roadmap .mb-rule .kicker {
-  color: #ffb58f;
-}
-
-.matchbook-case #roadmap .mb-rule p,
-.matchbook-case #roadmap .mb-rule strong {
-  color: #fffaf6;
-}
-
-.matchbook-case #roadmap .mb-chips,
-.matchbook-case #roadmap .mb-privacy {
-  border-color: var(--mb-line);
-  border-radius: 1.15rem;
-  background: var(--mb-cream);
-}
-
-.matchbook-case #roadmap .mb-pipeline li,
-.matchbook-case #roadmap .mb-tiers li {
-  border-color: var(--mb-line);
-  border-radius: 1rem;
-  background: #ffffff;
-  box-shadow: 0 0.65rem 1.8rem rgba(66, 40, 26, 0.06);
-}
-
-.matchbook-case #roadmap .mb-divider {
-  height: 2px;
-  background: linear-gradient(90deg, var(--mb-orange), rgba(244, 122, 56, 0));
-}
-
-.matchbook-case #roadmap .mb-gate-note {
-  padding: 1.1rem 1.3rem;
-  border-left: 3px solid var(--mb-orange);
-  background: rgba(244, 122, 56, 0.08);
-}
-
-@media (max-width: 860px) {
-  .matchbook-case .haven-local-nav {
-    top: 3.75rem;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: none;
-  }
-
-  .matchbook-case .haven-local-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .matchbook-case .haven-local-nav .wrap,
-  .matchbook-case .haven-local-nav ul {
-    width: max-content;
-    min-width: 100%;
-  }
-
-  .matchbook-case .haven-section {
-    scroll-margin-top: 7rem;
-  }
-
-  .matchbook-case #roadmap .mb-register,
-  .matchbook-case #roadmap .mb-rec {
-    padding: 1.25rem;
-    border-radius: 1.1rem;
-  }
-}
-
-/* Ensure legacy heading rules cannot reduce contrast in dark MatchBook chapters. */
-.matchbook-case .haven-section--ink h2,
-.matchbook-case .haven-section--ink h3,
-.matchbook-case .haven-section--ink p,
-.matchbook-case .haven-section--ink li {
-  color: #fffaf6 !important;
-}
-
-.matchbook-case .haven-section--ink .kicker,
-.matchbook-case .haven-section--ink dt {
-  color: #ffb58f !important;
-}
-
-.matchbook-case .haven-section--ink li > span {
-  color: #ffb58f !important;
-}
-
-.matchbook-case .haven-section--ink li > strong {
-  color: #fffaf6 !important;
-}
-
-.matchbook-case .haven-section--ink li > small {
-  color: rgba(255, 250, 246, 0.74) !important;
 }
