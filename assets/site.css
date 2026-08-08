@@ -2318,6 +2318,29 @@
   outline-offset: 3px;
 }
 
+/* MatchBook case-study detail corrections. */
+.matchbook-case .haven-hero::before {
+  background: none;
+}
+
+.matchbook-case .haven-hero::after {
+  background: var(--mb-orange);
+}
+
+.matchbook-case #brand.haven-section--soft {
+  background: #f6ece3;
+}
+
+.matchbook-case #roadmap .mb-chips {
+  box-sizing: border-box;
+  padding: clamp(1.25rem, 2.4vw, 1.75rem);
+}
+
+.matchbook-case #roadmap .mb-privacy li,
+.matchbook-case #roadmap .mb-privacy li > small {
+  color: var(--mb-ink);
+}
+
 /* MatchBook alone uses the compact flagship footprint. */
 @media (min-width: 901px) {
   .matchbook-lead {
