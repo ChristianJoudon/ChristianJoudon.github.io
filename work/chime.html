@@ -3,13 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chime: Booking Widget · Christian Joudon</title>
-<meta name="description" content="A configurable, drop in scheduling widget that lets any service business take appointment bookings from a single embeddable React component.">
+<title>Chime: Booking Platform · Christian Joudon</title>
+<meta name="description" content="A booking widget customers book through, and the operations studio a service business runs the day from. Two products, one database, kept in agreement by the schema between them.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<style>
+  .shots{ display:grid; gap: clamp(1.6rem,3vw,2.4rem); margin: clamp(2rem,4vw,2.8rem) 0; }
+  .shots.two{ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .shot{ margin:0; }
+  .shot img{ width:100%; display:block; border:1px solid var(--line); border-radius:14px; background:var(--paper-2); }
+  .shot figcaption{ margin-top:.7rem; font-size:.94rem; line-height:1.5; color:var(--muted); }
+  .shot figcaption b{ color:var(--ink); font-weight:600; }
+  /* A phone screenshot is tall and narrow; left to fill a column it towers over
+     everything around it and the page becomes a scroll through two handsets. */
+  .shots.two .shot img{ max-width:284px; margin:0 auto; }
+  .shots.two .shot figcaption{ max-width:34ch; margin-inline:auto; }
+</style>
+
 </head>
 <body>
 <header id="top">
@@ -30,31 +43,79 @@
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
     <div class="detail-head">
-      <span class="kicker">2025 · Frontend</span>
-      <h1>Chime: Booking Widget</h1>
-      <p class="detail-lead">A configurable, drop in scheduling widget that lets any service business take appointment bookings from a single embeddable React component.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Framer Motion</span><span class="tag">Stripe</span><span class="tag">Express</span><span class="tag">PostgreSQL</span></div>
+      <span class="kicker">2026 · Full stack</span>
+      <h1>Chime: Booking Platform</h1>
+      <p class="detail-lead">A booking widget customers book through, and the operations studio a service business runs the day from. Two products on one database, kept in agreement by the schema between them.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/chime.jpg" alt="Chime: Booking Widget"></figure>
+    <figure class="detail-media"><img src="../assets/img/chime.jpg" alt="Chime: Booking Platform"></figure>
     <div class="detail-body">
+
 <h2>Overview</h2>
-<p>Chime is a configurable, drop in scheduling widget that lets any service business take appointment bookings, service selection, live availability, terms acceptance, customer details, and a refundable card deposit, from a single embeddable React component. It is designed to be embedded on a business's own site and pointed at live scheduling data, with a fully working demo mode out of the box.</p>
-<p>A reference Express and PostgreSQL backend, including schema, seed data, and endpoints, is included to demonstrate the full path from availability to confirmed booking.</p>
+<p>Chime began as a drop in booking widget: one embeddable React component that took a service business from availability to a confirmed appointment with a refundable card deposit. That widget is still there, and it is now the smaller half of the product.</p>
+<p>The other half is an administrator studio, eleven screens where a business actually runs the day: the week's schedule, customer records, deposits and refunds, message templates and delivery, working hours, team, the widget's own appearance, and a launch readiness check. Both halves read and write the same PostgreSQL database through two schemas bridged by triggers, so a booking taken on a phone and an appointment moved in the studio are the same row, seen from two sides.</p>
+<p>It ships as a Docker image with its own migrations, seed data, backup and restore tooling, and a fifteen suite check that runs on every push.</p>
+
 <h2>Highlights</h2>
 <ul>
-<li><strong>Guided booking flow:</strong> service, date and time, terms, details, deposit, and confirmation, with animated step transitions and a progress stepper that adapts to whether a deposit step is required.</li>
-<li><strong>Config driven embedding:</strong> branding, services, availability, terms, customer fields, currency, and API endpoints are all supplied through a single injected config object or environment variables, so deploying for a new business requires no code changes.</li>
-<li><strong>Graceful payment degradation:</strong> with Stripe keys configured, the flow collects a refundable deposit through Stripe Elements; without them, it detects the gap and submits the booking without an online deposit instead of dead ending on a broken payment form.</li>
-<li><strong>Live and demo data modes:</strong> the same UI runs against real services, availability, and booking endpoints, or against built in sample data, selected automatically by environment.</li>
-<li><strong>Scroll gated terms acceptance:</strong> the accept control unlocks only after the full terms document is scrolled, capturing an explicit termsAcceptedAt timestamp with each booking.</li>
+<li><strong>The studio a business lives in:</strong> a week calendar where appointments are dragged to a new time or stretched to a longer one, with the confirmation showing exactly what the customer will be told before anything is sent. Bookings taken over the phone are entered by hand and immediately stop being offered on the website.</li>
+<li><strong>Deposits with a full lifecycle:</strong> authorised when the appointment is booked, captured when the customer arrives, refundable in part or in whole, with every state reconciled against Stripe's own webhooks rather than the customer's browser.</li>
+<li><strong>Messages that can be seen before they are sent:</strong> confirmations, reminders and change requests run through editable templates, a delivery queue with retries and suppression reasons, and a sandbox mode that records everything and sends nothing.</li>
+<li><strong>Consequential actions are previewed, not just confirmed:</strong> before a change is committed the studio shows what will change, who will be told, what it does to money, and whether it can be undone.</li>
+<li><strong>A widget that survives other people's websites:</strong> it renders inside a shadow root, so no host stylesheet reaches it, and sizes itself from its container rather than the window — the same component is correct in a 320px column and a 1200px page.</li>
+<li><strong>Two products, one truth:</strong> published availability, services and appointments are projected between the customer schema and the operations schema by database triggers, so neither side can quietly disagree with the other about who is booked when.</li>
 </ul>
+
+<div class="shots">
+  <figure class="shot">
+    <img src="../assets/img/chime-studio-drag-confirm.jpg" alt="A confirmation showing an appointment moving from 10:30 to 11:30, who is notified, and whether it can be undone." loading="lazy">
+    <figcaption><b>Nothing consequential happens without a preview.</b> Dragging an appointment to a new time asks first, and shows the old time struck through, the customer who will be told, what it does to their deposit, and whether it can be taken back.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../assets/img/chime-studio-add-appointment.jpg" alt="A form for adding an appointment taken over the phone." loading="lazy">
+    <figcaption><b>A booking taken over the phone.</b> The service, the team member, the time, and who it is for. A phone number matching an existing customer is linked to them rather than making a second record, and nobody is emailed — you have just spoken to them.</figcaption>
+  </figure>
+</div>
+
+<div class="shots two">
+  <figure class="shot">
+    <img src="../assets/img/chime-phone-day.jpg" alt="The booking widget on a phone, showing one day's available times." loading="lazy">
+    <figcaption><b>One day at a time on a phone,</b> because a month grid stacked above every time in the day was four screens of scrolling to pick one appointment.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../assets/img/chime-phone-month.jpg" alt="The same widget showing a month calendar with availability shading." loading="lazy">
+    <figcaption><b>The month is a tap away,</b> for the customer who is looking for some Saturday rather than a particular one.</figcaption>
+  </figure>
+</div>
+
 <h2>Architecture and engineering</h2>
 <ul>
-<li><strong>Typed domain with a normalization layer:</strong> inbound service and availability data, from config or API, is normalized into strict TypeScript domain types, so the UI always renders from one consistent shape regardless of source.</li>
-<li><strong>Separation of concerns:</strong> presentational step components are decoupled from orchestration, and a single flow controller owns step state, deposit logic, and submission, keeping each screen simple and independently testable.</li>
-<li><strong>Time aware availability:</strong> slot generation and calendar navigation account for the current time, so slots that have already passed on the current day are never offered.</li>
-<li><strong>Custom design system:</strong> a hand built glassmorphism UI with responsive layouts, keyboard focus states, and support for prefers-reduced-motion and prefers-reduced-transparency.</li>
+<li><strong>Two schemas, bridged deliberately:</strong> the widget keeps its original tables; the studio has its own. Triggers project between them, and a set of cross workspace contract tests assert the bridge holds in both directions — that an appointment entered in the studio takes that time off the website, and that removing it gives the time back.</li>
+<li><strong>Concurrency the operator can feel:</strong> writes carry optimistic version checks and idempotency keys, so two people editing the same appointment get a clear refusal rather than a silent overwrite, and a double tapped button produces one booking rather than two.</li>
+<li><strong>A migration ledger with checksums:</strong> twenty two migrations across fifty three tables, each recorded with a hash. Editing an applied migration is refused rather than allowed to make two databases disagree.</li>
+<li><strong>Container queries rather than viewport queries:</strong> the widget is embedded, so the window is the wrong question. Everything responsive keys off the component's own container, which is why it is correct inside a host's sidebar.</li>
+<li><strong>Isolation as structure, not agreement:</strong> the shadow boundary means host CSS cannot reach the widget whatever its specificity — verified against eleven real world host stylesheets, in both directions, so the widget survives the page and the page survives the widget.</li>
 </ul>
+
+<div class="shots">
+  <figure class="shot">
+    <img src="../assets/img/chime-studio-widget.jpg" alt="The widget designer with a live preview of the customer-facing booking page." loading="lazy">
+    <figcaption><b>The widget is configured, not coded.</b> Colours, copy, fields and behaviour are set in the studio against a live preview of the real component — the same one the customer sees.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../assets/img/chime-studio-payments.jpg" alt="The payments screen listing deposits, their state and refunds." loading="lazy">
+    <figcaption><b>Money has its own screen,</b> with each deposit's state, what has been captured, and what has been sent back — reconciled against Stripe rather than assumed from the browser.</figcaption>
+  </figure>
+  <figure class="shot">
+    <img src="../assets/img/chime-studio-messages.jpg" alt="The messages screen showing templates and a delivery queue." loading="lazy">
+    <figcaption><b>Messages can be read before they are sent.</b> Templates are editable, deliveries are queued with retries, and suppressing one asks for a reason that is recorded with your name.</figcaption>
+  </figure>
+</div>
+
+<h2>Correctness</h2>
+<p>Fifteen suites run against a real PostgreSQL on every push: the two APIs, the notification worker, the schema bridge, payment safety, accessibility across eleven studio screens, host style isolation, and a layout check that measures each step of the booking flow in screens of scrolling rather than pixels.</p>
+<p>The measure of the approach is what it caught. The first run against a build machine found that nothing in the repository could construct the database from scratch. The first accessibility pass against a fresh checkout found the suite had been examining an error screen. And the first real card put through Stripe found four faults that every synthetic test had passed — including that deposits are authorised rather than charged, so the event announcing a successful payment was one the code was not listening for.</p>
+
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
