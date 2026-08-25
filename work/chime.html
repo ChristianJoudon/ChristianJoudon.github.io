@@ -3,26 +3,1104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chime: Booking Platform · Christian Joudon</title>
-<meta name="description" content="A booking widget customers book through, and the operations studio a service business runs the day from. Two products, one database, kept in agreement by the schema between them.">
+<title>Chime | Booking, beautifully handled | Christian Joudon</title>
+<meta name="description" content="Chime is the booking and operations platform for service businesses: a beautifully branded customer journey and one calm studio for schedules, customers, deposits, and messages.">
+<meta property="og:title" content="Chime | Booking, beautifully handled">
+<meta property="og:description" content="A complete booking and operations platform for modern service businesses.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://christianjoudon.github.io/work/chime.html">
+<meta property="og:image" content="https://christianjoudon.github.io/assets/img/chime.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d4f40">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
-  .shots{ display:grid; gap: clamp(1.6rem,3vw,2.4rem); margin: clamp(2rem,4vw,2.8rem) 0; }
-  .shots.two{ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .shot{ margin:0; }
-  .shot img{ width:100%; display:block; border:1px solid var(--line); border-radius:14px; background:var(--paper-2); }
-  .shot figcaption{ margin-top:.7rem; font-size:.94rem; line-height:1.5; color:var(--muted); }
-  .shot figcaption b{ color:var(--ink); font-weight:600; }
-  /* A phone screenshot is tall and narrow; left to fill a column it towers over
-     everything around it and the page becomes a scroll through two handsets. */
-  .shots.two .shot img{ max-width:284px; margin:0 auto; }
-  .shots.two .shot figcaption{ max-width:34ch; margin-inline:auto; }
-</style>
+/* Chime's visual system is completely scoped to this page. */
+.chime-case {
+  --chime-pine: #0d4f40;
+  --chime-deep: #082f28;
+  --chime-ink: #102d27;
+  --chime-mint: #42c79a;
+  --chime-mint-bright: #6ce1b7;
+  --chime-seafoam: #dff5ec;
+  --chime-cloud: #f3f8f5;
+  --chime-paper: #fffefa;
+  --chime-cream: #f5f0e5;
+  --chime-coral: #ef8e72;
+  --chime-gold: #f0c95b;
+  --chime-blue: #78a8c7;
+  --chime-line: rgba(13, 79, 64, .16);
+  --chime-shadow: 0 30px 80px rgba(8, 47, 40, .13);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--chime-cloud);
+  color: var(--chime-ink);
+  font-family: "Hanken Grotesk", sans-serif;
+}
+.chime-case *,
+.chime-case *::before,
+.chime-case *::after { box-sizing: border-box; }
+.chime-case section { border: 0; padding: 0; }
+.chime-case img { display: block; width: 100%; }
+.chime-shell {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.chime-case .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.chime-case .kicker::before {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+.chime-case h1,
+.chime-case h2,
+.chime-case h3,
+.chime-case p { color: inherit; }
+.chime-case h2 {
+  margin: .8rem 0 0;
+  max-width: 14ch;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.45rem, 5.8vw, 5.1rem);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .98;
+}
+.chime-case h2 em {
+  color: var(--chime-pine);
+  font-weight: 350;
+}
+.chime-section-intro {
+  max-width: 57ch;
+  margin: 1.25rem 0 0;
+  color: #4c645e;
+  font-size: clamp(1.03rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
+}
+.chime-section-heading { margin-bottom: clamp(2.4rem, 6vw, 5rem); }
+.chime-pad { padding-block: clamp(5rem, 10vw, 9rem); }
 
+/* breadcrumb */
+.chime-crumbbar {
+  position: relative;
+  z-index: 4;
+  background: var(--chime-paper);
+  border-bottom: 1px solid var(--chime-line);
+}
+.chime-crumbbar .chime-shell { padding-block: 1.05rem; }
+.chime-crumbbar .crumb { margin: 0; }
+
+/* hero */
+.chime-hero {
+  position: relative;
+  min-height: 760px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 87% 9%, rgba(108, 225, 183, .34), transparent 31rem),
+    radial-gradient(circle at 8% 88%, rgba(239, 142, 114, .15), transparent 28rem),
+    linear-gradient(145deg, #eef8f3 0%, #f8fbf8 53%, #e5f4ed 100%);
+}
+.chime-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: .22;
+  background-image: radial-gradient(rgba(13, 79, 64, .26) .75px, transparent .75px);
+  background-size: 22px 22px;
+  content: "";
+  mask-image: linear-gradient(90deg, #000, transparent 48%);
+}
+.chime-hero::after {
+  position: absolute;
+  right: -12vw;
+  bottom: -37vw;
+  z-index: -1;
+  width: min(70vw, 850px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(13, 79, 64, .12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 70px rgba(66, 199, 154, .04),
+    0 0 0 140px rgba(66, 199, 154, .035);
+  content: "";
+}
+.chime-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(330px, .82fr) minmax(500px, 1.28fr);
+  gap: clamp(2.5rem, 5vw, 6rem);
+  align-items: center;
+  min-height: 760px;
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+.chime-hero-copy {
+  position: relative;
+  z-index: 2;
+  animation: chime-rise .8s cubic-bezier(.2, .7, .2, 1) both;
+}
+.chime-brandline {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: clamp(1.7rem, 4vw, 3rem);
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.chime-brandmark {
+  display: grid;
+  width: 36px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--chime-pine);
+  color: white;
+  box-shadow: 0 9px 24px rgba(13, 79, 64, .2);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.chime-hero h1 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(4rem, 8.8vw, 7.8rem);
+  font-weight: 400;
+  letter-spacing: -.065em;
+  line-height: .82;
+}
+.chime-hero h1 span,
+.chime-hero h1 em { display: block; }
+.chime-hero h1 em {
+  margin-left: .6ch;
+  color: var(--chime-pine);
+  font-size: .72em;
+  font-weight: 350;
+}
+.chime-hero-lede {
+  max-width: 51ch;
+  margin: 2rem 0 0;
+  color: #38534c;
+  font-size: clamp(1.07rem, 1.7vw, 1.24rem);
+  line-height: 1.7;
+}
+.chime-hero-lede strong { color: var(--chime-ink); font-weight: 600; }
+.chime-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 2rem;
+}
+.chime-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-height: 48px;
+  padding: .75rem 1.2rem;
+  border: 1px solid var(--chime-pine);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: transform .25s ease, color .25s ease, background .25s ease;
+}
+.chime-cta:hover { transform: translateY(-2px); }
+.chime-cta--solid { background: var(--chime-pine); color: white; }
+.chime-cta--solid:hover { background: var(--chime-deep); color: white; }
+.chime-cta .chime-arrow {
+  display: grid;
+  width: 24px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+}
+.chime-hero-visual {
+  position: relative;
+  min-width: 0;
+  animation: chime-visual-in 1s .15s cubic-bezier(.2, .75, .2, 1) both;
+}
+.chime-window {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(13, 79, 64, .14);
+  border-radius: 26px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+  transform: rotate(1.25deg);
+}
+.chime-window::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+}
+.chime-window img { aspect-ratio: 16 / 9; object-fit: cover; }
+.chime-float {
+  position: absolute;
+  z-index: 3;
+  padding: .85rem 1rem;
+  border: 1px solid rgba(13, 79, 64, .13);
+  border-radius: 15px;
+  background: rgba(255, 254, 250, .91);
+  box-shadow: 0 16px 40px rgba(8, 47, 40, .13);
+  backdrop-filter: blur(10px);
+}
+.chime-float small {
+  display: block;
+  color: #6e827d;
+  font-family: "Space Mono", monospace;
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chime-float strong {
+  display: block;
+  margin-top: .25rem;
+  color: var(--chime-pine);
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.chime-float--availability { top: -1.4rem; right: 2.2rem; }
+.chime-float--payments { right: -1rem; bottom: 2rem; }
+.chime-float--brand { left: -1.8rem; bottom: -1.4rem; }
+.chime-float-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: .4rem;
+  border-radius: 50%;
+  background: var(--chime-mint);
+}
+
+/* product facts */
+.chime-factbar {
+  position: relative;
+  z-index: 3;
+  margin-top: -1px;
+  background: var(--chime-pine);
+  color: white;
+}
+.chime-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.chime-fact {
+  min-height: 150px;
+  padding: 1.7rem clamp(1rem, 2.5vw, 2rem);
+  border-left: 1px solid rgba(255, 255, 255, .16);
+}
+.chime-fact:first-child { border-left: 0; }
+.chime-fact strong {
+  display: block;
+  color: var(--chime-mint-bright);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.chime-fact span {
+  display: block;
+  max-width: 20ch;
+  margin-top: .55rem;
+  color: #d6e9e2;
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+/* local navigation */
+.chime-local-nav-wrap {
+  border-bottom: 1px solid var(--chime-line);
+  background: rgba(255, 254, 250, .96);
+}
+.chime-local-nav {
+  display: flex;
+  gap: 1.8rem;
+  overflow-x: auto;
+  padding-block: 1.15rem;
+  scrollbar-width: none;
+}
+.chime-local-nav::-webkit-scrollbar { display: none; }
+.chime-local-nav a {
+  flex: 0 0 auto;
+  color: #60756f;
+  font-family: "Space Mono", monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: color .2s ease;
+}
+.chime-local-nav a:hover { color: var(--chime-pine); }
+
+/* promise */
+.chime-promise {
+  position: relative;
+  background: var(--chime-paper);
+}
+.chime-promise-grid {
+  display: grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: end;
+}
+.chime-manifesto {
+  margin: 0;
+  max-width: 14ch;
+  color: var(--chime-ink);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4.1vw, 3.9rem);
+  font-weight: 350;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+}
+.chime-manifesto em { color: var(--chime-pine); }
+.chime-promise-copy p {
+  margin: 0 0 1.1rem;
+  color: #4c645e;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+.chime-promise-copy p:last-child { margin-bottom: 0; }
+.chime-promise-copy strong { color: var(--chime-ink); font-weight: 600; }
+.chime-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  overflow: hidden;
+  border: 1px solid var(--chime-line);
+  border-radius: 22px;
+  background: var(--chime-line);
+}
+.chime-value {
+  min-height: 250px;
+  padding: clamp(1.5rem, 3vw, 2.35rem);
+  background: var(--chime-cloud);
+  transition: background .25s ease, transform .25s ease;
+}
+.chime-value:hover { background: var(--chime-seafoam); }
+.chime-value-index {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+.chime-value h3 {
+  margin: 3.2rem 0 .8rem;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  font-weight: 450;
+  line-height: 1.08;
+}
+.chime-value p {
+  margin: 0;
+  color: #566d66;
+  font-size: .98rem;
+  line-height: 1.62;
+}
+
+/* customer journey */
+.chime-journey {
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 255, 255, .65), rgba(255, 255, 255, .65)),
+    var(--chime-seafoam);
+}
+.chime-journey-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+}
+.chime-steps {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  counter-reset: booking-step;
+}
+.chime-steps li {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--chime-line);
+  list-style: none;
+  counter-increment: booking-step;
+}
+.chime-steps li::before {
+  color: var(--chime-pine);
+  content: counter(booking-step, decimal-leading-zero);
+  font-family: "Space Mono", monospace;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.chime-step-copy { display: flex; gap: .6rem 1.1rem; justify-content: space-between; }
+.chime-step-copy strong {
+  color: var(--chime-ink);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.chime-step-copy span {
+  max-width: 27ch;
+  color: #60756f;
+  font-size: .9rem;
+  line-height: 1.45;
+  text-align: right;
+}
+.chime-phones {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 250px));
+  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+  min-height: 620px;
+}
+.chime-phone {
+  overflow: hidden;
+  align-self: start;
+  border: 9px solid var(--chime-deep);
+  border-radius: 38px;
+  background: white;
+  box-shadow: 0 24px 60px rgba(8, 47, 40, .2);
+}
+.chime-phone:first-child { margin-top: 0; transform: rotate(-2.5deg); }
+.chime-phone:last-child { margin-top: 76px; transform: rotate(2.5deg); }
+.chime-phone img { width: 100%; }
+.chime-phones::before {
+  position: absolute;
+  top: 11%;
+  left: 7%;
+  width: 76%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(66, 199, 154, .18);
+  filter: blur(2px);
+  content: "";
+}
+
+/* studio */
+.chime-studio { background: var(--chime-paper); }
+.chime-studio .chime-section-heading {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 3rem;
+  align-items: end;
+}
+.chime-studio .chime-section-intro { margin: 0; justify-self: end; }
+.chime-shot-grid {
+  display: grid;
+  grid-template-columns: 1.28fr .72fr;
+  gap: clamp(1rem, 2.3vw, 1.8rem);
+}
+.chime-shot-column { display: grid; gap: clamp(1rem, 2.3vw, 1.8rem); }
+.chime-shot {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--chime-line);
+  border-radius: 22px;
+  background: var(--chime-cloud);
+  box-shadow: 0 16px 40px rgba(8, 47, 40, .08);
+}
+.chime-shot img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+.chime-shot:hover img { transform: scale(1.018); }
+.chime-shot--large { min-height: 650px; }
+.chime-shot--large img { object-position: 28% top; }
+.chime-shot--small { min-height: 310px; }
+.chime-shot-label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem 1rem;
+  border: 1px solid rgba(13, 79, 64, .1);
+  border-radius: 12px;
+  background: rgba(255, 254, 250, .92);
+  box-shadow: 0 12px 30px rgba(8, 47, 40, .1);
+  backdrop-filter: blur(10px);
+}
+.chime-shot-label strong {
+  color: var(--chime-ink);
+  font-size: .91rem;
+}
+.chime-shot-label span {
+  color: #71837e;
+  font-family: "Space Mono", monospace;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.chime-studio-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: clamp(2rem, 4vw, 3.2rem);
+  border-top: 1px solid var(--chime-line);
+  border-bottom: 1px solid var(--chime-line);
+}
+.chime-studio-strip div {
+  padding: 1.35rem;
+  border-left: 1px solid var(--chime-line);
+}
+.chime-studio-strip div:first-child { border-left: 0; }
+.chime-studio-strip strong {
+  display: block;
+  color: var(--chime-pine);
+  font-family: "Fraunces", serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+.chime-studio-strip span {
+  display: block;
+  margin-top: .35rem;
+  color: #667a74;
+  font-size: .82rem;
+  line-height: 1.4;
+}
+
+/* brand */
+.chime-brand-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--chime-deep);
+  color: white;
+}
+.chime-brand-section::before {
+  position: absolute;
+  top: -25rem;
+  right: -17rem;
+  z-index: -1;
+  width: 56rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(66, 199, 154, .24), transparent 66%);
+  content: "";
+}
+.chime-brand-section .kicker { color: var(--chime-mint-bright); }
+.chime-brand-section h2 { color: white; }
+.chime-brand-section h2 em { color: var(--chime-mint-bright); }
+.chime-brand-section .chime-section-intro { color: #bbd5cc; }
+.chime-brand-layout {
+  display: grid;
+  grid-template-columns: .74fr 1.26fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-brand-points {
+  display: grid;
+  gap: 1px;
+  margin-top: 2.2rem;
+  background: rgba(255, 255, 255, .13);
+}
+.chime-brand-point {
+  padding: 1.2rem 0;
+  background: var(--chime-deep);
+}
+.chime-brand-point strong {
+  display: block;
+  color: white;
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+.chime-brand-point span {
+  display: block;
+  margin-top: .4rem;
+  color: #a8c8bd;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.chime-browser {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-radius: 24px;
+  background: #edf7f2;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, .3);
+  transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+}
+.chime-browser-bar {
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+  height: 36px;
+  padding-inline: 1rem;
+  background: #f7faf8;
+  border-bottom: 1px solid rgba(13, 79, 64, .1);
+}
+.chime-browser-bar i {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--chime-coral);
+}
+.chime-browser-bar i:nth-child(2) { background: var(--chime-gold); }
+.chime-browser-bar i:nth-child(3) { background: var(--chime-mint); }
+
+/* trust */
+.chime-trust { background: var(--chime-cream); }
+.chime-trust-grid {
+  display: grid;
+  grid-template-columns: minmax(390px, 1.08fr) minmax(0, .92fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-payment-frame {
+  overflow: hidden;
+  border: 1px solid rgba(13, 79, 64, .14);
+  border-radius: 24px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+}
+.chime-payment-frame img {
+  aspect-ratio: 1.25;
+  object-fit: cover;
+  object-position: top left;
+}
+.chime-trust-copy h2 { max-width: 11ch; }
+.chime-trust-list {
+  display: grid;
+  gap: 0;
+  margin-top: 2.2rem;
+  padding: 0;
+}
+.chime-trust-list li {
+  position: relative;
+  padding: 1.05rem 0 1.05rem 2.6rem;
+  border-top: 1px solid rgba(13, 79, 64, .17);
+  list-style: none;
+}
+.chime-trust-list li::before {
+  position: absolute;
+  top: 1.08rem;
+  left: 0;
+  display: grid;
+  width: 1.65rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--chime-pine);
+  color: white;
+  content: "\2713";
+  font-size: .72rem;
+}
+.chime-trust-list strong {
+  display: block;
+  color: var(--chime-ink);
+  font-size: .98rem;
+}
+.chime-trust-list span {
+  display: block;
+  margin-top: .25rem;
+  color: #61736e;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+/* platform */
+.chime-platform {
+  position: relative;
+  background: #eaf4ef;
+}
+.chime-platform-head {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 3rem;
+  align-items: end;
+}
+.chime-platform-head .chime-section-intro { margin: 0; justify-self: end; }
+.chime-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(.8rem, 2vw, 1.2rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+.chime-platform-card {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 1px solid var(--chime-line);
+  border-radius: 20px;
+  background: rgba(255, 254, 250, .88);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.chime-platform-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(8, 47, 40, .1);
+}
+.chime-platform-card::after {
+  position: absolute;
+  right: -3rem;
+  bottom: -3rem;
+  width: 8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--card-color, var(--chime-seafoam));
+  content: "";
+}
+.chime-platform-card:nth-child(2) { --card-color: #f7ddd4; }
+.chime-platform-card:nth-child(3) { --card-color: #f6e8ad; }
+.chime-platform-card:nth-child(4) { --card-color: #dbe9f2; }
+.chime-platform-number {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+.chime-platform-card h3 {
+  margin: 4rem 0 .8rem;
+  font-family: "Fraunces", serif;
+  font-size: 1.48rem;
+  font-weight: 500;
+  line-height: 1.08;
+}
+.chime-platform-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #5d716b;
+  font-size: .92rem;
+  line-height: 1.58;
+}
+
+/* communications */
+.chime-messages { background: var(--chime-paper); }
+.chime-messages-grid {
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-message-frame {
+  overflow: hidden;
+  border: 1px solid var(--chime-line);
+  border-radius: 24px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+}
+.chime-message-frame img {
+  aspect-ratio: 1.42;
+  object-fit: cover;
+  object-position: top left;
+}
+.chime-message-notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.chime-message-note {
+  padding: 1rem;
+  border-top: 2px solid var(--chime-mint);
+  background: var(--chime-cloud);
+}
+.chime-message-note strong {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.chime-message-note span {
+  display: block;
+  margin-top: .35rem;
+  color: #687b75;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+/* build */
+.chime-build {
+  position: relative;
+  background: var(--chime-deep);
+  color: white;
+}
+.chime-build-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(3rem, 8vw, 8rem);
+}
+.chime-build .kicker { color: var(--chime-mint-bright); }
+.chime-build h2 { color: white; }
+.chime-build h2 em { color: var(--chime-mint-bright); }
+.chime-build .chime-section-intro { color: #b6d0c7; }
+.chime-dossier {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .17);
+}
+.chime-dossier > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .17);
+}
+.chime-dossier dt {
+  color: #7fafa0;
+  font-family: "Space Mono", monospace;
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chime-dossier dd {
+  margin: 0;
+  color: white;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+.chime-capabilities { display: grid; gap: 1px; background: rgba(255, 255, 255, .15); }
+.chime-capability {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding: 1.45rem 0;
+  background: var(--chime-deep);
+}
+.chime-capability > span {
+  color: var(--chime-mint-bright);
+  font-family: "Space Mono", monospace;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.chime-capability h3 {
+  margin: 0 0 .45rem;
+  color: white;
+  font-family: "Fraunces", serif;
+  font-size: 1.35rem;
+  font-weight: 450;
+}
+.chime-capability p {
+  margin: 0;
+  color: #a9c8bd;
+  font-size: .92rem;
+  line-height: 1.58;
+}
+.chime-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: 2.2rem;
+}
+.chime-stack span {
+  padding: .36rem .7rem;
+  border: 1px solid rgba(255, 255, 255, .19);
+  border-radius: 999px;
+  color: #d7e8e2;
+  font-family: "Space Mono", monospace;
+  font-size: .61rem;
+  letter-spacing: .03em;
+}
+
+/* finale */
+.chime-finale {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(108, 225, 183, .42), transparent 22rem),
+    radial-gradient(circle at 88% 110%, rgba(239, 142, 114, .25), transparent 25rem),
+    #dff5ec;
+}
+.chime-finale::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: min(85vw, 900px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(13, 79, 64, .12);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+.chime-finale-inner {
+  padding-block: clamp(6rem, 13vw, 11rem);
+  text-align: center;
+}
+.chime-finale-word {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.chime-finale h2 {
+  max-width: 13ch;
+  margin: 1rem auto 0;
+}
+.chime-finale p {
+  max-width: 53ch;
+  margin: 1.5rem auto 0;
+  color: #4c665e;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.chime-finale .chime-actions { justify-content: center; }
+
+.chime-case .detail-foot {
+  margin: 0;
+  padding-block: 2rem;
+  border-top: 0;
+  background: var(--chime-paper);
+}
+
+/* motion */
+@keyframes chime-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes chime-visual-in {
+  from { opacity: 0; transform: translate(35px, 16px) scale(.98); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+/* responsive */
+@media (max-width: 1040px) {
+  .chime-hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .chime-hero-copy { max-width: 720px; }
+  .chime-hero-visual { width: min(900px, 96%); margin-inline: auto; }
+  .chime-promise-grid,
+  .chime-journey-grid,
+  .chime-brand-layout,
+  .chime-trust-grid,
+  .chime-messages-grid,
+  .chime-build-grid { grid-template-columns: 1fr; }
+  .chime-journey-grid { gap: 4rem; }
+  .chime-brand-layout { gap: 4rem; }
+  .chime-brand-copy { max-width: 700px; }
+  .chime-trust-copy { order: -1; }
+  .chime-studio .chime-section-heading,
+  .chime-platform-head { grid-template-columns: 1fr; }
+  .chime-studio .chime-section-intro,
+  .chime-platform-head .chime-section-intro { margin-top: 1.2rem; justify-self: start; }
+  .chime-platform-grid { grid-template-columns: repeat(2, 1fr); }
+  .chime-build-copy { max-width: 700px; }
+}
+@media (max-width: 780px) {
+  .chime-shell { width: min(100% - 30px, 1180px); }
+  .chime-hero { min-height: auto; }
+  .chime-hero-grid { padding-block: 4.2rem 5.5rem; }
+  .chime-hero h1 { font-size: clamp(3.8rem, 18vw, 6rem); }
+  .chime-hero h1 em { margin: .2rem 0 0; }
+  .chime-float--availability { top: -1rem; right: .7rem; }
+  .chime-float--payments { right: -.3rem; bottom: 1rem; }
+  .chime-float--brand { display: none; }
+  .chime-facts { grid-template-columns: repeat(2, 1fr); }
+  .chime-fact:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .16); }
+  .chime-fact:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, .16); }
+  .chime-value-grid { grid-template-columns: 1fr; }
+  .chime-value { min-height: auto; }
+  .chime-value h3 { margin-top: 2rem; }
+  .chime-phones { min-height: 510px; }
+  .chime-shot-grid { grid-template-columns: 1fr; }
+  .chime-shot--large { min-height: 430px; }
+  .chime-shot--small { min-height: 300px; }
+  .chime-studio-strip { grid-template-columns: repeat(2, 1fr); }
+  .chime-studio-strip div:nth-child(3) { border-left: 0; border-top: 1px solid var(--chime-line); }
+  .chime-studio-strip div:nth-child(4) { border-top: 1px solid var(--chime-line); }
+  .chime-platform-grid { grid-template-columns: 1fr; }
+  .chime-platform-card { min-height: 240px; }
+  .chime-platform-card h3 { margin-top: 2.8rem; }
+}
+@media (max-width: 560px) {
+  .chime-shell { width: min(100% - 24px, 1180px); }
+  .chime-pad { padding-block: 4.6rem; }
+  .chime-case h2 { font-size: clamp(2.35rem, 13vw, 3.7rem); }
+  .chime-brandline { margin-bottom: 1.9rem; }
+  .chime-hero h1 { font-size: clamp(3.5rem, 19vw, 5rem); }
+  .chime-hero-lede { font-size: 1rem; }
+  .chime-actions { align-items: stretch; flex-direction: column; }
+  .chime-cta { width: 100%; }
+  .chime-window { border-radius: 16px; }
+  .chime-float { padding: .65rem .75rem; }
+  .chime-float strong { font-size: .9rem; }
+  .chime-float--payments { display: none; }
+  .chime-fact { min-height: 128px; padding: 1.25rem .9rem; }
+  .chime-fact strong { font-size: 1.85rem; }
+  .chime-fact span { font-size: .78rem; }
+  .chime-promise-grid { gap: 2.4rem; }
+  .chime-step-copy { display: block; }
+  .chime-step-copy span { margin-top: .35rem; text-align: left; display: block; }
+  .chime-phones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .65rem;
+    min-height: 390px;
+  }
+  .chime-phone { border-width: 5px; border-radius: 24px; }
+  .chime-phone:last-child { margin-top: 42px; }
+  .chime-shot--large,
+  .chime-shot--small { min-height: 270px; }
+  .chime-shot-label { padding: .65rem .75rem; }
+  .chime-shot-label span { display: none; }
+  .chime-studio-strip { grid-template-columns: 1fr; }
+  .chime-studio-strip div,
+  .chime-studio-strip div:nth-child(3) {
+    border-top: 1px solid var(--chime-line);
+    border-left: 0;
+  }
+  .chime-studio-strip div:first-child { border-top: 0; }
+  .chime-browser { border-radius: 15px; transform: none; }
+  .chime-trust-grid { grid-template-columns: 1fr; }
+  .chime-payment-frame img { aspect-ratio: .92; }
+  .chime-message-notes { grid-template-columns: 1fr; }
+  .chime-message-frame img { aspect-ratio: 1; }
+  .chime-dossier > div { grid-template-columns: 1fr; gap: .35rem; }
+  .chime-capability { grid-template-columns: 2.2rem 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chime-hero-copy,
+  .chime-hero-visual { animation: none; }
+  .chime-shot img,
+  .chime-value,
+  .chime-platform-card,
+  .chime-cta { transition: none; }
+}
+</style>
 </head>
 <body>
 <header id="top">
@@ -39,105 +1117,350 @@
     </nav>
   </div>
 </header>
-<main class="subpage">
-  <div class="wrap">
-    <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2026 · Full stack</span>
-      <h1>Chime: Booking Platform</h1>
-      <p class="detail-lead">A booking widget customers book through, and the operations studio a service business runs the day from. Two products on one database, kept in agreement by the schema between them.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+
+<main class="subpage chime-case">
+  <div class="chime-crumbbar">
+    <div class="chime-shell">
+      <a class="crumb" href="../index.html#work"><span class="ar">&larr;</span> Selected Work</a>
     </div>
-    <figure class="detail-media"><img src="../assets/img/chime.jpg" alt="Chime: Booking Platform"></figure>
-    <div class="detail-body">
+  </div>
 
-<h2>Overview</h2>
-<p>Chime began as a drop in booking widget: one embeddable React component that took a service business from availability to a confirmed appointment with a refundable card deposit. That widget is still there, and it is now the smaller half of the product.</p>
-<p>The other half is an administrator studio, eleven screens where a business actually runs the day: the week's schedule, customer records, deposits and refunds, message templates and delivery, working hours, team, the widget's own appearance, and a launch readiness check. Both halves read and write the same PostgreSQL database through two schemas bridged by triggers, so a booking taken on a phone and an appointment moved in the studio are the same row, seen from two sides.</p>
-<p>It ships as a Docker image with its own migrations, seed data, backup and restore tooling, and a fifteen suite check that runs on every push.</p>
+  <section class="chime-hero" aria-labelledby="chime-title">
+    <div class="chime-shell chime-hero-grid">
+      <div class="chime-hero-copy">
+        <div class="chime-brandline"><span class="chime-brandmark">c</span> Chime</div>
+        <h1 id="chime-title"><span>Booking,</span><em>beautifully handled.</em></h1>
+        <p class="chime-hero-lede"><strong>Chime is the booking and operations platform for service businesses.</strong> Customers choose, reserve, and pay in one polished flow. Teams manage every appointment, customer, deposit, and message from one calm studio.</p>
+        <div class="chime-actions">
+          <a class="chime-cta chime-cta--solid" href="#experience">Explore Chime <span class="chime-arrow" aria-hidden="true">&darr;</span></a>
+          <a class="chime-cta" href="#making">View the case study</a>
+        </div>
+      </div>
 
-<h2>Highlights</h2>
-<ul>
-<li><strong>The studio a business lives in:</strong> a week calendar where appointments are dragged to a new time or stretched to a longer one, with the confirmation showing exactly what the customer will be told before anything is sent. Bookings taken over the phone are entered by hand and immediately stop being offered on the website.</li>
-<li><strong>Deposits with a full lifecycle:</strong> authorised when the appointment is booked, captured when the customer arrives, refundable in part or in whole, with every state reconciled against Stripe's own webhooks rather than the customer's browser.</li>
-<li><strong>Messages that can be seen before they are sent:</strong> confirmations, reminders and change requests run through editable templates, a delivery queue with retries and suppression reasons, and a sandbox mode that records everything and sends nothing.</li>
-<li><strong>Consequential actions are previewed, not just confirmed:</strong> before a change is committed the studio shows what will change, who will be told, what it does to money, and whether it can be undone.</li>
-<li><strong>A widget that survives other people's websites:</strong> it renders inside a shadow root, so no host stylesheet reaches it, and sizes itself from its container rather than the window — the same component is correct in a 320px column and a 1200px page.</li>
-<li><strong>Two products, one truth:</strong> published availability, services and appointments are projected between the customer schema and the operations schema by database triggers, so neither side can quietly disagree with the other about who is booked when.</li>
-</ul>
-
-<div class="shots">
-  <figure class="shot">
-    <img src="../assets/img/chime-studio-drag-confirm.jpg" alt="A confirmation showing an appointment moving from 10:30 to 11:30, who is notified, and whether it can be undone." loading="lazy">
-    <figcaption><b>Nothing consequential happens without a preview.</b> Dragging an appointment to a new time asks first, and shows the old time struck through, the customer who will be told, what it does to their deposit, and whether it can be taken back.</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../assets/img/chime-studio-add-appointment.jpg" alt="A form for adding an appointment taken over the phone." loading="lazy">
-    <figcaption><b>A booking taken over the phone.</b> The service, the team member, the time, and who it is for. A phone number matching an existing customer is linked to them rather than making a second record, and nobody is emailed — you have just spoken to them.</figcaption>
-  </figure>
-</div>
-
-<div class="shots two">
-  <figure class="shot">
-    <img src="../assets/img/chime-phone-day.jpg" alt="The booking widget on a phone, showing one day's available times." loading="lazy">
-    <figcaption><b>One day at a time on a phone,</b> because a month grid stacked above every time in the day was four screens of scrolling to pick one appointment.</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../assets/img/chime-phone-month.jpg" alt="The same widget showing a month calendar with availability shading." loading="lazy">
-    <figcaption><b>The month is a tap away,</b> for the customer who is looking for some Saturday rather than a particular one.</figcaption>
-  </figure>
-</div>
-
-<h2>Architecture and engineering</h2>
-<ul>
-<li><strong>Two schemas, bridged deliberately:</strong> the widget keeps its original tables; the studio has its own. Triggers project between them, and a set of cross workspace contract tests assert the bridge holds in both directions — that an appointment entered in the studio takes that time off the website, and that removing it gives the time back.</li>
-<li><strong>Concurrency the operator can feel:</strong> writes carry optimistic version checks and idempotency keys, so two people editing the same appointment get a clear refusal rather than a silent overwrite, and a double tapped button produces one booking rather than two.</li>
-<li><strong>A migration ledger with checksums:</strong> twenty two migrations across fifty three tables, each recorded with a hash. Editing an applied migration is refused rather than allowed to make two databases disagree.</li>
-<li><strong>Container queries rather than viewport queries:</strong> the widget is embedded, so the window is the wrong question. Everything responsive keys off the component's own container, which is why it is correct inside a host's sidebar.</li>
-<li><strong>Isolation as structure, not agreement:</strong> the shadow boundary means host CSS cannot reach the widget whatever its specificity — verified against eleven real world host stylesheets, in both directions, so the widget survives the page and the page survives the widget.</li>
-</ul>
-
-<div class="shots">
-  <figure class="shot">
-    <img src="../assets/img/chime-studio-widget.jpg" alt="The widget designer with a live preview of the customer-facing booking page." loading="lazy">
-    <figcaption><b>The widget is configured, not coded.</b> Colours, copy, fields and behaviour are set in the studio against a live preview of the real component — the same one the customer sees.</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../assets/img/chime-studio-payments.jpg" alt="The payments screen listing deposits, their state and refunds." loading="lazy">
-    <figcaption><b>Money has its own screen,</b> with each deposit's state, what has been captured, and what has been sent back — reconciled against Stripe rather than assumed from the browser.</figcaption>
-  </figure>
-  <figure class="shot">
-    <img src="../assets/img/chime-studio-messages.jpg" alt="The messages screen showing templates and a delivery queue." loading="lazy">
-    <figcaption><b>Messages can be read before they are sent.</b> Templates are editable, deliveries are queued with retries, and suppressing one asks for a reason that is recorded with your name.</figcaption>
-  </figure>
-</div>
-
-<h2>Correctness</h2>
-<p>Fifteen suites run against a real PostgreSQL on every push: the two APIs, the notification worker, the schema bridge, payment safety, accessibility across eleven studio screens, host style isolation, and a layout check that measures each step of the booking flow in screens of scrolling rather than pixels.</p>
-<p>The measure of the approach is what it caught. The first run against a build machine found that nothing in the repository could construct the database from scratch. The first accessibility pass against a fresh checkout found the suite had been examining an error screen. And the first real card put through Stripe found four faults that every synthetic test had passed — including that deposits are authorised rather than charged, so the event announcing a successful payment was one the code was not listening for.</p>
-
+      <div class="chime-hero-visual" aria-label="Chime product overview">
+        <div class="chime-window">
+          <img src="../assets/img/chime.jpg" alt="Chime appointment studio alongside its mobile customer booking experience" fetchpriority="high">
+        </div>
+        <div class="chime-float chime-float--availability">
+          <small><span class="chime-float-dot"></span>Live availability</small>
+          <strong>Ready when they are</strong>
+        </div>
+        <div class="chime-float chime-float--payments">
+          <small>Deposits</small>
+          <strong>Protected &amp; accounted for</strong>
+        </div>
+        <div class="chime-float chime-float--brand">
+          <small>Every touchpoint</small>
+          <strong>Feels like your business</strong>
+        </div>
+      </div>
     </div>
-    <nav class="detail-foot">
-      <a href="../index.html#work"><span>←</span> All work</a>
-      <a class="nxt" href="../work/hitech-labs.html">HiTech Labs Website <span>→</span></a>
+  </section>
+
+  <div class="chime-factbar" aria-label="Chime product highlights">
+    <div class="chime-shell chime-facts">
+      <div class="chime-fact"><strong>6</strong><span>clear steps from service to confirmation</span></div>
+      <div class="chime-fact"><strong>3</strong><span>flexible ways to embed the booking experience</span></div>
+      <div class="chime-fact"><strong>1</strong><span>connected studio for the entire working day</span></div>
+      <div class="chime-fact"><strong>Yours</strong><span>brand, customer relationship, and payments</span></div>
+    </div>
+  </div>
+
+  <div class="chime-local-nav-wrap">
+    <nav class="chime-shell chime-local-nav" aria-label="Chime case study sections">
+      <a href="#promise">The promise</a>
+      <a href="#experience">Booking experience</a>
+      <a href="#studio">Business studio</a>
+      <a href="#brand">Brand control</a>
+      <a href="#trust">Payments</a>
+      <a href="#platform">Platform</a>
+      <a href="#making">The making</a>
     </nav>
   </div>
+
+  <section id="promise" class="chime-promise">
+    <div class="chime-shell chime-pad">
+      <div class="chime-promise-grid">
+        <blockquote class="chime-manifesto reveal">A service business does not sell a box. It sells <em>the right person, at the right time, with confidence.</em></blockquote>
+        <div class="chime-promise-copy reveal">
+          <span class="kicker">The product promise</span>
+          <p>For customers, booking should feel effortless. For the business, effortless requires orchestration: real availability, the right team member, clear terms, protected time, dependable communication, and money that lands where it belongs.</p>
+          <p><strong>Chime makes that complexity disappear.</strong> The customer sees a concise, branded path to a confirmed appointment. The business sees one reliable operating picture behind it.</p>
+        </div>
+      </div>
+
+      <div class="chime-value-grid">
+        <article class="chime-value reveal">
+          <span class="chime-value-index">01 / CONVERT</span>
+          <h3>Make it easy to say yes.</h3>
+          <p>Publish real openings in a guided experience that works beautifully on the device already in the customer&rsquo;s hand.</p>
+        </article>
+        <article class="chime-value reveal">
+          <span class="chime-value-index">02 / PROTECT</span>
+          <h3>Treat time like inventory.</h3>
+          <p>Match services to qualified team members, prevent conflicting reservations, and secure commitment with configurable deposits.</p>
+        </article>
+        <article class="chime-value reveal">
+          <span class="chime-value-index">03 / OPERATE</span>
+          <h3>Run the day from one view.</h3>
+          <p>Bring schedules, requests, customer context, payments, and communications together without stitching through separate tools.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="chime-journey">
+    <div class="chime-shell chime-pad chime-journey-grid">
+      <div>
+        <div class="chime-section-heading reveal">
+          <span class="kicker">The customer experience</span>
+          <h2>From interest to <em>confirmed</em> in one clean line.</h2>
+          <p class="chime-section-intro">No account maze. No phone tag. No guessing whether the request went through. Chime gives every decision its own moment, then carries the customer forward with unmistakable progress.</p>
+        </div>
+
+        <ol class="chime-steps reveal" aria-label="Chime booking steps">
+          <li><div class="chime-step-copy"><strong>Service</strong><span>Choose what is needed, with timing and pricing up front.</span></div></li>
+          <li><div class="chime-step-copy"><strong>Date &amp; time</strong><span>See only openings the business can genuinely honor.</span></div></li>
+          <li><div class="chime-step-copy"><strong>Terms</strong><span>Understand policies before making a commitment.</span></div></li>
+          <li><div class="chime-step-copy"><strong>Details</strong><span>Share the essentials without unnecessary friction.</span></div></li>
+          <li><div class="chime-step-copy"><strong>Deposit</strong><span>Reserve the appointment through a secure payment step.</span></div></li>
+          <li><div class="chime-step-copy"><strong>Confirmation</strong><span>Leave with certainty, reminders, and calendar-ready details.</span></div></li>
+        </ol>
+      </div>
+
+      <div class="chime-phones reveal" aria-label="Chime mobile date and time selection">
+        <figure class="chime-phone">
+          <img src="../assets/img/chime-phone-day.jpg" alt="Chime mobile day view showing available appointment times" loading="lazy">
+        </figure>
+        <figure class="chime-phone">
+          <img src="../assets/img/chime-phone-month.jpg" alt="Chime mobile month view showing open and filling-fast dates" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio" class="chime-studio">
+    <div class="chime-shell chime-pad">
+      <div class="chime-section-heading reveal">
+        <div>
+          <span class="kicker">The business studio</span>
+          <h2>Every working detail. <em>One calm place.</em></h2>
+        </div>
+        <p class="chime-section-intro">Chime turns the day into a shared operating picture. The team can see what is booked, what needs attention, what changed, who was notified, and what happened to every deposit.</p>
+      </div>
+
+      <div class="chime-shot-grid">
+        <figure class="chime-shot chime-shot--large reveal">
+          <img src="../assets/img/chime-studio-add-appointment.jpg" alt="Chime studio interface for adding an appointment while viewing the schedule" loading="lazy">
+          <figcaption class="chime-shot-label"><strong>Schedule without losing the day</strong><span>Appointments</span></figcaption>
+        </figure>
+
+        <div class="chime-shot-column">
+          <figure class="chime-shot chime-shot--small reveal">
+            <img src="../assets/img/chime-studio-drag-confirm.jpg" alt="Chime review panel confirming a schedule change before notifying the customer" loading="lazy">
+            <figcaption class="chime-shot-label"><strong>Preview every meaningful change</strong><span>Rescheduling</span></figcaption>
+          </figure>
+          <figure class="chime-shot chime-shot--small reveal">
+            <img src="../assets/img/chime-studio-messages.jpg" alt="Chime message center showing customer communication status" loading="lazy">
+            <figcaption class="chime-shot-label"><strong>Know exactly what customers received</strong><span>Messages</span></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="chime-studio-strip reveal" aria-label="Chime studio capabilities">
+        <div><strong>Live schedule</strong><span>Every team member, request, and appointment</span></div>
+        <div><strong>Customer context</strong><span>History and notes at the moment they matter</span></div>
+        <div><strong>Action center</strong><span>Approvals and exceptions surfaced clearly</span></div>
+        <div><strong>Financial picture</strong><span>Authorized, collected, returned, and reconciled</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brand" class="chime-brand-section">
+    <div class="chime-shell chime-pad chime-brand-layout">
+      <div class="chime-brand-copy reveal">
+        <span class="kicker">Made to belong</span>
+        <h2>Your brand never <em>leaves the room.</em></h2>
+        <p class="chime-section-intro">A booking tool should not make a distinctive business feel generic. Chime gives each brand control over the identity, language, presentation, and launch format customers experience.</p>
+
+        <div class="chime-brand-points">
+          <div class="chime-brand-point">
+            <strong>Designed in real time</strong>
+            <span>Logo, color, words, service order, and confirmation language update beside a live preview.</span>
+          </div>
+          <div class="chime-brand-point">
+            <strong>Published where customers already are</strong>
+            <span>Launch as an inline experience, a modal, a floating action, or a dedicated hosted booking page.</span>
+          </div>
+          <div class="chime-brand-point">
+            <strong>Protected at the boundary</strong>
+            <span>Approved-domain controls keep the branded booking experience on the sites the business trusts.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chime-browser reveal">
+        <div class="chime-browser-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img src="../assets/img/chime-studio-widget.jpg" alt="Chime widget designer with brand controls and a live customer preview" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="chime-trust">
+    <div class="chime-shell chime-pad chime-trust-grid">
+      <figure class="chime-payment-frame reveal">
+        <img src="../assets/img/chime-studio-payments.jpg" alt="Chime payments ledger showing authorized and collected deposits" loading="lazy">
+      </figure>
+
+      <div class="chime-trust-copy reveal">
+        <span class="kicker">Payments &amp; trust</span>
+        <h2>Protect the appointment. <em>Keep the money clear.</em></h2>
+        <p class="chime-section-intro">Deposits should create commitment, not accounting confusion. Chime makes each state visible and routes funds through the business&rsquo;s own connected Stripe account.</p>
+        <ul class="chime-trust-list">
+          <li><strong>Business-owned from the start</strong><span>Connected payments go directly to the business rather than being pooled inside Chime.</span></li>
+          <li><strong>Authorize, collect, release, or refund</strong><span>Every action follows the appointment and remains visible in one ledger.</span></li>
+          <li><strong>Confirmed by the payment system</strong><span>Webhook reconciliation keeps Chime aligned with what Stripe actually completed.</span></li>
+          <li><strong>Safe against accidental repeats</strong><span>Idempotent operations protect customers and businesses from duplicate charges.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="platform" class="chime-platform">
+    <div class="chime-shell chime-pad">
+      <div class="chime-platform-head reveal">
+        <div>
+          <span class="kicker">One Chime, many businesses</span>
+          <h2>A shared platform with <em>private boundaries.</em></h2>
+        </div>
+        <p class="chime-section-intro">Every business receives its own identity, rules, team, customers, payment connection, and trusted domains. Chime shares the power of one product without blurring who anything belongs to.</p>
+      </div>
+
+      <div class="chime-platform-grid">
+        <article class="chime-platform-card reveal">
+          <span class="chime-platform-number">01 / IDENTITY</span>
+          <h3>Unmistakably theirs</h3>
+          <p>Each business has its own name, visual system, booking address, language, currency, time zone, and embed permissions.</p>
+        </article>
+        <article class="chime-platform-card reveal">
+          <span class="chime-platform-number">02 / OPERATIONS</span>
+          <h3>Rules that fit the work</h3>
+          <p>Services, durations, team qualifications, availability, notice windows, policies, and deposits are configured per business.</p>
+        </article>
+        <article class="chime-platform-card reveal">
+          <span class="chime-platform-number">03 / OWNERSHIP</span>
+          <h3>Data stays in its lane</h3>
+          <p>Business identity travels with every request, and database relationships enforce separation rather than relying on convention.</p>
+        </article>
+        <article class="chime-platform-card reveal">
+          <span class="chime-platform-number">04 / SCALE</span>
+          <h3>One product, consistent quality</h3>
+          <p>A central platform delivers upgrades, reliability, and operational tooling while every customer-facing experience remains distinct.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chime-messages">
+    <div class="chime-shell chime-pad chime-messages-grid">
+      <div class="reveal">
+        <span class="kicker">Customer communication</span>
+        <h2>The right message, <em>with nothing left to guess.</em></h2>
+        <p class="chime-section-intro">Confirmations, reminders, changes, and recovery are part of the service experience. Chime gives the team a visible delivery trail and gives customers language that feels considered, timely, and human.</p>
+
+        <div class="chime-message-notes">
+          <div class="chime-message-note"><strong>Visible</strong><span>Ready, sent, and needs-attention states are easy to scan.</span></div>
+          <div class="chime-message-note"><strong>Recoverable</strong><span>Failed messages surface with a clear path to retry.</span></div>
+          <div class="chime-message-note"><strong>Brand-aware</strong><span>Customer-facing language reflects the business.</span></div>
+          <div class="chime-message-note"><strong>Auditable</strong><span>The team can see what was sent and when.</span></div>
+        </div>
+      </div>
+
+      <figure class="chime-message-frame reveal">
+        <img src="../assets/img/chime-studio-messages.jpg" alt="Chime message center showing sent communications and delivery status" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section id="making" class="chime-build">
+    <div class="chime-shell chime-pad chime-build-grid">
+      <div class="chime-build-copy reveal">
+        <span class="kicker">The making of Chime</span>
+        <h2>One product, <em>designed as a whole.</em></h2>
+        <p class="chime-section-intro">Christian led Chime from product definition through interface, architecture, engineering, quality, and launch design. The result is not a booking form attached to an admin panel; it is one coherent service experience viewed from two sides.</p>
+
+        <dl class="chime-dossier">
+          <div><dt>Role</dt><dd>Product strategy, brand direction, UX, interface writing, architecture, and full-stack engineering</dd></div>
+          <div><dt>Product</dt><dd>Hosted SaaS platform, embeddable customer booking, and business operations studio</dd></div>
+          <div><dt>Audience</dt><dd>Independent salons, studios, clinics, consultants, and service teams</dd></div>
+          <div><dt>Focus</dt><dd>Conversion, scheduling integrity, business-owned payments, tenant isolation, and operational clarity</dd></div>
+        </dl>
+      </div>
+
+      <div>
+        <div class="chime-capabilities">
+          <article class="chime-capability reveal">
+            <span>01</span>
+            <div><h3>Product &amp; experience</h3><p>Customer journey design, business workflow design, service modeling, information architecture, interaction design, responsive UI, accessibility, and interface copy.</p></div>
+          </article>
+          <article class="chime-capability reveal">
+            <span>02</span>
+            <div><h3>Platform engineering</h3><p>A public booking surface and authenticated studio on shared services, with per-request business context, real availability, atomic reservations, background work, and operational tooling.</p></div>
+          </article>
+          <article class="chime-capability reveal">
+            <span>03</span>
+            <div><h3>Payments &amp; data</h3><p>Connected Stripe accounts, deposit authorization and capture, refunds, webhook reconciliation, relational constraints, tenant-scoped data, and versioned schema evolution.</p></div>
+          </article>
+          <article class="chime-capability reveal">
+            <span>04</span>
+            <div><h3>Reliability &amp; delivery</h3><p>Real-database integration tests, browser accessibility checks, contract coverage, continuous integration, containerized environments, health checks, observability, backup, and restore workflows.</p></div>
+          </article>
+        </div>
+
+        <div class="chime-stack reveal" aria-label="Chime technology stack">
+          <span>React</span><span>TypeScript</span><span>Vite</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Stripe Connect</span><span>REST</span><span>Docker</span><span>GitHub Actions</span><span>Puppeteer</span><span>axe-core</span><span>Sentry</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chime-finale">
+    <div class="chime-shell chime-finale-inner reveal">
+      <span class="chime-finale-word">The result</span>
+      <h2>Chime gives the business back its day.</h2>
+      <p>A customer experience that earns confidence. An operating studio that keeps every detail in view. A platform built so a growing service business can spend less time coordinating the work and more time doing it.</p>
+      <div class="chime-actions">
+        <a class="chime-cta chime-cta--solid" href="../index.html#work">Explore more work</a>
+        <a class="chime-cta" href="mailto:christian.joudon@gmail.com">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:var(--chime-paper);">
+    <div class="chime-shell">
+      <nav class="detail-foot" aria-label="Project navigation">
+        <a href="../index.html#work"><span>&larr;</span> All work</a>
+        <a class="nxt" href="../work/hitech-labs.html">HiTech Labs Website <span>&rarr;</span></a>
+      </nav>
+    </div>
+  </div>
 </main>
+
 <footer id="contact">
   <div class="wrap">
     <div class="reveal">
       <div class="f-kick">Contact</div>
-      <h2>Let’s build something worth shipping.</h2>
+      <h2>Let&rsquo;s build something worth shipping.</h2>
       <div class="f-links">
         <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
         <a href="tel:+18086398697">(808) 639-8697</a>
         <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
         <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
-        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (PDF)</a>
       </div>
       <div class="colophon">
-        <span>Kauaʻi, Hawaiʻi</span>
-        <span>Designed and built by Christian Joudon · 2026</span>
+        <span>Kaua&#699;i, Hawai&#699;i</span>
+        <span>Designed and built by Christian Joudon &middot; 2026</span>
       </div>
     </div>
   </div>
@@ -145,3 +1468,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+
