@@ -5,9 +5,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>HAVEN | The numbers are only part of the work | Christian Joudon</title>
-<meta content="A personal case study of HAVEN: keeping invoices, decisions, payment evidence, and financial context together for property accounting teams." name="description"/>
+<meta content="Explore HAVEN’s connected property accounting system: ownership and contracts, general ledger, reservation revenue, payments, trust reconciliation, owner statements, and reporting." name="description"/>
 <meta content="HAVEN | The numbers are only part of the work" property="og:title"/>
-<meta content="Designing a property finance workspace around the questions people need to answer and the evidence they need to answer them." property="og:description"/>
+<meta content="Whose money is it, what has been earned, and what is still owed? A deeper look at the accounting foundations and connected workflows inside HAVEN." property="og:description"/>
 <meta content="article" property="og:type"/>
 <meta content="https://christianjoudon.github.io/work/haven.html" property="og:url"/>
 <meta content="https://christianjoudon.github.io/assets/img/haven/dashboard.png" property="og:image"/>
@@ -34,6 +34,39 @@
   .haven-case .haven-lifecycle { grid-template-columns: 1fr; }
   .haven-case .haven-lifecycle li { border-right: 0; min-height: 160px; }
 }
+
+.haven-case .haven-scope { margin: 2.5rem 0 0; padding: clamp(1.25rem,3vw,2.25rem); border: 1px solid var(--line); border-radius: 16px; background: #edf2f7; }
+.haven-case .haven-scope h2 { max-width: 27ch; margin: .65rem 0 1.5rem; font-size: clamp(1.8rem,3.5vw,2.5rem); line-height: 1.12; font-weight: 420; }
+.haven-case .haven-scope-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .8rem; }
+.haven-case .haven-scope-grid a { display: block; padding: 1.1rem; border: 1px solid #d1dce7; border-radius: 10px; background: #fff; text-decoration: none; }
+.haven-case .haven-scope-grid a:hover { border-color: var(--haven-blue); }
+.haven-case .haven-scope-grid a:focus-visible { outline: 3px solid var(--haven-blue); outline-offset: 3px; }
+.haven-case .haven-scope-grid strong { display: block; color: var(--navy); font-size: 1rem; margin-bottom: .4rem; }
+.haven-case .haven-scope-grid span { display: block; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.haven-case .haven-scope-note { margin: 1.25rem 0 0; max-width: 100ch; color: var(--muted); font-size: .88rem; line-height: 1.65; }
+.haven-case .haven-capability-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.haven-case .haven-capability-grid article { min-width: 0; padding: clamp(1.35rem,3vw,2rem); background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.haven-case .haven-capability-grid .kicker { color: var(--haven-blue); }
+.haven-case .haven-capability-grid h3 { margin: 1.1rem 0 .7rem; font-size: 1.5rem; font-weight: 440; line-height: 1.2; }
+.haven-case .haven-capability-grid p { margin: 0; color: var(--muted); line-height: 1.65; }
+.haven-case .haven-inline-note { margin-top: 1rem; padding: 1.35rem 1.5rem; border-left: 3px solid var(--haven-blue); background: var(--haven-blue-soft); border-radius: 0 10px 10px 0; }
+.haven-case .haven-inline-note strong { color: var(--navy); }
+.haven-case .haven-inline-note p { margin: .5rem 0 0; color: var(--muted); line-height: 1.65; }
+.haven-case .haven-capture { margin: 1.75rem 0 0; border: 1px dashed #849bb4; border-radius: 14px; overflow: hidden; background: #f1f5f8; }
+.haven-case .haven-capture-space { min-height: 235px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; }
+.haven-case .haven-capture .kicker { color: #435b75; }
+.haven-case .haven-capture h3 { margin: .85rem 0 .6rem; color: var(--navy); font-size: 1.65rem; font-weight: 450; }
+.haven-case .haven-capture-space p { max-width: 58ch; margin: 0; color: #536477; font-size: .95rem; line-height: 1.6; }
+.haven-case .haven-capture figcaption { padding: .9rem 1.1rem; border-top: 1px dashed #b9c6d3; color: #536477; font-size: .85rem; line-height: 1.55; background: #fff; }
+.haven-case .haven-capture a, .haven-case .haven-capture img { display: block; width: 100%; }
+.haven-case .haven-capture-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.haven-case .haven-release-note { margin-top: 2rem; padding: 1.5rem; background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; }
+.haven-case .haven-release-note p { max-width: 100ch; color: var(--muted); font-size: .92rem; line-height: 1.65; margin: .6rem 0 0; }
+@media (max-width: 900px) { .haven-case .haven-scope-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 650px) {
+  .haven-case .haven-scope-grid, .haven-case .haven-capability-grid, .haven-case .haven-capture-grid { grid-template-columns: 1fr; }
+  .haven-case .haven-capture-space { min-height: 210px; padding: 1.5rem; }
+}
 </style></head>
 <body>
 <header id="top">
@@ -58,7 +91,7 @@
 <span class="kicker">Property finance · Product design &amp; engineering</span>
 <h1 id="haven-title">HAVEN</h1>
 <p class="haven-deck">The numbers are only part of the work.</p>
-<p class="haven-intro">Someone also has to find the invoice, check what was approved, and explain what happened to the payment. I’m building HAVEN to keep that context with the work, in a finance workspace for property accounting teams.</p>
+<p class="haven-intro">Property accounting asks more than whether the numbers add up. Someone needs to know whose money it is, which agreement applies, what has been earned, and what is still owed. I’m building HAVEN to keep those answers connected, from the general ledger and reservation finances to owner statements and trust accounting.</p>
 <div class="haven-actions">
 <a class="haven-button haven-button--primary" href="#case-study">Read the case study <span aria-hidden="true">↓</span></a>
 <a class="haven-button" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" rel="noopener" target="_blank">Market analysis <span aria-hidden="true">↗</span></a>
@@ -66,7 +99,11 @@
 </div>
 <aside aria-label="Project summary" class="haven-brief">
 <div aria-hidden="true" class="haven-brief-mark">HΛVEN</div>
-<dl><div><dt>My role</dt><dd>Product strategy, interface design, architecture, and full-stack engineering</dd></div><div><dt>Product</dt><dd>Property finance operations and trust accounting</dd></div><div><dt>Current focus</dt><dd>Invoice-to-close pilot in active development</dd></div><div><dt>Core stack</dt><dd>React, TypeScript, FastAPI, PostgreSQL</dd></div></dl>
+<dl><div><dt>My role</dt><dd>Product strategy, interface design, architecture, and full-stack engineering</dd></div>
+<div><dt>Product</dt><dd>Property finance operations and trust accounting</dd></div>
+<div><dt>Foundation</dt><dd>Portfolio, ownership, contracts, general ledger, and accounting rules</dd></div>
+<div><dt>Build</dt><dd>Implemented development workspaces; focused invoice-to-close pilot</dd></div>
+<div><dt>Core stack</dt><dd>React, TypeScript, FastAPI, PostgreSQL</dd></div></dl>
 </aside>
 </section>
 <a aria-label="Open the HAVEN dashboard screenshot at full size" class="haven-hero-screen reveal" href="../assets/img/haven/dashboard.png" rel="noopener" target="_blank">
@@ -74,33 +111,70 @@
 <span class="haven-screen-note">Prototype · Synthetic demonstration data</span>
 </a>
 <p class="haven-caption">The dashboard brings bills needing attention, workload, and cash activity into view at the start of the day.</p>
-<nav aria-label="HAVEN case study sections" class="haven-local-nav"><a href="#product">The starting point</a><a href="#workflow">Following the work</a><a href="#architecture">Keeping the context</a><a href="#controls">Financial decisions</a><a href="#quality">Building responsibly</a></nav>
-
-
+<nav aria-label="HAVEN case study sections" class="haven-local-nav"><a href="#foundations">Portfolio &amp; setup</a><a href="#ledger">Ledger &amp; rules</a><a href="#workflow">Payables</a><a href="#revenue">Reservation finances</a><a href="#intake">Intake &amp; evidence</a><a href="#controls">Trust &amp; owners</a><a href="#reporting">Close &amp; reporting</a></nav><section aria-labelledby="haven-scope-title" class="haven-scope reveal">
+<span class="kicker">The wider system</span><h2 id="haven-scope-title">A place for the books and the work behind them.</h2>
+<div class="haven-scope-grid">
+<a href="#foundations"><strong>Know the business</strong><span>Properties, owners, ownership shares, contracts, and opening balances.</span></a>
+<a href="#ledger"><strong>Keep the books</strong><span>Chart of accounts, journals, posting rules, recurring charges, and trial balance.</span></a>
+<a href="#revenue"><strong>Follow the money</strong><span>Reservation revenue, guest deposits, platform payouts, receipts, and amounts still due.</span></a>
+<a href="#intake"><strong>Bring the records together</strong><span>Scanned mail, invoices, card receipts, imports, documents, and source history.</span></a>
+<a href="#controls"><strong>Account for every owner</strong><span>Trust balances, reserves, holds, distributions, and three-way reconciliation.</span></a>
+<a href="#reporting"><strong>Explain the period</strong><span>Owner statements, close, tax workpapers, financial reports, and audit packets.</span></a>
+</div>
+<p class="haven-scope-note">These are implemented modules in the development build. The invoice-to-close pilot is the focused release path being tested across them. The screenshots use synthetic demonstration data; labeled spaces mark the additional captures still to come.</p>
+</section>
 </div>
 <div class="haven-case-body" id="case-study">
 <section class="haven-section" id="product">
 <div class="wrap">
 <div class="haven-section-head reveal">
 <span class="kicker">01 · The starting point</span>
-<h2>A simple question can take a surprising amount of work.</h2>
+<h2>The answer depends on more than the transaction.</h2>
 </div>
 <div class="haven-problem-grid">
-<div class="haven-prose reveal"><p>A vendor asks whether an invoice has been paid. Finding the bill is a start. There may also be an approval to check, a payment batch to trace, a receipt to find, and a bank transaction that settles the question. The answer is spread across the places where the work happened.</p><p>My work in vacation rental accounting has made that kind of searching familiar. The individual steps are often straightforward; keeping their context together takes attention. When someone else picks up the task, much of that understanding has to be assembled again.</p><p>HAVEN is my attempt to give that understanding a place to live. Putting more information on a screen is only useful up to a point, though. I want the person reviewing a bill to see enough to act, with a clear way into the details when a question needs more than a glance.</p></div>
+<div class="haven-prose reveal"><p>A vendor asks whether an invoice has been paid. An owner asks why a distribution is smaller this month. A bank deposit arrives with money from several reservations bundled into one amount. Each question starts with a number, but answering it means understanding the relationships behind that number.</p>
+<p>My work in vacation rental accounting has made that kind of searching familiar. The individual steps are often straightforward; keeping their context together takes attention. When someone else picks up the task, much of that understanding has to be assembled again.</p>
+<p>HAVEN is my attempt to give that understanding a place to live. The foundation needs to know the properties, the people, the agreements, and the books they belong to. The workspaces then give someone a way to use that context without having to reconstruct it each time.</p></div>
 <blockquote class="haven-thesis reveal">
 <span class="kicker">The question behind HAVEN</span>
 <p>What would it take to answer the next question without retracing all the earlier work?</p>
 </blockquote>
 </div>
-<div class="haven-principles"><article class="reveal"><span class="haven-principle-number">01</span><h3>Keep your place in the queue.</h3><p>Review and code a bill within the list, then move to the next one with the surrounding work still in view.</p></article><article class="reveal"><span class="haven-principle-number">02</span><h3>Keep the source close.</h3><p>Put the invoice, receipt, or payment proof beside the record it supports, where it can actually inform a decision.</p></article><article class="reveal"><span class="haven-principle-number">03</span><h3>Show what is still needed.</h3><p>Make missing evidence, incomplete coding, and pending approval visible before someone tries to move the work forward.</p></article></div>
+<div class="haven-principles"><article class="reveal"><span class="haven-principle-number">01</span><h3>Keep your place in the work.</h3><p>Open the record behind a bill, balance, or reservation, then return to the surrounding work with your question still in view.</p></article><article class="reveal"><span class="haven-principle-number">02</span><h3>Keep the source close.</h3><p>Put the invoice, receipt, or payment proof beside the record it supports, where it can actually inform a decision.</p></article><article class="reveal"><span class="haven-principle-number">03</span><h3>Show what is still needed.</h3><p>Make missing evidence, incomplete coding, and pending approval visible before someone tries to move the work forward.</p></article></div>
 </div>
 </section>
-<section class="haven-section haven-section--ink" id="workflow">
+<section class="haven-section haven-section--soft" id="foundations"><div class="wrap">
+<div class="haven-section-head reveal"><span class="kicker">02 · Portfolio &amp; accounting setup</span><h2>The work starts before the first transaction.</h2><p>Before a bill can be coded or an owner can be paid, the system needs to understand who and what the work belongs to. I built that structure into HAVEN so it can travel with the accounting.</p></div>
+<div class="haven-capability-grid">
+<article class="reveal"><span class="kicker">Properties &amp; ownership</span><h3>Whose home, and whose share?</h3><p>Property or unit records connect to individual or entity owners, with ownership percentages and effective dates. Incomplete ownership coverage is visible, and records can be deactivated while their history remains available.</p></article>
+<article class="reveal"><span class="kicker">Owner contracts</span><h3>The agreement belongs with the calculation.</h3><p>Dated contract versions hold management fees, owner charges, reserve rules, and the properties they cover. A change goes through preview, approval, and activation; historical statement and revenue lines retain the agreement used at the time.</p></article>
+<article class="reveal"><span class="kicker">Accounting setup</span><h3>Give recurring decisions a home.</h3><p>Fiscal periods, close policies, tax setup, materiality settings, and document numbering are maintained as part of the system. Policy changes keep an approval history, and issued document numbers are not reused.</p></article>
+<article class="reveal"><span class="kicker">Opening conversion</span><h3>Bring the unfinished work along.</h3><p>Opening bank cash, the general ledger’s trust liability, and individual owner trust balances can be staged alongside unpaid bills, open receivables, and outstanding bank items. Conversion checks that the trust totals agree before confirming the starting point and creating the opening records.</p></article>
+</div>
+<figure class="haven-capture reveal" data-screenshot-slot="portfolio-ownership">
+<!-- SCREENSHOT SLOT: assets/img/haven/portfolio-ownership.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Portfolio &amp; ownership</h3><p>Show the property and owner records, an ownership share, and the dates that assignment applies.</p></div>
+<figcaption>The ownership record gives later charges, statements, and funding decisions a consistent starting point.</figcaption>
+</figure>
+</div></section><section class="haven-section" id="ledger"><div class="wrap">
+<div class="haven-section-head reveal"><span class="kicker">03 · General ledger &amp; calculation rules</span><h2>The books need a place of their own.</h2><p>There are moments when someone needs to work directly with the accounts: make an adjustment, investigate a balance, or check how a recurring charge was calculated. HAVEN gives that work its own desk.</p></div>
+<div class="haven-capability-grid">
+<article class="reveal"><span class="kicker">Chart of accounts</span><h3>A maintained accounting structure.</h3><p>Accounts can be created, searched, edited, activated, deactivated, or replaced while prior entries remain traceable. Account rules distinguish ordinary posting from protected control accounts.</p></article>
+<article class="reveal"><span class="kicker">Journals &amp; trial balance</span><h3>Follow a balance back to its entries.</h3><p>Manual journals carry property, owner, reservation, and vendor context through review and posting. The trial balance opens into account activity and its journals. A correction uses a linked reversal, preserving the original entry.</p></article>
+<article class="reveal"><span class="kicker">Posting templates</span><h3>See the effect before applying the rule.</h3><p>Reusable debit and credit rules have effective versions, an exact accounting preview, and an approval step. Revenue and recurring-charge records retain the rule version used, so the calculation can be explained later.</p></article>
+<article class="reveal"><span class="kicker">Recurring charges &amp; commissions</span><h3>Routine work should not depend on memory.</h3><p>Flat, percentage, per-stay, and per-night charges can be previewed, generated, reviewed, and posted, with missed periods brought back into view. Commission runs separately retain their rules, reservation assignments, calculation preview, and approval history.</p></article>
+</div>
+<figure class="haven-capture reveal" data-screenshot-slot="general-ledger">
+<!-- SCREENSHOT SLOT: assets/img/haven/general-ledger.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>General Ledger Desk</h3><p>Show the trial balance with an account’s activity or a journal open, including its property or owner context.</p></div>
+<figcaption>A balance can lead directly into the entries and accounting decisions behind it.</figcaption>
+</figure>
+</div></section><section class="haven-section haven-section--ink" id="workflow">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">02 · Following the work</span>
+<span class="kicker">04 · Accounts payable &amp; payment evidence</span>
 <h2>What counts as finished?</h2>
-<p>An approved bill, a recorded payment, and a reconciled bank transaction answer different questions. HAVEN’s current pilot follows a USD vendor invoice through those stages, showing what supports each one and what still needs to happen.</p>
+<p>The invoice-to-close pilot is one complete route through that larger system. An approved bill, a recorded payment, and a reconciled bank transaction answer different questions. HAVEN follows a USD vendor invoice through those stages, showing what supports each one and what still needs to happen.</p>
 </div>
 <ol aria-label="Financial record lifecycle" class="haven-lifecycle"><li><span>01</span><strong>Capture &amp; code</strong><small>Keep the invoice and check the line totals.</small></li><li><span>02</span><strong>Review &amp; approve</strong><small>Have another person review the bill.</small></li><li><span>03</span><strong>Prepare payment</strong><small>Prepare the payment records and note the external handoff.</small></li><li><span>04</span><strong>Confirm at bank</strong><small>Import bank activity and accept the matching transaction.</small></li><li><span>05</span><strong>Reconcile &amp; close</strong><small>Include the bank match in an approved, locked reconciliation.</small></li></ol><p class="haven-workflow-note">The current path uses CSV bank imports and a payment handoff outside HAVEN. Preparing the paperwork does not, by itself, mean the money has been sent.</p>
 </div>
@@ -156,15 +230,42 @@
 </div>
 </div>
 </section>
-<section class="haven-section" id="architecture">
+<section class="haven-section" id="revenue"><div class="wrap">
+<div class="haven-section-head reveal"><span class="kicker">05 · Reservation finances &amp; money received</span><h2>A reservation becomes several financial obligations.</h2><p>The guest sees the cost of a stay. Behind it, the team may be tracking rent, fees, taxes, deposits, refunds, and money owed to an owner. I wanted those amounts to stay connected to the reservation that explains them.</p></div>
+<div class="haven-capability-grid">
+<article class="reveal"><span class="kicker">Reservation folios &amp; revenue</span><h3>Separate what was charged from what was earned.</h3><p>The folio connects charges, expected and actual payouts, bank matches, receipts, holds, and documents. Revenue processing uses the effective owner contract to determine timing, such as arrival, checkout, nightly, monthly, or payment received, with a reviewed preview before posting.</p></article>
+<article class="reveal"><span class="kicker">Platform payouts &amp; cash application</span><h3>Explain the deposit as well as the total.</h3><p>Imported payout reports can be matched to bank activity and allocated across reservations and properties, including fees, refunds, and other deductions. Cash application then connects received money to open balances without applying more than the receipt or the amount owed.</p></article>
+<article class="reveal"><span class="kicker">Advance &amp; security deposits</span><h3>Keep obligations visible.</h3><p>Guest money received before it is earned remains visible as a liability. Advance-deposit schedules separate received, earned, and outstanding amounts; security-deposit work brings deductions, holds, refund deadlines, and retained notice documents together.</p></article>
+<article class="reveal"><span class="kicker">Guest settlements &amp; owner receivables</span><h3>Keep track of what is still due.</h3><p>Processor settlement records connect gross receipts, fees, and the net bank deposit. Owner receivables retain applied receipts, aging, collection tasks, and refundable credits, so a remaining balance has a history and a next step.</p></article>
+</div>
+<div class="haven-inline-note reveal"><strong>Property service costs</strong><p>Completed service orders can be matched to vendor bills. Housekeeping costs can be allocated to the owner, business, guest, or an owner/business split, preserving the rule and source cost behind the allocation.</p></div>
+<figure class="haven-capture reveal" data-screenshot-slot="reservation-financials">
+<!-- SCREENSHOT SLOT: assets/img/haven/reservation-financials.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Reservation Financials</h3><p>Show a reservation with folio charges, payout or receipt activity, and an open balance, deposit, or hold.</p></div>
+<figcaption>The stay’s charges, receipts, and remaining obligations can be considered together.</figcaption>
+</figure>
+</div></section><section class="haven-section haven-section--soft" id="intake"><div class="wrap">
+<div class="haven-section-head reveal"><span class="kicker">06 · Intake, cards &amp; source records</span><h2>The work arrives in more than one format.</h2><p>A stack of scanned mail, a card statement, and a CSV export ask for different kinds of preparation. I built places to handle that preparation while keeping the source connected to what comes next.</p></div>
+<div class="haven-capability-grid">
+<article class="reveal"><span class="kicker">Mailroom Scan Desk</span><h3>Give each document somewhere to go.</h3><p>Pages from a bulk scan can be grouped into individual documents, then turned into bill drafts, card receipts, or supporting records for an owner, property, or reservation. The grouping stays inside the workbench.</p></article>
+<article class="reveal"><span class="kicker">Card Inbox</span><h3>Keep the receipt with the charge.</h3><p>Imported card transactions support receipt review, account and property allocations, approval, posting batches, and statement reconciliation. Missing receipts stay visible, and the statement can close with a supporting packet.</p></article>
+<article class="reveal"><span class="kicker">Import Center</span><h3>Review what an import will change.</h3><p>Owner and property CSV imports have reusable mappings, row previews, and blocking-error review before records are created or updated. Import history and external references preserve a route back to the source. Bank, card, and payout files have their own accounting import workflows.</p></article>
+<article class="reveal"><span class="kicker">Documents &amp; evidence</span><h3>Let one source support the work it belongs to.</h3><p>A document can link to several related records. Source history, evidence requirements, review decisions, and extraction corrections remain accessible as the financial work moves between desks.</p></article>
+</div>
+<figure class="haven-capture reveal" data-screenshot-slot="data-intake">
+<!-- SCREENSHOT SLOT: assets/img/haven/data-intake.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Data Intake &amp; import review</h3><p>Show an import preview with mapped columns, row-level results, and an error or review detail visible.</p></div>
+<figcaption>Imported information has a review step and a route back to the file it came from.</figcaption>
+</figure>
+</div></section><section class="haven-section" id="architecture">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">03 · Keeping the context</span>
+<span class="kicker">07 · Connected records</span>
 <h2>The record should remember how it got here.</h2>
-<p>A bill becomes part of a payment, which becomes part of a bank match, which eventually supports a reconciliation. Those relationships are useful when someone needs to explain an amount or work backward from a question. I built HAVEN’s record model and navigation around following them.</p>
+<p>A property connects to its owners and agreements. A reservation connects to revenue, deposits, and a statement. A bill becomes part of a payment, a bank match, and a reconciliation. HAVEN’s relationship graph brings that context into navigation, so someone can follow a question across the records involved.</p>
 </div>
-<div aria-label="HAVEN record model: source records and their context connect to financial records and the workspaces used to review them." class="haven-architecture reveal" role="img">
-<div class="haven-arch-layer">
+<div aria-label="HAVEN connects property, owner, contract, and account context with source documents, financial records, review workspaces, and reporting." class="haven-architecture reveal" role="img">
+<div class="haven-arch-layer"><span class="haven-arch-label">Business context</span><div><span>Properties &amp; owners</span><span>Ownership dates</span><span>Contract versions</span><span>Accounts &amp; rules</span></div></div><span aria-hidden="true" class="haven-arch-arrow">↓</span><div class="haven-arch-layer">
 <span class="haven-arch-label">Source records</span>
 <div><span>Invoices &amp; receipts</span><span>Bank CSVs</span><span>Payout reports</span><span>Reservation records</span></div>
 </div>
@@ -176,12 +277,12 @@
 <span aria-hidden="true" class="haven-arch-arrow">↓</span>
 <div class="haven-arch-layer haven-arch-layer--navy">
 <span class="haven-arch-label">Financial records</span>
-<div><span>Bills</span><span>Payments</span><span>Reservations</span><span>Trust</span><span>Journal entries</span></div>
+<div><span>Bills &amp; payments</span><span>Receipts &amp; deposits</span><span>Reservations &amp; revenue</span><span>Trust balances</span><span>Journal entries</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↓</span>
 <div class="haven-arch-layer haven-arch-layer--green">
 <span class="haven-arch-label">Places to do the work</span>
-<div><span>Review queues</span><span>Bank matching</span><span>Owner statements</span><span>Reconciliation</span></div>
+<div><span>Review queues</span><span>Bank &amp; card matching</span><span>Owner statements</span><span>Reconciliation &amp; close</span><span>Reports &amp; audit packets</span></div>
 </div>
 </div>
 <div class="haven-tech-grid"><article class="reveal"><span class="kicker">Interface</span><h3>A familiar place to work</h3><p>I built shared tables, review panels, and document views, so moving between workspaces does not require learning each one from scratch.</p></article><article class="reveal"><span class="kicker">Financial records</span><h3>Consistent underneath</h3><p>FastAPI, SQLAlchemy, and PostgreSQL support the records and workflow rules. Versioned migrations carry changes to the data model.</p></article><article class="reveal"><span class="kicker">Documents</span><h3>Proof that stays connected</h3><p>Documents live in object storage, with links to the records they support. Background work is recorded for a worker to pick up and process.</p></article><article class="reveal"><span class="kicker">Related records</span><h3>A way to follow the question</h3><p>The relationship graph connects supporting documents, financial activity, and history, giving each record a route into its wider context.</p></article></div>
@@ -190,27 +291,35 @@
 <section class="haven-section haven-section--ink" id="controls">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">04 · Financial decisions</span>
+<span class="kicker">08 · Trust accounting &amp; owner funds</span>
 <h2>A balance is the beginning of a decision.</h2>
-<p>Money in an account may already have a purpose: a reserve to maintain, a bill to pay, or a refund still to come. HAVEN’s trust calculations account for those commitments before showing what is available, and preserve the calculation behind a decision.</p>
+<p>Money in an account may already have a purpose: a reserve to maintain, a bill to pay, a guest deposit being held, or a refund still to come. HAVEN separates the bank balance from the obligations behind it and preserves the calculation used for an owner’s distribution.</p>
 </div>
-<div class="haven-controls"><article class="reveal"><span>The ledger</span><h3>Keep the correction visible.</h3><p>Journal entries must balance before posting. Posted entries are protected from ordinary edits; reversals preserve a trail when something needs correcting.</p></article><article class="reveal"><span>Trust funds</span><h3>Account for what is committed.</h3><p>Trust calculations consider reserves, pending bills and refunds, holds, and withholding. Balance checks also guard against spending below the permitted amount.</p></article><article class="reveal"><span>Review</span><h3>Make room for another pair of eyes.</h3><p>Approval controls require a different person from the one who created the record. That separation is enforced behind the interface.</p></article><article class="reveal"><span>The explanation</span><h3>Keep the basis for the decision.</h3><p>Linked evidence and saved trust calculations give a reviewer something to examine when the question returns later.</p></article></div>
+<div class="haven-controls">
+<article class="reveal"><span>Beneficiary balances</span><h3>Keep each owner’s money distinct.</h3><p>Owner and property trust subaccounts retain their balances and immutable activity. Funds checks account for reserves, pending bills and refunds, and withholding. Active unvalued holds block eligibility separately.</p></article>
+<article class="reveal"><span>Three-way reconciliation</span><h3>Compare three views of the same money.</h3><p>Adjusted bank cash, general ledger trust balances, and beneficiary totals are compared directly. Certification requires the variance to be resolved and retains the beneficiary schedule used for the review.</p></article>
+<article class="reveal"><span>Owner distributions</span><h3>Show how the available amount was reached.</h3><p>Distribution runs bring owner items, property allocations, totals, evidence, and approval stages together. Saved calculations keep the basis for a decision available after the run has moved on.</p></article>
+<article class="reveal"><span>Review &amp; corrections</span><h3>Keep the decision accountable.</h3><p>Approval rules are checked behind the interface. Journals must balance before posting; posted entries remain protected, and linked reversals preserve the history when a correction is needed.</p></article></div>
 <figure class="haven-shot haven-shot--dark reveal">
 <a aria-label="Open the trust distribution workflow screenshot at full size" href="../assets/img/haven/trust-distribution.png" rel="noopener" target="_blank">
 <img alt="HAVEN trust distribution builder with run setup, owner item, allocation, and approval stages" loading="lazy" src="../assets/img/haven/trust-distribution.png"/>
 </a>
 <figcaption>The distribution workflow keeps allocations, totals, and approval stages together.</figcaption>
 </figure>
-</div>
+<figure class="haven-capture reveal" data-screenshot-slot="trust-reconciliation">
+<!-- SCREENSHOT SLOT: assets/img/haven/trust-reconciliation.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Three-way trust reconciliation</h3><p>Show the adjusted bank balance, general ledger balance, beneficiary total, and a variance or certification detail.</p></div>
+<figcaption>The bank, books, and owner balances can be checked against one another before the reconciliation is certified.</figcaption>
+</figure></div>
 </section>
-<section class="haven-section">
+<section class="haven-section" id="team-work">
 <div class="wrap">
 <div class="haven-feature-split haven-feature-split--stacked">
 <div class="haven-feature-copy reveal">
-<span class="kicker">Team Work</span>
+<span class="kicker">09 · Team work &amp; exceptions</span>
 <h2>Someone else will need to pick this up.</h2>
 <p>A warning tells the team that something is wrong. Resolving it takes a person, a next step, and enough context to understand the issue. Team Work brings linked tasks, exceptions, approvals, and comments into a queue with ownership, priority, and status visible.</p>
-</div>
+<p>These are shared controls across the system. A missing contract, an unresolved payout difference, and a document still needing review can each have an assigned task, approval request, or discussion linked to the record. Global search and related-record navigation help the next person find both the issue and its context.</p></div>
 <figure class="haven-shot haven-shot--detail reveal">
 <a aria-label="Open the Team Work screenshot at full size" href="../assets/img/haven/team-work.png" rel="noopener" target="_blank">
 <img alt="HAVEN Team Work queue showing exceptions, priorities, evidence, and workflow status" loading="lazy" src="../assets/img/haven/team-work.png"/>
@@ -220,10 +329,28 @@
 </div>
 </div>
 </section>
-<section class="haven-section haven-section--soft" id="quality">
+<section class="haven-section" id="reporting"><div class="wrap">
+<div class="haven-section-head reveal"><span class="kicker">10 · Statements, close &amp; reporting</span><h2>A statement should be able to explain itself.</h2><p>An owner wants to understand the month. A colleague needs to close it. An accountant may need to examine it later. Those are different views of the same underlying work, and I want each one to lead back to something a person can check.</p></div>
+<div class="haven-capability-grid">
+<article class="reveal"><span class="kicker">Owner statements &amp; portal</span><h3>Make the period understandable.</h3><p>Statement runs bring income, expenses, management fees, owner charges, reserves, and distributions through review, approval, and publication. Published statements retain a path back to the contract terms used. Owners can view their statements and permitted documents, and upload material for the team to review.</p></article>
+<article class="reveal"><span class="kicker">Reconciliation &amp; close</span><h3>Know what is still unfinished.</h3><p>Bank and card reconciliation, trust agreement, review tasks, supporting packets, and period locks provide a structured close. The team can see unresolved differences and the work still needed before a period is complete.</p></article>
+<article class="reveal"><span class="kicker">Financial reports &amp; forecasts</span><h3>Look from the portfolio down to the entry.</h3><p>Reports cover trial balance, account activity, property income and expenses, reservation finances, payout differences, and trust balances. Saved views preserve useful selections. Forecast snapshots keep their sources and assumptions for later comparison with posted results.</p></article>
+<article class="reveal"><span class="kicker">Tax &amp; year-end workpapers</span><h3>Keep preparation connected to its sources.</h3><p>Period tax calculations, amendments, supporting documents, and remittance records can be prepared and reviewed together. Year-end owner and vendor workpapers retain source payments, withholding, identity checks, and correction history for external filing.</p></article>
+</div>
+<div class="haven-inline-note reveal"><strong>Reports that can leave the screen</strong><p>Report outputs can be generated as PDF, CSV, or JSON. Audit packets collect the supporting records; archive exports include a manifest of what was preserved. Generated outputs remain linked to their jobs and source context.</p></div>
+<div class="haven-capture-grid"><figure class="haven-capture reveal" data-screenshot-slot="owner-statements">
+<!-- SCREENSHOT SLOT: assets/img/haven/owner-statements.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Owner statement review</h3><p>Show an owner’s period breakdown with fees, reserves, distributions, and the statement review or publication state.</p></div>
+<figcaption>The statement connects an owner’s result to the activity and agreement behind it.</figcaption>
+</figure><figure class="haven-capture reveal" data-screenshot-slot="reports">
+<!-- SCREENSHOT SLOT: assets/img/haven/reports.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
+<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Reports &amp; supporting outputs</h3><p>Show a financial report with a property or account breakdown and its generated output or audit packet.</p></div>
+<figcaption>Reports and retained packets provide another way into the same financial records.</figcaption>
+</figure></div>
+</div></section><section class="haven-section haven-section--soft" id="quality">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">05 · Building responsibly</span>
+<span class="kicker">11 · Identity, access &amp; reliable operations</span>
 <h2>Care in the interface needs care underneath it.</h2>
 </div>
 <div class="haven-quality-grid"><article class="reveal"><h3>Know who is doing the work</h3><p>The production configuration requires verified identities and multifactor authentication. Organization checks and database row policies restrict which records each company can access.</p></article><article class="reveal"><h3>Give each process only what it needs</h3><p>The API, background worker, and database maintenance tasks use separate roles. Day-to-day processes do not need the authority to change the schema.</p></article><article class="reveal"><h3>Treat documents as part of the responsibility</h3><p>Upload checks limit file types and sizes, inspect file signatures, and restrict active content. Temporary access links limit how long a document URL remains usable.</p></article><article class="reveal"><h3>Practice with records made for the purpose</h3><p>The demonstration uses fictional records and labeled synthetic documents. They let the workflows be exercised without putting a customer’s information on display.</p></article></div>
@@ -233,11 +360,11 @@
 <section class="haven-section">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">06 · What I’m working toward</span>
+<span class="kicker">12 · What I’m working toward</span>
 <h2>The next person should not have to start from memory.</h2>
 </div>
 <div class="haven-reflection">
-<div class="haven-prose reveal"><p>The part of HAVEN I care most about is what remains understandable after the work has moved on. A payment question may arrive weeks later. A colleague may take over a queue halfway through the day. The documents, decisions, and relationships need to make sense to someone who was not there for every step.</p><p>That is the standard I’m building toward: financial work that can be checked, explained, and continued. The current focus is the invoice-to-close pilot, while the wider property, reservation, and trust workflows continue to develop.</p></div>
+<div class="haven-prose reveal"><p>The part of HAVEN I care most about is what remains understandable after the work has moved on. A payment question may arrive weeks later. A colleague may take over a queue halfway through the day. The documents, decisions, and relationships need to make sense to someone who was not there for every step.</p><p>That is the standard I’m building toward: financial work that can be checked, explained, and continued. The portfolio, ledger, reservation, trust, and reporting modules provide the wider foundation. The invoice-to-close pilot is one focused way to test how those parts hold together.</p></div>
 <aside class="haven-next reveal">
 <span class="kicker">Supporting work</span>
 <h3>Market analysis &amp; launch thesis</h3>
@@ -245,7 +372,7 @@
 <a class="haven-button haven-button--primary" href="../assets/media/HAVEN_Market_Analysis_and_Launch_Thesis.pdf" rel="noopener" target="_blank">Open the PDF <span aria-hidden="true">↗</span></a>
 </aside>
 </div>
-</div>
+<div class="haven-release-note reveal"><strong>Current release boundaries</strong><p>The modules described here are implemented in the development build, with different workflows still being exercised and refined. The supported invoice-to-close pilot uses USD bills, CSV bank imports, and an external payment handoff. HAVEN prepares and records financial work; live bank and channel feeds, direct money transmission, and electronic tax filing are not included in that release path.</p></div></div>
 </section>
 </div>
 <div class="wrap">
