@@ -52,13 +52,22 @@
 .haven-case .haven-inline-note { margin-top: 1rem; padding: 1.35rem 1.5rem; border-left: 3px solid var(--haven-blue); background: var(--haven-blue-soft); border-radius: 0 10px 10px 0; }
 .haven-case .haven-inline-note strong { color: var(--navy); }
 .haven-case .haven-inline-note p { margin: .5rem 0 0; color: var(--muted); line-height: 1.65; }
-.haven-case .haven-capture { margin: 1.75rem 0 0; border: 1px dashed #849bb4; border-radius: 14px; overflow: hidden; background: #f1f5f8; }
+.haven-case .haven-capture { margin: 1.75rem 0 0; border: 1px solid #c8d4df; border-radius: 14px; overflow: hidden; background: #f1f5f8; }
 .haven-case .haven-capture-space { min-height: 235px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; text-align: center; }
 .haven-case .haven-capture .kicker { color: #435b75; }
 .haven-case .haven-capture h3 { margin: .85rem 0 .6rem; color: var(--navy); font-size: 1.65rem; font-weight: 450; }
 .haven-case .haven-capture-space p { max-width: 58ch; margin: 0; color: #536477; font-size: .95rem; line-height: 1.6; }
-.haven-case .haven-capture figcaption { padding: .9rem 1.1rem; border-top: 1px dashed #b9c6d3; color: #536477; font-size: .85rem; line-height: 1.55; background: #fff; }
+.haven-case .haven-capture figcaption { padding: .9rem 1.1rem; border-top: 1px solid #d7e0e8; color: #536477; font-size: .85rem; line-height: 1.55; background: #fff; }
 .haven-case .haven-capture a, .haven-case .haven-capture img { display: block; width: 100%; }
+.haven-case .haven-capture img { height: auto; }
+.haven-case .haven-capture a:focus-visible { outline: 3px solid var(--haven-blue); outline-offset: -3px; }
+.haven-case .haven-capture--proof { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,396px); align-items: center; gap: clamp(1.5rem,4vw,3.5rem); padding: clamp(1.25rem,4vw,3rem); }
+.haven-case .haven-capture--proof a { max-width: 396px; justify-self: center; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 32px rgba(20,40,65,.1); }
+.haven-case .haven-capture--proof figcaption { order: -1; padding: 0; border: 0; background: transparent; font-size: 1rem; line-height: 1.7; }
+.haven-case .haven-capture--proof h3 { max-width: 18ch; font-size: clamp(1.8rem,3vw,2.7rem); line-height: 1.15; }
+.haven-case .haven-capture--proof p { margin: 1rem 0 0; }
+.haven-case .haven-capture--proof .haven-proof-note { font-size: .88rem; }
+@media (max-width: 700px) { .haven-case .haven-capture--proof { grid-template-columns: 1fr; } }
 .haven-case .haven-capture-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
 .haven-case .haven-release-note { margin-top: 2rem; padding: 1.5rem; background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; }
 .haven-case .haven-release-note p { max-width: 100ch; color: var(--muted); font-size: .92rem; line-height: 1.65; margin: .6rem 0 0; }
@@ -121,7 +130,7 @@
 <a href="#controls"><strong>Account for every owner</strong><span>Trust balances, reserves, holds, distributions, and three-way reconciliation.</span></a>
 <a href="#reporting"><strong>Explain the period</strong><span>Owner statements, close, tax workpapers, financial reports, and audit packets.</span></a>
 </div>
-<p class="haven-scope-note">These are implemented modules in the development build. The invoice-to-close pilot is the focused release path being tested across them. The screenshots use synthetic demonstration data; labeled spaces mark the additional captures still to come.</p>
+<p class="haven-scope-note">These are implemented modules in the development build. The invoice-to-close pilot is the focused release path being tested across them. Screenshots show the running application with synthetic demonstration data. Select an image to view it at full size.</p>
 </section>
 </div>
 <div class="haven-case-body" id="case-study">
@@ -152,8 +161,7 @@
 <article class="reveal"><span class="kicker">Opening conversion</span><h3>Bring the unfinished work along.</h3><p>Opening bank cash, the general ledger’s trust liability, and individual owner trust balances can be staged alongside unpaid bills, open receivables, and outstanding bank items. Conversion checks that the trust totals agree before confirming the starting point and creating the opening records.</p></article>
 </div>
 <figure class="haven-capture reveal" data-screenshot-slot="portfolio-ownership">
-<!-- SCREENSHOT SLOT: assets/img/haven/portfolio-ownership.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Portfolio &amp; ownership</h3><p>Show the property and owner records, an ownership share, and the dates that assignment applies.</p></div>
+<a href="../assets/img/haven/portfolio-ownership.png" target="_blank" rel="noopener" aria-label="Open the HAVEN ownership screenshot at full size"><img src="../assets/img/haven/portfolio-ownership.png" alt="HAVEN ownership workspace showing a fully covered demo property, its owner, a 100 percent ownership share, and effective dates" width="1600" height="820" loading="lazy" decoding="async"/></a>
 <figcaption>The ownership record gives later charges, statements, and funding decisions a consistent starting point.</figcaption>
 </figure>
 </div></section><section class="haven-section" id="ledger"><div class="wrap">
@@ -165,8 +173,7 @@
 <article class="reveal"><span class="kicker">Recurring charges &amp; commissions</span><h3>Routine work should not depend on memory.</h3><p>Flat, percentage, per-stay, and per-night charges can be previewed, generated, reviewed, and posted, with missed periods brought back into view. Commission runs separately retain their rules, reservation assignments, calculation preview, and approval history.</p></article>
 </div>
 <figure class="haven-capture reveal" data-screenshot-slot="general-ledger">
-<!-- SCREENSHOT SLOT: assets/img/haven/general-ledger.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>General Ledger Desk</h3><p>Show the trial balance with an account’s activity or a journal open, including its property or owner context.</p></div>
+<a href="../assets/img/haven/general-ledger.png" target="_blank" rel="noopener" aria-label="Open the HAVEN general ledger screenshot at full size"><img src="../assets/img/haven/general-ledger.png" alt="HAVEN trial balance with equal debits and credits, a zero difference, and operating cash activity linked to a posted receipt" width="1600" height="1000" loading="lazy" decoding="async"/></a>
 <figcaption>A balance can lead directly into the entries and accounting decisions behind it.</figcaption>
 </figure>
 </div></section><section class="haven-section haven-section--ink" id="workflow">
@@ -240,8 +247,7 @@
 </div>
 <div class="haven-inline-note reveal"><strong>Property service costs</strong><p>Completed service orders can be matched to vendor bills. Housekeeping costs can be allocated to the owner, business, guest, or an owner/business split, preserving the rule and source cost behind the allocation.</p></div>
 <figure class="haven-capture reveal" data-screenshot-slot="reservation-financials">
-<!-- SCREENSHOT SLOT: assets/img/haven/reservation-financials.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Reservation Financials</h3><p>Show a reservation with folio charges, payout or receipt activity, and an open balance, deposit, or hold.</p></div>
+<a href="../assets/img/haven/reservation-financials.png" target="_blank" rel="noopener" aria-label="Open the HAVEN reservation finances screenshot at full size"><img src="../assets/img/haven/reservation-financials.png" alt="HAVEN reservation review connecting a demo stay to its finalized folio, recognized room charge, and expected versus actual payout" width="1600" height="1000" loading="lazy" decoding="async"/></a>
 <figcaption>The stay’s charges, receipts, and remaining obligations can be considered together.</figcaption>
 </figure>
 </div></section><section class="haven-section haven-section--soft" id="intake"><div class="wrap">
@@ -253,8 +259,7 @@
 <article class="reveal"><span class="kicker">Documents &amp; evidence</span><h3>Let one source support the work it belongs to.</h3><p>A document can link to several related records. Source history, evidence requirements, review decisions, and extraction corrections remain accessible as the financial work moves between desks.</p></article>
 </div>
 <figure class="haven-capture reveal" data-screenshot-slot="data-intake">
-<!-- SCREENSHOT SLOT: assets/img/haven/data-intake.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Data Intake &amp; import review</h3><p>Show an import preview with mapped columns, row-level results, and an error or review detail visible.</p></div>
+<a href="../assets/img/haven/data-intake.png" target="_blank" rel="noopener" aria-label="Open the HAVEN data intake screenshot at full size"><img src="../assets/img/haven/data-intake.png" alt="HAVEN Data Intake workspace with a CSV import profile, preview controls, source records, and exception review" width="1600" height="1000" loading="lazy" decoding="async"/></a>
 <figcaption>Imported information has a review step and a route back to the file it came from.</figcaption>
 </figure>
 </div></section><section class="haven-section" id="architecture">
@@ -306,10 +311,9 @@
 </a>
 <figcaption>The distribution workflow keeps allocations, totals, and approval stages together.</figcaption>
 </figure>
-<figure class="haven-capture reveal" data-screenshot-slot="trust-reconciliation">
-<!-- SCREENSHOT SLOT: assets/img/haven/trust-reconciliation.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Three-way trust reconciliation</h3><p>Show the adjusted bank balance, general ledger balance, beneficiary total, and a variance or certification detail.</p></div>
-<figcaption>The bank, books, and owner balances can be checked against one another before the reconciliation is certified.</figcaption>
+<figure class="haven-capture haven-capture--proof reveal" data-screenshot-slot="trust-reconciliation">
+<a href="../assets/img/haven/trust-reconciliation.png" target="_blank" rel="noopener" aria-label="Open the HAVEN three-way reconciliation screenshot at full size"><img src="../assets/img/haven/trust-reconciliation.png" alt="Locked HAVEN reconciliation with bank cash, general ledger trust cash, and beneficiary balances each at 2,750 dollars, and zero variance" width="396" height="636" loading="lazy" decoding="async"/></a>
+<figcaption><span class="kicker">Three-way reconciliation</span><h3>One balance, three views.</h3><p>The bank, books, and owner balances can be checked against one another before the reconciliation is certified.</p><p class="haven-proof-note">This locked demo reconciliation retains a $0.00 variance, the beneficiary schedule, and the calculation used for review.</p></figcaption>
 </figure></div>
 </section>
 <section class="haven-section" id="team-work">
@@ -322,7 +326,7 @@
 <p>These are shared controls across the system. A missing contract, an unresolved payout difference, and a document still needing review can each have an assigned task, approval request, or discussion linked to the record. Global search and related-record navigation help the next person find both the issue and its context.</p></div>
 <figure class="haven-shot haven-shot--detail reveal">
 <a aria-label="Open the Team Work screenshot at full size" href="../assets/img/haven/team-work.png" rel="noopener" target="_blank">
-<img alt="HAVEN Team Work queue showing exceptions, priorities, evidence, and workflow status" loading="lazy" src="../assets/img/haven/team-work.png"/>
+<img alt="HAVEN Team Work approval queue showing a commission review, priorities, linked records, and workflow context" loading="lazy" src="../assets/img/haven/team-work.png"/>
 </a>
 <figcaption>Linked tasks, exceptions, and approvals give the next person somewhere to pick up the work.</figcaption>
 </figure>
@@ -339,13 +343,11 @@
 </div>
 <div class="haven-inline-note reveal"><strong>Reports that can leave the screen</strong><p>Report outputs can be generated as PDF, CSV, or JSON. Audit packets collect the supporting records; archive exports include a manifest of what was preserved. Generated outputs remain linked to their jobs and source context.</p></div>
 <div class="haven-capture-grid"><figure class="haven-capture reveal" data-screenshot-slot="owner-statements">
-<!-- SCREENSHOT SLOT: assets/img/haven/owner-statements.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Owner statement review</h3><p>Show an owner’s period breakdown with fees, reserves, distributions, and the statement review or publication state.</p></div>
+<a href="../assets/img/haven/owner-statements.png" target="_blank" rel="noopener" aria-label="Open the HAVEN owner statement screenshot at full size"><img src="../assets/img/haven/owner-statements.png" alt="HAVEN owner statement review connecting a demo property's income, management fees, statement amount, and accounting rules" width="1600" height="1000" loading="lazy" decoding="async"/></a>
 <figcaption>The statement connects an owner’s result to the activity and agreement behind it.</figcaption>
 </figure><figure class="haven-capture reveal" data-screenshot-slot="reports">
-<!-- SCREENSHOT SLOT: assets/img/haven/reports.png. Replace .haven-capture-space with a linked image; keep the caption. Use synthetic demonstration data. -->
-<div class="haven-capture-space"><span class="kicker">Screenshot to add</span><h3>Reports &amp; supporting outputs</h3><p>Show a financial report with a property or account breakdown and its generated output or audit packet.</p></div>
-<figcaption>Reports and retained packets provide another way into the same financial records.</figcaption>
+<a href="../assets/img/haven/reports.png" target="_blank" rel="noopener" aria-label="Open the HAVEN report studio screenshot at full size"><img src="../assets/img/haven/reports.png" alt="HAVEN Report Studio showing versioned forecasts, projected income and expenses, actual-versus-projection comparisons, and the report catalog" width="1600" height="1000" loading="lazy" decoding="async"/></a>
+<figcaption>Versioned forecasts keep projected income, expenses, and actual results in view alongside the wider report catalog.</figcaption>
 </figure></div>
 </div></section><section class="haven-section haven-section--soft" id="quality">
 <div class="wrap">
