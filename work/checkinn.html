@@ -53,45 +53,12 @@
 </aside>
 </section>
 <figure class="checkinn-product-frame reveal">
-<div aria-label="Illustrative CheckInn calendar workspace with a property rail, wide unit-night grid, stay blocks, and contextual inspector" class="checkinn-demo-shell" role="img">
-<aside aria-hidden="true" class="checkinn-demo-rail">
-<img alt="" src="../assets/img/checkinn-icon.png"/>
-<strong>CheckInn</strong>
-<span class="is-active">Calendar</span>
-<span>Arrivals</span>
-<span>Reservations</span>
-<span>Guests</span>
-<span>Housekeeping</span>
-<span>Operations</span>
-</aside>
-<div aria-hidden="true" class="checkinn-demo-main">
-<div class="checkinn-demo-heading">
-<div><small>Portfolio operations</small><strong>Calendar</strong></div>
-<span>All properties</span>
-</div>
-<div class="checkinn-demo-toolbar">
-<span>Today</span><span class="is-wide">Search unit or property</span><span>Filters</span>
-</div>
-<div class="checkinn-demo-calendar">
-<div class="checkinn-calendar-head"><strong>Units</strong><span>Sun 18</span><span>Mon 19</span><span>Tue 20</span><span>Wed 21</span><span>Thu 22</span></div>
-<div class="checkinn-calendar-row"><strong>Grandview · 101</strong><span class="checkinn-fill checkinn-fill--one">Guest stay</span></div>
-<div class="checkinn-calendar-row"><strong>Grandview · 102</strong><span class="checkinn-fill checkinn-fill--two">Guest stay</span></div>
-<div class="checkinn-calendar-row"><strong>Harbor · 201</strong><span class="checkinn-fill checkinn-fill--three">Owner block</span></div>
-<div class="checkinn-calendar-row"><strong>Pinecrest · 301</strong><span class="checkinn-fill checkinn-fill--four">Guest stay</span></div>
-</div>
-</div>
-<aside aria-hidden="true" class="checkinn-demo-inspector">
-<small>Portfolio pulse</small>
-<strong>Today’s arrivals</strong>
-<b>4</b>
-<span>Across three properties</span>
-<div><i></i><p><b>Grandview · 102</b><small>Ready for arrival</small></p></div>
-<div><i></i><p><b>Harbor · 201</b><small>Turn in progress</small></p></div>
-</aside>
-</div>
-<figcaption>Calendar layout study with illustrative stays and readiness panels. This composition shows the design direction.</figcaption>
-</figure>
-<nav aria-label="CheckInn case study sections" class="haven-local-nav"><a href="#product">The starting point</a><a href="#lifecycle">Following a stay</a><a href="#connections">What connects</a><a href="#architecture">How it is built</a><a href="#trust">Getting ready</a></nav>
+      <a href="../assets/img/checkinn/calendar.png" target="_blank" rel="noopener" aria-label="Open the CheckInn calendar screenshot at full size in a new tab">
+        <img src="../assets/img/checkinn/calendar.png" alt="CheckInn calendar with a multi-property unit-night grid, owner and linked-calendar blocks, and an arrivals inspector" width="1600" height="1000" fetchpriority="high" style="display:block;width:100%;height:auto">
+      </a>
+      <figcaption>The calendar workspace in the running application. Captured September 13, 2026 with synthetic practice data. Select any screenshot to open it at full size.</figcaption>
+    </figure>
+<nav aria-label="CheckInn case study sections" class="haven-local-nav"><a href="#product">The starting point</a><a href="#lifecycle">Following a stay</a><a href="#product-tour">Screens</a><a href="#connections">What connects</a><a href="#architecture">How it is built</a><a href="#trust">Getting ready</a></nav>
 </div>
 <div class="haven-case-body" id="case-study">
 <section class="haven-section" id="product">
@@ -130,6 +97,82 @@
 <div class="checkinn-surface-grid"><article class="reveal"><span>01</span><h3>Today</h3><p>Who is arriving, who is leaving, and which work needs attention now?</p></article><article class="reveal"><span>02</span><h3>Calendar</h3><p>Which nights are committed, held, or blocked, and what is behind each one?</p></article><article class="reveal"><span>03</span><h3>Reservations</h3><p>What was agreed for this stay, and what has changed since it was booked?</p></article><article class="reveal"><span>04</span><h3>Guests</h3><p>What guest information does this task require, and who is allowed to see it?</p></article><article class="reveal"><span>05</span><h3>Arrivals</h3><p>Is this home ready for the guest, and what still stands in the way?</p></article><article class="reveal"><span>06</span><h3>Housekeeping</h3><p>Who is doing the turn, what has been completed, and what needs inspection?</p></article><article class="reveal"><span>07</span><h3>Operations</h3><p>Which repairs or other tasks affect the home, the team, or the next arrival?</p></article></div>
 </div>
 </section>
+<section id="product-tour" class="haven-section haven-section--soft" aria-labelledby="checkinn-tour-title">
+      <div class="wrap">
+        <div class="haven-section-head reveal">
+          <span class="kicker">Inside CheckInn</span>
+          <h2 id="checkinn-tour-title">Follow the work through the application.</h2>
+          <p>From the first look at the day to the next property turn, these screens show how CheckInn keeps the team in context. All images were captured from the running application using synthetic practice data.</p>
+        </div>
+
+        <article class="reveal" aria-labelledby="checkinn-today-title">
+          <div class="haven-prose">
+            <h3 id="checkinn-today-title">Start with what needs attention.</h3>
+            <p>Today brings arrivals, departures, same-day turns, and readiness into one view. Each row gives the operator a direct path to the next piece of work.</p>
+          </div>
+          <figure class="checkinn-product-frame">
+            <a href="../assets/img/checkinn/today.png" target="_blank" rel="noopener" aria-label="Open the CheckInn Today screenshot at full size in a new tab">
+              <img src="../assets/img/checkinn/today.png" alt="CheckInn Today workspace showing arrival and departure counts, same-day turns, an ordered work queue, and unit timezones" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+            </a>
+            <figcaption>Daily overview: priorities, readiness, and the handoff to housekeeping or arrivals.</figcaption>
+          </figure>
+        </article>
+
+        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-reservation-title">
+          <div class="haven-prose">
+            <h3 id="checkinn-reservation-title">Keep the stay together.</h3>
+            <p>The reservation record connects dates, guest party, charges, and balance with the stay's access and service history. The essentials stay visible as the operator moves into the details.</p>
+          </div>
+          <figure class="checkinn-product-frame">
+            <a href="../assets/img/checkinn/reservation-detail.png" target="_blank" rel="noopener" aria-label="Open the CheckInn reservation screenshot at full size in a new tab">
+              <img src="../assets/img/checkinn/reservation-detail.png" alt="CheckInn sample reservation record showing a confirmed four-night stay, two guests, charges, outstanding balance, and protected access status" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+            </a>
+            <figcaption>Reservation detail: the stay, party, economics, and access context in one record.</figcaption>
+          </figure>
+        </article>
+
+        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-arrivals-title">
+          <div class="haven-prose">
+            <h3 id="checkinn-arrivals-title">Know what is ready before the guest arrives.</h3>
+            <p>The arrival queue pairs each stay with its current readiness. Selecting a property brings its requirements and available actions into view, including the work still holding up entry.</p>
+          </div>
+          <figure class="checkinn-product-frame">
+            <a href="../assets/img/checkinn/arrivals.png" target="_blank" rel="noopener" aria-label="Open the CheckInn arrivals screenshot at full size in a new tab">
+              <img src="../assets/img/checkinn/arrivals.png" alt="CheckInn arrivals queue with Ocean Suite selected, a housekeeping blocker, readiness counts, and contextual arrival actions" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+            </a>
+            <figcaption>Arrival readiness: the selected stay, its blocker, and the next available action.</figcaption>
+          </figure>
+        </article>
+
+        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-housekeeping-title">
+          <div class="haven-prose">
+            <h3 id="checkinn-housekeeping-title">Give every turn an owner and a next step.</h3>
+            <p>The turnover board brings assignments, ready-by times, and checklist progress together. Teams can see which homes need a cleaner, which are in progress, and which require another inspection.</p>
+          </div>
+          <figure class="checkinn-product-frame">
+            <a href="../assets/img/checkinn/housekeeping.png" target="_blank" rel="noopener" aria-label="Open the CheckInn housekeeping screenshot at full size in a new tab">
+              <img src="../assets/img/checkinn/housekeeping.png" alt="CheckInn housekeeping workspace showing turn counts and an assigned turnover queue with cleaner names, deadlines, progress, and rework status" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+            </a>
+            <figcaption>Housekeeping: assignments, deadlines, and progress across the property turn.</figcaption>
+          </figure>
+        </article>
+
+        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-pricing-title">
+          <div class="haven-prose">
+            <h3 id="checkinn-pricing-title">Make pricing decisions with the evidence in view.</h3>
+            <p>Suggested prices sit beside the current rate and their review status. This practice screen also makes clear when a recommendation cannot be supported and keeps approval separate from changing a live price.</p>
+          </div>
+          <figure class="checkinn-product-frame">
+            <a href="../assets/img/checkinn/pricing.png" target="_blank" rel="noopener" aria-label="Open the CheckInn pricing screenshot at full size in a new tab">
+              <img src="../assets/img/checkinn/pricing.png" alt="CheckInn pricing workspace comparing current and suggested nightly rates with needs-review, approved, declined, overridden, and unavailable states" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+            </a>
+            <figcaption>Pricing review: synthetic scenarios showing recommendations, decisions, and the reasons a suggestion may be withheld.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    
 <section class="haven-section haven-section--soft" id="connections">
 <div class="wrap">
 <div class="haven-section-head reveal">
@@ -149,6 +192,12 @@
 <strong>Current development scope</strong>
 <span>The working build is exercised with practice data and test adapters. Live channel, payment, messaging, access, and HAVEN connections still require separate integration and deployment work.</span>
 </div>
+<figure class="checkinn-product-frame reveal" style="margin-top:2rem">
+          <a href="../assets/img/checkinn/channels.png" target="_blank" rel="noopener" aria-label="Open the CheckInn channels screenshot at full size in a new tab">
+            <img src="../assets/img/checkinn/channels.png" alt="CheckInn practice channel administration showing delivery status, confirmed changes, pending decisions, and supported channel capabilities" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          </a>
+          <figcaption>Channel administration: a simulated connection showing supported capabilities, delivery evidence, and work awaiting a decision.</figcaption>
+        </figure>
 </div>
 </section>
 <section class="haven-section" id="architecture">
