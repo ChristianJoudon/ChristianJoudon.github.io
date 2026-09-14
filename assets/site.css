@@ -148,6 +148,16 @@
   .lead-proj .tags{ margin-top:1.4rem; }
   .lead-proj .tags .tag{ border-color:rgba(255,255,255,.22); color:#B9C3D2; }
 
+  .chime-lead{ background:#e4f3ec; border:1px solid #c4dfd2; color:#133c32; scroll-margin-top:90px; transition:transform .25s ease,border-color .25s ease; }
+  .chime-lead:hover{ transform:translateY(-3px); border-color:#8bb8a4; }
+  .chime-lead:focus-visible{ outline:3px solid #21604d; outline-offset:5px; }
+  .chime-lead .lp-logo{ height:clamp(42px,5vw,56px); margin-bottom:1.55rem; }
+  .chime-lead .lp-kick{ color:#356555; }
+  .chime-lead h3{ color:#133c32; }
+  .chime-lead p, .chime-lead .lp-points li{ color:#345d50; }
+  .chime-lead .lp-points li::before{ background:#398366; }
+  .chime-lead .tags .tag{ border-color:#aacbbd; color:#345d50; }
+
   .grid{ display:flex; flex-wrap:wrap; gap: clamp(1.1rem,2.4vw,1.6rem); }
   .card{
     flex:1 1 calc(50% - 1.6rem); min-width:280px;
