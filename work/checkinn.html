@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>CheckInn | Before the door opens | Christian Joudon</title>
-<meta content="A personal case study of CheckInn: connecting reservations, arrivals, housekeeping, and the work of getting a home ready for its next guest." name="description"/>
-<meta content="CheckInn | Before the door opens" property="og:title"/>
-<meta content="Designing property operations around the people preparing a stay, the handoffs between them, and what it means to be ready." property="og:description"/>
+<title>CheckInn | Reservations and property operations | Christian Joudon</title>
+<meta content="How I’m building CheckInn to connect reservations, availability, guest records, housekeeping, and arrival readiness, with clear booking history and separate accounting delivery." name="description"/>
+<meta content="CheckInn | Reservations and property operations" property="og:title"/>
+<meta content="Before the door opens: the product design and engineering behind a connected view of reservations, property work, and arrival readiness." property="og:description"/>
 <meta content="article" property="og:type"/>
 <meta content="https://christianjoudon.github.io/work/checkinn.html" property="og:url"/>
 <meta content="https://christianjoudon.github.io/assets/img/checkinn-icon.png" property="og:image"/>
@@ -18,7 +18,18 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="../assets/site.css" rel="stylesheet"/>
-</head>
+<style>
+.checkinn-case .haven-local-nav { flex-wrap:wrap; }
+.checkinn-case section[id], .checkinn-case article[id], .checkinn-case #case-study { scroll-margin-top:8rem; }
+.checkinn-case .checkinn-product-frame > a { display:block; }
+.checkinn-case a:focus-visible { outline:3px solid #c74f2c; outline-offset:4px; }
+.checkinn-case .checkinn-product-frame > a:focus-visible { outline-offset:-4px; }
+.checkinn-booking-notes { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2rem; margin-top:2.5rem; }
+.checkinn-booking-notes article { padding-top:1.2rem; border-top:1px solid rgba(255,248,238,.2); }
+.checkinn-booking-notes h3 { margin:0 0 .8rem; color:#fff8ee; font-size:1.35rem; font-weight:440; }
+.checkinn-booking-notes p { margin:0; color:#c8d6cc; font-size:.95rem; line-height:1.6; }
+@media (max-width:800px) { .checkinn-booking-notes { grid-template-columns:1fr; gap:1.5rem; } }
+</style></head>
 <body>
 <header id="top">
 <div class="wrap nav">
@@ -42,218 +53,218 @@
 <span class="kicker">Property operations · Product design &amp; engineering</span>
 <h1 id="checkinn-title">CheckInn</h1>
 <p class="haven-deck">Before the door opens.</p>
-<p class="haven-intro">By the time a guest arrives, several people may already have helped prepare the stay. I’m building CheckInn to keep that work connected: the reservation, the home, and what needs to be ready before someone walks through the door.</p>
-<div class="haven-actions"><a class="haven-button haven-button--primary" href="#case-study">Read the story <span aria-hidden="true">↓</span></a></div>
+<p class="haven-intro"><strong>CheckInn is a reservation and property operations system for independent owners and small teams.</strong> It brings available nights, guest details, agreed prices, and the work of preparing a home into one place. I’m building it around the handoffs that make a stay possible, from the first booking to the next arrival.</p>
+<div class="haven-actions"><a class="haven-button haven-button--primary" href="#product-tour">Explore the application <span aria-hidden="true">↓</span></a><a class="haven-button" href="#lifecycle">How booking works <span aria-hidden="true">↓</span></a></div>
 </div>
 <aside aria-label="Project summary" class="haven-brief">
 <div aria-hidden="true" class="checkinn-brief-mark">
 <img alt="" src="../assets/img/checkinn-wordmark-light.png"/>
 </div>
-<dl><div><dt>My role</dt><dd>Product strategy, interface design, architecture, and full-stack engineering</dd></div><div><dt>Product</dt><dd>Property operations and reservation management</dd></div><div><dt>Designed for</dt><dd>Independent owners and small property teams</dd></div><div><dt>Project state</dt><dd>Working development build, tested with practice data</dd></div></dl>
+<dl><div><dt>My role</dt><dd>Product strategy, interface design, architecture, and full-stack engineering</dd></div><div><dt>Product</dt><dd>Property operations and reservation management</dd></div><div><dt>Designed for</dt><dd>Independent owners and small property teams</dd></div><div><dt>Project state</dt><dd>Development build · exercised with practice data</dd></div><div><dt>Built with</dt><dd>TypeScript · Next.js · NestJS / Fastify · PostgreSQL</dd></div></dl>
 </aside>
 </section>
 <figure class="checkinn-product-frame reveal">
-      <a href="../assets/img/checkinn/calendar.png" target="_blank" rel="noopener" aria-label="Open the CheckInn calendar screenshot at full size in a new tab">
-        <img src="../assets/img/checkinn/calendar.png" alt="CheckInn calendar with a multi-property unit-night grid, owner and linked-calendar blocks, and an arrivals inspector" width="1600" height="1000" fetchpriority="high" style="display:block;width:100%;height:auto">
-      </a>
-      <figcaption>The calendar workspace in the running application. Captured September 13, 2026 with synthetic practice data. Select any screenshot to open it at full size.</figcaption>
-    </figure>
-<nav aria-label="CheckInn case study sections" class="haven-local-nav"><a href="#product">The starting point</a><a href="#lifecycle">Following a stay</a><a href="#product-tour">Screens</a><a href="#connections">What connects</a><a href="#architecture">How it is built</a><a href="#trust">Getting ready</a></nav>
+<a aria-label="Open the CheckInn calendar screenshot at full size in a new tab" href="../assets/img/checkinn/calendar.png" rel="noopener" target="_blank">
+<img alt="CheckInn calendar with a multi-property unit-night grid, owner and linked-calendar blocks, and an arrivals inspector" fetchpriority="high" height="1000" src="../assets/img/checkinn/calendar.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>The calendar workspace in the running application. Captured September 13, 2026 with synthetic practice data. Select any screenshot to open it at full size.</figcaption>
+</figure>
+<nav aria-label="CheckInn case study sections" class="haven-local-nav"><a href="#product">Overview</a><a href="#lifecycle">Booking flow</a><a href="#workspaces">Workspaces</a><a href="#product-tour">Screens</a><a href="#connections">Connections</a><a href="#architecture">Engineering</a><a href="#trust">Arrival readiness</a><a href="#project-status">Project status</a></nav>
 </div>
 <div class="haven-case-body" id="case-study">
 <section class="haven-section" id="product">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">01 · The starting point</span>
+<span class="kicker">01 · Overview</span>
 <h2>The handoff is part of the stay.</h2>
 </div>
 <div class="haven-problem-grid">
-<div class="haven-prose reveal"><p>A guest leaves in the morning and another arrives that afternoon. Between those two events, the home needs to be cleaned, checked, and ready to use. Someone may also need to follow up on a repair or confirm that arrival requirements have been met. Each person sees a different part of the same day.</p><p>My work in vacation rentals has made the coordination around a reservation familiar. Dates are important, but so are the things those dates ask people to do. A calendar can show a stay perfectly clearly while leaving the team to work out the rest somewhere else.</p><p>CheckInn brings the stay and its surrounding work into one operational record. That still leaves a design problem: the person planning the week and the person preparing a home need different views. I’m building those views together, so they can share an understanding of the stay without having to sort through everything the other person needs.</p></div>
+<div class="haven-prose reveal"><p>A guest leaves in the morning and another arrives that afternoon. Between those two events, the home needs to be cleaned, inspected, and ready to use. Someone may also need to follow up on a repair or confirm an arrival requirement. Each person sees a different part of the same day.</p><p>My work in vacation rentals has made that coordination familiar. Dates are important, but so are the things those dates ask people to do. A calendar can show a stay clearly while leaving the team to work out the rest somewhere else.</p><p>CheckInn connects the reservation to the home, its guest party, and the work around arrival and departure. Each workspace presents the part relevant to its user, so someone planning the week and someone preparing a home can work from the same underlying records.</p></div>
 <blockquote class="haven-thesis reveal">
 <span class="kicker">The question behind CheckInn</span>
 <p>Can the next person see what is ready, what is still needed, and where their part of the work begins?</p>
 </blockquote>
 </div>
-<div class="haven-principles"><article class="reveal"><span class="haven-principle-number">01</span><h3>Keep the day in view.</h3><p>Bring arrivals, departures, same-day turns, and items needing attention together, so the team can see where the work overlaps.</p></article><article class="reveal"><span class="haven-principle-number">02</span><h3>Make room to look closer.</h3><p>Keep the calendar’s place when someone filters the view or opens a unit profile. A closer look should not require starting over.</p></article><article class="reveal"><span class="haven-principle-number">03</span><h3>Show what the status means.</h3><p>Distinguish a confirmed stay, a temporary hold, an owner block, and a maintenance block with labels and icons as well as color.</p></article></div>
+<div class="haven-principles"><article class="reveal"><span class="haven-principle-number">01</span><h3>The whole operating day</h3><p>Today brings arrivals, departures, same-day turns, and outstanding work together. Each property retains its local dates and time zone, so the portfolio view keeps the timing meaningful.</p></article><article class="reveal"><span class="haven-principle-number">02</span><h3>Context while looking closer</h3><p>The calendar retains the selected unit and dates while the operator filters the view or opens a profile. Returning to the broader view preserves their place.</p></article><article class="reveal"><span class="haven-principle-number">03</span><h3>Status in words and symbols</h3><p>A confirmed stay, a temporary hold, an owner block, and a maintenance block mean different things. Labels and icons accompany color so those distinctions remain readable.</p></article></div>
 </div>
 </section>
 <section class="haven-section haven-section--ink" id="lifecycle">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">02 · Following a stay</span>
-<h2>The dates set other work in motion.</h2>
-<p>I use the full stay as the frame for the product: making time available, recording a reservation, preparing the home, and getting it ready again after departure. The purpose of connecting those stages is to make the handoffs easier to see.</p>
+<span class="kicker">02 · Booking flow</span>
+<h2>From available nights to a confirmed stay.</h2>
+<p>The basic unit of availability is one property unit for one night. A hold temporarily reserves those nights while an operator records the guest party and reviews a quote. Confirmation connects that inventory and the accepted terms to a lasting reservation record. The stay then gives the team a shared frame for preparation, arrival, and departure.</p>
 </div>
-<ol aria-label="CheckInn product model for the full stay lifecycle" class="haven-lifecycle"><li><span>01</span><strong>Plan</strong><small>Understand the available nights and conditions of a stay.</small></li><li><span>02</span><strong>Connect</strong><small>Know which source each block of time came from.</small></li><li><span>03</span><strong>Reserve</strong><small>Keep the guest, dates, and agreed quote together.</small></li><li><span>04</span><strong>Prepare</strong><small>Check the work and requirements for arrival.</small></li><li><span>05</span><strong>Host</strong><small>Follow the stay and the needs that arise.</small></li><li><span>06</span><strong>Turn</strong><small>Clean, inspect, and resolve what the next arrival needs.</small></li></ol>
-</div>
+<ol aria-label="From finding available nights through booking, arrival, and turnover" class="haven-lifecycle"><li><span>01</span><strong>Find</strong><small>Choose a unit and available nights for the party.</small></li><li><span>02</span><strong>Hold</strong><small>Reserve those nights temporarily while reviewing the stay.</small></li><li><span>03</span><strong>Confirm</strong><small>Commit the guest party and accepted quote to the reservation.</small></li><li><span>04</span><strong>Prepare</strong><small>Complete the work and requirements for arrival.</small></li><li><span>05</span><strong>Host</strong><small>Record arrival, follow the stay, and handle emerging needs.</small></li><li><span>06</span><strong>Turn</strong><small>Clean and inspect the home for the next arrival.</small></li></ol>
+<div class="checkinn-booking-notes">
+<article class="reveal"><h3>A hold has an expiry.</h3><p>The server controls the hold’s lifetime. Confirmation converts the existing inventory claim without releasing the nights between steps. An expired hold requires availability to be checked again.</p></article>
+<article class="reveal"><h3>A quote preserves the agreement.</h3><p>Acceptance records a specific version of the nights, charges, taxes, discounts, and terms. Changing the stay or party requires a new quote and acceptance.</p></article>
+<article class="reveal"><h3>Confirmation has a clear boundary.</h3><p>The reservation, accepted prices, amount due, inventory claim, and command receipt commit together. The amount due records an obligation; collecting a payment is a separate operation.</p></article>
+</div></div>
 </section>
-<section class="haven-section">
+<section class="haven-section" id="workspaces">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">Different views of the work</span>
-<h2>The question changes with the person asking.</h2>
-<p>A broad calendar helps someone plan across properties. On a phone, the same information becomes a list of units and dates that can be used without shrinking the whole desktop into a few inches. The other workspaces follow that same idea: keep the shared record, and change the view to suit the task.</p>
+<span class="kicker">03 · Workspaces</span>
+<h2>A shared record, shaped around each task.</h2>
+<p>The calendar supports planning across properties. On a phone, it becomes a list of units and dates suited to a smaller screen. Each workspace follows the same principle: preserve the shared information and present the details needed for the task at hand.</p>
 </div>
-<div class="checkinn-surface-grid"><article class="reveal"><span>01</span><h3>Today</h3><p>Who is arriving, who is leaving, and which work needs attention now?</p></article><article class="reveal"><span>02</span><h3>Calendar</h3><p>Which nights are committed, held, or blocked, and what is behind each one?</p></article><article class="reveal"><span>03</span><h3>Reservations</h3><p>What was agreed for this stay, and what has changed since it was booked?</p></article><article class="reveal"><span>04</span><h3>Guests</h3><p>What guest information does this task require, and who is allowed to see it?</p></article><article class="reveal"><span>05</span><h3>Arrivals</h3><p>Is this home ready for the guest, and what still stands in the way?</p></article><article class="reveal"><span>06</span><h3>Housekeeping</h3><p>Who is doing the turn, what has been completed, and what needs inspection?</p></article><article class="reveal"><span>07</span><h3>Operations</h3><p>Which repairs or other tasks affect the home, the team, or the next arrival?</p></article></div>
+<div class="checkinn-surface-grid"><article class="reveal"><span>01</span><h3>Today</h3><p>Arrivals, departures, same-day turns, and an ordered queue of work needing attention.</p></article><article class="reveal"><span>02</span><h3>Calendar</h3><p>Available, reserved, held, and blocked nights, with the source and details behind each entry.</p></article><article class="reveal"><span>03</span><h3>Reservations</h3><p>The guest party, accepted terms, charges, and a history of changes to the stay.</p></article><article class="reveal"><span>04</span><h3>Guests</h3><p>Guest and party records, with access limited by the operator’s permissions and assigned units.</p></article><article class="reveal"><span>05</span><h3>Arrivals</h3><p>Readiness for each stay, the requirements still outstanding, and the actions currently available.</p></article><article class="reveal"><span>06</span><h3>Housekeeping</h3><p>Cleaner assignments, deadlines, checklists, inspection results, and any rework before completion.</p></article><article class="reveal"><span>07</span><h3>Operations</h3><p>Maintenance and other property work, including repairs that affect whether a home is ready for arrival.</p></article></div>
 </div>
 </section>
-<section id="product-tour" class="haven-section haven-section--soft" aria-labelledby="checkinn-tour-title">
-      <div class="wrap">
-        <div class="haven-section-head reveal">
-          <span class="kicker">Inside CheckInn</span>
-          <h2 id="checkinn-tour-title">Follow the work through the application.</h2>
-          <p>From the first look at the day to the next property turn, these screens show how CheckInn keeps the team in context. All images were captured from the running application using synthetic practice data.</p>
-        </div>
-
-        <article class="reveal" aria-labelledby="checkinn-today-title">
-          <div class="haven-prose">
-            <h3 id="checkinn-today-title">Start with what needs attention.</h3>
-            <p>Today brings arrivals, departures, same-day turns, and readiness into one view. Each row gives the operator a direct path to the next piece of work.</p>
-          </div>
-          <figure class="checkinn-product-frame">
-            <a href="../assets/img/checkinn/today.png" target="_blank" rel="noopener" aria-label="Open the CheckInn Today screenshot at full size in a new tab">
-              <img src="../assets/img/checkinn/today.png" alt="CheckInn Today workspace showing arrival and departure counts, same-day turns, an ordered work queue, and unit timezones" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-            </a>
-            <figcaption>Daily overview: priorities, readiness, and the handoff to housekeeping or arrivals.</figcaption>
-          </figure>
-        </article>
-
-        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-reservation-title">
-          <div class="haven-prose">
-            <h3 id="checkinn-reservation-title">Keep the stay together.</h3>
-            <p>The reservation record connects dates, guest party, charges, and balance with the stay's access and service history. The essentials stay visible as the operator moves into the details.</p>
-          </div>
-          <figure class="checkinn-product-frame">
-            <a href="../assets/img/checkinn/reservation-detail.png" target="_blank" rel="noopener" aria-label="Open the CheckInn reservation screenshot at full size in a new tab">
-              <img src="../assets/img/checkinn/reservation-detail.png" alt="CheckInn sample reservation record showing a confirmed four-night stay, two guests, charges, outstanding balance, and protected access status" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-            </a>
-            <figcaption>Reservation detail: the stay, party, economics, and access context in one record.</figcaption>
-          </figure>
-        </article>
-
-        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-arrivals-title">
-          <div class="haven-prose">
-            <h3 id="checkinn-arrivals-title">Know what is ready before the guest arrives.</h3>
-            <p>The arrival queue pairs each stay with its current readiness. Selecting a property brings its requirements and available actions into view, including the work still holding up entry.</p>
-          </div>
-          <figure class="checkinn-product-frame">
-            <a href="../assets/img/checkinn/arrivals.png" target="_blank" rel="noopener" aria-label="Open the CheckInn arrivals screenshot at full size in a new tab">
-              <img src="../assets/img/checkinn/arrivals.png" alt="CheckInn arrivals queue with Ocean Suite selected, a housekeeping blocker, readiness counts, and contextual arrival actions" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-            </a>
-            <figcaption>Arrival readiness: the selected stay, its blocker, and the next available action.</figcaption>
-          </figure>
-        </article>
-
-        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-housekeeping-title">
-          <div class="haven-prose">
-            <h3 id="checkinn-housekeeping-title">Give every turn an owner and a next step.</h3>
-            <p>The turnover board brings assignments, ready-by times, and checklist progress together. Teams can see which homes need a cleaner, which are in progress, and which require another inspection.</p>
-          </div>
-          <figure class="checkinn-product-frame">
-            <a href="../assets/img/checkinn/housekeeping.png" target="_blank" rel="noopener" aria-label="Open the CheckInn housekeeping screenshot at full size in a new tab">
-              <img src="../assets/img/checkinn/housekeeping.png" alt="CheckInn housekeeping workspace showing turn counts and an assigned turnover queue with cleaner names, deadlines, progress, and rework status" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-            </a>
-            <figcaption>Housekeeping: assignments, deadlines, and progress across the property turn.</figcaption>
-          </figure>
-        </article>
-
-        <article class="reveal" style="margin-top:3rem" aria-labelledby="checkinn-pricing-title">
-          <div class="haven-prose">
-            <h3 id="checkinn-pricing-title">Make pricing decisions with the evidence in view.</h3>
-            <p>Suggested prices sit beside the current rate and their review status. This practice screen also makes clear when a recommendation cannot be supported and keeps approval separate from changing a live price.</p>
-          </div>
-          <figure class="checkinn-product-frame">
-            <a href="../assets/img/checkinn/pricing.png" target="_blank" rel="noopener" aria-label="Open the CheckInn pricing screenshot at full size in a new tab">
-              <img src="../assets/img/checkinn/pricing.png" alt="CheckInn pricing workspace comparing current and suggested nightly rates with needs-review, approved, declined, overridden, and unavailable states" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-            </a>
-            <figcaption>Pricing review: synthetic scenarios showing recommendations, decisions, and the reasons a suggestion may be withheld.</figcaption>
-          </figure>
-        </article>
-      </div>
-    </section>
-
-    
+<section aria-labelledby="checkinn-tour-title" class="haven-section haven-section--soft" id="product-tour">
+<div class="wrap">
+<div class="haven-section-head reveal">
+<span class="kicker">04 · Inside CheckInn</span>
+<h2 id="checkinn-tour-title">Follow the work through the application.</h2>
+<p>These screens follow the work from the daily overview to the next property turn. They were captured from the running development application using synthetic practice data. Select a screenshot to inspect it at full size.</p>
+</div>
+<article aria-labelledby="checkinn-today-title" class="reveal">
+<div class="haven-prose">
+<h3 id="checkinn-today-title">See the day’s work in one place.</h3>
+<p>Today brings arrivals, departures, same-day turns, and readiness into one view. The work queue orders items by urgency and timing, with a direct route to the relevant stay or task.</p>
+</div>
+<figure class="checkinn-product-frame">
+<a aria-label="Open the CheckInn Today screenshot at full size in a new tab" href="../assets/img/checkinn/today.png" rel="noopener" target="_blank">
+<img alt="CheckInn Today workspace showing arrival and departure counts, same-day turns, an ordered work queue, and unit timezones" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/today.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Daily overview: priorities, readiness, and the handoff to housekeeping or arrivals.</figcaption>
+</figure>
+</article>
+<article aria-labelledby="checkinn-reservation-title" class="reveal" style="margin-top:3rem">
+<div class="haven-prose">
+<h3 id="checkinn-reservation-title">Keep the agreement and its changes together.</h3>
+<p>The reservation record brings the dates, guest party, charges, amount due, and access status together. A change is previewed before it is committed, and previous versions remain in the history. Cancelling a stay records its effect on inventory and amounts due; any refund requires separate payment processing.</p>
+</div>
+<figure class="checkinn-product-frame">
+<a aria-label="Open the CheckInn reservation screenshot at full size in a new tab" href="../assets/img/checkinn/reservation-detail.png" rel="noopener" target="_blank">
+<img alt="CheckInn sample reservation record showing a confirmed four-night stay, two guests, charges, outstanding balance, and protected access status" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/reservation-detail.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Reservation detail: the stay, party, economics, and access context in one record.</figcaption>
+</figure>
+</article>
+<article aria-labelledby="checkinn-arrivals-title" class="reveal" style="margin-top:3rem">
+<div class="haven-prose">
+<h3 id="checkinn-arrivals-title">See what is holding up an arrival.</h3>
+<p>The arrival queue pairs each stay with its readiness. Selecting a stay reveals the outstanding requirements and available actions. In this example, housekeeping still needs attention before the guest can be checked in.</p>
+</div>
+<figure class="checkinn-product-frame">
+<a aria-label="Open the CheckInn arrivals screenshot at full size in a new tab" href="../assets/img/checkinn/arrivals.png" rel="noopener" target="_blank">
+<img alt="CheckInn arrivals queue with Ocean Suite selected, a housekeeping blocker, readiness counts, and contextual arrival actions" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/arrivals.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Arrival readiness: the selected stay, its blocker, and the next available action.</figcaption>
+</figure>
+</article>
+<article aria-labelledby="checkinn-housekeeping-title" class="reveal" style="margin-top:3rem">
+<div class="haven-prose">
+<h3 id="checkinn-housekeeping-title">Follow the turn from assignment through inspection.</h3>
+<p>The turnover board connects cleaner assignments, ready-by times, and checklist progress. Cleaning, inspection, rework, and completion remain distinct stages. When an inspection fails, the cleaner resolves the rework and the home is inspected again.</p>
+</div>
+<figure class="checkinn-product-frame">
+<a aria-label="Open the CheckInn housekeeping screenshot at full size in a new tab" href="../assets/img/checkinn/housekeeping.png" rel="noopener" target="_blank">
+<img alt="CheckInn housekeeping workspace showing turn counts and an assigned turnover queue with cleaner names, deadlines, progress, and rework status" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/housekeeping.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Housekeeping: assignments, deadlines, and progress across the property turn.</figcaption>
+</figure>
+</article>
+<article aria-labelledby="checkinn-pricing-title" class="reveal" id="pricing-review" style="margin-top:3rem">
+<div class="haven-prose">
+<h3 id="checkinn-pricing-title">Review a price alongside its supporting evidence.</h3>
+<p>Pricing runs in shadow mode: it produces a recommendation or records why it cannot support one, without publishing a rate. The decision retains its input snapshot and model version so it can be reproduced. The current model uses a simple calculation to exercise this review process; pricing quality still needs evaluation.</p>
+</div>
+<figure class="checkinn-product-frame">
+<a aria-label="Open the CheckInn pricing screenshot at full size in a new tab" href="../assets/img/checkinn/pricing.png" rel="noopener" target="_blank">
+<img alt="CheckInn pricing workspace comparing current and suggested nightly rates with needs-review, approved, declined, overridden, and unavailable states" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/pricing.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Pricing review: synthetic scenarios showing recommendations, decisions, and the reasons a suggestion may be withheld.</figcaption>
+</figure>
+</article>
+</div>
+</section>
 <section class="haven-section haven-section--soft" id="connections">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">03 · What a connection can tell us</span>
+<span class="kicker">05 · Connections</span>
 <h2>A blocked night does not tell the whole story.</h2>
-<p>A calendar feed may tell CheckInn that a night is unavailable. It may say very little about the guest, the price, or the reason. I keep that distinction in the data and the interface, so a limited connection does not acquire more meaning than the information it supplies.</p>
+<p>A calendar feed can establish that a night is unavailable without supplying the guest, price, or reason. CheckInn records what the source actually provides. The imported block stays labeled with its origin and freshness, so an operator can see how much the connection establishes.</p>
 </div>
-<div class="checkinn-adoption-grid"><article class="reveal"><span>Local stays</span><h3>Start with a record CheckInn owns.</h3><p>The development build records local reservations with temporary holds, guest details, quote evidence, and confirmation. Changes and cancellations retain their history.</p></article><article class="reveal"><span>Calendar feeds</span><h3>Keep the source visible.</h3><p>Availability-only import and export are implemented with controlled test feeds. Imported events create labeled inventory blocks; they do not invent guest or payment records.</p></article><article class="reveal"><span>Provider connections</span><h3>Add detail when it is supported.</h3><p>Richer Airbnb, Vrbo, and other channel connections remain planned work, dependent on approved access and the information each provider can supply.</p></article></div>
-<div aria-label="Planned connection model: CheckInn records direct stays and is designed to connect with approved booking providers, HAVEN, messaging, and reporting services." class="checkinn-connection-map reveal" role="img">
+<div class="checkinn-adoption-grid"><article class="reveal"><span>Local stays</span><h3>A complete local reservation</h3><p>An operator can create a local stay with a temporary hold, guest party, accepted quote, and confirmation. Changes and cancellations preserve earlier versions and the reasons for the change.</p></article><article class="reveal"><span>Calendar feeds</span><h3>Availability with a known source</h3><p>Calendar import and export are implemented with controlled test feeds. Imported events create labeled inventory blocks. Reconciliation handles changed or removed events while retaining their source history.</p></article><article class="reveal"><span>Provider connections</span><h3>Richer connections in rehearsal</h3><p>The development branch includes provider adapters and a channel administration view exercised against simulated services. Live Airbnb, Vrbo, and other provider connections still depend on access, integration, and provider validation.</p></article></div>
+<div aria-label="Planned external connections: direct reservations and approved booking providers feed CheckInn operations; accounting facts, messages, and reports go to separate services." class="checkinn-connection-map reveal" role="img">
 <div><span>Airbnb</span><span>Vrbo</span><span>Direct</span></div>
 <b aria-hidden="true">→</b>
 <strong>CheckInn</strong>
 <b aria-hidden="true">→</b>
 <div><span>HAVEN</span><span>Messaging</span><span>Reporting</span></div>
-</div><p class="haven-caption">Connection design. The provider and external-service links shown here are planned integrations.</p>
+</div><p class="haven-caption">External connection model. Direct reservations work locally; the provider and external-service connections shown here remain planned live integrations.</p>
 <div class="haven-honesty reveal">
-<strong>Current development scope</strong>
-<span>The working build is exercised with practice data and test adapters. Live channel, payment, messaging, access, and HAVEN connections still require separate integration and deployment work.</span>
+<strong>Development boundary</strong>
+<span>The application uses practice data, controlled feeds, and simulated services. Live channel, payment, messaging, access, and HAVEN connections require further integration and deployment work.</span>
 </div>
 <figure class="checkinn-product-frame reveal" style="margin-top:2rem">
-          <a href="../assets/img/checkinn/channels.png" target="_blank" rel="noopener" aria-label="Open the CheckInn channels screenshot at full size in a new tab">
-            <img src="../assets/img/checkinn/channels.png" alt="CheckInn practice channel administration showing delivery status, confirmed changes, pending decisions, and supported channel capabilities" width="1600" height="1000" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-          </a>
-          <figcaption>Channel administration: a simulated connection showing supported capabilities, delivery evidence, and work awaiting a decision.</figcaption>
-        </figure>
+<a aria-label="Open the CheckInn channels screenshot at full size in a new tab" href="../assets/img/checkinn/channels.png" rel="noopener" target="_blank">
+<img alt="CheckInn practice channel administration showing delivery status, confirmed changes, pending decisions, and supported channel capabilities" decoding="async" height="1000" loading="lazy" src="../assets/img/checkinn/channels.png" style="display:block;width:100%;height:auto" width="1600"/>
+</a>
+<figcaption>Channel administration: a simulated connection showing supported capabilities, delivery evidence, and work awaiting a decision.</figcaption>
+</figure>
 </div>
 </section>
 <section class="haven-section" id="architecture">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">04 · How it is built</span>
-<h2>The stay needs a record of its own.</h2>
-<p>A reservation should remain understandable when an outside service is unavailable. CheckInn keeps its own operational records and commits a local booking independently of HAVEN. The accounting facts and attempts to deliver them are tracked separately from the booking itself.</p>
+<span class="kicker">06 · Engineering</span>
+<h2>Protect the booking. Preserve the explanation.</h2>
+<p>I separate the operator’s view of a stay from the checks that authorize a change. The interface explains the action; the API and database validate the current records before committing it. That distinction matters when two people act at once, information changes after a preview, or a response is lost.</p>
 </div>
-<div aria-label="CheckInn architecture: local stays and planned provider connections lead into CheckInn’s own operational database, with shared workspaces and separate external consumers." class="haven-architecture reveal" role="img">
+<div aria-label="CheckInn owns the operational database for units, inventory, reservations, guests, and property work. Workspaces read those records; external services connect through separate adapters and versioned facts." class="haven-architecture reveal" role="img">
 <div class="haven-arch-layer">
-<span class="haven-arch-label">Local stays &amp; planned channels</span>
-<div><span>Direct stays</span><span>Airbnb</span><span>Vrbo</span><span>Future channels</span></div>
+<span class="haven-arch-label">Sources and entry points</span>
+<div><span>Local reservations</span><span>Controlled calendar feeds</span><span>Planned live providers</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↓</span>
 <div class="haven-arch-layer haven-arch-layer--blue">
-<span class="haven-arch-label">Connection boundaries</span>
-<div><span>Provider adapters</span><span>Calendar feeds</span><span>External references</span><span>Source history</span></div>
+<span class="haven-arch-label">Connection handling</span>
+<div><span>Provider adapters</span><span>Source references</span><span>Reconciliation</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↓</span>
 <div class="haven-arch-layer haven-arch-layer--navy">
-<span class="haven-arch-label">CheckInn records &amp; database</span>
-<div><span>Units</span><span>Inventory</span><span>Reservations</span><span>Guests</span><span>Operations</span></div>
+<span class="haven-arch-label">CheckInn’s own PostgreSQL database</span>
+<div><span>Units</span><span>Inventory claims</span><span>Reservations</span><span>Guest parties</span><span>Property work</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↓</span>
 <div class="haven-arch-layer haven-arch-layer--green">
-<span class="haven-arch-label">Views &amp; external consumers</span>
-<div><span>Workspaces</span><span>Accounting events</span><span>HAVEN connection</span><span>Future services</span></div>
+<span class="haven-arch-label">Views and delivery</span>
+<div><span>Operator workspaces</span><span>Versioned accounting facts</span><span>Delivery receipts</span></div>
 </div>
 </div>
-<div class="haven-tech-grid"><article class="reveal"><span class="kicker">Interface</span><h3>One record, different views</h3><p>Next.js and TypeScript support the calendar, reservation flow, and daily workspaces. Shared components keep selection, status, and recovery behavior consistent across them.</p></article><article class="reveal"><span class="kicker">Commands</span><h3>Check again before changing the stay.</h3><p>The API checks permissions, record versions, and inventory when a change is committed. A preview helps explain the decision, but cannot replace that final check.</p></article><article class="reveal"><span class="kicker">Operational data</span><h3>Keep the responsibilities clear.</h3><p>CheckInn has its own PostgreSQL database. The planned HAVEN connection uses defined accounting events, with each system keeping its own records.</p></article><article class="reveal"><span class="kicker">Pricing research</span><h3>Leave room to question a suggestion.</h3><p>The pricing prototype explores how suggested rates can be reviewed alongside their supporting inputs and reasons to abstain. The current model is a placeholder, and review interactions remain in development. It does not publish rates.</p></article></div>
+<div class="haven-tech-grid"><article class="reveal"><span class="kicker">Interface and API</span><h3>Shared contracts connect the workspaces.</h3><p>Next.js and React provide the interface; NestJS on Fastify handles the API. TypeScript and a client generated from OpenAPI carry the request and response definitions between them. Shared components give status, selection, and recovery a consistent presentation.</p></article>
+<article class="reveal"><span class="kicker">Inventory</span><h3>The database checks overlapping nights.</h3><p>A PostgreSQL exclusion constraint rejects overlapping active claims for the same unit’s inventory. It covers competing writes as they reach the database. Stay dates include arrival and exclude departure, allowing a departure and the next arrival to share a date.</p></article>
+<article class="reveal"><span class="kicker">Changes and history</span><h3>A preview is checked again at commit.</h3><p>Moving or cancelling a reservation rechecks permissions, record versions, inventory, and the exact preview. An accepted change appends a new version and updates the inventory in one transaction. Earlier versions preserve what was agreed and how it changed.</p></article>
+<article class="reveal"><span class="kicker">Accounting delivery</span><h3>An uncertain response needs an answer.</h3><p>CheckInn confirms a local booking independently of HAVEN and queues immutable accounting facts separately. If delivery is uncertain, the adapter reads back the destination’s records. A resend requires complete evidence of absence and recorded operator authorization. This workflow is implemented against a simulated destination; live HAVEN integration remains ahead.</p></article></div>
 </div>
 </section>
 <section class="haven-section haven-section--ink" id="trust">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">05 · Getting ready</span>
-<h2>Ready should mean something.</h2>
-<p>A home can be vacant and still have work waiting inside it. CheckInn derives arrival readiness from the requirements for that stay, including housekeeping, inspection, operational blockers, and applicable payment, agreement, and access checks. Missing information remains a reason to look closer.</p>
+<span class="kicker">07 · Arrival readiness</span>
+<h2>Readiness comes from completed requirements.</h2>
+<p>A vacant home may still need cleaning or a repair. CheckInn derives readiness from the stay’s required checks: housekeeping, inspection, operational blockers, and applicable payment, agreement, and access conditions. The check-in command rechecks those records before accepting the arrival. Missing or outdated information remains visible and blocks the action until resolved.</p>
 </div>
-<div class="haven-controls"><article class="reveal"><span>Housekeeping</span><h3>Cleaning is one stage of the turn.</h3><p>The workflow distinguishes cleaning, inspection, rework, and completion. When an inspection is required, a separate person must record the passing result.</p></article><article class="reveal"><span>Maintenance</span><h3>A repair belongs in the arrival picture.</h3><p>Open safety work and readiness blockers affect whether a guest can be checked in. Completing one task does not clear other requirements still waiting on the home.</p></article><article class="reveal"><span>Freshness</span><h3>An old answer may need checking.</h3><p>The screens identify stale or unknown information and pause consequential actions until current records can be checked. A missing result is not treated as ready.</p></article><article class="reveal"><span>Recovery</span><h3>A lost response should not mean starting again.</h3><p>Commands retain a receipt that can be checked when a response is lost. An exact retry returns the original result, helping avoid a second action when the first already succeeded.</p></article></div>
+<div class="haven-controls"><article class="reveal"><span>Housekeeping</span><h3>Completion includes the inspection.</h3><p>When inspection is required, an assigned inspector separate from the cleaner must record a passing result. Required checklist items, evidence, and rework also have to be resolved before the turn is complete.</p></article><article class="reveal"><span>Maintenance</span><h3>Repairs can block arrival.</h3><p>Open safety work and maintenance blockers contribute to readiness. Completing one repair removes only its own contribution; other outstanding requirements continue to hold up check-in.</p></article><article class="reveal"><span>Freshness</span><h3>Current information governs the action.</h3><p>Stale, unknown, or disconnected views identify what needs refreshing and disable consequential actions. The operational workflows require an online check of the current records before a change can be recorded.</p></article><article class="reveal"><span>Recovery</span><h3>A saved receipt resolves a lost response.</h3><p>A command receipt records the result of an action. If the response is lost, the client checks that receipt. Retrying the same command with the same key returns the original result without performing the action twice.</p></article></div>
 <div class="checkinn-trust-strip reveal"><span>Clear assignments</span><span>Separate inspections</span><span>Visible blockers</span><span>Current status</span><span>Traceable changes</span></div>
 </div>
 </section>
-<section class="haven-section">
+<section class="haven-section" id="project-status">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">06 · What I’m working toward</span>
+<span class="kicker">08 · Project status</span>
 <h2>The guest arrives. The team knows where things stand.</h2>
 </div>
 <div class="haven-reflection">
-<div class="haven-prose reveal"><p>The experience I’m working toward is quite ordinary: someone can look at the day, understand their part in it, and get on with the work. The person preparing the home should be able to see what needs attention. The person handling the arrival should be able to tell what is ready and why.</p><p>That is what connects the calendar to the rest of CheckInn. Each reservation belongs to a home, and each home has people looking after it. The software needs to keep those relationships understandable as the day changes around them.</p></div>
+<div class="haven-prose reveal"><p>The development build brings reservations, calendar availability, guest records, arrivals, housekeeping, and maintenance into connected workflows. Pricing review and external delivery are exercised with controlled inputs and simulated services. Production deployment and live provider connections remain the next stage.</p><p>The experience I’m working toward is quite ordinary: someone can look at the day, understand their part in it, and get on with the work. Each reservation belongs to a home, and each home has people looking after it. CheckInn needs to keep those relationships understandable as the day changes around them.</p></div>
 <aside class="haven-next reveal">
-<span class="kicker">Where the work meets HAVEN</span>
-<h3>From the stay to its financial story</h3>
-<p>CheckInn follows the stay and the work around it. HAVEN follows the financial records and their evidence. The planned connection lets the two exchange accounting facts while keeping each system responsible for its own work.</p>
+<span class="kicker">The accounting boundary</span>
+<h3>From the stay to its financial records</h3>
+<p>CheckInn owns the reservation and its operational history. HAVEN owns separate accounting records and their evidence. The planned live connection will deliver versioned accounting facts through an API, with each product keeping its own database and responsibilities.</p>
 <a class="haven-button haven-button--primary" href="../work/haven.html">Read the HAVEN case study <span aria-hidden="true">→</span></a>
 </aside>
 </div>
