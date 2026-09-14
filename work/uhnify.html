@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>UHnify: Campus Engagement · Christian Joudon</title>
-<meta name="description" content="A full stack club discovery platform for University of Hawaiʻi at Mānoa students: search and filter every registered organization, join the ones that fit, and follow their events from one reactive calendar.">
+<meta name="description" content="A student club platform for the University of Hawaiʻi at Mānoa: browse organizations, keep track of joined clubs, and see their events in a personal calendar.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,45 +30,34 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2023 · Full Stack</span>
+<div class="detail-head">
+      <span class="kicker">2023 · Full Stack · Team Project</span>
       <h1>UHnify: Campus Engagement</h1>
-      <p class="detail-lead">A full stack club discovery platform for University of Hawaiʻi at Mānoa students: search and filter every registered organization, join the ones that fit, and follow their events from one reactive calendar.</p>
-      <div class="detail-links"><a class="linkbtn" href="https://uhnify.online" target="_blank" rel="noopener">Live site<span class="arr">↗</span></a><a class="linkbtn" href="https://uhnify.github.io/" target="_blank" rel="noopener">Project page<span class="arr">↗</span></a></div>
-      <div class="tags"><span class="tag">Meteor</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">SimpleSchema</span><span class="tag">FullCalendar</span><span class="tag">RBAC</span></div>
+      <p class="detail-lead">A student club platform for the University of Hawaiʻi at Mānoa: browse organizations, keep track of joined clubs, and see their events in a personal calendar.</p>
+      <div class="detail-links"><a class="linkbtn" href="https://uhnify.github.io/" target="_blank" rel="noopener noreferrer">Project documentation<span class="arr" aria-hidden="true">↗</span></a><a class="linkbtn" href="https://github.com/uhnify/uhnify" target="_blank" rel="noopener noreferrer">Source code<span class="arr" aria-hidden="true">↗</span></a></div>
+      <div class="tags"><span class="tag">Meteor</span><span class="tag">React</span><span class="tag">MongoDB</span><span class="tag">SimpleSchema</span><span class="tag">FullCalendar</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/uhnify.jpg" alt="UHnify: Campus Engagement"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/uhnify.jpg" alt="Concept illustration of a UHnify club directory, joined clubs, and upcoming campus events." width="1600" height="1066">
+      <figcaption>Concept illustration of club discovery and events. The project documentation shows the original student application.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>UHnify is a full stack club discovery platform for University of Hawaiʻi at Mānoa students. It lets them search and filter every registered organization, join the ones that fit, and follow their events from one reactive calendar. It was a team project where I worked on the interface and the real time data layer.</p>
-<h2>Stack</h2>
-<ul>
-<li><strong>Runtime and data:</strong> Meteor 2.13 (isomorphic JavaScript) on MongoDB, with reactive publications and subscriptions.</li>
-<li><strong>Frontend:</strong> React 18, React Router 6, and React-Bootstrap on Bootstrap 5.</li>
-<li><strong>Forms and validation:</strong> Uniforms 3 with SimpleSchema, wired to collections through collection2.</li>
-<li><strong>Calendar:</strong> FullCalendar 6 in a day grid month view.</li>
-<li><strong>Auth:</strong> Meteor accounts-password with alanning:roles for role based access.</li>
-</ul>
-<h2>Architecture</h2>
-<ul>
-<li><strong>Server authoritative writes:</strong> every mutation runs through a Meteor method with check-validated arguments, and the insecure package is removed so no client writes to the database directly. Methods are isomorphic, giving latency compensated optimistic UI.</li>
-<li><strong>Schema enforced collections:</strong> all six collections attach a SimpleSchema through collection2, validating documents on insert and update across client and server from one schema definition.</li>
-<li><strong>Normalized relational model:</strong> memberships and event ownership are modeled with dedicated join collections (ProfileClubs, EventClubs) rather than embedded arrays, keeping the many to many relationships queryable.</li>
-<li><strong>Scoped reactive data:</strong> each page subscribes only to the publications it needs, and consumes them through react-meteor-data's useTracker.</li>
-<li><strong>Role based access control:</strong> an admin role gates the admin dashboard and destructive actions behind protected routes and a dedicated not-authorized screen.</li>
-</ul>
-<h2>Core features</h2>
-<ul>
-<li><strong>Directory:</strong> keyword search, multi category filtering, and pagination across the full club catalog, each entry with a details modal and per user join and leave state.</li>
-<li><strong>Personal dashboard:</strong> "My Clubs" tracks memberships, and "My Events" aggregates events from joined clubs into a FullCalendar month view.</li>
-<li><strong>Creation and admin flows:</strong> members create clubs and events through schema generated forms, and admins have full CRUD over clubs, events, and member profiles.</li>
-</ul>
-<h2>Frontend and performance</h2>
-<ul>
-<li><strong>Token driven design system:</strong> a single stylesheet defines the color, type scale, spacing, and elevation tokens behind a consistent component language, on a three face typographic system.</li>
-<li><strong>Accessible by default:</strong> visible keyboard focus, prefers-reduced-motion support, and responsive layouts down to mobile.</li>
-<li><strong>Optimized asset pipeline:</strong> resized and format converted the image set, migrating every reference and cutting the served image payload by roughly 85%.</li>
-</ul>
+      <h2>From finding a club to following its events</h2>
+      <p>Discovering an organization is one part of getting involved. Remembering which groups interested you and finding their next events creates another task. UHnify brings those activities into one application for Mānoa students.</p>
+      <p>This was a 2023 team project. I worked on the interface and reactive data layer, helping connect club discovery, membership records, and event views.</p>
+      <h2>A directory that leads somewhere</h2>
+      <p>The club finder supports search by name, category filters, and pagination. A student can open a club’s details from the results and add it to their profile. The interface then provides two personal views: <strong>My Clubs</strong> for the organizations they have joined in the app, and <strong>My Events</strong> for events associated with those clubs.</p>
+      <p>FullCalendar presents the event records in month, week, and day views. That connection gives the directory a practical purpose beyond browsing: a club selection helps determine what appears in the student’s calendar.</p>
+      <h2>The relationships behind the interface</h2>
+      <ul>
+        <li><strong>Clubs and profiles</strong> hold information about organizations and students.</li>
+        <li><strong>ProfileClubs</strong> records the relationship between a student profile and a joined club.</li>
+        <li><strong>EventClubs</strong> connects an event to its club, allowing the personal event view to select events from the student’s memberships.</li>
+      </ul>
+      <p>Meteor publications make data available to the client. React views subscribe to those publications and read the resulting collections through <code>useTracker</code>. This lets the interface respond to changes in the records it is observing.</p>
+      <h2>Creating and maintaining the directory</h2>
+      <p>Club and event forms use Uniforms with SimpleSchema to define their inputs. MongoDB stores the records, while Meteor methods handle actions such as adding and removing a profile’s club membership. The application also includes account sign-in and administration views for maintaining its content.</p>
+      <p>The project brought interface design and data modeling together: the structure used to store a membership also determines how a student moves from the directory to a useful personal view.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -97,3 +87,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

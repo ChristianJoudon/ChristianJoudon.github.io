@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Workflow Automation Dashboard · Christian Joudon</title>
-<meta name="description" content="A no code system tracking construction company payments end to end, with a live analytics dashboard.">
+<meta name="description" content="A connected workflow and dashboard for tracking a construction company’s payment records, reviewing payment status, and exploring where its clients are located.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,33 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2025 · No-Code &amp; Analytics</span>
+<div class="detail-head">
+      <span class="kicker">2025 · Automation &amp; Analytics</span>
       <h1>Workflow Automation Dashboard</h1>
-      <p class="detail-lead">A no code system tracking construction company payments end to end, with a live analytics dashboard.</p>
-      <div class="tags"><span class="tag">Clay</span><span class="tag">Zapier</span><span class="tag">Retool</span><span class="tag">Mapbox</span></div>
+      <p class="detail-lead">A connected workflow and dashboard for tracking a construction company’s payment records, reviewing payment status, and exploring where its clients are located.</p>
+      
+      <div class="tags"><span class="tag">Clay</span><span class="tag">Zapier</span><span class="tag">Google Sheets</span><span class="tag">Retool</span><span class="tag">Mapbox</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/workflow.jpg" alt="Workflow Automation Dashboard"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/workflow.jpg" alt="Concept illustration of a payments dashboard with status summaries, trends, and a client location map." width="1600" height="900">
+      <figcaption>Concept illustration of the dashboard, with illustrative clients, payment records, and metrics.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>A no code pipeline that tracks a construction company’s payments from entry to completion and surfaces the state of everything in a live dashboard, including a map of job sites.</p>
-<h2>What it does</h2>
-<ul>
-<li>Data pipelines built in Clay, Zapier, and Google Sheets.</li>
-<li>A Retool dashboard with a Mapbox client map for a geographic view.</li>
-</ul>
-<h2>How it is built</h2>
-<p>Assembled from no code and low code tools, Clay, Zapier, Google Sheets, Retool, and Mapbox, wired together into one pipeline.</p>
+      <h2>From individual records to a useful overview</h2>
+      <p>A payment record answers a question about one transaction. An operations team also needs to understand the wider picture: payment volume, the mix of statuses, average amounts, and the distribution of clients.</p>
+      <p>I built this system to connect record collection and updates with an interactive Retool dashboard. It combines automation for repeated data handling with views that make the collected information easier to review.</p>
+      <h2>How information reaches the dashboard</h2>
+      <ul>
+        <li><strong>Collect and enrich leads.</strong> Clay supports intake and enrichment, adding context to the records entering the workflow.</li>
+        <li><strong>Carry updates between tools.</strong> Zapier connects workflow steps, including handling new payment records and changes to payment status.</li>
+        <li><strong>Keep the records available.</strong> Google Sheets provides the shared tabular data used in the workflow.</li>
+        <li><strong>Present the operating picture.</strong> Retool brings payment summaries and interactive views into one dashboard.</li>
+      </ul>
+      <h2>Two ways to examine the business</h2>
+      <p>The payment views show volume, status, and averages. A Mapbox view adds client locations, with points that a viewer can interact with to explore their geographic distribution.</p>
+      <p>These views answer related questions at different scales. Payment summaries show the overall mix of recorded activity, while the map helps someone understand where the clients behind that activity are located.</p>
+      <h2>Keeping updates and interpretation connected</h2>
+      <p>The dashboard reflects the information carried through the workflow. Its usefulness depends on keeping those source records current and making their status understandable. Connecting the tools gives the team a shared place to inspect the collected data as the business’s records change.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +86,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

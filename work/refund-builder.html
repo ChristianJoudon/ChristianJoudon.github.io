@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Automated Refund Draft Builder · Christian Joudon</title>
-<meta name="description" content="An internal tool that generates guest specific refund emails with the correct PDF attachments.">
+<meta name="description" content="An internal Hawaii Life tool that prepares Gmail refund notices, pairs each guest with the relevant PDF attachments, and groups the drafts for accounting review.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,31 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2025 · Automation</span>
+<div class="detail-head">
+      <span class="kicker">2025 · Accounting Automation</span>
       <h1>Automated Refund Draft Builder</h1>
-      <p class="detail-lead">An internal tool that generates guest specific refund emails with the correct PDF attachments.</p>
-      <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Gmail API</span><span class="tag">Drive API</span></div>
+      <p class="detail-lead">An internal Hawaii Life tool that prepares Gmail refund notices, pairs each guest with the relevant PDF attachments, and groups the drafts for accounting review.</p>
+      
+      <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Gmail API</span><span class="tag">Drive API</span><span class="tag">HTML Email</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/refund.jpg" alt="Automated Refund Draft Builder"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/refund.jpg" alt="Concept illustration of a guest refund notice being assembled with reservation details and PDF attachments for review." width="1600" height="900">
+      <figcaption>Concept illustration with example reservation details. The implemented workflow prepares email drafts for review.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>An internal tool for Hawaii Life that drafts guest specific refund emails and attaches the right documents automatically, turning a manual and error prone task into a one click draft.</p>
-<h2>What it does</h2>
-<ul>
-<li>Gmail and Drive APIs with recipient and attachment mapping.</li>
-<li>Validation safeguards and branded HTML email formatting.</li>
-</ul>
-<h2>How it is built</h2>
-<p>Built in Google Apps Script against the Gmail and Google Drive APIs.</p>
+      <h2>Keeping the guest and the documents together</h2>
+      <p>Refund communication combines a repetitive writing task with a detail that cannot be treated casually: the message and its attachments must belong to the same guest. Preparing a batch means finding the documents, checking the recipient, composing the notice, and keeping track of what still needs review.</p>
+      <p>I built this tool for Hawaii Life’s reservations accounting work to assemble those pieces in Gmail. The output is a set of guest-specific drafts that Accounting can inspect before sending.</p>
+      <h2>How a draft comes together</h2>
+      <ul>
+        <li><strong>Map the recipient.</strong> Recipient mapping connects the reservation information with the guest who should receive the notice.</li>
+        <li><strong>Find the attachments.</strong> A document index identifies the relevant PDFs in Google Drive. Shortcut handling resolves a Drive shortcut to its target document.</li>
+        <li><strong>Build the message.</strong> Google Apps Script combines the guest’s details, branded HTML, and selected attachments into a Gmail draft.</li>
+        <li><strong>Prepare the batch for review.</strong> Validation safeguards support the assembly process, and labels help Accounting find and review the drafts together.</li>
+      </ul>
+      <h2>Review remains an explicit step</h2>
+      <p>Accounting can check the addressee, wording, and attachments in the email before it goes out. The automation handles the repeated assembly work while keeping the final message available for a person to assess.</p>
+      <p>The tool’s responsibility is refund communication. Payment processing and approval of the refund amount remain in the accounting workflow that supplies the notice.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +84,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>COVID-19 Records: NLP Pipeline · Christian Joudon</title>
-<meta name="description" content="A scalable pipeline turning unstructured medical notes into clean, structured datasets for analysis.">
+<meta name="description" content="A Python pipeline that turns COVID-19 encounter notes into structured records for exploring medications, comorbidities, and demographic trends.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,29 +30,32 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2024 · NLP &amp; Data Engineering</span>
+<div class="detail-head">
+      <span class="kicker">2025 · NLP &amp; Data Engineering</span>
       <h1>COVID-19 Records: NLP Pipeline</h1>
-      <p class="detail-lead">A scalable pipeline turning unstructured medical notes into clean, structured datasets for analysis.</p>
+      <p class="detail-lead">A Python pipeline that turns COVID-19 encounter notes into structured records for exploring medications, comorbidities, and demographic trends.</p>
+      
       <div class="tags"><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">FAISS</span><span class="tag">LLMs</span><span class="tag">Pydantic</span><span class="tag">ETL</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/covid.jpg" alt="COVID-19 Records: NLP Pipeline"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/covid.jpg" alt="Concept illustration of clinical notes moving through extraction, validation, medication matching, and analysis." width="1600" height="900">
+      <figcaption>Concept illustration of the pipeline, with illustrative records and metrics.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>Medical encounter notes are written for people, not databases. This pipeline reads unstructured COVID-19 patient records and turns them into clean, validated, structured data that can be analyzed at scale, making free text medical notes queryable without losing the detail that makes them useful.</p>
-<h2>What it does</h2>
-<ul>
-<li><strong>Structured extraction:</strong> a large language model reads each free text record and pulls out the fields that matter, with Pydantic schemas validating and standardizing every result.</li>
-<li><strong>Consistent medication matching:</strong> FAISS semantic search reconciles medication references that vary in wording across notes, so the same drug is recognized however it is written.</li>
-<li><strong>Population scale analysis:</strong> Apache Spark analyzes comorbidities, medication frequencies, and demographic trends across the dataset, with visualizations that support the findings.</li>
-</ul>
-<h2>Architecture and engineering</h2>
-<ul>
-<li><strong>LLM extraction step:</strong> the initial pass turns unstructured notes into candidate structured records, handling the messiness and variability of real clinical text.</li>
-<li><strong>Validation as a gate:</strong> every extracted record passes through Pydantic validation, so downstream analysis always works from one consistent, well typed shape.</li>
-<li><strong>Semantic reconciliation:</strong> FAISS vector search matches medication mentions by meaning rather than exact string, keeping references consistent across the corpus.</li>
-<li><strong>Built for scale:</strong> Python drives the pipeline end to end, with PySpark handling analysis over large volumes and Parquet as the columnar storage format.</li>
-</ul>
+      <h2>Making encounter notes queryable</h2>
+      <p>A medication can appear under different names across a set of notes. A diagnosis may sit inside a paragraph of observations. Before those records can support comparison, the relevant details need a consistent structure.</p>
+      <p>I built this pipeline to connect text extraction with dataset analysis. Its stages handle different parts of that problem: identifying information in a note, checking the resulting record, reconciling medication references, and summarizing patterns across records.</p>
+      <h2>From free text to structured records</h2>
+      <ul>
+        <li><strong>Extract candidate fields.</strong> A large language model reads the encounter text and produces structured data for the next stage.</li>
+        <li><strong>Check the record shape.</strong> Pydantic validates the output against defined field types and schema requirements, giving downstream code a consistent format to work with.</li>
+        <li><strong>Find similar medication references.</strong> FAISS searches vector representations of medication text to help reconcile wording that exact text matching would miss.</li>
+      </ul>
+      <h2>Analyzing patterns across records</h2>
+      <p>PySpark supports aggregation across the resulting dataset, including comorbidity patterns, medication frequencies, and demographic trends. Parquet provides columnar storage for the structured output, while visualizations make the aggregate results easier to examine.</p>
+      <p>The useful change is that an analyst can work with comparable fields across many notes, then examine the patterns those fields reveal.</p>
+      <h2>What validation establishes</h2>
+      <p>Schema validation checks whether an extracted value has the expected structure and type. Clinical accuracy still depends on whether that value faithfully represents the original note. Likewise, a close semantic match identifies a medication candidate; similarity alone cannot establish that two references are equivalent. Those distinctions matter when interpreting the analysis.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -81,3 +85,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

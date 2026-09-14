@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SRT and Microphone Audio Visualizer · Christian Joudon</title>
-<meta name="description" content="A Python system for streaming, recording, and visualizing live audio from SRT streams and microphones.">
+<meta name="description" content="A Python tool that receives microphone or SRT network audio, records it, and displays its changing waveform and frequency content for a coral reef monitoring project.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,36 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
+<div class="detail-head">
       <span class="kicker">2024 · Signal Processing</span>
       <h1>SRT &amp; Microphone Audio Visualizer</h1>
-      <p class="detail-lead">A Python system for streaming, recording, and visualizing live audio from SRT streams and microphones.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Matplotlib</span><span class="tag">FFmpeg</span><span class="tag">Raspberry Pi</span></div>
+      <p class="detail-lead">A Python tool that receives microphone or SRT network audio, records it, and displays its changing waveform and frequency content for a coral reef monitoring project.</p>
+      <div class="detail-links"><a class="linkbtn" href="https://github.com/ChristianJoudon/PythonProject" target="_blank" rel="noopener noreferrer">Source code<span class="arr" aria-hidden="true">↗</span></a></div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">FFmpeg</span><span class="tag">Raspberry Pi</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/audio.jpg" alt="SRT and Microphone Audio Visualizer"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/audio.jpg" alt="Concept illustration of an audio waveform, frequency spectrum, and spectrogram displayed together." width="1600" height="900">
+      <figcaption>Concept illustration of the audio views. The Python implementation uses Matplotlib plots and command-line configuration.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>This tool captures live audio, from a microphone or an SRT stream, and visualizes it in real time while recording. It was built to run on a Raspberry Pi as part of a coral reef underwater sound monitoring setup.</p>
-<h2>What it does</h2>
-<ul>
-<li>Real time waveform, FFT, and spectrogram views in Matplotlib.</li>
-<li>sounddevice, PyAudio, and FFmpeg handling capture, playback, and encoding.</li>
-</ul>
-<h2>How it is built</h2>
-<p>Python throughout, with Matplotlib for the live plots and FFmpeg for stream handling, running on a Raspberry Pi.</p>
+      <h2>Seeing what the audio contains</h2>
+      <p>This tool was developed for Raspberry Pi as part of a project on remote monitoring of coral reef underwater sounds. It provides a way to inspect incoming audio while retaining a recording for later examination.</p>
+      <p>I built the capture, processing, and visualization workflow in Python. A user selects a local microphone or an SRT network stream, chooses which plots to display, and sets the frequency range they want to inspect.</p>
+      <h2>Two inputs, a common processing path</h2>
+      <p>The microphone path captures samples through an audio input library. For an SRT stream, FFmpeg receives the network audio and converts it into raw samples that Python can process. Both paths feed the visualization workflow, with recording and playback handled by the supporting audio tools.</p>
+      <p>Queues pass incoming samples and calculated frequency data to the plot updates. Rolling buffers retain a recent window of audio, allowing the display to move forward as new samples arrive.</p>
+      <h2>Three views of the same signal</h2>
+      <table>
+        <thead><tr><th scope="col">View</th><th scope="col">What it shows</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Waveform</th><td>Amplitude over time, making changes in the shape and level of the incoming signal visible.</td></tr>
+          <tr><th scope="row">Frequency spectrum</th><td>The relative strength of frequencies in a recent audio window, calculated with a fast Fourier transform (FFT).</td></tr>
+          <tr><th scope="row">Spectrogram</th><td>Frequency content over time, using color to show how its intensity changes.</td></tr>
+        </tbody>
+      </table>
+      <h2>Connecting capture with interpretation</h2>
+      <p>NumPy handles sample arrays and FFT calculations; Matplotlib presents the plots. FFmpeg and the audio libraries support the surrounding capture, playback, and recording work.</p>
+      <p>The views help a researcher locate changes and recurring patterns in a recording. Interpreting what produced a sound remains a separate step, informed by the recording and the conditions in which it was captured.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +89,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

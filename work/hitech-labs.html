@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HiTech Labs Website · Christian Joudon</title>
-<meta name="description" content="A fast, mobile first marketing site with a glassmorphism interface, shipped on Vercel with CI/CD.">
+<meta name="description" content="A website for HīTech Labs that helps Kauaʻi business owners understand the available technology services and start a conversation about what they need.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,29 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2025 · Frontend</span>
+<div class="detail-head">
+      <span class="kicker">2025 · Frontend &amp; Brand Design</span>
       <h1>HiTech Labs Website</h1>
-      <p class="detail-lead">A fast, mobile first marketing site with a glassmorphism interface, shipped on Vercel with CI/CD.</p>
-      <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Vercel</span></div>
+      <p class="detail-lead">A website for HīTech Labs that helps Kauaʻi business owners understand the available technology services and start a conversation about what they need.</p>
+      <div class="detail-links"><a class="linkbtn" href="https://github.com/ChristianJoudon/hitech-labs-website" target="_blank" rel="noopener noreferrer">Source code<span class="arr" aria-hidden="true">↗</span></a></div>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Framer Motion</span><span class="tag">Formspree</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/hitech.jpg" alt="HiTech Labs"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/hitech.jpg" alt="HīTech Labs monogram in deep green, combining the initials H and L with a palm frond." width="1600" height="1066">
+      <figcaption>The HīTech Labs mark anchors the website’s green palette and botanical details.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>A marketing site for HīTech Labs, designed and built to load fast and read well on a phone, with a glassmorphism visual style and motion that responds to scroll and hover.</p>
-<h2>What it does</h2>
-<ul>
-<li>Next.js and Tailwind, deployed on Vercel with continuous deployment.</li>
-<li>Scroll and hover motion, and Formspree contact forms with spam protection.</li>
-</ul>
-<h2>How it is built</h2>
-<p>Next.js and React with Tailwind CSS, shipped on Vercel.</p>
+      <h2>A clear starting point for local businesses</h2>
+      <p>A business owner may know that bookings take too much coordination or that a website needs attention without knowing which technical service to ask for. I designed and built the site to make that first conversation easier.</p>
+      <p>The page introduces the services, explains what each covers, and gives visitors a direct way to get in touch. The current design carries the HīTech Labs identity from its printed materials into the website through deep greens, warm paper tones, botanical details, and a restrained terracotta accent.</p>
+      <h2>Service details when the reader needs them</h2>
+      <p>Cards group the work into recognizable needs, including website improvements, workflow automation, booking setup, and practical AI tools. Each begins with a short explanation. Additional details and pricing open from that context, so someone can explore a relevant service while keeping their place on the page.</p>
+      <p>Section navigation follows the page’s structure and marks the active section as the visitor scrolls. Responsive layouts keep the same route from services to contact available on smaller screens.</p>
+      <h2>A contact form with visible states</h2>
+      <p>Formspree handles the contact submission. Required fields collect a name, email address, and message; validation messages identify input problems. While a request is sending, the button is disabled and its label changes. A successful submission replaces the form with an acknowledgment.</p>
+      <p>A hidden honeypot field helps filter automated submissions. Accessible field names, visible keyboard focus, a skip link, and reduced motion support are part of the interface.</p>
+      <h2>One visual system across the page</h2>
+      <p>The implementation uses React and TypeScript with Vite. Tailwind and shared CSS define the colors, type, spacing, and repeated components. Framer Motion adds section reveals and interaction feedback, with motion adapted to the visitor’s preference. Keeping those choices together makes later changes easier to carry consistently through the site.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +82,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

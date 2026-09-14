@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terran and the Wrath of the Wildwoods · Christian Joudon</title>
-<meta name="description" content="A fast paced 2D rogue like wave defense game with hitbox precise combat and escalating bosses.">
+<meta name="description" content="A 2D wave defense game in Godot, where movement, ability cooldowns, and upgrades shape how the player survives increasingly demanding encounters.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,29 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
-      <span class="kicker">2023 · Game Development</span>
+<div class="detail-head">
+      <span class="kicker">2024 · Game Development</span>
       <h1>Terran &amp; the Wrath of the Wildwoods</h1>
-      <p class="detail-lead">A fast paced 2D rogue like wave defense game with hitbox precise combat and escalating bosses.</p>
-      <div class="tags"><span class="tag">Godot</span><span class="tag">GDScript</span><span class="tag">Game AI</span></div>
+      <p class="detail-lead">A 2D wave defense game in Godot, where movement, ability cooldowns, and upgrades shape how the player survives increasingly demanding encounters.</p>
+      
+      <div class="tags"><span class="tag">Godot</span><span class="tag">GDScript</span><span class="tag">Gameplay Programming</span><span class="tag">JSON</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/terran.jpg" alt="Terran and the Wrath of the Wildwoods"></figure>
+    <figure class="detail-media project-art">
+      <img src="../assets/img/terran.jpg" alt="Terran promotional artwork showing a small woodland archer beneath the game title in a luminous forest." width="1132" height="1600">
+      <figcaption>Promotional artwork for Terran &amp; the Wrath of the Wildwoods.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>Terran is a 2D rogue like built in Godot. Waves of enemies escalate toward boss fights, and combat is built around precise hitboxes and a set of abilities you manage under pressure.</p>
-<h2>What it does</h2>
-<ul>
-<li>A CharacterBody2D physics core with modular ability scenes balanced through cooldowns.</li>
-<li>Signal driven enemy AI, randomized spawns, and JSON persisted progression between runs.</li>
-</ul>
-<h2>How it is built</h2>
-<p>Built in the Godot Engine with GDScript. A related design study, on dynamic environmental systems in RPGs, is written up in the <a href="../essays/environmental-systems-rpgs.html">essays</a>.</p>
+      <h2>Survival through movement and timing</h2>
+      <p>Terran combines waves of enemies with a growing set of combat choices. The player moves through each encounter, manages abilities while they recharge, and gains upgrades that change how the next wave can be approached.</p>
+      <p>I built the gameplay systems in Godot with GDScript, connecting character movement, modular abilities, enemy behavior, and persistent progression.</p>
+      <h2>Abilities built as separate scenes</h2>
+      <p>The character uses <code>CharacterBody2D</code> and <code>move_and_slide()</code> for movement with collision handling. Four abilities are organized as reusable Godot scenes, keeping their behavior separate from the character’s movement code.</p>
+      <p>Timer nodes govern cooldowns, while damage tuning controls how much an ability contributes to an encounter. The relationship matters: an ability’s usefulness depends on both what it does and how often the player can use it. Separate scenes make those values easier to adjust as the combat develops.</p>
+      <h2>Pressure that changes between waves</h2>
+      <p>Area detection signals trigger enemy behavior, randomized spawning varies the encounters, and boss waves increase the demand on the player’s movement and ability choices. Together, those systems create a rhythm of immediate pressure and preparation for what follows.</p>
+      <h2>Progression with a visible effect</h2>
+      <p>An experience bar and level-up animations make progression visible. Upgrade arrays adjust properties such as spell radius, ammunition, and cooldown duration, connecting each choice to a concrete change in combat. Progression data is saved in JSON for continuity between sessions.</p>
+      <p>A related design study explores a broader question about game worlds: how environmental systems can respond to player actions. Read <a href="../essays/environmental-systems-rpgs.html">Dynamic Environmental Systems in RPGs</a> for that separate investigation.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +82,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+

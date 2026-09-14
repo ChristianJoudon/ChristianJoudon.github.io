@@ -1,0 +1,30 @@
+/* Additional reading styles for the smaller project studies. */
+.detail-media img { height: auto; }
+.detail-media figcaption {
+  padding: .85rem 1.15rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.detail-media.project-art img { max-height: 680px; object-fit: contain; }
+.detail-body code { font-size: .88em; overflow-wrap: anywhere; }
+.detail-body table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 0 0 1.4rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.detail-body th, .detail-body td {
+  padding: .85rem .75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.detail-body th { color: var(--navy); font-weight: 600; }
+.detail-body th:first-child { width: 30%; padding-left: 0; }
+.detail-body thead { background: var(--paper-2); }
+.detail-body thead th:first-child { padding-left: .75rem; }

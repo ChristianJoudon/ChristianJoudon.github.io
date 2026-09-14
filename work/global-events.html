@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Global Events and Market Trends · Christian Joudon</title>
-<meta name="description" content="An interactive system visualizing how wars and pandemics correlate with stock market and GDP trends.">
+<meta name="description" content="An interactive visualization project for exploring how stock market and GDP trends line up with wars, pandemics, and other global events across regions.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
 </head>
 <body>
 <header id="top">
@@ -29,23 +30,29 @@
 <main class="subpage">
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-    <div class="detail-head">
+<div class="detail-head">
       <span class="kicker">2024 · Data Visualization</span>
       <h1>Global Events &amp; Market Trends</h1>
-      <p class="detail-lead">An interactive system visualizing how wars and pandemics correlate with stock market and GDP trends.</p>
+      <p class="detail-lead">An interactive visualization project for exploring how stock market and GDP trends line up with wars, pandemics, and other global events across regions.</p>
+      
       <div class="tags"><span class="tag">D3.js</span><span class="tag">Plotly.js</span><span class="tag">Observable</span><span class="tag">Python</span><span class="tag">Seaborn</span></div>
     </div>
-    <figure class="detail-media"><img src="../assets/img/global.jpg" alt="Global Events and Market Trends"></figure>
+    <figure class="detail-media">
+      <img src="../assets/img/global.jpg" alt="Concept illustration combining a world map, economic time series, and global event comparisons." width="1600" height="900">
+      <figcaption>Concept illustration of the exploration interface, with illustrative charts and values.</figcaption>
+    </figure>
     <div class="detail-body">
-<h2>Overview</h2>
-<p>This project pairs economic data with a timeline of global events and lets you explore where they line up. It began with a question, whether major shocks leave a readable signature in markets, and became an interactive tool for looking at that across regions and event types.</p>
-<h2>What it does</h2>
-<ul>
-<li>Geospatial views and real time filtering built with D3.js, Plotly.js, and Observable.</li>
-<li>Correlations between wars, pandemics, and market behavior that you explore directly rather than read about.</li>
-</ul>
-<h2>How it is built</h2>
-<p>The visualization layer runs on D3.js and Plotly.js inside Observable, with Python and Seaborn behind the data preparation.</p>
+      <h2>Putting a trend back in context</h2>
+      <p>A change in a market chart raises questions about what was happening around it. This project began with one of those questions: do major global events leave patterns that can be seen across stock market and GDP data?</p>
+      <p>I built an interactive way to investigate that question across regions and event types. Economic series and event timelines provide the comparison; geospatial views show where the patterns occur.</p>
+      <h2>Following a question through the data</h2>
+      <p>Filters let the viewer narrow the selection and examine the corresponding trends. A regional view helps compare places, while the timeline gives changes a historical context. Moving between them supports questions such as whether a pattern appears in several regions or is concentrated in one.</p>
+      <p>The interaction is intended to make exploration active. Someone can change the selection, inspect the resulting view, and refine the question as they go.</p>
+      <h2>Preparing the data and presenting the comparison</h2>
+      <p>Python and Seaborn support data preparation and exploratory analysis. The interactive layer uses D3.js and Plotly.js inside Observable, bringing charts, geographic views, and filtering into the same environment.</p>
+      <p>Each view contributes a different kind of context: time establishes sequence, geography establishes location, and the economic series show the measured changes. Keeping those relationships visible helps a reader understand what is being compared.</p>
+      <h2>What the charts can support</h2>
+      <p>A shared timeline can reveal an association worth investigating. Establishing that an event caused an economic change requires additional analysis of other influences and the underlying data. The project supports exploratory comparison, with the filters helping readers examine how a pattern changes across selections.</p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -75,3 +82,4 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
+
