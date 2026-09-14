@@ -79,6 +79,9 @@
 
 .haven-case .haven-local-nav { flex-wrap: wrap; border-radius: 18px; }
 .haven-case .haven-local-nav a:focus-visible { outline: 2px solid var(--haven-blue); outline-offset: 1px; }
+.haven-case #overview { scroll-margin-top: 9rem; }
+.haven-case .haven-shot img, .haven-case .haven-hero-screen img { height: auto; }
+@media (max-width: 650px) { .haven-case #overview { scroll-margin-top: 13rem; } }
 </style></head>
 <body>
 <header id="top">
@@ -119,7 +122,7 @@
 </aside>
 </section>
 <a aria-label="Open the HAVEN dashboard screenshot at full size" class="haven-hero-screen reveal" href="../assets/img/haven/dashboard.png" rel="noopener" target="_blank">
-<img alt="HAVEN dashboard showing operational metrics, workload health, a priority bill queue, and daily review cards" fetchpriority="high" src="../assets/img/haven/dashboard.png"/>
+<img alt="HAVEN dashboard showing operational metrics, workload health, a priority bill queue, and daily review cards" fetchpriority="high" height="1000" src="../assets/img/haven/dashboard.png" width="1600"/>
 <span class="haven-screen-note">Prototype · Synthetic demonstration data</span>
 </a>
 <p class="haven-caption">The dashboard brings bills needing attention, workload, and cash activity into view at the start of the day.</p>
@@ -200,7 +203,7 @@
 </div>
 <figure class="haven-shot reveal">
 <a aria-label="Open the Bill Entry Desk screenshot at full size" href="../assets/img/haven/bill-entry-desk.png" rel="noopener" target="_blank">
-<img alt="HAVEN Bill Entry Desk with a searchable bill queue and invoice evidence rail" loading="lazy" src="../assets/img/haven/bill-entry-desk.png"/>
+<img alt="HAVEN Bill Entry Desk with a searchable bill queue and invoice evidence rail" height="1000" loading="lazy" src="../assets/img/haven/bill-entry-desk.png" width="1600"/>
 </a>
 <figcaption>The queue keeps the bill’s status and supporting document within reach. All records shown here are synthetic.</figcaption>
 </figure>
@@ -213,7 +216,7 @@
 </div>
 <figure class="haven-shot haven-shot--detail reveal">
 <a aria-label="Open the expanded bill review screenshot at full size" href="../assets/img/haven/bill-review.png" rel="noopener" target="_blank">
-<img alt="Expanded HAVEN bill review showing coding, readiness, related records, and a PDF invoice" loading="lazy" src="../assets/img/haven/bill-review.png"/>
+<img alt="Expanded HAVEN bill review showing coding, readiness, related records, and a PDF invoice" height="1000" loading="lazy" src="../assets/img/haven/bill-review.png" width="1600"/>
 </a>
 <figcaption>The invoice and its coding can be compared in the same review.</figcaption>
 </figure>
@@ -225,7 +228,7 @@
 <div class="haven-feature-split haven-feature-split--reverse">
 <figure class="haven-shot haven-shot--portrait reveal">
 <a aria-label="Open the extraction review screenshot at full size" href="../assets/img/haven/extraction-review.png" rel="noopener" target="_blank">
-<img alt="HAVEN extraction review mapping a synthetic invoice document into bill fields" loading="lazy" src="../assets/img/haven/extraction-review.png"/>
+<img alt="HAVEN extraction review mapping a synthetic invoice document into bill fields" height="1000" loading="lazy" src="../assets/img/haven/extraction-review.png" width="1600"/>
 </a>
 <figcaption>Suggested fields remain beside the source document for a person to verify.</figcaption>
 </figure>
@@ -282,7 +285,7 @@
 <article class="reveal"><span>Review &amp; corrections</span><h3>Apply approval and correction rules.</h3><p>The API enforces approval requirements. Journals must balance before posting, and posted entries are protected. When an adjustment is needed, a linked reversal preserves the original entry and the correction.</p></article></div>
 <figure class="haven-shot haven-shot--dark reveal">
 <a aria-label="Open the trust distribution workflow screenshot at full size" href="../assets/img/haven/trust-distribution.png" rel="noopener" target="_blank">
-<img alt="HAVEN trust distribution builder with run setup, owner item, allocation, and approval stages" loading="lazy" src="../assets/img/haven/trust-distribution.png"/>
+<img alt="HAVEN trust distribution builder with run setup, owner item, allocation, and approval stages" height="1000" loading="lazy" src="../assets/img/haven/trust-distribution.png" width="1600"/>
 </a>
 <figcaption>The distribution workflow keeps allocations, totals, and approval stages together.</figcaption>
 </figure>
@@ -301,7 +304,7 @@
 <p>A missing contract, an unresolved payout difference, or a document awaiting review stays linked to the affected record. An assigned task or approval request gives the next person somewhere to continue. Global search and related-record navigation help them find the issue and its context.</p></div>
 <figure class="haven-shot haven-shot--detail reveal">
 <a aria-label="Open the Team Work screenshot at full size" href="../assets/img/haven/team-work.png" rel="noopener" target="_blank">
-<img alt="HAVEN Team Work approval queue showing a commission review, priorities, linked records, and workflow context" loading="lazy" src="../assets/img/haven/team-work.png"/>
+<img alt="HAVEN Team Work approval queue showing a commission review, priorities, linked records, and workflow context" height="1000" loading="lazy" src="../assets/img/haven/team-work.png" width="1600"/>
 </a>
 <figcaption>Linked tasks, exceptions, and approvals give the next person somewhere to pick up the work.</figcaption>
 </figure>
@@ -411,4 +414,3 @@
 <script src="../assets/site.js"></script>
 </body>
 </html>
-
