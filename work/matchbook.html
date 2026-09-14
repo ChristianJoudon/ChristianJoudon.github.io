@@ -1,50 +1,64 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatchBook | Something worth showing up for | Christian Joudon</title>
-<meta content="A personal look at building MatchBook, a not-for-profit community project that brings Kauaʻi events and groups into view and helps people find a place for them in their week." name="description"/>
-<meta content="MatchBook | Something worth showing up for" property="og:title"/>
-<meta content="An event can be open to everyone and still be easy to miss. Building MatchBook around the small steps between finding something interesting and making a plan." property="og:description"/>
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://christianjoudon.github.io/work/matchbook.html">
-<meta property="og:image" content="https://christianjoudon.github.io/assets/img/matchbook/screen-home.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/site.css?v=20260808-matchbook-palette-1">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MatchBook | Kauaʻi events and community discovery | Christian Joudon</title>
+<meta content="How I’m building MatchBook, a free community project for discovering Kauaʻi events and groups, with shared recommendations, saved plans, and reviewed source imports." name="description"/>
+<meta content="MatchBook | Kauaʻi events and community discovery" property="og:title"/>
+<meta content="From finding an event to making room for it: the product design, recommendation service, and source review behind MatchBook." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://christianjoudon.github.io/work/matchbook.html" property="og:url"/>
+<meta content="https://christianjoudon.github.io/assets/img/matchbook/screen-home.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="../favicon.ico" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/site.css?v=20260808-matchbook-palette-1" rel="stylesheet"/>
+<style>
+.matchbook-case .haven-hero-screen img, .matchbook-case .matchbook-screens img { height: auto; }
+.matchbook-case .matchbook-screens a { display: block; }
+.matchbook-case .matchbook-screens a:focus-visible { outline: 3px solid var(--mb-orange); outline-offset: -3px; }
+.matchbook-case .haven-local-nav { flex-wrap: wrap; border-radius: 18px; }
+.matchbook-case #ingestion, .matchbook-case #recommendations, .matchbook-case #release { scroll-margin-top: 8rem; }
+.matchbook-case .mb-ranking-steps li { grid-template-columns: auto minmax(0,1fr); }
+.matchbook-case .mb-measurement-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 2rem; }
+.matchbook-case .mb-measurement-grid article, .matchbook-case .mb-release-note { padding: clamp(1.3rem,3vw,2rem); border: 1px solid var(--mb-line); border-radius: 14px; background: var(--mb-white); }
+.matchbook-case .mb-measurement-grid h3, .matchbook-case .mb-release-note h3 { font-size: 1.5rem; font-weight: 400; line-height: 1.2; margin: .85rem 0 .65rem; }
+.matchbook-case .mb-measurement-grid p, .matchbook-case .mb-release-note p { color: var(--mb-muted); line-height: 1.65; margin: 0; }
+.matchbook-case .mb-release-note { margin-top: 1.4rem; background: var(--mb-butter); }
+.matchbook-case .mb-release-note p + p { margin-top: .85rem; }
+@media (max-width: 700px) { .matchbook-case .mb-measurement-grid { grid-template-columns: 1fr; } }
+</style></head>
 <body>
 <header id="top">
-  <div class="wrap nav">
-    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
-    <nav class="navlinks" aria-label="Sections">
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#experience">Experience</a>
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#skills">Toolkit</a>
-      <a href="../index.html#writing">Writing</a>
-      <a href="../index.html#essays">Essays</a>
-      <a href="../index.html#contact">Contact</a>
-    </nav>
-  </div>
+<div class="wrap nav">
+<a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+<nav aria-label="Sections" class="navlinks">
+<a href="../index.html#about">About</a>
+<a href="../index.html#experience">Experience</a>
+<a href="../index.html#work">Work</a>
+<a href="../index.html#skills">Toolkit</a>
+<a href="../index.html#writing">Writing</a>
+<a href="../index.html#essays">Essays</a>
+<a href="../index.html#contact">Contact</a>
+</nav>
+</div>
 </header>
-
 <main class="subpage haven-case matchbook-case">
 <div class="wrap">
 <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
 <section aria-labelledby="matchbook-title" class="haven-hero">
 <div class="haven-hero-copy">
 <span class="kicker">Not-for-profit · Community platform for Kauaʻi</span>
-<h1 class="matchbook-h1" id="matchbook-title"><img alt="MatchBook" src="../assets/img/matchbook/wordmark-underline.png"/></h1>
+<h1 class="matchbook-h1" id="matchbook-title"><img alt="MatchBook" height="239" src="../assets/img/matchbook/wordmark-underline.png" width="1100"/></h1>
 <p class="haven-deck">Find something worth showing up for.</p>
-<p class="haven-intro">An event can be open to everyone and still be easy to miss. I’m building MatchBook to bring Kauaʻi’s scattered events and groups into one place, and help people find something they would like to make room for in their week.</p>
+<p class="haven-intro"><strong>MatchBook brings Kauaʻi’s events and community groups into one place.</strong> People can browse by interest or date, save possibilities, join groups, and see them in a personal agenda. I’m building this free, not-for-profit project to help people find something they would like to make room for in their week.</p>
 <div class="haven-actions">
-<a class="haven-button haven-button--primary" href="#product">The product <span aria-hidden="true">↓</span></a>
-<a class="haven-button" href="#roadmap">The road to launch <span aria-hidden="true">↓</span></a>
+<a class="haven-button haven-button--primary" href="#product">Explore the product <span aria-hidden="true">↓</span></a>
+<a class="haven-button" href="#recommendations">How matching works <span aria-hidden="true">↓</span></a>
 </div>
 </div>
 <aside aria-label="Project summary" class="haven-brief">
@@ -52,106 +66,95 @@
 <div><dt>Organization</dt><dd>Independent not-for-profit project</dd></div>
 <div><dt>Serves</dt><dd>Kauaʻi residents and visitors</dd></div>
 <div><dt>Cost</dt><dd>Free of charge</dd></div>
-<div><dt>Status</dt><dd>Working product · preparing for public release</dd></div>
+<div><dt>Status</dt><dd>Development build · preparing for public release</dd></div>
 <div><dt>My role</dt><dd>Product, design, and engineering</dd></div>
-<div><dt>Core stack</dt><dd>Meteor · React · MongoDB</dd></div>
+<div><dt>Core stack</dt><dd>Meteor · React · MongoDB · TypeScript</dd></div>
 </dl>
 </aside>
 </section>
 <div aria-label="Commitments" class="matchbook-mission reveal" role="list">
-<div role="listitem"><span class="kicker">Made for Kauaʻi</span><p>A not-for-profit project for the people who live here and the people spending time here.</p></div>
-<div role="listitem"><span class="kicker">Free to use</span><p>Finding a group or an event should not come with another subscription.</p></div>
+<div role="listitem"><span class="kicker">Made for Kauaʻi</span><p>A community project for Kauaʻi residents and visitors, built around what is happening here.</p></div>
+<div role="listitem"><span class="kicker">Free to use</span><p>A free place to explore events and groups, with no subscription required.</p></div>
 <div role="listitem"><span class="kicker">An invitation</span><p>A familiar interest, a new place, or a reason to try something you have been meaning to do.</p></div>
 </div>
 <a aria-label="Open the MatchBook landing page screenshot at full size" class="haven-hero-screen reveal" href="../assets/img/matchbook/screen-home.jpg" rel="noopener" target="_blank">
-<img alt="MatchBook landing page: 'Find something worth showing up for', an interest and time search bar, and three nearby event cards" fetchpriority="high" src="../assets/img/matchbook/screen-home.jpg"/>
+<img alt="MatchBook landing page: 'Find something worth showing up for', an interest and time search bar, and three nearby event cards" fetchpriority="high" height="1232" src="../assets/img/matchbook/screen-home.jpg" width="1600"/>
 <span class="haven-screen-note">Development build · Kauaʻi event listings</span>
 </a>
-<p class="haven-caption">A place to start with what interests you and when you have time. Screens below show the development build and its working dataset.</p>
-<nav aria-label="MatchBook case study sections" class="haven-local-nav">
-<a href="#product">Product</a>
-<a href="#experience">How it’s used</a>
-<a href="#screens">Screens</a>
-<a href="#brand">Brand</a>
-<a href="#architecture">Platform</a>
-<a href="#roadmap">Road to launch</a>
-</nav>
-
-
+<p class="haven-caption">Start with an interest and the time you have available. The screenshots show the development build and its working dataset.</p>
+<nav aria-label="MatchBook case study sections" class="haven-local-nav"><a href="#product">Overview</a><a href="#experience">Browse &amp; save</a><a href="#screens">Product views</a><a href="#brand">Brand</a><a href="#architecture">Engineering</a><a href="#ingestion">Source review</a><a href="#recommendations">Recommendations</a><a href="#release">Release status</a></nav>
 </div>
 <div class="haven-case-body" id="case-study">
 <section class="haven-section" id="product">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">01 · The reason</span>
-<h2>You should not have to know where to look.</h2>
+<span class="kicker">01 · The starting point</span>
+<h2>Bring scattered announcements into one place.</h2>
 </div>
 <div class="haven-problem-grid">
-<div class="haven-prose reveal">
-<p>A library posts its events on one page. A community group keeps a calendar somewhere else. A flyer makes its way through a social feed, then disappears beneath the next thing. Each announcement can be perfectly useful on its own, but finding them asks people to keep track of where everything is announced.</p>
-<p>That is the gap I wanted MatchBook to help with. Kauaʻi already has people organizing, teaching, performing, and bringing others together. The product’s job is to make more of that work visible to someone who might be glad to find it.</p>
-<p>Bringing the listings together is only the beginning. A long directory can become another thing to sort through, so I’m designing around the questions that help someone choose: Does this interest me? Can I get there? What would I need to know before going?</p>
-</div>
+<div class="haven-prose reveal"><p>An event can be open to everyone and still be easy to miss. A library posts on one page, a community group keeps a separate calendar, and a flyer disappears into a social feed. Finding something to do means knowing which sources to check and remembering what each announced.</p>
+<p>Kauaʻi already has people organizing, teaching, performing, and bringing others together. MatchBook’s job is to make more of that work visible to someone who might be glad to find it.</p>
+<p>A listing also needs enough context to help someone choose. Topic and date filters narrow the possibilities. Event details explain the time, place, cost, and any registration instructions available from the source. Saving and the agenda give a person room to consider a plan.</p></div>
 <blockquote class="haven-thesis reveal">
 <span class="kicker">The question</span>
 <p>What would make someone pause and think, “I’d like to go to that”?</p>
 </blockquote>
 </div>
 <div class="haven-principles">
-<article class="reveal"><span class="haven-principle-number">01</span><h3>A way in</h3><p>Topics offer a familiar starting point, whether someone has a particular interest in mind or is simply curious about what is happening.</p></article>
-<article class="reveal"><span class="haven-principle-number">02</span><h3>Room for a maybe</h3><p>Saving an event keeps it within reach while someone checks the date, asks a friend, or decides how to spend the weekend.</p></article>
-<article class="reveal"><span class="haven-principle-number">03</span><h3>Enough to decide</h3><p>Time, place, cost, and registration details belong close to the invitation, wherever the source provides them.</p></article>
+<article class="reveal"><span class="haven-principle-number">01</span><h3>Choose a starting point.</h3><p>Topics and dates help someone begin with a familiar interest or the time they have available.</p></article>
+<article class="reveal"><span class="haven-principle-number">02</span><h3>Room for a maybe.</h3><p>Saving an event keeps it within reach while someone checks the date, asks a friend, or decides how to spend the weekend.</p></article>
+<article class="reveal"><span class="haven-principle-number">03</span><h3>Enough information to decide.</h3><p>Time, place, cost, and registration details stay close to the invitation wherever the source provides them.</p></article>
 </div>
 </div>
 </section>
 <section class="haven-section haven-section--ink" id="experience">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">02 · Finding a place in the week</span>
-<h2>“That looks interesting” is a beginning.</h2>
-<p>An appealing event still has to fit into someone’s life. Saving gives a person time to decide, and the agenda puts those possibilities into the week ahead.</p>
+<span class="kicker">02 · Browsing &amp; planning</span>
+<h2>Browse, save, and make room in the week.</h2>
+<p>Saving an event keeps it in the agenda for later consideration. Joining a group in MatchBook brings in its events and recurring meetings. Organizer registration remains a separate step.</p>
 </div>
 <ol aria-label="MatchBook usage loop" class="haven-lifecycle">
-<li><span>01</span><strong>Start somewhere</strong><small>Choose a topic, a date, or something you are curious about</small></li>
-<li><span>02</span><strong>Look around</strong><small>Browse the poster wall or consider one card at a time</small></li>
-<li><span>03</span><strong>Read a little</strong><small>Check the details behind the title and illustration</small></li>
-<li><span>04</span><strong>Keep a maybe</strong><small>Save an event to revisit or join a group in the app</small></li>
-<li><span>05</span><strong>See the week</strong><small>Bring saved events and joined groups into the agenda</small></li>
-<li><span>06</span><strong>Make a plan</strong><small>Follow any organizer instructions and decide to go</small></li>
+<li><span>01</span><strong>Choose a starting point</strong><small>Select a topic or a date to narrow the possibilities.</small></li>
+<li><span>02</span><strong>Browse the listings</strong><small>Explore the poster grid or consider one card at a time.</small></li>
+<li><span>03</span><strong>Check the details</strong><small>Read the time, place, cost, and available registration instructions.</small></li>
+<li><span>04</span><strong>Save or join</strong><small>Save an event for later or join a group in MatchBook.</small></li>
+<li><span>05</span><strong>Review the agenda</strong><small>See saved events and joined-group activities together.</small></li>
+<li><span>06</span><strong>Make the plan</strong><small>Follow the organizer’s instructions for registration or attendance.</small></li>
 </ol>
 </div>
 </section>
 <section class="haven-section" id="screens">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">03 · The experience</span>
-<h2>Start with whatever catches your eye.</h2>
-<p>Sometimes the date comes first. Sometimes an illustration catches your eye. I wanted both kinds of browsing to lead to the details that help a person decide.</p>
+<span class="kicker">03 · Product views</span>
+<h2>Browse by interest, date, or one card at a time.</h2>
+<p>Discover and Match offer different ways to explore the same listings. The calendar shows what is available by date; the agenda brings together the events and groups a person has chosen to keep. Select a screenshot to view it at full size.</p>
 </div>
 <div class="matchbook-screens">
 <figure class="reveal">
-<img alt="Discover page with interest category cards and event listings" loading="lazy" src="../assets/img/matchbook/screen-discover.jpg"/>
-<figcaption><strong>Discover</strong> A wall of possibilities, with topic and time filters to give a broad browse some direction.</figcaption>
+<a aria-label="Open the MatchBook Discover screenshot at full size" href="../assets/img/matchbook/screen-discover.jpg" rel="noopener" target="_blank"><img alt="Discover page with interest category cards and event listings" height="2400" loading="lazy" src="../assets/img/matchbook/screen-discover.jpg" width="1600"/></a>
+<figcaption><strong>Discover</strong> Browse a poster grid of listings, using topic and time filters to give an open-ended search some direction.</figcaption>
 </figure>
 <figure class="reveal">
-<img alt="Match view showing one event card with undo, pass, and save controls" loading="lazy" src="../assets/img/matchbook/screen-match.jpg"/>
-<figcaption><strong>Match</strong> One card at a time, with room to read, pass, or save. A saved event records interest; organizer registration remains a separate step.</figcaption>
+<a aria-label="Open the MatchBook Match screenshot at full size" href="../assets/img/matchbook/screen-match.jpg" rel="noopener" target="_blank"><img alt="Match view showing one event card with undo, pass, and save controls" height="2400" loading="lazy" src="../assets/img/matchbook/screen-match.jpg" width="1600"/></a>
+<figcaption><strong>Match</strong> Read one event at a time, then pass, save, or undo a choice. Saving records interest while the person decides whether to go.</figcaption>
 </figure>
 <figure class="reveal">
-<img alt="MatchBook calendar of available Kauaʻi event listings, with topic filters and month, week, and day views" loading="lazy" src="../assets/img/matchbook/screen-calendar.jpg"/>
-<figcaption><strong>Calendar</strong> Browse available events by date and topic, with a wider view of what is happening.</figcaption>
+<a aria-label="Open the MatchBook Calendar screenshot at full size" href="../assets/img/matchbook/screen-calendar.jpg" rel="noopener" target="_blank"><img alt="MatchBook calendar of available Kauaʻi event listings, with topic filters and month, week, and day views" height="2400" loading="lazy" src="../assets/img/matchbook/screen-calendar.jpg" width="1600"/></a>
+<figcaption><strong>Calendar</strong> Browse available events by date and topic, with month, week, and day views.</figcaption>
 </figure>
 <figure class="reveal">
-<img alt="Agenda combining saved events, joined-group events, and recurring group meetings on one calendar" loading="lazy" src="../assets/img/matchbook/screen-agenda.jpg"/>
-<figcaption><strong>Agenda</strong> Saved events, events from joined groups, and recurring group meetings together, so a possibility has a place to be considered.</figcaption>
+<a aria-label="Open the MatchBook Agenda screenshot at full size" href="../assets/img/matchbook/screen-agenda.jpg" rel="noopener" target="_blank"><img alt="Agenda combining saved events, joined-group events, and recurring group meetings on one calendar" height="2400" loading="lazy" src="../assets/img/matchbook/screen-agenda.jpg" width="1600"/></a>
+<figcaption><strong>Agenda</strong> See saved events, events from joined groups, and recurring group meetings on one calendar.</figcaption>
 </figure>
 <figure class="reveal">
-<img alt="Profile page with coming-up events, group memberships, and friends" loading="lazy" src="../assets/img/matchbook/screen-profile.jpg"/>
-<figcaption><strong>Profile</strong> A place to return to the interests, groups, and people connected to an account.</figcaption>
+<a aria-label="Open the MatchBook Profile screenshot at full size" href="../assets/img/matchbook/screen-profile.jpg" rel="noopener" target="_blank"><img alt="Profile page with coming-up events, group memberships, and friends" height="2400" loading="lazy" src="../assets/img/matchbook/screen-profile.jpg" width="1600"/></a>
+<figcaption><strong>Profile</strong> Return to upcoming events, group memberships, interests, and friends connected to the account.</figcaption>
 </figure>
 <figure class="reveal">
-<img alt="Customize page with profile fields and interest topic pickers" loading="lazy" src="../assets/img/matchbook/screen-customize.jpg"/>
-<figcaption><strong>Customize</strong> Interests people can choose and change themselves, giving discovery a starting point that remains in their hands.</figcaption>
+<a aria-label="Open the MatchBook Customize screenshot at full size" href="../assets/img/matchbook/screen-customize.jpg" rel="noopener" target="_blank"><img alt="Customize page with profile fields and interest topic pickers" height="2400" loading="lazy" src="../assets/img/matchbook/screen-customize.jpg" width="1600"/></a>
+<figcaption><strong>Customize</strong> Choose and change profile details and interests, giving discovery a starting point the person controls.</figcaption>
 </figure>
 </div>
 </div>
@@ -161,129 +164,127 @@
 <div class="haven-section-head reveal">
 <span class="kicker">04 · The brand</span>
 <h2>A little spark belongs here.</h2>
-<p>The name and illustrations give MatchBook room to be playful. The information still needs to be easy to read.</p>
+<p>A drawn wordmark and topic illustrations give the product its warmth. Repeated visual cues help someone recognize a subject and find their way through the interface.</p>
 </div>
 <div class="matchbook-brand">
 <div class="matchbook-brand-art reveal">
-<img alt="Illustration of a match at the moment of striking" loading="lazy" src="../assets/img/matchbook/strike.png"/>
+<img alt="Illustration of a match at the moment of striking" height="787" loading="lazy" src="../assets/img/matchbook/strike.png" width="739"/>
 </div>
-<div class="haven-prose reveal">
-<p>I liked the matchbook as a small, familiar thing associated with starting something. It gave the product a visual language of its own: a drawn wordmark, loose matches, and illustrations that make the pages feel like somewhere worth looking around.</p>
-<p>The topic motifs do practical work too. A book, a musical instrument, or a bag of groceries can suggest what kind of event a card holds before someone reads every word. Repeating those cues across the interface helps a person keep their bearings as they move between browsing and planning.</p>
-<p>I wanted the warmth of a community noticeboard, with enough order to find what you came for.</p>
-</div>
+<div class="haven-prose reveal"><p>I liked the matchbook as a small, familiar thing associated with starting something. It gave the product a visual language of its own: a drawn wordmark, loose matches, and illustrations that make the pages feel like somewhere worth looking around.</p>
+<p>A book, a musical instrument, or a bag of groceries can suggest what kind of event a card holds before someone reads every word. The same motifs recur across browsing and planning, helping people recognize topics as they move between views.</p>
+<p>I wanted the warmth of a community noticeboard, with enough order to find what you came for.</p></div>
 </div>
 <div aria-label="Interest topic motifs" class="matchbook-motifs">
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-music.png"/><figcaption>Music</figcaption></figure>
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-food.png"/><figcaption>Food</figcaption></figure>
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-outdoors.png"/><figcaption>Outdoors</figcaption></figure>
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-community.png"/><figcaption>Community</figcaption></figure>
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-books.png"/><figcaption>Books</figcaption></figure>
-<figure class="reveal"><img alt="" loading="lazy" src="../assets/img/matchbook/motif-art.png"/><figcaption>Making</figcaption></figure>
+<figure class="reveal"><img alt="" height="293" loading="lazy" src="../assets/img/matchbook/motif-music.png" width="300"/><figcaption>Music</figcaption></figure>
+<figure class="reveal"><img alt="" height="328" loading="lazy" src="../assets/img/matchbook/motif-food.png" width="300"/><figcaption>Food</figcaption></figure>
+<figure class="reveal"><img alt="" height="260" loading="lazy" src="../assets/img/matchbook/motif-outdoors.png" width="300"/><figcaption>Outdoors</figcaption></figure>
+<figure class="reveal"><img alt="" height="208" loading="lazy" src="../assets/img/matchbook/motif-community.png" width="300"/><figcaption>Community</figcaption></figure>
+<figure class="reveal"><img alt="" height="260" loading="lazy" src="../assets/img/matchbook/motif-books.png" width="300"/><figcaption>Books</figcaption></figure>
+<figure class="reveal"><img alt="" height="317" loading="lazy" src="../assets/img/matchbook/motif-art.png" width="300"/><figcaption>Making</figcaption></figure>
 </div>
 </div>
 </section>
 <section class="haven-section" id="architecture">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">05 · Keeping things connected</span>
-<h2>The event should still be there when you come back.</h2>
-<p>A saved listing is a small investment of attention. Refreshing the directory should preserve that connection, even as its details change.</p>
+<span class="kicker">05 · Architecture &amp; record continuity</span>
+<h2>Keep saved events connected as listings change.</h2>
+<p>Saving a listing is a small investment of attention. If its time, description, or cost changes, that saved reference should still lead to the same event. Stable identities let the directory refresh its information while preserving the person’s connection to it.</p>
 </div>
-<div aria-label="React views connect through Meteor to MongoDB. A separate directory import updates events and groups while preserving their identities and saved references." class="haven-architecture reveal" role="img">
+<div aria-label="React product views connect through Meteor server methods and subscriptions to MongoDB. Directory sync and curator publication update listings using stable source identities." class="haven-architecture reveal" role="img">
 <div class="haven-arch-layer">
-<span class="haven-arch-label">People</span>
-<div><span>Discover and Match</span><span>Calendars and agenda</span><span>Profiles and groups</span><span>Event creation</span></div>
+<span class="haven-arch-label">Discover &amp; Match</span>
+<div><span>Calendar &amp; agenda</span><span>Profiles &amp; groups</span><span>Event creation</span><span>Event creation</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↕</span>
 <div class="haven-arch-layer haven-arch-layer--blue">
-<span class="haven-arch-label">Application</span>
-<div><span>React interface</span><span>Meteor subscriptions</span><span>Validated user actions</span><span>Permission checks</span></div>
+<span class="haven-arch-label">Subscriptions</span>
+<div><span>Recommendation service</span><span>Validated actions</span><span>Permission checks</span><span>Permission checks</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↕</span>
 <div class="haven-arch-layer haven-arch-layer--navy">
-<span class="haven-arch-label">MongoDB</span>
-<div><span>Events and groups</span><span>Profiles</span><span>Memberships</span><span>Saved references</span></div>
+<span class="haven-arch-label">Events &amp; groups</span>
+<div><span>Profiles &amp; memberships</span><span>Interaction history</span><span>Review decisions</span><span>Saved references</span></div>
 </div>
 <span aria-hidden="true" class="haven-arch-arrow">↑</span>
 <div class="haven-arch-layer haven-arch-layer--green">
-<span class="haven-arch-label">Directory import</span>
-<div><span>Published register data</span><span>Stable source IDs</span><span>Updates in place</span><span>Source details</span></div>
+<span class="haven-arch-label">Published register</span>
+<div><span>Approved candidates</span><span>Stable source IDs</span><span>Source evidence</span><span>Source details</span></div>
 </div>
 </div>
 <div class="haven-tech-grid">
-<article class="reveal"><span class="kicker">Continuity</span><h3>Keep the connection</h3><p>The directory sync updates records using stable source IDs. Existing records retain the IDs that saved events and memberships point to.</p></article>
-<article class="reveal"><span class="kicker">Freshness</span><h3>Let old details go</h3><p>For fields such as cost and registration notes, a refresh can remove information the register no longer supplies. An old price should not linger simply because it was once filled in.</p></article>
-<article class="reveal"><span class="kicker">Reactivity</span><h3>Carry changes through</h3><p>Meteor subscriptions keep views connected to the underlying data. User actions go through server methods that check inputs and permissions.</p></article>
-<article class="reveal"><span class="kicker">Participation</span><h3>Make room for organizers</h3><p>Signed-in users can create events and groups, with a poster preview as they write. Editing and administration currently remain with admins.</p></article>
+<article class="reveal"><span class="kicker">Continuity</span><h3>Preserve the saved connection.</h3><p>Directory sync identifies each listing by its source ID and updates the existing record. Saved-event and membership references continue to point to the same database identity.</p></article>
+<article class="reveal"><span class="kicker">Freshness</span><h3>Remove details the source has withdrawn.</h3><p>A refresh can clear fields such as cost or registration notes when the published register no longer supplies them. An old price should not linger simply because it was once filled in.</p></article>
+<article class="reveal"><span class="kicker">Reactivity</span><h3>Carry updates across views.</h3><p>React provides the interface, while Meteor subscriptions keep views connected to MongoDB records. Server methods validate user actions and check the permissions required to perform them.</p></article>
+<article class="reveal"><span class="kicker">Participation</span><h3>Let people contribute listings.</h3><p>Signed-in users can create events and groups, with a poster preview as they write. Editing existing listings and administrative review remain with admins in the current build.</p></article>
 </div>
 </div>
 </section>
 <section class="haven-section" id="roadmap">
 <div class="wrap">
 <div class="haven-section-head reveal">
-<span class="kicker">06 · The road to launch</span>
-<h2>A useful invitation needs information you can trust.</h2>
-<p>The working product brings discovery, saving, groups, and calendars together. The next work is about keeping that information current and making the suggestions more useful.</p>
+<span class="kicker">06 · Source quality &amp; recommendations</span>
+<h2>Keep listings current and recommendations useful.</h2>
+<p>Two parts of the newer development build support that goal: a source intake workflow with human approval before publication, and a recommendation service shared by Discover and Match.</p>
 </div>
-<div class="mb-sub reveal">
-<span class="kicker">Directory sync built · collection workflow planned</span>
-<h3>Someone may make plans around this.</h3>
+<div class="mb-sub reveal" id="ingestion">
+<span class="kicker">Source intake &amp; curator review · implemented in development</span>
+<h3>Keep the source and review the change.</h3>
 </div>
 <div class="mb-register">
 <div class="mb-register-copy">
-<div class="haven-prose reveal">
-<p>Once a listing helps someone choose how to spend an afternoon, its details matter in a different way. A missing price or an old meeting time can become a problem for the person who relied on it.</p>
-<p>The current import brings published register data into MatchBook, carries source details where available, and supports repeatable updates. The larger collection workflow is planned around a human review step between gathering a listing and publishing it.</p>
-<p>I want automation to take on the repeated work of finding and comparing announcements, while leaving the uncertain decisions visible. A detail the source does not provide should remain a question to resolve.</p>
-</div>
+<div class="haven-prose reveal"><p>Someone may plan an afternoon around a listing. A changed meeting time or missing registration detail needs to remain visible to the person preparing it for publication.</p>
+<p>I built a separate TypeScript service that retains source material, extracts permitted fields, and creates internal candidates for review. An admin can inspect the proposed listing, resolve duplicate or classification questions, and approve the exact revision that will be published.</p>
+<p>Repeated imports reuse unchanged source records. Material changes return candidates to review, and parser versions remain part of the processing history. The publication workflow retains its approval decision and can recover an interrupted attempt.</p></div>
 <blockquote class="mb-rule reveal">
-<span class="kicker">The design rule</span>
-<p>Collecting an announcement and deciding it is ready to publish are different jobs.</p>
+<span class="kicker">The publication boundary</span>
+<p>An imported candidate reaches the public directory only after its current revision and approval decision have been recorded.</p>
 </blockquote>
 </div>
-<ol aria-label="Planned collection and review workflow" class="mb-pipeline reveal">
-<li><strong>Find the announcement</strong><p>Collect from public community calendars and keep a reference to the original source.</p></li>
-<li><strong>Keep the evidence</strong><p>Preserve what the source said, including details that are absent or unclear.</p></li>
-<li><strong>Bring questions to review</strong><p>Let a person resolve possible duplicates, changes, and publication decisions.</p></li>
-<li><strong>Update the listing</strong><p>Carry approved changes into the directory while keeping a traceable history.</p></li>
-</ol>
+<ol aria-label="Implemented source intake, review, and publication workflow" class="mb-pipeline reveal">
+<li><strong>Read an approved source</strong><p>Source settings control whether collection is permitted and enabled. Approved manual snapshots provide another route into the intake service.</p></li>
+<li><strong>Retain and prepare the information</strong><p>Preserve source content and evidence, extract fields into a consistent format, and create a review candidate. Content hashes identify repeated material.</p></li>
+<li><strong>Review the exact revision</strong><p>An admin checks the proposed fields, possible duplicates, and classification. The approval is bound to the revision reviewed.</p></li>
+<li><strong>Publish the approved change</strong><p>The curator workflow checks the saved approval before updating the public listing. Failed attempts retain a status that supports recovery.</p></li></ol>
 </div>
-<div class="mb-sub reveal">
-<span class="kicker">Interest matching built · learned recommendations planned</span>
-<h3>A good suggestion can be a small surprise.</h3>
+<div class="mb-sub reveal" id="recommendations">
+<span class="kicker">Shared ranking service · implemented in development</span>
+<h3>Useful suggestions, even for a new user.</h3>
 </div>
 <div class="mb-rec">
 <div class="mb-rec-copy">
-<div class="haven-prose reveal">
-<p>Interests make a useful starting point. They can also become a narrow one if the product keeps returning the same kind of thing. I want someone who comes looking for music to have room to notice a workshop, a volunteer morning, or a group they had not thought to search for.</p>
-<p>The current discovery views use topic and interest rules to give relevant listings more attention. Learned recommendations are a later step. Before adding them, I want a clearer account of what each action means: saving an event may mean “maybe,” and joining a group does not tell us whether someone attended a meeting.</p>
-<p>A more complicated model would need to earn its place by helping people find better possibilities. The goal is to make choosing easier while leaving enough room to be curious.</p>
-</div>
+<div class="haven-prose reveal"><p>Interests make a useful starting point. They can also become a narrow one if the product keeps returning the same kind of thing. I want someone who comes looking for music to have room to notice a workshop, a volunteer morning, or a group they had not thought to search for.</p>
+<p>A newcomer receives a baseline order of eligible listings. Selecting interests or joining groups gives the ranking service more context. Each optional scoring component contributes only when the required information exists, and the weights are recalculated across the available components.</p>
+<p>Discover’s poster grid and Match’s swipe deck use the same server service. If adaptive ranking fails, the server can return the baseline; if the service is unavailable, the views retain their simpler local ordering.</p></div>
 </div>
 <div class="mb-rec-tiers">
-<ol aria-label="Recommendation development stages" class="mb-tiers reveal">
-<li><span class="mb-tier-badge">01</span><div><strong>Start with stated interests</strong><p>Use topics, categories, and tags to support discovery. Keep time and location available as practical filters.</p></div><span class="mb-status mb-status--live">Working</span></li>
-<li><span class="mb-tier-badge">02</span><div><strong>Understand the action</strong><p>Separate interest, saving, intention, and attendance before treating them as evidence for a recommendation.</p></div><span class="mb-status">Planned</span></li>
-<li><span class="mb-tier-badge">03</span><div><strong>Learn with room to explore</strong><p>Evaluate learned ranking against the simpler approach, including whether it helps unfamiliar events be discovered.</p></div><span class="mb-status">Later</span></li>
-</ol>
-<p class="mb-gate-note reveal">The working app uses rule-based matching. These later stages describe the direction of development, not a deployed learning system.</p>
+<ol aria-label="How the current recommendation service ranks listings" class="mb-tiers reveal mb-ranking-steps">
+<li><span class="mb-tier-badge">01</span><div><strong>Check eligibility first</strong><p>Exclude events marked canceled, private, unlisted, sold out, or unpublished, along with events that are past or have no usable date. Pass and undo decisions also affect the default selection.</p></div></li>
+<li><span class="mb-tier-badge">02</span><div><strong>Start with a usable baseline</strong><p>Rank eligible listings by time proximity, record completeness, and freshness, with a stable tie-breaker. An empty profile still has a starting order.</p></div></li>
+<li><span class="mb-tier-badge">03</span><div><strong>Add the signals available</strong><p>Topic overlap, stated preferences, group memberships, and relevant direct connections can contribute to the score. Missing inputs leave a component out of the calculation.</p></div></li>
+<li><span class="mb-tier-badge">04</span><div><strong>Make room for variety</strong><p>A final pass spreads attention across hosts and topics, moving repeated hosts or topics further down the results when other eligible options are available.</p></div></li></ol>
+<p class="mb-gate-note reveal">The ranker runs inside the existing Meteor server and uses MongoDB records for its recommendation inputs and history.</p>
 </div>
-</div>
+</div><div class="mb-measurement-grid">
+<article class="reveal"><span class="kicker">Interaction history</span><h3>Preserve actions through retries.</h3><p>Actions are appended to a history, while separate records hold the current state used by the interface. Repeating a request with the same user and client event identifier returns the existing action. Tracking failures leave saves and group actions available.</p></article>
+<article class="reveal"><span class="kicker">What was actually shown</span><h3>Count visibility before interpreting a response.</h3><p>The feed records an impression after at least half a card is visible for one second. Match records only the active top card. Saving can still mean “maybe”; clearer RSVP and attendance signals are needed before those outcomes support model evaluation.</p></article>
+</div><aside aria-labelledby="matchbook-release-title" class="mb-release-note reveal" id="release">
+<span class="kicker">Current development scope</span><h3 id="matchbook-release-title">Preparing for public release.</h3>
+<p>The product, directory sync, shared ranker, source intake, and curator publication workflow are implemented in development. A curated register can supply the app while automated sources remain disabled pending their permission and operating checks.</p>
+<p>Learned model entries are drafts. Training, reliable outcome signals, and performance comparisons remain future work. I want a more complex model to earn its place by helping people find better possibilities.</p>
+</aside>
 </div>
 </section>
-<section class="haven-section haven-section--ink">
+<section class="haven-section haven-section--ink" id="direction">
 <div class="wrap">
 <div class="haven-section-head reveal">
 <span class="kicker">07 · What I’m working toward</span>
 <h2>The best part happens after the screen.</h2>
 </div>
 <div class="haven-reflection">
-<div class="haven-prose reveal">
-<p>Building MatchBook has brought me back to how much can sit between an invitation and a decision. A person may need the right date, a little more information, or simply a way to remember something that caught their attention.</p>
+<div class="haven-prose reveal"><p>Building MatchBook has brought me back to how much can sit between an invitation and a decision. A person may need the right date, a little more information, or simply a way to remember something that caught their attention.</p>
 <p>I want the product to be considerate of those small hesitations. It should help someone find their way to what is already happening around them, with enough information to feel comfortable taking the next step.</p>
-<p>That is the experience I’m working toward: someone finds something they would otherwise have missed, makes room for it, and has a reason to go.</p>
-</div>
+<p>That is the experience I’m working toward: someone finds something they would otherwise have missed, makes room for it, and has a reason to go.</p></div>
 <aside class="haven-next reveal">
 <span class="kicker">Where it began</span>
 <h3>From campus to island</h3>
@@ -301,22 +302,21 @@
 </nav>
 </div>
 </main>
-
 <footer id="contact">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="f-kick">Contact</div>
-      <h2>Let’s build something worth shipping.</h2>
-      <div class="f-links">
-        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
-        <a href="tel:+18086398697">(808) 639-8697</a>
-        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
-        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
-        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-      </div>
-      <div class="colophon"><span>Kauaʻi, Hawaiʻi</span><span>Designed and built by Christian Joudon · 2026</span></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="reveal">
+<div class="f-kick">Contact</div>
+<h2>Let’s build something worth shipping.</h2>
+<div class="f-links">
+<a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+<a href="tel:+18086398697">(808) 639-8697</a>
+<a href="https://github.com/ChristianJoudon" rel="noopener" target="_blank">github.com/ChristianJoudon</a>
+<a href="https://www.linkedin.com/in/christian-joudon-256328b8/" rel="noopener" target="_blank">linkedin.com/in/christian-joudon</a>
+<a href="../Christian_Joudon_Resume.pdf" rel="noopener" target="_blank">Résumé (PDF)</a>
+</div>
+<div class="colophon"><span>Kauaʻi, Hawaiʻi</span><span>Designed and built by Christian Joudon · 2026</span></div>
+</div>
+</div>
 </footer>
 <noscript><style>.reveal,.mb-pipeline.reveal li,.mb-tiers.reveal li{opacity:1;transform:none}</style></noscript>
 <script src="../assets/site.js"></script>
