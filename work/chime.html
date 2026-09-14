@@ -980,6 +980,41 @@
 }
 .chime-finale .chime-actions { justify-content: center; }
 
+/* Reservation walkthrough */
+.chime-demo { position: relative; z-index: 1; background: var(--chime-paper); scroll-margin-top: 60px; }
+.chime-demo .chime-pad { padding-block: clamp(3rem, 6vw, 5rem); }
+.chime-demo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.chime-demo h2 { max-width: 20ch; font-size: clamp(2.3rem, 4.5vw, 4rem); }
+.chime-demo-head p { max-width: 32ch; margin: 0; color: #4c645e; line-height: 1.65; }
+.chime-demo figure { margin: 0; }
+.chime-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  border: 1px solid var(--chime-line);
+  border-radius: 20px;
+  background: var(--chime-cloud);
+  box-shadow: 0 18px 56px rgba(8, 47, 40, .1);
+}
+.chime-demo-caption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1rem; color: #4c645e; font-size: .87rem; line-height: 1.6; }
+.chime-demo-caption a { color: var(--chime-pine); text-underline-offset: .2em; white-space: nowrap; }
+.chime-demo details { margin-top: 1.25rem; max-width: 72ch; color: #4c645e; font-size: .9rem; line-height: 1.7; }
+.chime-demo summary { cursor: pointer; color: var(--chime-pine); }
+.chime-demo a:focus-visible, .chime-demo summary:focus-visible, .chime-cta:focus-visible { outline: 3px solid var(--chime-pine); outline-offset: 5px; }
+@media (max-width: 780px) {
+  .chime-demo-head { align-items: start; flex-direction: column; gap: 1rem; }
+  .chime-demo-head p { max-width: 50ch; }
+  .chime-demo-caption { flex-wrap: wrap; }
+  .chime-demo video { border-radius: 12px; }
+}
+
 .chime-case .detail-foot {
   margin: 0;
   padding-block: 2rem;
@@ -1135,7 +1170,7 @@
 <div class="chime-brandline"><span class="chime-brandmark">c</span> Chime</div>
 <h1 id="chime-title"><span>A small</span><em>promise.</em></h1>
 <p class="chime-hero-lede">An appointment asks two people to set aside part of their day. One expects to be seen; the other needs to be ready. <strong>I built Chime to keep the details of that agreement together</strong>, with a customer booking flow and a studio for the business behind it.</p>
-<div class="chime-actions"><a class="chime-cta chime-cta--solid" href="#promise">Read the story <span aria-hidden="true" class="chime-arrow">↓</span></a><a class="chime-cta" href="#studio">See the business studio</a></div>
+<div class="chime-actions"><a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true" class="chime-arrow">↗</span></a><a class="chime-cta" href="#walkthrough">Watch the quick tour <span aria-hidden="true">▷</span></a></div>
 </div>
 <div aria-label="Chime product overview" class="chime-hero-visual">
 <div class="chime-window">
@@ -1151,8 +1186,25 @@
 <div class="chime-shell chime-facts"><div class="chime-fact"><strong>Booking</strong><span>Help someone choose with enough information.</span></div><div class="chime-fact"><strong>Schedule</strong><span>Keep what was promised in view.</span></div><div class="chime-fact"><strong>Changes</strong><span>Explain what happens next, and to whom.</span></div><div class="chime-fact"><strong>Details</strong><span>Keep the money and messages with the work.</span></div></div>
 </div>
 <div class="chime-local-nav-wrap">
-<nav aria-label="Chime case study sections" class="chime-shell chime-local-nav"><a href="#promise">The starting point</a><a href="#experience">For the customer</a><a href="#studio">For the business</a><a href="#brand">Making it belong</a><a href="#trust">The money</a><a href="#platform">Underneath</a><a href="#making">What I built</a></nav>
+<nav aria-label="Chime case study sections" class="chime-shell chime-local-nav"><a href="#walkthrough">Quick tour</a><a href="#promise">The starting point</a><a href="#experience">For the customer</a><a href="#studio">For the business</a><a href="#brand">Making it belong</a><a href="#trust">The money</a><a href="#platform">Underneath</a><a href="#making">What I built</a></nav>
 </div>
+<section aria-labelledby="chime-demo-title" class="chime-demo" id="walkthrough">
+<div class="chime-shell chime-pad">
+<div class="chime-demo-head">
+<div><span class="kicker">A moment in the studio</span><h2 id="chime-demo-title">An appointment, <em>in motion.</em></h2></div>
+<p>A quick look at the everyday work: find a reservation, check the details, and make room for a change.</p>
+</div>
+<figure>
+<video aria-label="Chime reservation walkthrough" aria-describedby="chime-demo-caption" controls playsinline preload="none" poster="../assets/img/chime-reservation-tour.jpg" width="1600" height="1000">
+<source src="../assets/video/chime-reservation-tour.mp4" type="video/mp4"/>
+<track kind="captions" src="../assets/video/chime-reservation-tour.vtt" srclang="en" label="English"/>
+<p><a href="../assets/video/chime-reservation-tour.mp4">Watch the reservation walkthrough</a>.</p>
+</video>
+<figcaption class="chime-demo-caption" id="chime-demo-caption"><span>36 seconds · Sample appointments · No sound</span><a href="../assets/video/chime-reservation-tour.mp4" download>Download the video ↓</a></figcaption>
+</figure>
+<details><summary>Read the walkthrough</summary><p>Start with the week's reservations. Open an appointment to see its customer, service, team member, and time together. Add a reservation from the calendar, then move an appointment and review the change before confirming it.</p></details>
+</div>
+</section>
 <section class="chime-promise" id="promise">
 <div class="chime-shell chime-pad">
 <div class="chime-promise-grid">
@@ -1284,7 +1336,7 @@
 <h2>Less to keep <em>in your head.</em></h2>
 <p>The work of a service business still belongs to the people doing it. Chime gives that work a place to be recorded, understood, and picked up again: the time that was agreed, the change still waiting for an answer, the deposit that was returned. Small things, until someone has to go looking for them.</p>
 <div class="chime-actions">
-<a class="chime-cta chime-cta--solid" href="../index.html#work">Explore more work</a>
+<a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true">↗</span></a>
 <a class="chime-cta" href="mailto:christian.joudon@gmail.com">Start a conversation</a>
 </div>
 </div>
