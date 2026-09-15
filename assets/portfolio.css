@@ -9,6 +9,7 @@
 .portfolio-home .hero .thesis { max-width: 32ch; }
 .portfolio-home .hero .lead { max-width: 62ch; }
 .portfolio-home .hero .eyebrow .dot { flex-shrink: 0; }
+.portfolio-home .ix-row .ix-note { white-space: normal; max-width: 60%; min-width: 0; text-align: right; }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
