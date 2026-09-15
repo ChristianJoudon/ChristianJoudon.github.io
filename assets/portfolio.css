@@ -1,0 +1,113 @@
+/* Homepage reading styles for the engineering and technical writing portfolio. */
+.portfolio-home section[id],
+.portfolio-home #contact,
+.portfolio-home #creative {
+  scroll-margin-top: 90px;
+}
+
+.portfolio-home .navlinks { gap: clamp(.65rem, 1.5vw, 1.4rem); }
+.portfolio-home .hero .thesis { max-width: 32ch; }
+.portfolio-home .hero .lead { max-width: 62ch; }
+.portfolio-home .hero .eyebrow .dot { flex-shrink: 0; }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin: 0 0 1.5rem;
+}
+.hero-actions .linkbtn { padding: .7rem 1rem; }
+.hero-actions .linkbtn:first-child { background: var(--navy); color: var(--paper); border-color: var(--navy); }
+.hero-actions .linkbtn:first-child .arr { color: inherit; }
+
+.writing-feature {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2.1rem 0;
+  border-top: 1px solid var(--line);
+}
+.writing-feature:last-child { border-bottom: 1px solid var(--line); }
+.writing-type {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .72rem;
+  line-height: 1.8;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.writing-copy h3 { font-size: clamp(1.5rem, 3vw, 1.85rem); font-weight: 440; }
+.writing-copy p { max-width: 62ch; margin: .85rem 0 1.05rem; }
+.writing-links { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; }
+.writing-links a {
+  display: inline-flex;
+  gap: .5rem;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: .75rem;
+  line-height: 1.6;
+  color: var(--navy);
+  border-bottom: 1px solid var(--line-2);
+  padding-bottom: .15rem;
+}
+.writing-links a:hover { border-color: var(--navy); }
+.writing-practice {
+  margin-top: 3.2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 12px 12px 0;
+  background: var(--paper-2);
+}
+.writing-practice h3 { font-size: clamp(1.45rem, 3vw, 1.85rem); margin-top: .75rem; }
+.writing-practice > p { max-width: 68ch; }
+.practice-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 1.3rem 0;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.practice-table th, .practice-table td {
+  padding: .85rem .8rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.practice-table th { color: var(--navy); font-weight: 600; }
+.practice-table th:first-child { width: 31%; padding-left: 0; }
+.practice-table td:last-child { padding-right: 0; }
+.writing-practice .sample-note { color: var(--muted); font-size: .96rem; }
+.more-writing { margin-top: 3rem; }
+.more-writing > h3, .subsection-heading h3 { font-size: 1.65rem; margin-bottom: 1rem; }
+.more-writing .essay-list { border-top: 1px solid var(--line); }
+.subsection-heading { margin: 3.5rem 0 1.8rem; }
+.subsection-heading p { color: var(--muted); max-width: 58ch; margin: 0; }
+.portfolio-home .xp-item:nth-child(n+3) { padding-block: 1.4rem; }
+.portfolio-home .xp-item:nth-child(n+3) .xp-list { margin-top: .7rem; }
+.additional-projects, .workflow-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.additional-projects { margin-top: 2.5rem; }
+.additional-project, .workflow-study { padding: 1.7rem 0; border-top: 1px solid var(--line); min-width: 0; }
+.additional-project h3, .workflow-study h3 { font-size: 1.7rem; margin: .8rem 0 1rem; }
+.additional-project p, .workflow-study p { font-size: 1.06rem; line-height: 1.7; }
+.additional-project .tags { margin: 1.2rem 0; }
+.workflow-study .workflow-tools { font-family: var(--mono); font-size: .73rem; line-height: 1.75; color: var(--muted); margin-top: 1.5rem; }
+.workflow-grid { column-gap: 3rem; row-gap: 1rem; }
+.creative-samples { color: var(--muted); margin-top: 1.5rem; max-width: 65ch; }
+.creative-samples a { color: var(--navy); border-bottom: 1px solid var(--line-2); }
+.portfolio-home .footer-intro { max-width: 58ch; margin: -1rem 0 2rem; color: #d7dce4; }
+
+@media (max-width: 760px) {
+  .writing-feature { grid-template-columns: minmax(0, 1fr); gap: .7rem; }
+  .additional-projects, .workflow-grid { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .portfolio-home .hero .thesis { max-width: 27ch; }
+  .portfolio-home .essay-row { flex-wrap: wrap; }
+  .portfolio-home .essay-row .er-title { min-width: 0; flex-basis: calc(100% - 2rem); }
+}
+
+@media (max-width: 440px) {
+  .practice-table { font-size: .94rem; }
+  .practice-table th, .practice-table td { padding-block: .8rem; padding-right: .55rem; }
+  .practice-table th:first-child { width: 35%; }
+}
