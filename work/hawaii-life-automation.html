@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hawaii Life: Automation &amp; Operational Guides · Christian Joudon</title>
+<meta name="description" content="AI-assisted reservation entry, insurance document collection, refund ingestion, ACH receipt processing, and illustrated staff guides developed by Christian Joudon at Hawaii Life.">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/project-notes.css">
+</head>
+<body>
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills">Toolkit</a>
+      <a href="../index.html#writing">Writing</a>
+      <a href="../index.html#essays">Essays</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="subpage">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#operations"><span class="ar">←</span> Operational Workflows</a>
+    <div class="detail-head">
+      <span class="kicker">Hawaii Life · Automation &amp; Technical Writing</span>
+      <h1>From incoming information to usable records.</h1>
+      <p class="detail-lead">I developed tools for reservation entry, insurance document collection, refund correspondence, and ACH receipt processing at Hawaii Life. I also wrote the operational guides that explain the workflows, checks, and handoffs.</p>
+      <div class="tags"><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Google Apps Script</span><span class="tag">OCR</span><span class="tag">Data validation</span><span class="tag">Technical writing</span></div>
+    </div>
+    <div class="detail-body">
+      <h2>Building from the operating process</h2>
+      <p>I work inside Hawaii Life’s reservation and accounting processes while developing the tools around them. Source information often arrives in email or a report, while the next action belongs in a spreadsheet, document store, or Escapia record. I build the connections between those systems and write the instructions that explain how to use them.</p>
+      <p>The work spans AI-assisted extraction, browser automation, Apps Script interfaces, Python document processing, and illustrated documentation. The implementations share a concern: keeping the source, the prepared record, and the status of the action understandable.</p>
+
+      <h2>Reservation emails into Escapia</h2>
+      <p>AI-assisted workflows extract booking information from email and prepare the fields needed for reservation entry and updates. Channel-specific parsers handle Airbnb, Booking.com, Marriott/HVMI, and direct bookings, rather than treating their different rates and fees as interchangeable.</p>
+      <p>JavaScript browser automation carries prepared information into Escapia. Exact property matching, financial reconciliation, and saved-state checks connect the entry to the source and help the workflow resume from its actual state. Payments and other final financial submissions remain with a person.</p>
+      <p>Parser QA covers 66 spreadsheet cases. That validation sits alongside the operating checklists, which define the order of actions, exceptions, and handoffs for each booking route.</p>
+
+      <h2>Insurance records and document ingestion</h2>
+      <p>An Apps Script workbench brings property insurance records, renewal outreach, and certificate collection into one workflow. A responsive upload portal gives owners a focused route to provide documents, while unit validation, upload checks, and duplicate detection help keep those files attached to the right record.</p>
+      <p>The implementation connects Drive storage with Sheets synchronization. Personalized owner correspondence explains what to provide and where to upload it; staff review remains part of the process.</p>
+
+      <h2>Refund reports and reliable batches</h2>
+      <p>Refund report ingestion prepares guest-specific Gmail drafts and pairs them with supporting receipts in Drive. Recipient mapping and batch labels keep the prepared notices together for accounting review.</p>
+      <p>I expanded the system with compressed, chunked storage and SHA-256 integrity checks to support larger report batches while preserving existing reports and completed correspondence. The workflow prepares communication; refund approval and payment execution remain in the accounting process.</p>
+      <p><a href="refund-builder.html">Read the Refund Builder case study →</a></p>
+
+      <h2>ACH receipts into review packets</h2>
+      <p>A recurring Python pipeline assembles multipage receipts, uses OCR to identify supporting information, matches vendors, and reconciles payment totals. Validated packets and manifests feed an Apps Script queue for Gmail drafts.</p>
+      <p>The document-processing toolchain combines qpdf, Ghostscript, and Tesseract. Its 34 automated processor tests cover the pipeline’s validation behavior. Packet preparation supports review and correspondence; it does not submit payments.</p>
+
+      <h2>Guides that carry the process forward</h2>
+      <p>I authored nine illustrated operational handbooks totaling more than 300 pages across reservations, accounting, refunds, and insurance. The guides combine annotated screenshots, linked references, decision paths, and exception handling with shorter references for returning to a task.</p>
+      <p>Writing the instructions also makes the software’s responsibilities explicit: which information it needs, how a status changes, what must be checked, and when a colleague takes over. That detail helps keep automation and the day-to-day process aligned.</p>
+      <p>Internal guides and systems contain operational information. Public case studies describe the work without exposing customer records or private application links; writing samples and walkthroughs are available on request.</p>
+    </div>
+    <nav class="detail-foot">
+      <a href="../index.html#operations"><span>←</span> Operational workflows</a>
+      <a class="nxt" href="refund-builder.html">Refund Builder <span>→</span></a>
+    </nav>
+  </div>
+</main>
+<footer id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="f-kick">Contact</div>
+      <h2>Let’s talk about the work.</h2>
+      <div class="f-links">
+        <a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+        <a href="tel:+18086398697">(808) 639-8697</a>
+        <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
+        <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
+        <a href="../Christian_Joudon_Resume.pdf?v=20261021" target="_blank" rel="noopener">Résumé (PDF)</a>
+      </div>
+      <div class="colophon">
+        <span>Kauaʻi, Hawaiʻi</span>
+        <span>Written, designed, and built by Christian Joudon · 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

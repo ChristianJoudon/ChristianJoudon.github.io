@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Automated Refund Draft Builder · Christian Joudon</title>
-<meta name="description" content="An internal Hawaii Life tool that prepares Gmail refund notices, pairs each guest with the relevant PDF attachments, and groups the drafts for accounting review.">
+<meta name="description" content="A Hawaii Life refund workflow connecting report ingestion, guest-specific Gmail drafts, matching receipts, and reliable storage for larger batches.">
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,11 +31,11 @@
   <div class="wrap">
     <a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
 <div class="detail-head">
-      <span class="kicker">2025 · Accounting Automation</span>
+      <span class="kicker">2025–2026 · Accounting Automation</span>
       <h1>Automated Refund Draft Builder</h1>
-      <p class="detail-lead">An internal Hawaii Life tool that prepares Gmail refund notices, pairs each guest with the relevant PDF attachments, and groups the drafts for accounting review.</p>
+      <p class="detail-lead">An internal Hawaii Life workflow connecting refund report ingestion, guest-specific Gmail drafts, matching receipts, and reliable storage for larger batches.</p>
       
-      <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Gmail API</span><span class="tag">Drive API</span><span class="tag">HTML Email</span></div>
+      <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Gmail API</span><span class="tag">Drive API</span><span class="tag">Data validation</span><span class="tag">SHA-256</span><span class="tag">HTML Email</span></div>
     </div>
     <figure class="detail-media">
       <img src="../assets/img/refund.jpg" alt="Concept illustration of a guest refund notice being assembled with reservation details and PDF attachments for review." width="1600" height="900">
@@ -47,14 +47,19 @@
       <p>I built this tool for Hawaii Life’s reservations accounting work to assemble those pieces in Gmail. The output is a set of guest-specific drafts that Accounting can inspect before sending.</p>
       <h2>How a draft comes together</h2>
       <ul>
+        <li><strong>Ingest the report.</strong> The source refund report supplies the records used to prepare the correspondence.</li>
         <li><strong>Map the recipient.</strong> Recipient mapping connects the reservation information with the guest who should receive the notice.</li>
         <li><strong>Find the attachments.</strong> A document index identifies the relevant PDFs in Google Drive. Shortcut handling resolves a Drive shortcut to its target document.</li>
         <li><strong>Build the message.</strong> Google Apps Script combines the guest’s details, branded HTML, and selected attachments into a Gmail draft.</li>
         <li><strong>Prepare the batch for review.</strong> Validation safeguards support the assembly process, and labels help Accounting find and review the drafts together.</li>
       </ul>
+      <h2>Making larger batches reliable</h2>
+      <p>As the workflow expanded, report storage also needed to accommodate larger batches. I added compressed, chunked storage with SHA-256 integrity checks so the system can reconstruct stored report data and check that its contents remain intact.</p>
+      <p>The storage update preserves existing reports and completed correspondence. Keeping those records separate from draft preparation helps the workflow continue without treating a successful earlier action as new work.</p>
       <h2>Review remains an explicit step</h2>
       <p>Accounting can check the addressee, wording, and attachments in the email before it goes out. The automation handles the repeated assembly work while keeping the final message available for a person to assess.</p>
       <p>The tool’s responsibility is refund communication. Payment processing and approval of the refund amount remain in the accounting workflow that supplies the notice.</p>
+      <p><a href="hawaii-life-automation.html">Explore the related reservation, insurance, and document-processing systems →</a></p>
     </div>
     <nav class="detail-foot">
       <a href="../index.html#work"><span>←</span> All work</a>
@@ -72,7 +77,7 @@
         <a href="tel:+18086398697">(808) 639-8697</a>
         <a href="https://github.com/ChristianJoudon" target="_blank" rel="noopener">github.com/ChristianJoudon</a>
         <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" target="_blank" rel="noopener">linkedin.com/in/christian-joudon</a>
-        <a href="../Christian_Joudon_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="../Christian_Joudon_Resume.pdf?v=20261021" target="_blank" rel="noopener">Résumé (PDF)</a>
       </div>
       <div class="colophon">
         <span>Kauaʻi, Hawaiʻi</span>

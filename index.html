@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Christian Joudon · Software Engineer &amp; Technical Writer</title>
-<meta content="Software engineering and technical writing by Christian Joudon. Products for financial operations, booking, and community discovery, with practical guides and interactive data stories." name="description"/>
+<meta content="Software engineering, AI-assisted automation, and technical writing by Christian Joudon. Products for financial operations, booking, and community discovery, with practical guides and interactive data stories." name="description"/>
 <link href="favicon.ico" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,8 +24,8 @@
 <div class="wrap">
 <div class="eyebrow"><span class="dot"></span><span class="kicker">Kauaʻi, Hawaiʻi · Software Engineer &amp; Technical Writer</span></div>
 <h1 class="reveal">Christian Joudon</h1>
-<p class="thesis reveal">I build software and help people find their way through it.</p>
-<p class="lead reveal">I’m a software engineer and writer working across financial operations, booking systems, community discovery, and AI-assisted data analysis. I connect product design, databases, APIs, and interfaces into usable tools, then write the guidance that helps people understand them. My wider practice includes research essays, interactive data stories, visual design, and creative writing.</p><div class="hero-actions reveal">
+<p class="thesis reveal">I build software, automate workflows, and write technical documentation.</p>
+<p class="lead reveal">My work includes web applications, data processing, and integrations. I develop the interfaces and backend services, then write guides that explain how to use them.</p><div class="hero-actions reveal">
 <a class="linkbtn" href="#work">Explore the software <span aria-hidden="true" class="arr">↓</span></a>
 <a class="linkbtn" href="#essays">Read selected writing <span aria-hidden="true" class="arr">↓</span></a>
 </div>
@@ -33,7 +33,7 @@
 <a href="mailto:christian.joudon@gmail.com">Email<span class="arr">↗</span></a>
 <a href="https://github.com/ChristianJoudon" rel="noopener noreferrer" target="_blank">GitHub<span class="arr">↗</span></a>
 <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" rel="noopener noreferrer" target="_blank">LinkedIn<span class="arr">↗</span></a>
-<a href="Christian_Joudon_Resume.pdf?v=20260915" rel="noopener noreferrer" target="_blank">Résumé<span class="arr">↗</span></a>
+<a href="Christian_Joudon_Resume.pdf?v=20261021" rel="noopener noreferrer" target="_blank">Résumé<span class="arr">↗</span></a>
 
 </div>
 <!-- SIGNATURE: contents index -->
@@ -44,14 +44,12 @@
 <div class="wrap">
 <div class="sec-head reveal">
 <span class="kicker">About</span>
-<h2>A way back into the work.</h2>
+<h2>Software and technical writing.</h2>
 </div>
-<div class="prose reveal"><p>Every workplace asks experienced people to become beginners again in small, consequential ways.</p>
-<p>My work asks how a system can help someone understand what is happening and move forward. I work from the shape of a product through its database, services, and interface, with the writing and visual design developing alongside the software.</p>
-<p>At Hawaii Life, I work inside the reservation and accounting processes I’m trying to improve. An invoice can arrive by email, its property information can live elsewhere, and the next step can depend on a note someone has to find again.</p>
-<p>I build software to bring those pieces together, then put short, skimmable guidance where someone needs it. Fuller tutorials explain the process; a clear label, review step, or brief reminder helps a colleague return after an interruption.</p>
-<p>My technical writing starts with understanding how a system behaves: what information it needs, which decisions it makes, and what those decisions let someone do. That same attention shapes my product walkthroughs, research essays, and interactive data stories.</p>
-<p>Screenwriting, songwriting, photography, and design are also part of my practice. They have made me attentive to pacing, emotional specificity, and the way a reader’s understanding develops. I bring that attention into technical work without losing the detail it needs.</p></div>
+<div class="prose reveal"><p>I work across product design, databases, APIs, and user interfaces. My projects range from full-stack applications to tools that reduce repetitive work.</p>
+<p>At Hawaii Life, I bring hands-on reservation and accounting experience into that work. I build tools for email intake, record entry, document collection, and review, then turn the operating process into walkthroughs and quick references.</p>
+<p>My technical writing starts with how a system behaves: what information it needs, which decisions it supports, and what someone needs to know to use it. The same attention shapes my product explanations, research essays, and interactive data stories.</p>
+<p>Creative writing, photography, and visual design are also part of my practice. They inform how I structure an explanation, pace an interface, and make a complex idea easier to follow.</p></div>
 </div>
 </section>
 <section id="work">
@@ -117,10 +115,10 @@
 <a class="card reveal" href="work/refund-builder.html">
 <div class="card-media"><img alt="Concept illustration of a guest refund notice being assembled with reservation details and PDF attachments for review." src="assets/img/refund.jpg"/></div>
 <div class="card-body">
-<div class="card-meta">2025 · Accounting Automation</div>
+<div class="card-meta">2025–2026 · Accounting Automation</div>
 <h3>Automated Refund Draft Builder</h3>
 <p class="desc">Guest-specific refund emails and matching receipts, assembled in Gmail for accounting review.</p>
-<ul class="pts"><li>Recipient mapping and Drive document indexing connect each notice to its supporting files.</li><li>Branded HTML and batch labels let staff review the messages together.</li></ul>
+<ul class="pts"><li>Report ingestion, recipient mapping, and Drive indexing connect each notice to its supporting files.</li><li>Chunked storage and integrity checks support larger batches; labels keep the drafts together for review.</li></ul>
 <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Gmail API</span><span class="tag">Drive API</span><span class="tag">HTML Email</span></div>
 </div>
 </a>
@@ -199,8 +197,16 @@
 <span class="kicker">Operational Workflows</span>
 <h2>The work around the software.</h2>
 <p class="sub">At Hawaii Life, accounting work reveals where information gets separated: an email, a spreadsheet, a document, and an entry in another system. I build tools and write guidance that reconnect those steps, with clear points for staff review.</p>
+<div class="writing-links"><a href="work/hawaii-life-automation.html">Read the Hawaii Life systems case study <span aria-hidden="true">↗</span></a></div>
 </div>
 <div class="workflow-grid">
+<article class="workflow-study reveal">
+<span class="kicker">Email → reservation → saved record</span>
+<h3>Reservation entry and updates</h3>
+<p>AI-assisted workflows turn booking emails into prepared reservation details, then use JavaScript browser automation to enter and update records in Escapia. Channel-specific parsers handle Airbnb, Booking.com, Marriott/HVMI, and direct bookings.</p>
+<p>Exact property matching, financial reconciliation, and saved-state checks keep each action tied to its source. Payments and other final financial submissions stay with a person; parser QA covers 66 spreadsheet cases.</p>
+<p class="workflow-tools">JavaScript · Browser automation · Google Sheets · Data validation</p>
+</article>
 <article class="workflow-study reveal">
 <span class="kicker">Email → review → accounting entry</span>
 <h3>Invoice preparation</h3>
@@ -211,16 +217,23 @@
 <article class="workflow-study reveal">
 <span class="kicker">Property record → request → document</span>
 <h3>Insurance renewal and collection</h3>
-<p>An Apps Script workflow connects property insurance records, a curated outreach list, and personalized owner correspondence. Multiple affected properties can be grouped into one request for the same recipients.</p>
-<p>The message puts the required document, upload portal, and passcode instructions together. Preview and draft modes support staff review, while a contact ledger helps prevent duplicate outreach within a mailing.</p>
+<p>An Apps Script workbench connects property records, renewal outreach, certificate collection, and a responsive upload portal. Unit validation, upload checks, and duplicate detection help keep incoming documents attached to the right record.</p>
+<p>Drive storage and Sheets synchronization carry documents back into the workflow. Personalized owner correspondence explains what to provide and where to upload it, with staff review built into the process.</p>
 <p class="workflow-tools">Apps Script · Google Sheets · Upload portal · Owner correspondence</p>
 </article>
 <article class="workflow-study reveal">
 <span class="kicker">Guest record → receipt → email draft</span>
 <h3>Refund correspondence</h3>
-<p>The Refund Builder maps each guest to a Gmail draft and the matching receipt in Drive. The email explains the refund while keeping its supporting document attached.</p>
-<p>Batch labels bring the prepared messages together for accounting review. The system handles the repetitive assembly so staff can focus on the recipient, amount, and evidence.</p>
+<p>Refund report ingestion prepares guest-specific Gmail drafts and matches supporting receipts in Drive. Recipient mapping and batch labels keep the prepared correspondence together for accounting review.</p>
+<p>Compressed, chunked storage with SHA-256 integrity checks supports larger report batches while preserving existing reports and completed correspondence.</p>
 <div class="writing-links"><a href="work/refund-builder.html">Read the workflow <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="workflow-study reveal">
+<span class="kicker">Payment report → receipts → review packet</span>
+<h3>ACH document processing</h3>
+<p>A recurring Python pipeline assembles multipage receipts, uses OCR to identify supporting information, matches vendors, and reconciles payment totals. Validated packets and manifests feed an Apps Script queue for Gmail drafts.</p>
+<p>The document pipeline combines qpdf, Ghostscript, and Tesseract, with 34 automated processor tests.</p>
+<p class="workflow-tools">Python · OCR · qpdf · Tesseract · Apps Script</p>
 </article>
 <article class="workflow-study reveal">
 <span class="kicker">Source document → consistent record</span>
@@ -293,16 +306,19 @@
 <div class="writing-practice reveal">
 <span class="kicker">Technical writing in practice</span>
 <h3>Guidance beside the task.</h3>
-<p>At Hawaii Life, I write instructions around the documents, decisions, and review steps staff need to handle. The format depends on the moment: a fuller walkthrough for learning a process, or a brief reference for finding the next step.</p>
+<p>I authored nine illustrated operational handbooks totaling more than 300 pages for Hawaii Life’s reservations, accounting, refunds, and insurance work. Annotated screenshots, linked references, decision paths, and exception handling help staff follow a process and find their way back after an interruption.</p>
+<p>The format depends on the moment: a fuller walkthrough for learning a process, or a brief reference for finding the next step.</p>
 <table class="practice-table">
 <thead><tr><th scope="col">Workflow</th><th scope="col">What the writing helps someone do</th></tr></thead>
 <tbody>
+<tr><th scope="row">Reservations</th><td>Follow booking, date-change, cancellation, and travel-insurance procedures, including exceptions and points for review.</td></tr>
 <tr><th scope="row">Invoice preparation</th><td>Name documents consistently, prepare accounting memos, and check entries against the source.</td></tr>
+<tr><th scope="row">Refunds</th><td>Connect the approved refund, supporting receipt, prepared correspondence, and accounting handoff.</td></tr>
 <tr><th scope="row">Document collection</th><td>Understand what to provide, where to upload it, and how it connects to an insurance renewal or property record.</td></tr>
 <tr><th scope="row">Product walkthroughs</th><td>Follow a task through the interface and understand the meaning of its choices, statuses, and review steps.</td></tr>
 </tbody>
 </table>
-<p class="sample-note">Tutorials, walkthroughs, and brochures are available on request.</p>
+<p class="sample-note">Internal guides contain operational information. Writing samples and walkthroughs are available on request.</p>
 <div class="writing-links"><a href="mailto:christian.joudon@gmail.com?subject=Writing%20samples">Request writing samples <span aria-hidden="true">↗</span></a></div>
 </div></div>
 </section>
@@ -341,7 +357,7 @@
 <div><div class="xp-role">Accounting Operations &amp; Systems Development</div><div class="xp-co">Hawaii Life · Kīlauea, Hawaiʻi</div></div>
 <div class="xp-date">2025 to Present</div>
 </div>
-<ul class="xp-list"><li>Support reservation payments, deposits, adjustments, and refunds while developing tools for the records and communication around them.</li><li>Build insurance renewal and document collection workflows in Apps Script and Google Workspace, linking properties, upload portals, and personalized owner correspondence.</li><li>Automate Gmail refund drafts with mapped recipients and matching Drive attachments so staff can review a batch together.</li><li>Build an invoice dashboard that retrieves email and brings extracted details, accounting memos, and source files into one table for staff review and entry in Escapia.</li><li>Write practical staff guides for document naming, invoice preparation, and review steps, keeping instructions close to the task they support.</li></ul>
+<ul class="xp-list"><li>Develop AI-assisted email parsing and JavaScript browser automation for reservation entry and updates in Escapia, with exact property matching, reconciliation, and saved-state checks.</li><li>Build an insurance workbench and document ingestion portal in Apps Script and Google Workspace, connecting property records, upload validation, and personalized owner correspondence.</li><li>Expand refund report ingestion and Gmail draft preparation with mapped recipients, matching Drive receipts, and compressed, chunked storage with integrity checks.</li><li>Develop a Python/OCR pipeline for ACH receipt packets, vendor matching, and payment-total validation, with 34 automated processor tests.</li><li>Build an invoice dashboard that brings email, extracted details, accounting memos, and source files into one review interface.</li><li>Author nine illustrated operational handbooks totaling more than 300 pages, translating reservation and accounting procedures into walkthroughs, decision paths, and quick references.</li></ul>
 </div>
 <div class="xp-item reveal">
 <div class="xp-top">
@@ -380,7 +396,7 @@
 <span class="kicker">Technical &amp; Editorial Skills</span>
 <h2>Engineering and explanation.</h2>
 <p class="sub">My toolkit spans application engineering, AI and data work, automation, and communication. The projects above show how I use these tools together.</p></div>
-<div class="skills"><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Writing &amp; Editing</span></div><div class="skill-vals">Technical explanation, tutorials, workflow guides, interface copy, research, structural editing, information design, copywriting, audience adaptation</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Languages</span></div><div class="skill-vals">Python, TypeScript, JavaScript, SQL, Java, C / C++, R, HTML, CSS, GDScript</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Frontend &amp; Interfaces</span></div><div class="skill-vals">React, Next.js, Vue.js, Vite, Tailwind CSS, Bootstrap, Radix UI, Framer Motion, FullCalendar, TanStack Query, Zustand, Zod, jQuery, responsive UI/UX</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Backend &amp; Data</span></div><div class="skill-vals">Node.js, Express, FastAPI, NestJS, Fastify, Meteor, PostgreSQL, MongoDB, SQLAlchemy, Alembic, schema design, REST APIs, webhooks, background workers</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">AI &amp; Data Engineering</span></div><div class="skill-vals">LLM extraction, NLP, prompt engineering, PyTorch, TensorFlow, Scikit-learn, spaCy, NLTK, FAISS, semantic search, Pydantic, Apache Spark, PySpark, Databricks, Pandas, NumPy, ETL pipelines</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Visualization &amp; Analysis</span></div><div class="skill-vals">D3.js, Plotly.js, Observable, Matplotlib, Seaborn, signal processing, scheduling optimization</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Automation &amp; Integrations</span></div><div class="skill-vals">Google Apps Script, Gmail and Drive APIs, Google Workspace, Stripe Connect, Zapier, Clay, Retool, Mapbox, Leaflet, Formspree, Excel</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Development Tools</span></div><div class="skill-vals">Git, GitHub, Docker, AWS, S3 object storage, Linux, Vercel, Anaconda, Raspberry Pi, FFmpeg, Godot</div></div></div>
+<div class="skills"><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Writing &amp; Editing</span></div><div class="skill-vals">Technical explanation, tutorials, workflow guides, interface copy, research, structural editing, information design, copywriting, audience adaptation</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Languages</span></div><div class="skill-vals">Python, TypeScript, JavaScript, SQL, Java, C / C++, R, HTML, CSS, GDScript</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Frontend &amp; Interfaces</span></div><div class="skill-vals">React, Next.js, Vue.js, Vite, Tailwind CSS, Bootstrap, Radix UI, Framer Motion, FullCalendar, TanStack Query, Zustand, Zod, jQuery, responsive UI/UX</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Backend &amp; Data</span></div><div class="skill-vals">Node.js, Express, FastAPI, NestJS, Fastify, Meteor, PostgreSQL, MongoDB, SQLAlchemy, Alembic, schema design, REST APIs, webhooks, background workers</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">AI &amp; Data Engineering</span></div><div class="skill-vals">LLM extraction, OCR, data validation, NLP, prompt engineering, PyTorch, TensorFlow, Scikit-learn, spaCy, NLTK, FAISS, semantic search, Pydantic, Apache Spark, PySpark, Databricks, Pandas, NumPy, ETL pipelines</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Visualization &amp; Analysis</span></div><div class="skill-vals">D3.js, Plotly.js, Observable, Matplotlib, Seaborn, signal processing, scheduling optimization</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Automation &amp; Integrations</span></div><div class="skill-vals">Google Apps Script, JavaScript browser automation, Gmail and Drive APIs, Google Workspace, Stripe Connect, Zapier, Clay, Retool, Mapbox, Leaflet, Formspree, Excel</div></div><div class="skill-row reveal"><div class="skill-cat"><span class="kicker">Development Tools</span></div><div class="skill-vals">Git, GitHub, automated testing, Tesseract, qpdf, Ghostscript, Docker, AWS, S3 object storage, Linux, Vercel, Anaconda, Raspberry Pi, FFmpeg, Godot</div></div></div>
 </div>
 </section>
 <section id="creative">
@@ -501,7 +517,7 @@
 <a href="tel:+18086398697">(808) 639-8697</a>
 <a href="https://github.com/ChristianJoudon" rel="noopener noreferrer" target="_blank">github.com/ChristianJoudon</a>
 <a href="https://www.linkedin.com/in/christian-joudon-256328b8/" rel="noopener noreferrer" target="_blank">linkedin.com/in/christian-joudon</a>
-<a href="Christian_Joudon_Resume.pdf?v=20260915" rel="noopener noreferrer" target="_blank">Résumé (PDF)</a>
+<a href="Christian_Joudon_Resume.pdf?v=20261021" rel="noopener noreferrer" target="_blank">Résumé (PDF)</a>
 </div>
 <div class="colophon">
 <span>Kauaʻi, Hawaiʻi</span>
