@@ -1,0 +1,1223 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Book an appointment and manage its next step in Chime | Christian Joudon</title>
+<meta content="Follow the customer booking route, then use the separate Studio sections when working for the business. The customer example uses invented data in the actual Chime components. Staff guidance combines an authenticated workspace viewed without changes, inspected source and clearly identified earlier portfolio examples." name="description"/>
+<meta content="Book an appointment and manage its next step in Chime" property="og:title"/>
+<meta content="Follow the customer booking route, then use the separate Studio sections when working for the business. The customer example uses invented data in the actual Chime components. Staff guidance combines an authenticated workspace viewed without changes, inspected source and clearly identified earlier portfolio examples." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://christianjoudon.github.io/work/chime-walkthrough.html" property="og:url"/>
+<meta content="https://christianjoudon.github.io/assets/img/chime.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="#0d4f40" name="theme-color"/>
+<link href="../favicon.ico" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/site.css" rel="stylesheet"/>
+<style>
+/* Chime's visual system is completely scoped to this page. */
+.chime-case {
+  --chime-pine: #0d4f40;
+  --chime-deep: #082f28;
+  --chime-ink: #102d27;
+  --chime-mint: #42c79a;
+  --chime-mint-bright: #6ce1b7;
+  --chime-seafoam: #dff5ec;
+  --chime-cloud: #f3f8f5;
+  --chime-paper: #fffefa;
+  --chime-cream: #f5f0e5;
+  --chime-coral: #ef8e72;
+  --chime-gold: #f0c95b;
+  --chime-blue: #78a8c7;
+  --chime-line: rgba(13, 79, 64, .16);
+  --chime-shadow: 0 30px 80px rgba(8, 47, 40, .13);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--chime-cloud);
+  color: var(--chime-ink);
+  font-family: "Hanken Grotesk", sans-serif;
+}
+.chime-case *,
+.chime-case *::before,
+.chime-case *::after { box-sizing: border-box; }
+.chime-case section { border: 0; padding: 0; }
+.chime-case img { display: block; width: 100%; }
+.chime-shell {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.chime-case .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.chime-case .kicker::before {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+.chime-case h1,
+.chime-case h2,
+.chime-case h3,
+.chime-case p { color: inherit; }
+.chime-case h2 {
+  margin: .8rem 0 0;
+  max-width: 14ch;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.45rem, 5.8vw, 5.1rem);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .98;
+}
+.chime-case h2 em {
+  color: var(--chime-pine);
+  font-weight: 350;
+}
+.chime-section-intro {
+  max-width: 57ch;
+  margin: 1.25rem 0 0;
+  color: #4c645e;
+  font-size: clamp(1.03rem, 1.8vw, 1.2rem);
+  line-height: 1.7;
+}
+.chime-section-heading { margin-bottom: clamp(2.4rem, 6vw, 5rem); }
+.chime-pad { padding-block: clamp(5rem, 10vw, 9rem); }
+
+/* breadcrumb */
+.chime-crumbbar {
+  position: relative;
+  z-index: 4;
+  background: var(--chime-paper);
+  border-bottom: 1px solid var(--chime-line);
+}
+.chime-crumbbar .chime-shell { padding-block: 1.05rem; }
+.chime-crumbbar .crumb { margin: 0; }
+
+/* hero */
+.chime-hero {
+  position: relative;
+  min-height: 760px;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 87% 9%, rgba(108, 225, 183, .34), transparent 31rem),
+    radial-gradient(circle at 8% 88%, rgba(239, 142, 114, .15), transparent 28rem),
+    linear-gradient(145deg, #eef8f3 0%, #f8fbf8 53%, #e5f4ed 100%);
+}
+.chime-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: .22;
+  background-image: radial-gradient(rgba(13, 79, 64, .26) .75px, transparent .75px);
+  background-size: 22px 22px;
+  content: "";
+  mask-image: linear-gradient(90deg, #000, transparent 48%);
+}
+.chime-hero::after {
+  position: absolute;
+  right: -12vw;
+  bottom: -37vw;
+  z-index: -1;
+  width: min(70vw, 850px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(13, 79, 64, .12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 70px rgba(66, 199, 154, .04),
+    0 0 0 140px rgba(66, 199, 154, .035);
+  content: "";
+}
+.chime-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(330px, .82fr) minmax(500px, 1.28fr);
+  gap: clamp(2.5rem, 5vw, 6rem);
+  align-items: center;
+  min-height: 760px;
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+.chime-hero-copy {
+  position: relative;
+  z-index: 2;
+  animation: chime-rise .8s cubic-bezier(.2, .7, .2, 1) both;
+}
+.chime-brandline {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: clamp(1.7rem, 4vw, 3rem);
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.chime-brandmark {
+  display: grid;
+  width: 36px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--chime-pine);
+  color: white;
+  box-shadow: 0 9px 24px rgba(13, 79, 64, .2);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.chime-hero h1 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(4rem, 8.8vw, 7.8rem);
+  font-weight: 400;
+  letter-spacing: -.065em;
+  line-height: .82;
+}
+.chime-hero h1 span,
+.chime-hero h1 em { display: block; }
+.chime-hero h1 em {
+  margin-left: .6ch;
+  color: var(--chime-pine);
+  font-size: .72em;
+  font-weight: 350;
+}
+.chime-hero-lede {
+  max-width: 51ch;
+  margin: 2rem 0 0;
+  color: #38534c;
+  font-size: clamp(1.07rem, 1.7vw, 1.24rem);
+  line-height: 1.7;
+}
+.chime-hero-lede strong { color: var(--chime-ink); font-weight: 600; }
+.chime-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 2rem;
+}
+.chime-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-height: 48px;
+  padding: .75rem 1.2rem;
+  border: 1px solid var(--chime-pine);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: transform .25s ease, color .25s ease, background .25s ease;
+}
+.chime-cta:hover { transform: translateY(-2px); }
+.chime-cta--solid { background: var(--chime-pine); color: white; }
+.chime-cta--solid:hover { background: var(--chime-deep); color: white; }
+.chime-cta .chime-arrow {
+  display: grid;
+  width: 24px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+}
+.chime-hero-visual {
+  position: relative;
+  min-width: 0;
+  animation: chime-visual-in 1s .15s cubic-bezier(.2, .75, .2, 1) both;
+}
+.chime-window {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(13, 79, 64, .14);
+  border-radius: 26px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+  transform: rotate(1.25deg);
+}
+.chime-window::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+}
+.chime-window img { aspect-ratio: 16 / 9; object-fit: cover; }
+.chime-float {
+  position: absolute;
+  z-index: 3;
+  padding: .85rem 1rem;
+  border: 1px solid rgba(13, 79, 64, .13);
+  border-radius: 15px;
+  background: rgba(255, 254, 250, .91);
+  box-shadow: 0 16px 40px rgba(8, 47, 40, .13);
+  backdrop-filter: blur(10px);
+}
+.chime-float small {
+  display: block;
+  color: #6e827d;
+  font-family: "Space Mono", monospace;
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chime-float strong {
+  display: block;
+  margin-top: .25rem;
+  color: var(--chime-pine);
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.chime-float--availability { top: -1.4rem; right: 2.2rem; }
+.chime-float--payments { right: -1rem; bottom: 2rem; }
+.chime-float--brand { left: -1.8rem; bottom: -1.4rem; }
+.chime-float-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: .4rem;
+  border-radius: 50%;
+  background: var(--chime-mint);
+}
+
+/* product facts */
+.chime-factbar {
+  position: relative;
+  z-index: 3;
+  margin-top: -1px;
+  background: var(--chime-pine);
+  color: white;
+}
+.chime-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.chime-fact {
+  min-height: 150px;
+  padding: 1.7rem clamp(1rem, 2.5vw, 2rem);
+  border-left: 1px solid rgba(255, 255, 255, .16);
+}
+.chime-fact:first-child { border-left: 0; }
+.chime-fact strong {
+  display: block;
+  color: var(--chime-mint-bright);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.chime-fact span {
+  display: block;
+  max-width: 20ch;
+  margin-top: .55rem;
+  color: #d6e9e2;
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+/* local navigation */
+.chime-local-nav-wrap {
+  border-bottom: 1px solid var(--chime-line);
+  background: rgba(255, 254, 250, .96);
+}
+.chime-local-nav {
+  display: flex;
+  gap: 1.8rem;
+  overflow-x: auto;
+  padding-block: 1.15rem;
+  scrollbar-width: none;
+}
+.chime-local-nav::-webkit-scrollbar { display: none; }
+.chime-local-nav a {
+  flex: 0 0 auto;
+  color: #60756f;
+  font-family: "Space Mono", monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: color .2s ease;
+}
+.chime-local-nav a:hover { color: var(--chime-pine); }
+
+/* promise */
+.chime-promise {
+  position: relative;
+  background: var(--chime-paper);
+}
+.chime-promise-grid {
+  display: grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: end;
+}
+.chime-manifesto {
+  margin: 0;
+  max-width: 14ch;
+  color: var(--chime-ink);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 4.1vw, 3.9rem);
+  font-weight: 350;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+}
+.chime-manifesto em { color: var(--chime-pine); }
+.chime-promise-copy p {
+  margin: 0 0 1.1rem;
+  color: #4c645e;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+.chime-promise-copy p:last-child { margin-bottom: 0; }
+.chime-promise-copy strong { color: var(--chime-ink); font-weight: 600; }
+.chime-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  overflow: hidden;
+  border: 1px solid var(--chime-line);
+  border-radius: 22px;
+  background: var(--chime-line);
+}
+.chime-value {
+  min-height: 250px;
+  padding: clamp(1.5rem, 3vw, 2.35rem);
+  background: var(--chime-cloud);
+  transition: background .25s ease, transform .25s ease;
+}
+.chime-value:hover { background: var(--chime-seafoam); }
+.chime-value-index {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+.chime-value h3 {
+  margin: 3.2rem 0 .8rem;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  font-weight: 450;
+  line-height: 1.08;
+}
+.chime-value p {
+  margin: 0;
+  color: #566d66;
+  font-size: .98rem;
+  line-height: 1.62;
+}
+
+/* customer journey */
+.chime-journey {
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 255, 255, .65), rgba(255, 255, 255, .65)),
+    var(--chime-seafoam);
+}
+.chime-journey-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+}
+.chime-steps {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  counter-reset: booking-step;
+}
+.chime-steps li {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--chime-line);
+  list-style: none;
+  counter-increment: booking-step;
+}
+.chime-steps li::before {
+  color: var(--chime-pine);
+  content: counter(booking-step, decimal-leading-zero);
+  font-family: "Space Mono", monospace;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.chime-step-copy { display: flex; gap: .6rem 1.1rem; justify-content: space-between; }
+.chime-step-copy strong {
+  color: var(--chime-ink);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.chime-step-copy span {
+  max-width: 27ch;
+  color: #60756f;
+  font-size: .9rem;
+  line-height: 1.45;
+  text-align: right;
+}
+.chime-phones {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 250px));
+  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
+  min-height: 620px;
+}
+.chime-phone {
+  overflow: hidden;
+  align-self: start;
+  border: 9px solid var(--chime-deep);
+  border-radius: 38px;
+  background: white;
+  box-shadow: 0 24px 60px rgba(8, 47, 40, .2);
+}
+.chime-phone:first-child { margin-top: 0; transform: rotate(-2.5deg); }
+.chime-phone:last-child { margin-top: 76px; transform: rotate(2.5deg); }
+.chime-phone img { width: 100%; }
+.chime-phones::before {
+  position: absolute;
+  top: 11%;
+  left: 7%;
+  width: 76%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(66, 199, 154, .18);
+  filter: blur(2px);
+  content: "";
+}
+
+/* studio */
+.chime-studio { background: var(--chime-paper); }
+.chime-studio .chime-section-heading {
+  display: grid;
+  grid-template-columns: 1fr .72fr;
+  gap: 3rem;
+  align-items: end;
+}
+.chime-studio .chime-section-intro { margin: 0; justify-self: end; }
+.chime-shot-grid {
+  display: grid;
+  grid-template-columns: 1.28fr .72fr;
+  gap: clamp(1rem, 2.3vw, 1.8rem);
+}
+.chime-shot-column { display: grid; gap: clamp(1rem, 2.3vw, 1.8rem); }
+.chime-shot {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--chime-line);
+  border-radius: 22px;
+  background: var(--chime-cloud);
+  box-shadow: 0 16px 40px rgba(8, 47, 40, .08);
+}
+.chime-shot img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+.chime-shot:hover img { transform: scale(1.018); }
+.chime-shot--large { min-height: 650px; }
+.chime-shot--large img { object-position: 28% top; }
+.chime-shot--small { min-height: 310px; }
+.chime-shot-label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem 1rem;
+  border: 1px solid rgba(13, 79, 64, .1);
+  border-radius: 12px;
+  background: rgba(255, 254, 250, .92);
+  box-shadow: 0 12px 30px rgba(8, 47, 40, .1);
+  backdrop-filter: blur(10px);
+}
+.chime-shot-label strong {
+  color: var(--chime-ink);
+  font-size: .91rem;
+}
+.chime-shot-label span {
+  color: #71837e;
+  font-family: "Space Mono", monospace;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.chime-studio-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: clamp(2rem, 4vw, 3.2rem);
+  border-top: 1px solid var(--chime-line);
+  border-bottom: 1px solid var(--chime-line);
+}
+.chime-studio-strip div {
+  padding: 1.35rem;
+  border-left: 1px solid var(--chime-line);
+}
+.chime-studio-strip div:first-child { border-left: 0; }
+.chime-studio-strip strong {
+  display: block;
+  color: var(--chime-pine);
+  font-family: "Fraunces", serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+.chime-studio-strip span {
+  display: block;
+  margin-top: .35rem;
+  color: #667a74;
+  font-size: .82rem;
+  line-height: 1.4;
+}
+
+/* brand */
+.chime-brand-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--chime-deep);
+  color: white;
+}
+.chime-brand-section::before {
+  position: absolute;
+  top: -25rem;
+  right: -17rem;
+  z-index: -1;
+  width: 56rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(66, 199, 154, .24), transparent 66%);
+  content: "";
+}
+.chime-brand-section .kicker { color: var(--chime-mint-bright); }
+.chime-brand-section h2 { color: white; }
+.chime-brand-section h2 em { color: var(--chime-mint-bright); }
+.chime-brand-section .chime-section-intro { color: #bbd5cc; }
+.chime-brand-layout {
+  display: grid;
+  grid-template-columns: .74fr 1.26fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-brand-points {
+  display: grid;
+  gap: 1px;
+  margin-top: 2.2rem;
+  background: rgba(255, 255, 255, .13);
+}
+.chime-brand-point {
+  padding: 1.2rem 0;
+  background: var(--chime-deep);
+}
+.chime-brand-point strong {
+  display: block;
+  color: white;
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+.chime-brand-point span {
+  display: block;
+  margin-top: .4rem;
+  color: #a8c8bd;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.chime-browser {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-radius: 24px;
+  background: #edf7f2;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, .3);
+  transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+}
+.chime-browser-bar {
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+  height: 36px;
+  padding-inline: 1rem;
+  background: #f7faf8;
+  border-bottom: 1px solid rgba(13, 79, 64, .1);
+}
+.chime-browser-bar i {
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--chime-coral);
+}
+.chime-browser-bar i:nth-child(2) { background: var(--chime-gold); }
+.chime-browser-bar i:nth-child(3) { background: var(--chime-mint); }
+
+/* trust */
+.chime-trust { background: var(--chime-cream); }
+.chime-trust-grid {
+  display: grid;
+  grid-template-columns: minmax(390px, 1.08fr) minmax(0, .92fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-payment-frame {
+  overflow: hidden;
+  border: 1px solid rgba(13, 79, 64, .14);
+  border-radius: 24px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+}
+.chime-payment-frame img {
+  aspect-ratio: 1.25;
+  object-fit: cover;
+  object-position: top left;
+}
+.chime-trust-copy h2 { max-width: 11ch; }
+.chime-trust-list {
+  display: grid;
+  gap: 0;
+  margin-top: 2.2rem;
+  padding: 0;
+}
+.chime-trust-list li {
+  position: relative;
+  padding: 1.05rem 0 1.05rem 2.6rem;
+  border-top: 1px solid rgba(13, 79, 64, .17);
+  list-style: none;
+}
+.chime-trust-list li::before {
+  position: absolute;
+  top: 1.08rem;
+  left: 0;
+  display: grid;
+  width: 1.65rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--chime-pine);
+  color: white;
+  content: "\2713";
+  font-size: .72rem;
+}
+.chime-trust-list strong {
+  display: block;
+  color: var(--chime-ink);
+  font-size: .98rem;
+}
+.chime-trust-list span {
+  display: block;
+  margin-top: .25rem;
+  color: #61736e;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+/* platform */
+.chime-platform {
+  position: relative;
+  background: #eaf4ef;
+}
+.chime-platform-head {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 3rem;
+  align-items: end;
+}
+.chime-platform-head .chime-section-intro { margin: 0; justify-self: end; }
+.chime-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(.8rem, 2vw, 1.2rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+.chime-platform-card {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 1px solid var(--chime-line);
+  border-radius: 20px;
+  background: rgba(255, 254, 250, .88);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.chime-platform-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(8, 47, 40, .1);
+}
+.chime-platform-card::after {
+  position: absolute;
+  right: -3rem;
+  bottom: -3rem;
+  width: 8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--card-color, var(--chime-seafoam));
+  content: "";
+}
+.chime-platform-card:nth-child(2) { --card-color: #f7ddd4; }
+.chime-platform-card:nth-child(3) { --card-color: #f6e8ad; }
+.chime-platform-card:nth-child(4) { --card-color: #dbe9f2; }
+.chime-platform-number {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+.chime-platform-card h3 {
+  margin: 4rem 0 .8rem;
+  font-family: "Fraunces", serif;
+  font-size: 1.48rem;
+  font-weight: 500;
+  line-height: 1.08;
+}
+.chime-platform-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #5d716b;
+  font-size: .92rem;
+  line-height: 1.58;
+}
+
+/* communications */
+.chime-messages { background: var(--chime-paper); }
+.chime-messages-grid {
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+.chime-message-frame {
+  overflow: hidden;
+  border: 1px solid var(--chime-line);
+  border-radius: 24px;
+  background: white;
+  box-shadow: var(--chime-shadow);
+}
+.chime-message-frame img {
+  aspect-ratio: 1.42;
+  object-fit: cover;
+  object-position: top left;
+}
+.chime-message-notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.chime-message-note {
+  padding: 1rem;
+  border-top: 2px solid var(--chime-mint);
+  background: var(--chime-cloud);
+}
+.chime-message-note strong {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.chime-message-note span {
+  display: block;
+  margin-top: .35rem;
+  color: #687b75;
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+/* build */
+.chime-build {
+  position: relative;
+  background: var(--chime-deep);
+  color: white;
+}
+.chime-build-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(3rem, 8vw, 8rem);
+}
+.chime-build .kicker { color: var(--chime-mint-bright); }
+.chime-build h2 { color: white; }
+.chime-build h2 em { color: var(--chime-mint-bright); }
+.chime-build .chime-section-intro { color: #b6d0c7; }
+.chime-dossier {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .17);
+}
+.chime-dossier > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .17);
+}
+.chime-dossier dt {
+  color: #7fafa0;
+  font-family: "Space Mono", monospace;
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.chime-dossier dd {
+  margin: 0;
+  color: white;
+  font-size: .92rem;
+  line-height: 1.5;
+}
+.chime-capabilities { display: grid; gap: 1px; background: rgba(255, 255, 255, .15); }
+.chime-capability {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding: 1.45rem 0;
+  background: var(--chime-deep);
+}
+.chime-capability > span {
+  color: var(--chime-mint-bright);
+  font-family: "Space Mono", monospace;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.chime-capability h3 {
+  margin: 0 0 .45rem;
+  color: white;
+  font-family: "Fraunces", serif;
+  font-size: 1.35rem;
+  font-weight: 450;
+}
+.chime-capability p {
+  margin: 0;
+  color: #a9c8bd;
+  font-size: .92rem;
+  line-height: 1.58;
+}
+.chime-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: 2.2rem;
+}
+.chime-stack span {
+  padding: .36rem .7rem;
+  border: 1px solid rgba(255, 255, 255, .19);
+  border-radius: 999px;
+  color: #d7e8e2;
+  font-family: "Space Mono", monospace;
+  font-size: .61rem;
+  letter-spacing: .03em;
+}
+
+/* finale */
+.chime-finale {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(108, 225, 183, .42), transparent 22rem),
+    radial-gradient(circle at 88% 110%, rgba(239, 142, 114, .25), transparent 25rem),
+    #dff5ec;
+}
+.chime-finale::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: min(85vw, 900px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(13, 79, 64, .12);
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+.chime-finale-inner {
+  padding-block: clamp(6rem, 13vw, 11rem);
+  text-align: center;
+}
+.chime-finale-word {
+  color: var(--chime-pine);
+  font-family: "Space Mono", monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.chime-finale h2 {
+  max-width: 13ch;
+  margin: 1rem auto 0;
+}
+.chime-finale p {
+  max-width: 53ch;
+  margin: 1.5rem auto 0;
+  color: #4c665e;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.chime-finale .chime-actions { justify-content: center; }
+
+/* Reservation walkthrough */
+.chime-demo { position: relative; z-index: 1; background: var(--chime-paper); scroll-margin-top: 60px; }
+.chime-demo .chime-pad { padding-block: clamp(3rem, 6vw, 5rem); }
+.chime-demo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.chime-demo h2 { max-width: 20ch; font-size: clamp(2.3rem, 4.5vw, 4rem); }
+.chime-demo-head p { max-width: 32ch; margin: 0; color: #4c645e; line-height: 1.65; }
+.chime-demo figure { margin: 0; }
+.chime-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  border: 1px solid var(--chime-line);
+  border-radius: 20px;
+  background: var(--chime-cloud);
+  box-shadow: 0 18px 56px rgba(8, 47, 40, .1);
+}
+.chime-demo-caption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1rem; color: #4c645e; font-size: .87rem; line-height: 1.6; }
+.chime-demo-caption a { color: var(--chime-pine); text-underline-offset: .2em; white-space: nowrap; }
+.chime-demo details { margin-top: 1.25rem; max-width: 72ch; color: #4c645e; font-size: .9rem; line-height: 1.7; }
+.chime-demo summary { cursor: pointer; color: var(--chime-pine); }
+.chime-demo a:focus-visible, .chime-demo summary:focus-visible, .chime-cta:focus-visible { outline: 3px solid var(--chime-pine); outline-offset: 5px; }
+@media (max-width: 780px) {
+  .chime-demo-head { align-items: start; flex-direction: column; gap: 1rem; }
+  .chime-demo-head p { max-width: 50ch; }
+  .chime-demo-caption { flex-wrap: wrap; }
+  .chime-demo video { border-radius: 12px; }
+}
+
+.chime-case .detail-foot {
+  margin: 0;
+  padding-block: 2rem;
+  border-top: 0;
+  background: var(--chime-paper);
+}
+
+/* motion */
+@keyframes chime-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes chime-visual-in {
+  from { opacity: 0; transform: translate(35px, 16px) scale(.98); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+/* responsive */
+@media (max-width: 1040px) {
+  .chime-hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .chime-hero-copy { max-width: 720px; }
+  .chime-hero-visual { width: min(900px, 96%); margin-inline: auto; }
+  .chime-promise-grid,
+  .chime-journey-grid,
+  .chime-brand-layout,
+  .chime-trust-grid,
+  .chime-messages-grid,
+  .chime-build-grid { grid-template-columns: 1fr; }
+  .chime-journey-grid { gap: 4rem; }
+  .chime-brand-layout { gap: 4rem; }
+  .chime-brand-copy { max-width: 700px; }
+  .chime-trust-copy { order: -1; }
+  .chime-studio .chime-section-heading,
+  .chime-platform-head { grid-template-columns: 1fr; }
+  .chime-studio .chime-section-intro,
+  .chime-platform-head .chime-section-intro { margin-top: 1.2rem; justify-self: start; }
+  .chime-platform-grid { grid-template-columns: repeat(2, 1fr); }
+  .chime-build-copy { max-width: 700px; }
+}
+@media (max-width: 780px) {
+  .chime-shell { width: min(100% - 30px, 1180px); }
+  .chime-hero { min-height: auto; }
+  .chime-hero-grid { padding-block: 4.2rem 5.5rem; }
+  .chime-hero h1 { font-size: clamp(3.8rem, 18vw, 6rem); }
+  .chime-hero h1 em { margin: .2rem 0 0; }
+  .chime-float--availability { top: -1rem; right: .7rem; }
+  .chime-float--payments { right: -.3rem; bottom: 1rem; }
+  .chime-float--brand { display: none; }
+  .chime-facts { grid-template-columns: repeat(2, 1fr); }
+  .chime-fact:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .16); }
+  .chime-fact:nth-child(4) { border-top: 1px solid rgba(255, 255, 255, .16); }
+  .chime-value-grid { grid-template-columns: 1fr; }
+  .chime-value { min-height: auto; }
+  .chime-value h3 { margin-top: 2rem; }
+  .chime-phones { min-height: 510px; }
+  .chime-shot-grid { grid-template-columns: 1fr; }
+  .chime-shot--large { min-height: 430px; }
+  .chime-shot--small { min-height: 300px; }
+  .chime-studio-strip { grid-template-columns: repeat(2, 1fr); }
+  .chime-studio-strip div:nth-child(3) { border-left: 0; border-top: 1px solid var(--chime-line); }
+  .chime-studio-strip div:nth-child(4) { border-top: 1px solid var(--chime-line); }
+  .chime-platform-grid { grid-template-columns: 1fr; }
+  .chime-platform-card { min-height: 240px; }
+  .chime-platform-card h3 { margin-top: 2.8rem; }
+}
+@media (max-width: 560px) {
+  .chime-shell { width: min(100% - 24px, 1180px); }
+  .chime-pad { padding-block: 4.6rem; }
+  .chime-case h2 { font-size: clamp(2.35rem, 13vw, 3.7rem); }
+  .chime-brandline { margin-bottom: 1.9rem; }
+  .chime-hero h1 { font-size: clamp(3.5rem, 19vw, 5rem); }
+  .chime-hero-lede { font-size: 1rem; }
+  .chime-actions { align-items: stretch; flex-direction: column; }
+  .chime-cta { width: 100%; }
+  .chime-window { border-radius: 16px; }
+  .chime-float { padding: .65rem .75rem; }
+  .chime-float strong { font-size: .9rem; }
+  .chime-float--payments { display: none; }
+  .chime-fact { min-height: 128px; padding: 1.25rem .9rem; }
+  .chime-fact strong { font-size: 1.85rem; }
+  .chime-fact span { font-size: .78rem; }
+  .chime-promise-grid { gap: 2.4rem; }
+  .chime-step-copy { display: block; }
+  .chime-step-copy span { margin-top: .35rem; text-align: left; display: block; }
+  .chime-phones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .65rem;
+    min-height: 390px;
+  }
+  .chime-phone { border-width: 5px; border-radius: 24px; }
+  .chime-phone:last-child { margin-top: 42px; }
+  .chime-shot--large,
+  .chime-shot--small { min-height: 270px; }
+  .chime-shot-label { padding: .65rem .75rem; }
+  .chime-shot-label span { display: none; }
+  .chime-studio-strip { grid-template-columns: 1fr; }
+  .chime-studio-strip div,
+  .chime-studio-strip div:nth-child(3) {
+    border-top: 1px solid var(--chime-line);
+    border-left: 0;
+  }
+  .chime-studio-strip div:first-child { border-top: 0; }
+  .chime-browser { border-radius: 15px; transform: none; }
+  .chime-trust-grid { grid-template-columns: 1fr; }
+  .chime-payment-frame img { aspect-ratio: .92; }
+  .chime-message-notes { grid-template-columns: 1fr; }
+  .chime-message-frame img { aspect-ratio: 1; }
+  .chime-dossier > div { grid-template-columns: 1fr; gap: .35rem; }
+  .chime-capability { grid-template-columns: 2.2rem 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chime-hero-copy,
+  .chime-hero-visual { animation: none; }
+  .chime-shot img,
+  .chime-value,
+  .chime-platform-card,
+  .chime-cta { transition: none; }
+}
+
+.chime-fact strong { font-size: clamp(1.7rem, 3vw, 2.6rem); }
+.chime-fact span { max-width: 25ch; }
+.chime-promise-grid { align-items: start; }
+.chime-hero h1 { line-height: .95; }
+</style>
+<style>
+
+/* Added reading layouts; the preceding Chime style blocks are unmodified. */
+.chime-docs .chime-hero h1 { font-size:clamp(3rem,5.8vw,5.8rem); max-width:13ch; }
+.chime-docs .chime-hero-lede { max-width:58ch; }
+.chime-docs .chime-actions { flex-wrap:wrap; }
+.chime-docs .chime-hero-grid { min-height:620px; }
+.chime-docs .chime-doc-edition { margin:1.3rem 0 0; color:#4c645e; font-size:.9rem; }
+.chime-docs .chime-doc-edition a { color:var(--chime-pine); text-decoration:underline; }
+.chime-docs .chime-doc-toc { padding:2.5rem 0; border-block:1px solid var(--chime-line); background:var(--chime-paper); }
+.chime-docs .chime-doc-toc h2 { max-width:none; margin:0 0 1rem; font-size:1.8rem; }
+.chime-docs .chime-doc-toc ol { columns:2; gap:3rem; margin:0; padding-left:1.4rem; }
+.chime-docs .chime-doc-toc li { padding:.3rem 0; break-inside:avoid; color:#4c645e; }
+.chime-docs .chime-doc-toc a { color:var(--chime-pine); text-decoration:underline; text-underline-offset:3px; }
+.chime-docs .chime-doc-section { padding:clamp(3.5rem,7vw,6.5rem) 0; background:var(--chime-paper); scroll-margin-top:95px; }
+.chime-docs .chime-doc-section:nth-of-type(even) { background:var(--chime-cloud); }
+.chime-docs .chime-doc-section h2 { max-width:27ch; font-size:clamp(2.1rem,4.5vw,3.7rem); line-height:1.08; letter-spacing:-.03em; }
+.chime-docs .chime-doc-section h3 { margin:1.8rem 0 .65rem; font-family:"Fraunces",serif; font-weight:500; font-size:1.5rem; line-height:1.25; }
+.chime-docs .chime-doc-prose { max-width:76ch; font-size:1.08rem; line-height:1.8; }
+.chime-docs .chime-doc-prose p { margin:1rem 0; }
+.chime-docs .chime-doc-prose a,.chime-docs .chime-doc-links a { color:var(--chime-pine); text-decoration:underline; text-underline-offset:3px; }
+.chime-docs .chime-doc-prose ul,.chime-docs .chime-doc-prose ol { padding-left:1.5rem; }
+.chime-docs .chime-doc-prose li { padding:.35rem 0; }
+.chime-docs .chime-doc-intro { font-size:1.2rem; color:#4c645e; }
+.chime-docs .chime-doc-note { margin:1.6rem 0; padding:1.1rem 1.3rem; border-left:4px solid var(--chime-mint); background:var(--chime-seafoam); color:var(--chime-ink); }
+.chime-docs .chime-doc-note p { margin:0; }
+.chime-docs .chime-doc-figure { margin:2rem 0 2.5rem; max-width:1100px; }
+.chime-docs .chime-doc-figure img { width:100%; height:auto; border:1px solid var(--chime-line); border-radius:15px; background:white; box-shadow:0 15px 40px rgba(8,47,40,.08); }
+.chime-docs .chime-doc-figure figcaption { max-width:82ch; margin:.85rem 0 0; color:#4c645e; font-size:.94rem; line-height:1.65; }
+.chime-docs .chime-doc-figure a { display:block; }
+.chime-docs .chime-doc-links { display:flex; flex-wrap:wrap; gap:.7rem 1.4rem; margin:1.4rem 0; font-size:1rem; }
+.chime-docs .chime-doc-table-wrap { overflow:auto; margin:1.8rem 0; border:1px solid var(--chime-line); border-radius:12px; background:var(--chime-paper); }
+.chime-docs .chime-doc-table { width:100%; border-collapse:collapse; min-width:520px; font-size:1rem; line-height:1.65; }
+.chime-docs .chime-doc-table th,.chime-docs .chime-doc-table td { padding:1rem; text-align:left; vertical-align:top; border-bottom:1px solid var(--chime-line); }
+.chime-docs .chime-doc-table thead th { background:var(--chime-seafoam); color:var(--chime-pine); }
+.chime-docs .chime-doc-table tbody th { font-weight:600; }
+.chime-docs .chime-doc-alias { display:block; height:0; scroll-margin-top:95px; }
+.chime-docs .chime-doc-guide-hero { min-height:0; }
+.chime-docs .chime-doc-guide-hero .chime-hero-grid { display:block; min-height:0; padding-block:5rem; }
+.chime-docs .chime-doc-guide-hero .chime-hero-copy { max-width:900px; }
+.chime-docs .chime-doc-guide-hero h1 { max-width:19ch; }
+.chime-docs .chime-doc-bottom { padding:3rem 0; background:var(--chime-cream); }
+.chime-docs a:focus-visible,.chime-docs [tabindex]:focus-visible { outline:3px solid var(--chime-pine); outline-offset:5px; }
+@media(max-width:700px) {
+  .chime-docs .chime-doc-toc ol { columns:1; }
+  .chime-docs .chime-hero h1 { font-size:clamp(2.8rem,12vw,4.5rem); }
+  .chime-docs .chime-doc-prose { font-size:1.02rem; }
+  .chime-docs .chime-doc-figure img { border-radius:9px; }
+}
+
+</style></head><body><header id="top">
+<div class="wrap nav">
+<a class="brand" href="https://christianjoudon.github.io/index.html"><b>Christian</b> Joudon</a>
+<nav aria-label="Sections" class="navlinks">
+<a href="https://christianjoudon.github.io/index.html#about">About</a>
+<a href="https://christianjoudon.github.io/index.html#experience">Experience</a>
+<a href="https://christianjoudon.github.io/index.html#work">Work</a>
+<a href="https://christianjoudon.github.io/index.html#skills">Toolkit</a>
+<a href="https://christianjoudon.github.io/index.html#writing">Writing</a>
+<a href="https://christianjoudon.github.io/index.html#essays">Essays</a>
+<a href="https://christianjoudon.github.io/index.html#contact">Contact</a>
+</nav>
+</div>
+</header><main class="subpage chime-case chime-docs"><div class="chime-crumbbar"><div class="chime-shell"><a class="crumb" href="https://christianjoudon.github.io/index.html#work">← Selected Work</a> / Detailed walkthrough</div></div><section class="chime-hero chime-doc-guide-hero" aria-labelledby="chime-title"><div class="chime-shell chime-hero-grid"><div class="chime-hero-copy"><div class="chime-brandline"><span class="chime-brandmark">c</span> Chime / Detailed walkthrough</div><h1 id="chime-title">Book an appointment and manage its next step in Chime</h1><p class="chime-hero-lede">Follow the customer booking route, then use the separate Studio sections when working for the business. The customer example uses invented data in the actual Chime components. Staff guidance combines an authenticated workspace viewed without changes, inspected source and clearly identified earlier portfolio examples.</p><div class="chime-actions"><a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true">↗</span></a><a class="chime-cta" href="chime.html">Read the project case study</a><a class="chime-cta" href="../assets/media/Chime-Walkthrough.pdf">Download the PDF</a></div><p class="chime-doc-edition">26 October 2026</p></div></div></section><nav class="chime-doc-toc" aria-label="On this page"><div class="chime-shell"><h2>In this walkthrough</h2><ol><li><a href="#start">Which route do I need?</a></li><li><a href="#service">How do I choose the right service?</a></li><li><a href="#calendar">How do I find an available date and time?</a></li><li><a href="#terms">What do I review before entering contact details?</a></li><li><a href="#details">Which contact details are required?</a></li><li><a href="#payment">How should I read the deposit step?</a></li><li><a href="#confirmation">How do I know which part succeeded?</a></li><li><a href="#studio">Where does authorized staff work begin?</a></li><li><a href="#studio-add">How do I record an appointment agreed outside the widget?</a></li><li><a href="#studio-move">What happens when I move or resize an appointment?</a></li><li><a href="#requests">How do I handle a request that needs a person?</a></li><li><a href="#services">Which service settings control the customer flow?</a></li><li><a href="#team">How do staff hours become customer openings?</a></li><li><a href="#widget">How do I change appearance and publish the right booking route?</a></li><li><a href="#payments">What can I establish from the Deposits workspace?</a></li><li><a href="#messages">What does the message status establish?</a></li><li><a href="#reference">What should I do when the normal route stops?</a></li><li><a href="#edition">Which evidence does this edition use?</a></li></ol></div></nav><section class="chime-doc-section" id="start" aria-labelledby="heading-start"><div class="chime-shell"><h2 id="heading-start">Which route do I need?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Customers choose a service and time. Authorized business staff use Studio to manage the records and rules behind that booking.</p></div><div class="chime-doc-prose"><h3>Start as a customer</h3></div><div class="chime-doc-prose"><p>Use the booking link supplied by the business. Chime is available at bookwithchime.com, and businesses can place its widget on their own sites. The three main steps are Service, Calendar and Reserve. Reserve contains Terms, Contact, Deposit and Done. A deposit is conditional on the service. An open time is an offered choice; the final submission still needs the booking service to accept it.</p></div><div class="chime-doc-prose"><h3>Follow the fictional example</h3></div><div class="chime-doc-prose"><p>The screenshots use Example Service Studio, an invented business. Jordan Reed chooses a 30 minute Consultation on Tuesday, October 27, 2026 at 9:00 AM, with a $20.00 refundable sample deposit. The bundled sample does not publish a full service price. Dates and openings belong to this demonstration; use the business&#x27;s current choices for a real appointment.</p></div><div class="chime-doc-prose"><h3>Use Studio only for your business</h3></div><div class="chime-doc-prose"><p>The staff sections require an authorized account and the correct workspace. Current screenshots show the authenticated Freelance workspace with an empty schedule. Earlier populated Sea &amp; Kin Studio images are separate examples, not records created by Jordan&#x27;s fictional flow. Read the caption for each. This review viewed the workspace without adding appointments, changing setup, sending messages or moving money.</p></div><div class="chime-doc-links"><a href="https://bookwithchime.com/">Visit the functioning Chime website</a><a href="chime.html">Read the project case study</a><a href="#studio">Go to the staff workspace route</a></div><aside class="chime-doc-note chime-doc-prose"><p>The illustrated customer components call the time step Calendar and use Continue to calendar. The current live Studio preview instead shows Time and Continue to times. These are different observed editions of the customer interface; follow the labels on the screen you are using.</p></aside></div></section><section class="chime-doc-section" id="service" aria-labelledby="heading-service"><div class="chime-shell"><h2 id="heading-service">How do I choose the right service?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Read the service before selecting a time. Its duration and deposit shape the rest of the request.</p></div><div class="chime-doc-prose"><h3>Compare the available choices</h3></div><div class="chime-doc-prose"><p>Select a service card, then read its description and duration. In the local example, Consultation lasts 30 minutes; Repair Session lasts 60 and Installation lasts 90. These are bundled demonstration services. A live business controls its own descriptions, prices, deposits and offerings.</p></div><div class="chime-doc-prose"><h3>Distinguish price from deposit</h3></div><div class="chime-doc-prose"><p>A deposit is an amount required under the business&#x27;s booking policy. It is not automatically the complete service price. When a service supplies a published price, Chime can show Price separately from Refundable deposit. When no total price is published, do not infer one from the deposit. The illustrated Consultation shows a $20.00 deposit and no full price.</p></div><div class="chime-doc-prose"><h3>Continue with the selected service</h3></div><div class="chime-doc-prose"><p>For the example, select Consultation and Continue to calendar. If the service is wrong, change it before completing the request. A new service can have different available times, duration and payment requirements.</p></div><figure class="chime-doc-figure" style="max-width:1080px"><a href="../assets/img/chime-docs/service.jpg" aria-label="Open full-size figure 1: Example Service Studio cards comparing Consultation at 30 minutes, Repair Session at 60 minutes and Installation at 90 minutes."><img src="../assets/img/chime-docs/service.jpg" alt="Example Service Studio cards comparing Consultation at 30 minutes, Repair Session at 60 minutes and Installation at 90 minutes." loading="lazy" width="1080" height="493"/></a><figcaption>Figure 1. The actual customer components compare bundled demonstration services. Consultation lasts 30 minutes.</figcaption></figure></div></section><section class="chime-doc-section" id="calendar" aria-labelledby="heading-calendar"><div class="chime-shell"><h2 id="heading-calendar">How do I find an available date and time?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Choose a date, then a specific opening. Continue remains unavailable until both are selected.</p></div><div class="chime-doc-prose"><h3>Find a day with openings</h3></div><div class="chime-doc-prose"><p>Use the month controls or Next opening. On a narrow screen, the month button and Back to times switch between the month grid and available times. The previous and next day controls move among days with openings. Read the displayed appointment date and time rather than assuming a particular time zone from this guide.</p></div><div class="chime-doc-prose"><h3>Choose an offered time</h3></div><div class="chime-doc-prose"><p>The illustrated October calendar shows 13 openings on Tuesday, October 27. Jordan selects 9:00 AM. The 10:00 AM option is marked Booked and cannot be selected; 11:00 AM carries a Popular label. Popular is a display cue, not a promise that the time will remain available. In another visit, current dates and opening counts may differ.</p></div><div class="chime-doc-prose"><h3>Check the selected summary</h3></div><div class="chime-doc-prose"><p>Read the service, date and selected time before Continue to terms. The example summary reads Tue, Oct 27 at 9:00 AM. Change service returns to the earlier choice. The inspected backend rechecks current capacity and service rules at submission, so choosing an opening does not bypass a later conflict.</p></div><figure class="chime-doc-figure" style="max-width:697px"><a href="../assets/img/chime-docs/calendar.jpg" aria-label="Open full-size figure 2: Actual local demonstration calendar for October 2026 with Tuesday October 27 selected."><img src="../assets/img/chime-docs/calendar.jpg" alt="Actual local demonstration calendar for October 2026 with Tuesday October 27 selected." loading="lazy" width="697" height="587"/></a><figcaption>Figure 2. The October 2026 month view orients the example around a day with available appointments.</figcaption></figure><figure class="chime-doc-figure" style="max-width:330px"><a href="../assets/img/chime-docs/day.jpg" aria-label="Open full-size figure 3: Time choices showing 9:00 AM selected, 10:00 AM Booked and 11:00 AM Popular."><img src="../assets/img/chime-docs/day.jpg" alt="Time choices showing 9:00 AM selected, 10:00 AM Booked and 11:00 AM Popular." loading="lazy" width="330" height="334"/></a><figcaption>Figure 3. The example selects 9:00 AM. A Booked time remains unavailable, and Popular is a separate cue.</figcaption></figure></div></section><section class="chime-doc-section" id="terms" aria-labelledby="heading-terms"><div class="chime-shell"><h2 id="heading-terms">What do I review before entering contact details?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Read the appointment summary and the complete terms supplied by the business.</p></div><div class="chime-doc-prose"><h3>Read the displayed document</h3></div><div class="chime-doc-prose"><p>The Terms screen keeps the service, appointment and refundable deposit beside the document. Scroll inside the terms document to its bottom, rather than scrolling only the page. The checkbox remains disabled until that reading gate is satisfied. If all the text already fits, the component recognizes that without requiring a scroll.</p></div><div class="chime-doc-prose"><h3>Make the appropriate decision</h3></div><div class="chime-doc-prose"><p>In a real booking, select I have read and agree to the terms and conditions only if you agree. Then choose Continue to contact details. Back to calendar lets you revisit the time. The illustrated local fixture instead uses clearly fictional demonstration information, so exercising its checkbox does not accept a real business agreement.</p></div><div class="chime-doc-prose"><h3>Keep the amount tied to the service</h3></div><div class="chime-doc-prose"><p>The amount on the summary comes from the selected service. Read the business&#x27;s actual cancellation and deposit policy rather than treating the fictional sample or a general product description as that policy. Terms, contact details and payment are separate stages.</p></div><figure class="chime-doc-figure" style="max-width:715px"><a href="../assets/img/chime-docs/terms.jpg" aria-label="Open full-size figure 4: Terms screen for Consultation on October 27 at 9:00 AM, with the agreement checkbox disabled."><img src="../assets/img/chime-docs/terms.jpg" alt="Terms screen for Consultation on October 27 at 9:00 AM, with the agreement checkbox disabled." loading="lazy" width="715" height="622"/></a><figcaption>Figure 4. The fictional terms document is visible beside the selected appointment. Acceptance is initially unavailable.</figcaption></figure><figure class="chime-doc-figure" style="max-width:715px"><a href="../assets/img/chime-docs/terms-unlocked.jpg" aria-label="Open full-size figure 5: Fictional terms scrolled to the end, with the agreement checkbox available and Continue to contact details shown."><img src="../assets/img/chime-docs/terms-unlocked.jpg" alt="Fictional terms scrolled to the end, with the agreement checkbox available and Continue to contact details shown." loading="lazy" width="715" height="622"/></a><figcaption>Figure 5. Reaching the end inside the document unlocks the agreement checkbox and the route to contact details.</figcaption></figure></div></section><section class="chime-doc-section" id="details" aria-labelledby="heading-details"><div class="chime-shell"><h2 id="heading-details">Which contact details are required?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Enter the details the business needs to identify the appointment and contact you.</p></div><div class="chime-doc-prose"><h3>Complete the required fields</h3></div><div class="chime-doc-prose"><p>The default form requires Full name and Email. Phone and Notes are optional. The business can configure customer fields, so follow the required markers on the actual form. Invalid or missing required values keep Continue unavailable and receive a field level explanation.</p></div><div class="chime-doc-prose"><h3>Keep the example fictional</h3></div><div class="chime-doc-prose"><p>The demonstration uses Jordan Reed and jordan.reed@example.com, with Fictional documentation example. in Notes and Phone left blank. These are invented details. Read the address before continuing. In a real request, an incorrect address can prevent the intended customer from receiving later communication.</p></div><div class="chime-doc-prose"><h3>Follow the conditional next step</h3></div><div class="chime-doc-prose"><p>A service with a required positive deposit continues to that amount&#x27;s deposit screen. The sample uses Continue to $20.00 deposit. A no deposit service can instead show Confirm appointment. Back to terms returns to the previous stage. Completing contact fields alone does not establish a saved booking or a sent message.</p></div><figure class="chime-doc-figure" style="max-width:725px"><a href="../assets/img/chime-docs/details-empty.jpg" aria-label="Open full-size figure 6: Empty default contact form with required Full name and Email fields and an inactive continuation button."><img src="../assets/img/chime-docs/details-empty.jpg" alt="Empty default contact form with required Full name and Email fields and an inactive continuation button." loading="lazy" width="725" height="574"/></a><figcaption>Figure 6. Full name and Email are required in this default form. Continue is unavailable before valid values are entered.</figcaption></figure><figure class="chime-doc-figure" style="max-width:725px"><a href="../assets/img/chime-docs/details.jpg" aria-label="Open full-size figure 7: Contact form filled with Jordan Reed, jordan.reed@example.com and a fictional example note, with Continue to $20.00 deposit available."><img src="../assets/img/chime-docs/details.jpg" alt="Contact form filled with Jordan Reed, jordan.reed@example.com and a fictional example note, with Continue to $20.00 deposit available." loading="lazy" width="725" height="574"/></a><figcaption>Figure 7. Jordan Reed and an example email complete the required fields. The next action names the $20.00 deposit.</figcaption></figure></div></section><section class="chime-doc-section" id="payment" aria-labelledby="heading-payment"><div class="chime-shell"><h2 id="heading-payment">How should I read the deposit step?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Use the amount, mode and business policy shown on this screen. A sample deposit is not a universal Chime fee.</p></div><div class="chime-doc-prose"><h3>Recognize the local test mode</h3></div><div class="chime-doc-prose"><p>The documentation fixture displays Test mode and states that no real charge will be made. It uses the actual simulated card form, without a Stripe payment endpoint. The example enters 4242 4242 4242 4242, expiry 12/34, CVC 123 and Jordan Reed. These are test values for the fictional demonstration. Do not enter real card details in this example.</p></div><div class="chime-doc-prose"><h3>Keep a real authorization distinct from collection</h3></div><div class="chime-doc-prose"><p>In the inspected connected payment route, a new deposit can be authorized for later capture. Authorization, collection, release and refund are separate states. The business&#x27;s configuration and provider response determine what actually happened. A button caption or a local simulated success is not proof that money moved.</p></div><div class="chime-doc-prose"><h3>Continue once</h3></div><div class="chime-doc-prose"><p>Check the amount, then use Pay refundable $20.00 deposit in this example. A required payment step without configuration reports a problem rather than silently saving an unpaid booking. Back to contact details returns to the earlier information. A final booking result follows the deposit stage; it is not interchangeable with payment success.</p></div><figure class="chime-doc-figure" style="max-width:725px"><a href="../assets/img/chime-docs/payment.jpg" aria-label="Open full-size figure 8: Actual Chime simulated deposit form with Test mode notice and $20.00 refundable sample deposit."><img src="../assets/img/chime-docs/payment.jpg" alt="Actual Chime simulated deposit form with Test mode notice and $20.00 refundable sample deposit." loading="lazy" width="725" height="615"/></a><figcaption>Figure 8. The deposit screen identifies test mode before any test card values are entered. No provider request is configured.</figcaption></figure><figure class="chime-doc-figure" style="max-width:725px"><a href="../assets/img/chime-docs/payment-ready.jpg" aria-label="Open full-size figure 9: Simulated deposit form containing the displayed test card, future expiry, test CVC and Jordan Reed name."><img src="../assets/img/chime-docs/payment-ready.jpg" alt="Simulated deposit form containing the displayed test card, future expiry, test CVC and Jordan Reed name." loading="lazy" width="725" height="615"/></a><figcaption>Figure 9. The fictional example is ready to exercise the simulated payment button. It does not charge a card.</figcaption></figure></div></section><section class="chime-doc-section" id="confirmation" aria-labelledby="heading-confirmation"><div class="chime-shell"><h2 id="heading-confirmation">How do I know which part succeeded?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Read the final message and reference, and keep booking, payment and communication states separate.</p></div><div class="chime-doc-prose"><h3>Read the result</h3></div><div class="chime-doc-prose"><p>The component shows a Confirmed badge and Appointment request received, then says a confirmation has been prepared for jordan.reed@example.com. Those words do not establish email delivery. The example also states: Local documentation demonstration completed. No booking was saved, no payment was made and no email was sent. Its details match the 30 minute Consultation on October 27 at 9:00 AM and the $20.00 sample deposit. A server supplied reference appears when present; this local flow creates no server booking.</p></div><div class="chime-doc-prose"><h3>Recover without starting a second payment</h3></div><div class="chime-doc-prose"><p>If a payment identifier exists but the booking could not be saved, the interface can show Payment received — finishing your booking and Retry booking. That route retains the identifier while trying the booking save again. Read the actual error or ask the business for help if it persists. Do not interpret a payment result as proof that the appointment was saved.</p></div><div class="chime-doc-prose"><h3>Add a personal calendar entry if useful</h3></div><div class="chime-doc-prose"><p>The result offers Google Calendar, Apple / iCal (.ics), Outlook.com, Office 365 and Yahoo. These actions add a personal reminder; they do not create or approve a business appointment. Book another appointment starts a new customer flow rather than changing the completed one.</p></div><figure class="chime-doc-figure" style="max-width:690px"><a href="../assets/img/chime-docs/confirmation.jpg" aria-label="Open full-size figure 10: Appointment request result for the fictional Jordan Reed example with an explicit local demonstration message."><img src="../assets/img/chime-docs/confirmation.jpg" alt="Appointment request result for the fictional Jordan Reed example with an explicit local demonstration message." loading="lazy" width="690" height="628"/></a><figcaption>Figure 10. The local final screen states the demonstration boundary explicitly. It does not claim a live booking or delivered email.</figcaption></figure></div></section><section class="chime-doc-section" id="studio" aria-labelledby="heading-studio"><div class="chime-shell"><h2 id="heading-studio">Where does authorized staff work begin?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Sign in with an authorized business account and confirm the workspace before changing records.</p></div><div class="chime-doc-prose"><h3>Use the relevant area</h3></div><div class="chime-doc-prose"><p>Appointments contains Schedule and Requests. Business setup contains Services, Team and Availability. Customers contains customer records and Messages. Money opens the financial workspaces; the current deposit page is headed Deposits. Booking widget contains Widget designer and Launch. Settings is separate. Choose the area for the record you need rather than starting a second customer booking.</p></div><div class="chime-doc-prose"><h3>Distinguish an empty workspace from a missing session</h3></div><div class="chime-doc-prose"><p>An empty schedule can be a genuine signed in workspace. The observed Freelance schedule for October 26 to 30 had no appointments and no active team. Its existing draft Consultation was set to one hour, $0 and no deposit, with no published service. That is separate from Jordan&#x27;s fictional 30 minute, $20 example. A missing or expired session requires sign in; a local customer demo does not grant Studio access.</p></div><div class="chime-doc-prose"><h3>Read the operation before committing</h3></div><div class="chime-doc-prose"><p>Creating, moving, publishing, sending or returning money can affect customers. Read the relevant preview and its actual change, recipient and result before committing. The guide explains the implemented routes, but the authenticated observation stayed with viewing screens and forms. The earlier populated illustrations demonstrate separate example data.</p></div><div class="chime-doc-links"><a href="https://studio.bookwithchime.com/admin.html?auth=sign-in">Sign in to Chime Studio</a><a href="#studio-add">Add a manual appointment</a><a href="#studio-move">Review a proposed change</a><a href="#services">Configure services</a></div><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-schedule-live.jpg" aria-label="Open full-size figure 11: Authenticated Chime Studio schedule for October 26 to 30 with no appointments in the Freelance workspace."><img src="../assets/img/chime-docs/studio-schedule-live.jpg" alt="Authenticated Chime Studio schedule for October 26 to 30 with no appointments in the Freelance workspace." loading="lazy" width="1068" height="370"/></a><figcaption>Figure 11. The authenticated Freelance workspace has an empty schedule and no active team. It is separate from Jordan&#x27;s local customer flow.</figcaption></figure></div></section><section class="chime-doc-section" id="studio-add" aria-labelledby="heading-studio-add"><div class="chime-shell"><h2 id="heading-studio-add">How do I record an appointment agreed outside the widget?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Use Add an appointment from Schedule when the business already arranged the booking with the customer.</p></div><div class="chime-doc-prose"><h3>Complete the appointment fields</h3></div><div class="chime-doc-prose"><p>Choose Service, Team member and Starts, then check Minutes. The service supplies its default length, which remains editable. Choose Location when applicable, enter Customer name and add optional Phone, Email and Note for your team. A matching contact can link an existing customer instead of creating another record.</p></div><div class="chime-doc-prose"><h3>Review before adding</h3></div><div class="chime-doc-prose"><p>Select Review and add. The preview identifies the service, customer, team member and time, and explains that the time will stop being offered on the booking page. Review that proposed result before Add appointment. The current manual route explicitly does not email or text the customer because this appointment was already agreed outside the widget.</p></div><div class="chime-doc-prose"><h3>Find the saved result</h3></div><div class="chime-doc-prose"><p>After a successful save, the schedule loads the week in which the appointment lands. If a field or service rule prevents saving, resolve the reported issue rather than assuming the record exists. A filled form or preview is not the saved appointment.</p></div><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-add-live.jpg" aria-label="Open full-size figure 12: Current Chime Studio Add an appointment form opened without creating a record."><img src="../assets/img/chime-docs/studio-add-live.jpg" alt="Current Chime Studio Add an appointment form opened without creating a record." loading="lazy" width="1068" height="445"/></a><figcaption>Figure 12. The appointment form opened from the authenticated empty workspace. No appointment was added during this review.</figcaption></figure></div></section><section class="chime-doc-section" id="studio-move" aria-labelledby="heading-studio-move"><div class="chime-shell"><h2 id="heading-studio-move">What happens when I move or resize an appointment?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">This section explains the reviewed implementation and earlier populated example. The live empty workspace did not expose an appointment change to exercise; follow the actual preview in the edition you use.</p></div><div class="chime-doc-prose"><h3>Describe the actual change</h3></div><div class="chime-doc-prose"><p>Select an appointment and adjust time, duration, team member or location. Read any overlap warning, including service buffers. Explain Why is this changing? in customer appropriate language. The preview compares the old and new values and names the recipient. An unchanged appointment produces no new request.</p></div><div class="chime-doc-prose"><h3>Read the preview&#x27;s decision</h3></div><div class="chime-doc-prose"><p>In the inspected revision, the form can say Send change for approval, followed by a more specific preview: Move it now or Ask the customer to approve. Automatic and business modes can apply immediately. That revision sends staff related modes to customer approval because its staff channel is unfinished. This limit is specific to the inspected source, not a claim about the deployed backend. Current live templates include newer team and coverage messages, but their presence alone does not establish an approval route.</p></div><div class="chime-doc-prose"><h3>Keep pending work visible</h3></div><div class="chime-doc-prose"><p>A pending customer request keeps the original appointment active. Waiting for customer shows the proposed values and reason, with Withdraw request available before a decision. The proposed replacement time is not a guaranteed reservation. Current rules and conflicts are checked again when the customer responds. A request sent and a change applied are different results.</p></div><figure class="chime-doc-figure" style="max-width:480px"><a href="../assets/img/chime-docs/studio-move.jpg" aria-label="Open full-size figure 13: Previously published Chime Studio change preview comparing appointment details."><img src="../assets/img/chime-docs/studio-move.jpg" alt="Previously published Chime Studio change preview comparing appointment details." loading="lazy" width="480" height="578"/></a><figcaption>Figure 13. Earlier public Sea &amp; Kin Studio change review. This is separate example data. Current behavior follows the server supplied plan and can require a customer decision.</figcaption></figure></div></section><section class="chime-doc-section" id="requests" aria-labelledby="heading-requests"><div class="chime-shell"><h2 id="heading-requests">How do I handle a request that needs a person?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">The reviewed implementation separates requests needing a decision from confirmed appointments. No pending request was exercised in the empty live workspace.</p></div><div class="chime-doc-prose"><h3>Read the current state</h3></div><div class="chime-doc-prose"><p>A service can confirm automatically or keep a request pending. In the reviewed implementation, the request preview offers Approve and notify or Decline and reopen, with the intended recipient and effect. Those names describe the inspected route, not an observed live decision. Read the actual current request and preview before acting.</p></div><div class="chime-doc-prose"><h3>Separate cancellation from money movement</h3></div><div class="chime-doc-prose"><p>Cancel appointment is a distinct consequential action. Its result and any related communication do not establish that a deposit was automatically returned. Inspect the payment record and applicable business policy separately. Preserve the action history instead of repeating a cancellation or message because a different screen still needs attention.</p></div></div></section><section class="chime-doc-section" id="services" aria-labelledby="heading-services"><div class="chime-shell"><h2 id="heading-services">Which service settings control the customer flow?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Business setup, then Services, defines the offered appointment and its rules.</p></div><div class="chime-doc-prose"><h3>Set the offering and payment</h3></div><div class="chime-doc-prose"><p>Use Service name, Category, Short description and Default length. Service price is distinct from Deposit. Deposit choices include No deposit, Fixed amount, Percentage and Full payment, with the relevant amount or percentage field. Assign supported team members and locations. Confirm automatically and Review each request govern initial booking confirmation, not every later schedule change.</p></div><div class="chime-doc-prose"><h3>Set the timing and capacity</h3></div><div class="chime-doc-prose"><p>The advanced service controls include Shortest, Longest, Resize steps, Buffer before, Buffer after, Schedule changes, Minimum notice, Book ahead and Capacity per start time. Active service and customer widget visibility are separate controls. Read their scope before changing what customers can choose.</p></div><div class="chime-doc-prose"><h3>Save the actual rule</h3></div><div class="chime-doc-prose"><p>Select Save service and read the save result. A preview or unsaved field is not the server&#x27;s current rule. The customer submission rechecks current service requirements, so a changed deposit or booking window may require the customer to revisit a stale request.</p></div><figure class="chime-doc-figure" style="max-width:835px"><a href="../assets/img/chime-docs/studio-services-live.jpg" aria-label="Open full-size figure 14: Current Chime Studio service setup for the existing draft Consultation, distinct from the fictional customer example."><img src="../assets/img/chime-docs/studio-services-live.jpg" alt="Current Chime Studio service setup for the existing draft Consultation, distinct from the fictional customer example." loading="lazy" width="835" height="590"/></a><figcaption>Figure 14. The authenticated workspace has a separate draft Consultation set to one hour, $0 and no deposit. It is not the 30 minute, $20 customer demonstration.</figcaption></figure></div></section><section class="chime-doc-section" id="team" aria-labelledby="heading-team"><div class="chime-shell"><h2 id="heading-team">How do staff hours become customer openings?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">A saved team profile and a published customer calendar are related but separate results.</p></div><div class="chime-doc-prose"><h3>Maintain the team record</h3></div><div class="chime-doc-prose"><p>In Team, add or select a member. Check Full name, Role or specialty, contact details, assigned services and locations, working days and hours. Add time off records From and Through dates and an optional note. Save team member stores the profile. Opening the new member form can create an unsaved local profile; that alone does not save an active team member.</p></div><div class="chime-doc-prose"><h3>Read the calendar publication state</h3></div><div class="chime-doc-prose"><p>The customer calendar panel shows the publication date range and time zone, plus services, customer times, staff options and active people. The observed empty workspace showed Pacific/Honolulu and October 26 through November 24, with no active public services ready to publish. Save profiles before publishing appears when profile edits remain unsaved. On a configured workspace, distinguish saving those profiles from publishing customer openings.</p></div><div class="chime-doc-prose"><h3>Keep existing work connected</h3></div><div class="chime-doc-prose"><p>The inspected data model accounts for Studio appointments, customer bookings and buffers when maintaining availability. The review did not apply migrations or inspect production configuration. If expected openings are missing, inspect the relevant service, active member, location, hours and publication state rather than creating an unrelated duplicate offering.</p></div><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-team-live.jpg" aria-label="Open full-size figure 15: Current Chime Studio Team workspace viewed without adding or editing a person."><img src="../assets/img/chime-docs/studio-team-live.jpg" alt="Current Chime Studio Team workspace viewed without adding or editing a person." loading="lazy" width="1068" height="530"/></a><figcaption>Figure 15. The authenticated Team workspace has no people saved. An opened profile form is unsaved and was discarded without saving.</figcaption></figure><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-team-form-live.jpg" aria-label="Open full-size figure 16: Current Chime Studio new team profile form with unsaved fields and a separate customer calendar publication state."><img src="../assets/img/chime-docs/studio-team-form-live.jpg" alt="Current Chime Studio new team profile form with unsaved fields and a separate customer calendar publication state." loading="lazy" width="1068" height="420"/></a><figcaption>Figure 16. The new member form is a local unsaved profile. It was viewed, then discarded without saving a person or publishing openings.</figcaption></figure></div></section><section class="chime-doc-section" id="widget" aria-labelledby="heading-widget"><div class="chime-shell"><h2 id="heading-widget">How do I change appearance and publish the right booking route?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Widget designer controls presentation. Launch controls how customers reach the business.</p></div><div class="chime-doc-prose"><h3>Save the design</h3></div><div class="chime-doc-prose"><p>The current live Widget designer groups its controls under Your brand, Customer welcome, Color and finish and Saved design. Wide, Inline and Phone switch preview formats. Save design is unavailable while the design is already Saved. Design preview code is a preview connection, not proof that a customer channel has been installed or published.</p></div><div class="chime-doc-prose"><h3>Continue to Launch for website setup</h3></div><div class="chime-doc-prose"><p>Open Launch after reviewing the design. The current screen separates Hosted booking link from Add Chime to a website. The hosted link has Publish the hosted booking link, Open and Copy link. Website modes are On the page, Pop-up and Floating button, with Website preview and trusted website choices. These are separate routes to the business, not evidence that both are published.</p></div><div class="chime-doc-prose"><h3>Publish deliberately</h3></div><div class="chime-doc-prose"><p>Read readiness and the Website widget state before Save changes. In the observed workspace, readiness was 33%, or two of six essentials. Business is open and Deposit payouts were complete because no deposits were required. Public service, Team coverage, Bookable times and Widget design remained incomplete. The website widget was paused, Not published yet, with zero connected websites and Finish setup to publish disabled. A general Live badge does not override that channel state.</p></div><figure class="chime-doc-figure" style="max-width:1097px"><a href="../assets/img/chime-docs/studio-widget-live.jpg" aria-label="Open full-size figure 17: Current Chime Studio Widget designer viewed in the authenticated workspace."><img src="../assets/img/chime-docs/studio-widget-live.jpg" alt="Current Chime Studio Widget designer viewed in the authenticated workspace." loading="lazy" width="1097" height="550"/></a><figcaption>Figure 17. The live Widget designer uses Customer welcome and Saved design, with Wide, Inline and Phone previews. The saved design was viewed without changes.</figcaption></figure><figure class="chime-doc-figure" style="max-width:1100px"><a href="../assets/img/chime-docs/studio-launch-live.jpg" aria-label="Open full-size figure 18: Launch readiness at 33%, with Business is open and Deposit payouts complete and four remaining setup requirements."><img src="../assets/img/chime-docs/studio-launch-live.jpg" alt="Launch readiness at 33%, with Business is open and Deposit payouts complete and four remaining setup requirements." loading="lazy" width="1120" height="166"/></a><figcaption>Figure 18. The live Launch readiness panel shows 33%, with two of six essentials complete. Public service, team coverage, bookable times and widget design still need attention.</figcaption></figure></div></section><section class="chime-doc-section" id="payments" aria-labelledby="heading-payments"><div class="chime-shell"><h2 id="heading-payments">What can I establish from the Deposits workspace?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Open the financial area under Money. The current page is headed Deposits; read its records before interpreting a payment outcome.</p></div><div class="chime-doc-prose"><h3>Find the relevant record</h3></div><div class="chime-doc-prose"><p>The current workspace has Deposits, Deposit rules and Connection subnavigation. Deposits offers All deposits, Needs action and Refunds views, plus search and Refresh. The observed workspace showed zero deposits and Your first deposit will appear here. An empty list does not demonstrate a collection, release or refund.</p></div><div class="chime-doc-prose"><h3>Distinguish the financial states</h3></div><div class="chime-doc-prose"><p>An authorization is a hold, collection captures money, release ends an uncaptured hold, and refund returns previously collected money. A refund request is not proof the customer&#x27;s bank has posted the credit. Those concepts apply when reading a populated ledger, but no row action was available or exercised in the empty live workspace.</p></div><div class="chime-doc-prose"><h3>Use populated examples as reference</h3></div><div class="chime-doc-prose"><p>The reviewed implementation and earlier portfolio example include state dependent collection, release, refund and provider sync actions, with permission and version checks. They are reference evidence, not proof of identical current labels. In that implementation, new connected account payments retain their originating account; historical records without one use the platform branch. Read the actual record, available control and business policy before a financial action.</p></div><figure class="chime-doc-figure" style="max-width:1095px"><a href="../assets/img/chime-docs/studio-payments-live.jpg" aria-label="Open full-size figure 19: Current Chime Studio Deposits page with zero deposits and Deposits, Deposit rules and Connection navigation."><img src="../assets/img/chime-docs/studio-payments-live.jpg" alt="Current Chime Studio Deposits page with zero deposits and Deposits, Deposit rules and Connection navigation." loading="lazy" width="1095" height="590"/></a><figcaption>Figure 19. The current Deposits workspace is empty. Its Deposit rules and Connection areas are separate from a populated payment record.</figcaption></figure></div></section><section class="chime-doc-section" id="messages" aria-labelledby="heading-messages"><div class="chime-shell"><h2 id="heading-messages">What does the message status establish?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Messages has Activity, Templates and Sending setup. Each answers a different question about customer communication.</p></div><div class="chime-doc-prose"><h3>Find the message and its history</h3></div><div class="chime-doc-prose"><p>Activity provides Search messages, channel choices, Refresh and Needs attention, Upcoming, Recent, Stopped and All filters. Select a message to read its content and delivery history. The observed workspace showed Live email and zero messages. That establishes the displayed mode and empty activity, not an email delivered during this review.</p></div><div class="chime-doc-prose"><h3>Inspect content without sending</h3></div><div class="chime-doc-prose"><p>Templates lists Published templates. The selected email shows Published email with sample details, plus Wide, Narrow and Plain text previews. Viewing that sample sends nothing. Edit email starts a content change. Send preview email is a real send to the configured preview recipient, so it differs from inspecting the on screen preview. No edit or preview email was sent during this observation.</p></div><div class="chime-doc-prose"><h3>Read the sending state separately</h3></div><div class="chime-doc-prose"><p>Sending setup shows the sending identity, reply destination and status. The observed workspace reported Live email, Sending service Set up and Automatic sending Running, but Last message accepted was None recorded. The screen explicitly states that acceptance does not confirm delivery to the inbox. Replies go to the displayed mailbox and do not appear inside Chime. Refresh status updates this view; it is not the Send preview email action.</p></div><figure class="chime-doc-figure" style="max-width:1095px"><a href="../assets/img/chime-docs/studio-messages-live.jpg" aria-label="Open full-size figure 20: Current Chime Messages Activity view with Live email, zero messages and the Needs attention, Upcoming, Recent, Stopped and All filters."><img src="../assets/img/chime-docs/studio-messages-live.jpg" alt="Current Chime Messages Activity view with Live email, zero messages and the Needs attention, Upcoming, Recent, Stopped and All filters." loading="lazy" width="1095" height="670"/></a><figcaption>Figure 20. The current Activity view has zero messages and provides filters plus a place for content and delivery history.</figcaption></figure><figure class="chime-doc-figure" style="max-width:820px"><a href="../assets/img/chime-docs/studio-templates-live.jpg" aria-label="Open full-size figure 21: Current Chime Templates view with Published email sample details and Wide, Narrow and Plain text preview modes."><img src="../assets/img/chime-docs/studio-templates-live.jpg" alt="Current Chime Templates view with Published email sample details and Wide, Narrow and Plain text preview modes." loading="lazy" width="820" height="155"/></a><figcaption>Figure 21. Published email is previewed with sample details. The separate Send preview email button would send a real email and was not used.</figcaption></figure><figure class="chime-doc-figure" style="max-width:810px"><a href="../assets/img/chime-docs/studio-sending-live.jpg" aria-label="Open full-size figure 22: Current Chime Sending setup status showing Live email, Set up, Running and Last message accepted None recorded."><img src="../assets/img/chime-docs/studio-sending-live.jpg" alt="Current Chime Sending setup status showing Live email, Set up, Running and Last message accepted None recorded." loading="lazy" width="810" height="465"/></a><figcaption>Figure 22. Sending setup reports a configured running service but no recorded accepted message. Acceptance remains distinct from inbox delivery.</figcaption></figure></div></section><section class="chime-doc-section" id="reference" aria-labelledby="heading-reference"><div class="chime-shell"><h2 id="heading-reference">What should I do when the normal route stops?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Match the symptom to the affected record and keep completed actions intact.</p></div><div class="chime-doc-prose"><h3>An opening or deposit changed</h3></div><div class="chime-doc-prose"><p>A live booking can reject stale capacity, notice, advance window or deposit details. Read the conflict and revisit the current offering rather than assuming the earlier screen reserved it. If payment was already identified, follow the retained payment retry route instead of starting an independent payment.</p></div><div class="chime-doc-prose"><h3>A staff edit conflicts</h3></div><div class="chime-doc-prose"><p>Studio can report a newer record version or an overlap. Reload the current record and compare the intended change. Buffers can explain a conflict even when the visible appointment blocks do not touch. Do not infer a completed update from a local drag preview.</p></div><div class="chime-doc-prose"><h3>A session or provider is unavailable</h3></div><div class="chime-doc-prose"><p>An expired Studio session returns to sign in. A missing payment configuration, unavailable launch setting or delivery failure has its own state. Resolve the stated setup or permission issue. The product&#x27;s source checks do not establish complete recovery from every provider or concurrent edit failure.</p></div><div class="chime-doc-table-wrap" tabindex="0" role="region" aria-label="Scrollable reference table"><table class="chime-doc-table"><thead><tr><th scope="col">State</th><th scope="col">Meaning</th></tr></thead><tbody><tr><th scope="row">Selected opening</th><td>A current choice, before final submission</td></tr><tr><th scope="row">Request received</th><td>Read the returned booking status and reference</td></tr><tr><th scope="row">Change pending</th><td>Original remains active while a decision is needed</td></tr><tr><th scope="row">Authorized deposit</th><td>A hold, distinct from collection</td></tr><tr><th scope="row">Queued message</th><td>Prepared work, not inbox delivery</td></tr><tr><th scope="row">Saved design</th><td>Stored presentation, distinct from publication</td></tr></tbody></table></div></div></section><section class="chime-doc-section" id="edition" aria-labelledby="heading-edition"><div class="chime-shell"><h2 id="heading-edition">Which evidence does this edition use?</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Documentation review date: October 26, 2026. The public website, private source inspection and local synthetic demonstration are different evidence.</p></div><div class="chime-doc-prose"><h3>Know the illustration sources</h3></div><div class="chime-doc-prose"><p>Customer screenshots were captured on October 26, 2026 from unchanged application components with a fictional local configuration. Current Studio screenshots show the authenticated Freelance workspace viewed without saved changes. Earlier populated Sea &amp; Kin Studio images are historical examples with separate people, services and amounts. Where current labels differ, the instructions use the observed live labels. Source inspection supports the underlying implementation discussion; the inspected revision was not matched to the deployment.</p></div><div class="chime-doc-prose"><h3>Keep claims proportionate</h3></div><div class="chime-doc-prose"><p>Targeted regression scripts were inspected but not run during this writing review. No production appointment, message, payment or deployment was changed. The guide does not claim user testing, accessibility conformance or measured business improvement. Report a mismatch with the screen, action and edition so related explanations can be corrected together.</p></div><div class="chime-doc-links"><a href="chime.html">Read the Chime project case study</a><a href="https://bookwithchime.com/">Visit Chime</a></div></div></section><div class="chime-doc-bottom"><div class="chime-shell"><div class="chime-actions"><a class="chime-cta chime-cta--solid" href="chime.html">Read the project case study</a><a class="chime-cta" href="../assets/media/Chime-Walkthrough.pdf">Download the PDF</a><a class="chime-cta" href="https://christianjoudon.github.io/index.html#work">All selected work</a></div></div></div></main><footer id="contact">
+<div class="wrap">
+<div class="reveal">
+<div class="f-kick">Contact</div>
+<h2>Let’s build something worth shipping.</h2>
+<div class="f-links">
+<a href="mailto:christian.joudon@gmail.com">christian.joudon@gmail.com</a>
+<a href="tel:+18086398697">(808) 639-8697</a>
+<a href="https://github.com/ChristianJoudon" rel="noopener" target="_blank">github.com/ChristianJoudon</a>
+<a href="https://www.linkedin.com/in/christian-joudon-256328b8/" rel="noopener" target="_blank">linkedin.com/in/christian-joudon</a>
+<a href="../Christian_Joudon_Resume.pdf" rel="noopener" target="_blank">Résumé (PDF)</a>
+</div>
+<div class="colophon">
+<span>Kauaʻi, Hawaiʻi</span>
+<span>Designed and built by Christian Joudon · 2026</span>
+</div>
+</div>
+</div>
+</footer><script src="../assets/site.js"></script></body></html>

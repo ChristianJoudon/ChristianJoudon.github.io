@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Chime | Booking, scheduling, and payments | Christian Joudon</title>
-<meta content="I designed and built Chime to connect customer booking with team schedules, deposits, and email. A case study in product design and full-stack engineering." name="description"/>
-<meta content="Chime | Booking, scheduling, and payments" property="og:title"/>
-<meta content="How Chime connects a customer booking flow with the schedule, payment history, and communication tools a service business needs to manage appointments." property="og:description"/>
+<title>Connect a booking to the work that follows it | Christian Joudon</title>
+<meta content="Chime is a functioning booking website and business workspace at bookwithchime.com. I developed the customer flow, Studio and supporting services around one appointment lifecycle, so a business can connect the original request with later schedule, payment and communication work." name="description"/>
+<meta content="Connect a booking to the work that follows it" property="og:title"/>
+<meta content="Chime is a functioning booking website and business workspace at bookwithchime.com. I developed the customer flow, Studio and supporting services around one appointment lifecycle, so a business can connect the original request with later schedule, payment and communication work." property="og:description"/>
 <meta content="article" property="og:type"/>
 <meta content="https://christianjoudon.github.io/work/chime.html" property="og:url"/>
 <meta content="https://christianjoudon.github.io/assets/img/chime.jpg" property="og:image"/>
@@ -1142,59 +1139,76 @@
 .chime-promise-grid { align-items: start; }
 .chime-hero h1 { line-height: .95; }
 </style>
-</head>
-<body>
-<header id="top">
+<style>
+
+/* Added reading layouts; the preceding Chime style blocks are unmodified. */
+.chime-docs .chime-hero h1 { font-size:clamp(3rem,5.8vw,5.8rem); max-width:13ch; }
+.chime-docs .chime-hero-lede { max-width:58ch; }
+.chime-docs .chime-actions { flex-wrap:wrap; }
+.chime-docs .chime-hero-grid { min-height:620px; }
+.chime-docs .chime-doc-edition { margin:1.3rem 0 0; color:#4c645e; font-size:.9rem; }
+.chime-docs .chime-doc-edition a { color:var(--chime-pine); text-decoration:underline; }
+.chime-docs .chime-doc-toc { padding:2.5rem 0; border-block:1px solid var(--chime-line); background:var(--chime-paper); }
+.chime-docs .chime-doc-toc h2 { max-width:none; margin:0 0 1rem; font-size:1.8rem; }
+.chime-docs .chime-doc-toc ol { columns:2; gap:3rem; margin:0; padding-left:1.4rem; }
+.chime-docs .chime-doc-toc li { padding:.3rem 0; break-inside:avoid; color:#4c645e; }
+.chime-docs .chime-doc-toc a { color:var(--chime-pine); text-decoration:underline; text-underline-offset:3px; }
+.chime-docs .chime-doc-section { padding:clamp(3.5rem,7vw,6.5rem) 0; background:var(--chime-paper); scroll-margin-top:95px; }
+.chime-docs .chime-doc-section:nth-of-type(even) { background:var(--chime-cloud); }
+.chime-docs .chime-doc-section h2 { max-width:27ch; font-size:clamp(2.1rem,4.5vw,3.7rem); line-height:1.08; letter-spacing:-.03em; }
+.chime-docs .chime-doc-section h3 { margin:1.8rem 0 .65rem; font-family:"Fraunces",serif; font-weight:500; font-size:1.5rem; line-height:1.25; }
+.chime-docs .chime-doc-prose { max-width:76ch; font-size:1.08rem; line-height:1.8; }
+.chime-docs .chime-doc-prose p { margin:1rem 0; }
+.chime-docs .chime-doc-prose a,.chime-docs .chime-doc-links a { color:var(--chime-pine); text-decoration:underline; text-underline-offset:3px; }
+.chime-docs .chime-doc-prose ul,.chime-docs .chime-doc-prose ol { padding-left:1.5rem; }
+.chime-docs .chime-doc-prose li { padding:.35rem 0; }
+.chime-docs .chime-doc-intro { font-size:1.2rem; color:#4c645e; }
+.chime-docs .chime-doc-note { margin:1.6rem 0; padding:1.1rem 1.3rem; border-left:4px solid var(--chime-mint); background:var(--chime-seafoam); color:var(--chime-ink); }
+.chime-docs .chime-doc-note p { margin:0; }
+.chime-docs .chime-doc-figure { margin:2rem 0 2.5rem; max-width:1100px; }
+.chime-docs .chime-doc-figure img { width:100%; height:auto; border:1px solid var(--chime-line); border-radius:15px; background:white; box-shadow:0 15px 40px rgba(8,47,40,.08); }
+.chime-docs .chime-doc-figure figcaption { max-width:82ch; margin:.85rem 0 0; color:#4c645e; font-size:.94rem; line-height:1.65; }
+.chime-docs .chime-doc-figure a { display:block; }
+.chime-docs .chime-doc-links { display:flex; flex-wrap:wrap; gap:.7rem 1.4rem; margin:1.4rem 0; font-size:1rem; }
+.chime-docs .chime-doc-table-wrap { overflow:auto; margin:1.8rem 0; border:1px solid var(--chime-line); border-radius:12px; background:var(--chime-paper); }
+.chime-docs .chime-doc-table { width:100%; border-collapse:collapse; min-width:520px; font-size:1rem; line-height:1.65; }
+.chime-docs .chime-doc-table th,.chime-docs .chime-doc-table td { padding:1rem; text-align:left; vertical-align:top; border-bottom:1px solid var(--chime-line); }
+.chime-docs .chime-doc-table thead th { background:var(--chime-seafoam); color:var(--chime-pine); }
+.chime-docs .chime-doc-table tbody th { font-weight:600; }
+.chime-docs .chime-doc-alias { display:block; height:0; scroll-margin-top:95px; }
+.chime-docs .chime-doc-guide-hero { min-height:0; }
+.chime-docs .chime-doc-guide-hero .chime-hero-grid { display:block; min-height:0; padding-block:5rem; }
+.chime-docs .chime-doc-guide-hero .chime-hero-copy { max-width:900px; }
+.chime-docs .chime-doc-guide-hero h1 { max-width:19ch; }
+.chime-docs .chime-doc-bottom { padding:3rem 0; background:var(--chime-cream); }
+.chime-docs a:focus-visible,.chime-docs [tabindex]:focus-visible { outline:3px solid var(--chime-pine); outline-offset:5px; }
+@media(max-width:700px) {
+  .chime-docs .chime-doc-toc ol { columns:1; }
+  .chime-docs .chime-hero h1 { font-size:clamp(2.8rem,12vw,4.5rem); }
+  .chime-docs .chime-doc-prose { font-size:1.02rem; }
+  .chime-docs .chime-doc-figure img { border-radius:9px; }
+}
+
+</style></head><body><header id="top">
 <div class="wrap nav">
-<a class="brand" href="../index.html"><b>Christian</b> Joudon</a>
+<a class="brand" href="https://christianjoudon.github.io/index.html"><b>Christian</b> Joudon</a>
 <nav aria-label="Sections" class="navlinks">
-<a href="../index.html#about">About</a>
-<a href="../index.html#experience">Experience</a>
-<a href="../index.html#work">Work</a>
-<a href="../index.html#skills">Toolkit</a>
-<a href="../index.html#writing">Writing</a>
-<a href="../index.html#essays">Essays</a>
-<a href="../index.html#contact">Contact</a>
+<a href="https://christianjoudon.github.io/index.html#about">About</a>
+<a href="https://christianjoudon.github.io/index.html#experience">Experience</a>
+<a href="https://christianjoudon.github.io/index.html#work">Work</a>
+<a href="https://christianjoudon.github.io/index.html#skills">Toolkit</a>
+<a href="https://christianjoudon.github.io/index.html#writing">Writing</a>
+<a href="https://christianjoudon.github.io/index.html#essays">Essays</a>
+<a href="https://christianjoudon.github.io/index.html#contact">Contact</a>
 </nav>
 </div>
-</header>
-<main class="subpage chime-case">
-<div class="chime-crumbbar">
-<div class="chime-shell">
-<a class="crumb" href="../index.html#work"><span class="ar">←</span> Selected Work</a>
-</div>
-</div>
-<section aria-labelledby="chime-title" class="chime-hero">
-<div class="chime-shell chime-hero-grid">
-<div class="chime-hero-copy">
-<div class="chime-brandline"><span class="chime-brandmark">c</span> Chime / Appointment scheduling</div>
-<h1 id="chime-title"><span>A small</span><em>promise.</em></h1>
-<p class="chime-hero-lede"><strong>Chime connects customer booking with the business’s schedule, deposits, and email.</strong> I built its booking flow and business workspace, Chime Studio, around one idea: an appointment should be easy to book and straightforward to manage.</p>
-<div class="chime-actions"><a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true" class="chime-arrow">↗</span></a><a class="chime-cta" href="#walkthrough">Watch the quick tour <span aria-hidden="true">▷</span></a></div>
-</div>
-<div aria-label="Chime product overview" class="chime-hero-visual">
-<div class="chime-window">
-<img alt="Chime appointment studio alongside its mobile customer booking experience" fetchpriority="high" src="../assets/img/chime.jpg"/>
-</div>
-<div class="chime-float chime-float--availability"><small><span class="chime-float-dot"></span>The customer</small><strong>A time that works</strong></div>
-<div class="chime-float chime-float--payments"><small>The business</small><strong>Room to honor it</strong></div>
-<div class="chime-float chime-float--brand"><small>Chime</small><strong>Both sides of the appointment</strong></div>
-</div>
-</div>
-</section>
-<div aria-label="Chime product highlights" class="chime-factbar">
-<div class="chime-shell chime-facts"><div class="chime-fact"><strong>Customer booking</strong><span>Services, available times, and a guided booking flow.</span></div><div class="chime-fact"><strong>Business studio</strong><span>Appointments, team schedules, and customer records.</span></div><div class="chime-fact"><strong>Deposits</strong><span>Authorization, collection, and refund history.</span></div><div class="chime-fact"><strong>Email</strong><span>Confirmations, appointment changes, and sending status.</span></div></div>
-</div>
-<div class="chime-local-nav-wrap">
-<nav aria-label="Chime case study sections" class="chime-shell chime-local-nav"><a href="#walkthrough">Quick tour</a><a href="#promise">Overview</a><a href="#experience">Customer booking</a><a href="#studio">Business studio</a><a href="#brand">Branding &amp; setup</a><a href="#trust">Deposits</a><a href="#platform">Engineering</a><a href="#messages">Email</a><a href="#making">My role</a></nav>
-</div>
-<section aria-labelledby="chime-demo-title" class="chime-demo" id="walkthrough">
+</header><main class="subpage chime-case chime-docs"><div class="chime-crumbbar"><div class="chime-shell"><a class="crumb" href="https://christianjoudon.github.io/index.html#work">← Selected Work</a> / Project case study</div></div><section class="chime-hero" aria-labelledby="chime-title"><div class="chime-shell chime-hero-grid"><div class="chime-hero-copy"><div class="chime-brandline"><span class="chime-brandmark">c</span> Chime / Project case study</div><h1 id="chime-title">Connect a booking to the work that follows it</h1><p class="chime-hero-lede">Chime is a functioning booking website and business workspace at bookwithchime.com. I developed the customer flow, Studio and supporting services around one appointment lifecycle, so a business can connect the original request with later schedule, payment and communication work.</p><div class="chime-actions"><a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true">↗</span></a><a class="chime-cta" href="chime-walkthrough.html">Follow the detailed walkthrough</a><a class="chime-cta" href="../assets/media/Chime-Case-Study.pdf">Download the PDF</a></div><p class="chime-doc-edition">26 October 2026</p></div><div class="chime-hero-visual"><div class="chime-window"><img src="../assets/img/chime.jpg" alt="Chime product overview from the existing public case study" fetchpriority="high"/></div></div></div></section><nav class="chime-doc-toc" aria-label="On this page"><div class="chime-shell"><h2>In this case study</h2><ol><li><a href="#walkthrough">Watch the public reservation tour</a></li><li><a href="#context">The appointment extends beyond choosing a time.</a></li><li><a href="#customer">The customer flow makes each decision visible.</a></li><li><a href="#records">The final write rechecks the current business rules.</a></li><li><a href="#changes">A proposed change must not pretend to be an applied change.</a></li><li><a href="#payments">Payment states describe different financial events.</a></li><li><a href="#delivery">Preparing a message is separate from delivering it.</a></li><li><a href="#portable">A portable widget keeps business configuration connected.</a></li><li><a href="#writing">The explanation follows the work and preserves its boundaries.</a></li><li><a href="#evidence">The evidence supports implementation claims with visible limits.</a></li></ol></div></nav><section aria-labelledby="chime-demo-title" class="chime-demo" id="walkthrough">
 <div class="chime-shell chime-pad">
 <div class="chime-demo-head">
 <div><span class="kicker">A moment in the studio</span><h2 id="chime-demo-title">An appointment, <em>in motion.</em></h2></div>
 <p>Find an appointment, review its details, and see how the studio handles a schedule change.</p>
 </div>
-<figure>
+<p class="chime-section-intro">Earlier public reservation tour. The video uses sample appointments and has no sound.</p><figure>
 <video aria-describedby="chime-demo-caption" aria-label="Chime reservation walkthrough" controls="" height="1000" playsinline="" poster="../assets/img/chime-reservation-tour.jpg" preload="none" width="1600">
 <source src="../assets/video/chime-reservation-tour.mp4" type="video/mp4"/>
 <track kind="captions" label="English" src="../assets/video/chime-reservation-tour.vtt" srclang="en"/>
@@ -1202,158 +1216,9 @@
 </video>
 <figcaption class="chime-demo-caption" id="chime-demo-caption"><span>36 seconds · Sample appointments · No sound</span><a download="" href="../assets/video/chime-reservation-tour.mp4">Download the video ↓</a></figcaption>
 </figure>
-<details><summary>Read the walkthrough</summary><p>Start with the week’s appointments. Open one to see the customer, service, team member, and time together. Add an appointment from the calendar, then move an existing appointment and review the change before confirming it.</p></details>
+<p><a href="chime-walkthrough.html">Read the detailed Chime walkthrough</a>.</p>
 </div>
-</section>
-<section class="chime-promise" id="promise">
-<div class="chime-shell chime-pad">
-<div class="chime-promise-grid">
-<blockquote class="chime-manifesto reveal">Choosing a time is only the beginning of <em>making an appointment work.</em></blockquote>
-<div class="chime-promise-copy reveal"><span class="kicker">The starting point</span>
-<p>An available time depends on more than an empty calendar. The business needs someone who performs the service, enough time to complete it, and room for any preparation or cleanup. A change to those conditions can change what a customer is able to book.</p>
-<p>Chime gives customers and staff different views of the same appointment. The booking flow presents the choices needed to reserve a time. The studio brings together the schedule, customer record, payment history, and messages needed to manage it.</p>
-<p>The design problem was deciding what belongs at each step. I kept the customer journey focused, while giving the team access to the underlying details when an appointment needs attention.</p></div>
-</div>
-<div class="chime-value-grid"><article class="chime-value reveal"><span class="chime-value-index">01 / CHOOSING</span><h3>Make the commitment clear.</h3><p>The service summary shows duration and price, with any required deposit shown separately. Customers can see what they are booking and what is due now.</p></article><article class="chime-value reveal"><span class="chime-value-index">02 / COMMITTING</span><h3>Check availability before confirming.</h3><p>A booking uses the business’s published availability. The server checks remaining capacity again before confirming the appointment.</p></article><article class="chime-value reveal"><span class="chime-value-index">03 / FOLLOWING THROUGH</span><h3>Keep the history connected.</h3><p>The customer, appointment, payment, and messages remain linked, so staff can review the current situation before making a change.</p></article></div>
-</div>
-</section>
-<section class="chime-journey" id="experience">
-<div class="chime-shell chime-pad chime-journey-grid">
-<div>
-<div class="chime-section-heading reveal">
-<span class="kicker">Customer booking</span>
-<h2>One decision <em>at a time.</em></h2>
-<p class="chime-section-intro">The flow separates service selection from availability, then carries the chosen service, time, and price into the remaining steps. Customers can review the appointment as they complete the terms, contact details, and any required deposit.</p>
-</div>
-<ol aria-label="Chime booking steps" class="chime-steps reveal"><li><div class="chime-step-copy"><strong>Service</strong><span>Choose a service and review its duration and price.</span></div></li><li><div class="chime-step-copy"><strong>Date &amp; time</strong><span>Select an opening in the published schedule.</span></div></li><li><div class="chime-step-copy"><strong>Terms</strong><span>Read and accept the business’s terms.</span></div></li><li><div class="chime-step-copy"><strong>Contact</strong><span>Provide the details needed for confirmation and follow-up.</span></div></li><li><div class="chime-step-copy"><strong>Deposit</strong><span>Review and complete any required deposit.</span></div></li><li><div class="chime-step-copy"><strong>Confirmation</strong><span>Review the confirmed appointment and add it to a calendar.</span></div></li></ol><p class="chime-section-intro">If the time is no longer available when the customer submits, Chime asks them to choose another slot. Confirmation depends on that final check.</p>
-</div>
-<div aria-label="Chime mobile date and time selection" class="chime-phones reveal">
-<figure class="chime-phone">
-<img alt="Chime mobile day view showing available appointment times" loading="lazy" src="../assets/img/chime-phone-day.jpg"/>
-</figure>
-<figure class="chime-phone">
-<img alt="Chime mobile month view showing open and filling-fast dates" loading="lazy" src="../assets/img/chime-phone-month.jpg"/>
-</figure>
-</div>
-</div>
-</section>
-<section class="chime-studio" id="studio">
-<div class="chime-shell chime-pad">
-<div class="chime-section-heading reveal">
-<div>
-<span class="kicker">Business studio</span>
-<h2>A schedule <em>with context.</em></h2>
-</div>
-<p class="chime-section-intro">The studio keeps appointments in the context of the day. Staff can add a booking, review customer details, or move an appointment from the calendar. Changes have a review step; when customer approval is required, the original time stays in place while the proposal is pending.</p>
-</div>
-<div class="chime-shot-grid">
-<figure class="chime-shot chime-shot--large reveal">
-<img alt="Chime studio interface for adding an appointment while viewing the schedule" loading="lazy" src="../assets/img/chime-studio-add-appointment.jpg"/>
-<figcaption class="chime-shot-label"><strong>Add an appointment with the day in view</strong><span>Schedule</span></figcaption>
-</figure>
-<div class="chime-shot-column">
-<figure class="chime-shot chime-shot--small reveal">
-<img alt="Chime review panel confirming a schedule change before notifying the customer" loading="lazy" src="../assets/img/chime-studio-drag-confirm.jpg"/>
-<figcaption class="chime-shot-label"><strong>See what a change will do</strong><span>Review</span></figcaption>
-</figure>
-<figure class="chime-shot chime-shot--small reveal">
-<img alt="Chime message center showing customer communication status" loading="lazy" src="../assets/img/chime-studio-messages.jpg"/>
-<figcaption class="chime-shot-label"><strong>See what was sent and what needs attention</strong><span>Email</span></figcaption>
-</figure>
-</div>
-</div>
-<div aria-label="Chime studio capabilities" class="chime-studio-strip reveal"><div><strong>Appointment details</strong><span>Time, service, assigned team member, and status</span></div><div><strong>Customer records</strong><span>Contact details, appointment history, and notes</span></div><div><strong>Pending changes</strong><span>The proposed move and whether approval is still needed</span></div><div><strong>Related activity</strong><span>Payment history and email status for the appointment</span></div></div>
-</div>
-</section>
-<section class="chime-brand-section" id="brand">
-<div class="chime-shell chime-pad chime-brand-layout">
-<div class="chime-brand-copy reveal">
-<span class="kicker">Branding and setup</span>
-<h2>It should feel like <em>their business.</em></h2>
-<p class="chime-section-intro">The booking flow is part of the business’s customer experience. I put its branding and wording controls in the studio, beside a preview, so staff can see how a change will appear before saving it.</p>
-<div class="chime-brand-points"><div class="chime-brand-point"><strong>Customize the customer view</strong><span>Adjust the logo, colors, wording, and service order with the preview in view.</span></div><div class="chime-brand-point"><strong>Choose how customers enter</strong><span>Offer booking inline, in a modal, through a floating button, or on a hosted page.</span></div><div class="chime-brand-point"><strong>Check that customers can book</strong><span>The launch checklist identifies missing team assignments and checks whether the published schedule has bookable times.</span></div></div>
-</div>
-<div class="chime-browser reveal">
-<div aria-hidden="true" class="chime-browser-bar"><i></i><i></i><i></i></div>
-<img alt="Chime widget designer with brand controls and a live customer preview" loading="lazy" src="../assets/img/chime-studio-widget.jpg"/>
-</div>
-</div>
-</section>
-<section class="chime-trust" id="trust">
-<div class="chime-shell chime-pad chime-trust-grid">
-<figure class="chime-payment-frame reveal">
-<img alt="Chime payments ledger showing authorized and collected deposits" loading="lazy" src="../assets/img/chime-studio-payments.jpg"/>
-</figure>
-<div class="chime-trust-copy reveal">
-<span class="kicker">Deposits and payment history</span>
-<h2>A deposit has <em>a history.</em></h2>
-<p class="chime-section-intro">Authorization places a hold; capture collects it. A release cancels an uncaptured hold, while a refund returns some or all of a collected payment. Chime records these states against the appointment and routes new deposits through the business’s connected Stripe account.</p>
-<ul class="chime-trust-list"><li><strong>Service price and deposit</strong><span>The booking summary distinguishes the full service price from the deposit required to reserve it.</span></li><li><strong>Collection, release, and refunds</strong><span>The studio provides these actions alongside the payment history, including partial refunds.</span></li><li><strong>Updates from Stripe</strong><span>Provider updates feed back into the payment record, including failures and refunds.</span></li><li><strong>The original payment account</strong><span>A later refund uses the account that took the deposit, even if the business has since connected a different account.</span></li></ul>
-</div>
-</div>
-</section>
-<section class="chime-platform" id="platform">
-<div class="chime-shell chime-pad">
-<div class="chime-platform-head reveal">
-<div>
-<span class="kicker">Engineering</span>
-<h2>The logic <em>behind the booking.</em></h2>
-</div>
-<p class="chime-section-intro">The customer flow and studio have separate APIs, with both working against the same PostgreSQL database. Availability, business ownership, and payment state need to remain consistent whichever interface a person uses, including when several people act at once.</p>
-</div>
-<div class="chime-platform-grid"><article class="chime-platform-card reveal"><span class="chime-platform-number">01 / AVAILABILITY</span><h3>Reserve the remaining capacity.</h3><p>When a customer books, the server locks the availability row, rechecks capacity and notice requirements, and saves the booking in a database transaction. Competing requests wait while that slot is updated.</p></article><article class="chime-platform-card reveal"><span class="chime-platform-number">02 / CHANGES</span><h3>Keep proposed changes separate.</h3><p>A move that requires approval remains pending while the original appointment stays in place. Chime checks availability again when the customer accepts, before applying the new time.</p></article><article class="chime-platform-card reveal"><span class="chime-platform-number">03 / BOUNDARIES</span><h3>Separate each business’s records.</h3><p>Requests carry the business identity and check the operator’s current access. Database relationships also include business ownership, keeping related appointments, customers, and payments within the same business.</p></article><article class="chime-platform-card reveal"><span class="chime-platform-number">04 / RECOVERY</span><h3>Make payment retries deliberate.</h3><p>Payment actions use an idempotency key to identify a repeated request and a version check to detect an outdated record. A retry can refer to the original action instead of becoming a new payment instruction.</p></article></div>
-</div>
-</section>
-<section class="chime-messages" id="messages">
-<div class="chime-shell chime-pad chime-messages-grid">
-<div class="reveal">
-<span class="kicker">Email and background delivery</span>
-<h2>Did the message <em>go out?</em></h2>
-<p class="chime-section-intro">An appointment change and its email are separate operations. Chime records messages in a delivery queue, then a background worker sends them and records the result. Staff can check whether a message is waiting, handed to the provider, or failed.</p>
-<div class="chime-message-notes"><div class="chime-message-note"><strong>Waiting</strong><span>Queued messages awaiting a sending attempt.</span></div><div class="chime-message-note"><strong>Sent</strong><span>Successful handoff to the email provider, recorded in the history.</span></div><div class="chime-message-note"><strong>Needs attention</strong><span>A failed attempt, its reason, and a route to retry.</span></div><div class="chime-message-note"><strong>Templates</strong><span>Customer emails that the business can edit and test.</span></div></div><p class="chime-section-intro">The worker takes turns across businesses, so one reminder backlog does not fill every batch. Failed attempts can be retried, and unfinished work can be reclaimed if a worker stops.</p>
-</div>
-<figure class="chime-message-frame reveal">
-<img alt="Chime message center showing sent communications and delivery status" loading="lazy" src="../assets/img/chime-studio-messages.jpg"/>
-</figure>
-</div>
-</section>
-<section class="chime-build" id="making">
-<div class="chime-shell chime-pad chime-build-grid">
-<div class="chime-build-copy reveal">
-<span class="kicker">My role and implementation</span>
-<h2>Designing <em>the whole appointment.</em></h2>
-<p class="chime-section-intro">I designed and built the booking experience, business studio, and the services behind them. That work includes the visual identity, interface writing, data model, APIs, payment integration, and operating tools. Working across those parts let me make the labels, messages, and system behavior describe the same decisions.</p>
-<dl class="chime-dossier"><div><dt>Role</dt><dd>Product design, brand, interface writing, architecture, and full-stack engineering</dd></div><div><dt>Product</dt><dd>Customer booking widget, hosted booking page, and business operations studio</dd></div><div><dt>For</dt><dd>Service businesses coordinating appointments, team availability, and customers</dd></div><div><dt>Focus</dt><dd>Clear decisions, consistent scheduling, understandable payments, and a way to recover when something fails</dd></div></dl>
-</div>
-<div>
-<div class="chime-capabilities"><article class="chime-capability reveal"><span>01</span><div><h3>Product interfaces</h3><p>React and TypeScript applications for customer booking, the business studio, customer approvals, and website embeds. Each presents the part of the appointment its reader needs to handle.</p></div></article><article class="chime-capability reveal"><span>02</span><div><h3>Data model and APIs</h3><p>Node.js and Express APIs connect appointments with services, staff, customers, and payments. PostgreSQL constraints preserve business ownership and scheduling relationships.</p></div></article><article class="chime-capability reveal"><span>03</span><div><h3>Payments and background work</h3><p>Stripe Connect supports deposit collection, release, and refunds. A separate notification worker manages queued emails, retry timing, and records of sending attempts.</p></div></article><article class="chime-capability reveal"><span>04</span><div><h3>Verification and operation</h3><p>The repository includes checks for booking capacity, business boundaries, payment routing, and accessibility, alongside migration, backup, restore, and launch rehearsal tools.</p></div></article></div>
-<div aria-label="Chime technology stack" class="chime-stack reveal">
-<span>React</span><span>TypeScript</span><span>Vite</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Stripe Connect</span><span>REST</span><span>Docker</span><span>GitHub Actions</span><span>Puppeteer</span><span>axe-core</span><span>Sentry</span>
-</div>
-</div>
-</div>
-</section>
-<section class="chime-finale">
-<div class="chime-shell chime-finale-inner reveal">
-<span class="chime-finale-word">The intention behind Chime</span>
-<h2>Less to keep <em>in your head.</em></h2>
-<p>A useful appointment system should let someone pick up where the last person left off. That is the aim behind Chime: a clear booking for the customer, and enough shared context for the team to manage what follows.</p>
-<div class="chime-actions">
-<a class="chime-cta chime-cta--solid" href="https://bookwithchime.com/" rel="noopener" target="_blank">Visit Chime <span aria-hidden="true">↗</span></a>
-<a class="chime-cta" href="mailto:christian.joudon@gmail.com">Start a conversation</a>
-</div>
-</div>
-</section>
-<div style="background:var(--chime-paper);">
-<div class="chime-shell">
-<nav aria-label="Project navigation" class="detail-foot">
-<a href="../index.html#work"><span>←</span> All work</a>
-<a class="nxt" href="../work/hitech-labs.html">HiTech Labs Website <span>→</span></a>
-</nav>
-</div>
-</div>
-</main>
-<footer id="contact">
+</section><section class="chime-doc-section" id="context" aria-labelledby="heading-context"><div class="chime-shell"><span class="chime-doc-alias" id="promise"></span><h2 id="heading-context">The appointment extends beyond choosing a time.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">A small business needs to offer a service, maintain availability and handle the next change without losing the original agreement.</p></div><div class="chime-doc-prose"><h3>The connected product</h3></div><div class="chime-doc-prose"><p>Customers choose a service and an opening, then supply the information needed for a request. Staff manage appointments, service rules, team schedules, payments and messages. A later time change can affect a staff member, a customer commitment, an available opening and a notification. I organized Chime around those connections so the next person can see what happened and what still needs a decision.</p></div><div class="chime-doc-prose"><h3>My role and the evidence</h3></div><div class="chime-doc-prose"><p>I designed and developed Chime across its interface, application logic and documentation. This case follows source inspected on October 26, 2026, actual customer components demonstrated with fictional data and an authenticated Studio workspace viewed without changes. The public website is functioning; the inspected source was not independently matched to that deployment. Jordan&#x27;s local flow creates no booking, charge or email. Earlier populated Sea &amp; Kin Studio pictures are separate examples.</p></div><figure class="chime-doc-figure" style="max-width:1080px"><a href="../assets/img/chime-docs/service.jpg" aria-label="Open full-size figure 1: Example Service Studio service cards, including the 30 minute Consultation, before a service is selected."><img src="../assets/img/chime-docs/service.jpg" alt="Example Service Studio service cards, including the 30 minute Consultation, before a service is selected." loading="lazy" width="1080" height="493"/></a><figcaption>Figure 1. The customer route starts by comparing services and their durations, before choosing a time.</figcaption></figure><div class="chime-doc-links"><a href="https://bookwithchime.com/">Visit the functioning Chime website</a><a href="chime-walkthrough.html">Follow the complete walkthrough</a></div></div></section><section class="chime-doc-section" id="customer" aria-labelledby="heading-customer"><div class="chime-shell"><span class="chime-doc-alias" id="experience"></span><h2 id="heading-customer">The customer flow makes each decision visible.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Service, time, terms, contact and a conditional deposit form an ordered path with a recognizable result.</p></div><div class="chime-doc-prose"><h3>Keep the relevant facts close</h3></div><div class="chime-doc-prose"><p>The service supplies duration and deposit information before the customer chooses an opening. A published service price remains separate from the deposit due now. Month orientation leads into a focused day view, where booked times stay visible but unavailable. Reserve then presents Terms, Contact, Deposit and Done as separate stages. The appointment summary stays close to the terms, and reading and required field gates make the dependency visible before the next action.</p></div><div class="chime-doc-prose"><h3>Explain the result precisely</h3></div><div class="chime-doc-prose"><p>The interface gives saving, failure, retry and completion their own states. If a payment identifier exists when a booking save fails, retry retains it instead of starting a fresh payment form. The final screen says the request was received and a confirmation prepared, preserving a distinction between the request and communication. In the illustrated route, Jordan chooses a 30 minute Consultation on October 27 at 9:00 AM with a $20 sample deposit; the result repeats those facts and clearly identifies the local demonstration.</p></div><figure class="chime-doc-figure" style="max-width:330px"><a href="../assets/img/chime-docs/day.jpg" aria-label="Open full-size figure 2: Synthetic Chime day view with a selected opening, a disabled Booked time and a Popular cue."><img src="../assets/img/chime-docs/day.jpg" alt="Synthetic Chime day view with a selected opening, a disabled Booked time and a Popular cue." loading="lazy" width="330" height="334"/></a><figcaption>Figure 2. A focused day view makes the selected opening and unavailable alternatives recognizable.</figcaption></figure><figure class="chime-doc-figure" style="max-width:715px"><a href="../assets/img/chime-docs/terms.jpg" aria-label="Open full-size figure 3: Appointment summary and fictional terms document in the local demonstration."><img src="../assets/img/chime-docs/terms.jpg" alt="Appointment summary and fictional terms document in the local demonstration." loading="lazy" width="715" height="622"/></a><figcaption>Figure 3. The actual terms component is demonstrated with explicitly fictional text and its reading gate.</figcaption></figure><figure class="chime-doc-figure" style="max-width:690px"><a href="../assets/img/chime-docs/confirmation.jpg" aria-label="Open full-size figure 4: Chime result for Jordan Reed with matching service, date, deposit and a clear local demonstration message."><img src="../assets/img/chime-docs/confirmation.jpg" alt="Chime result for Jordan Reed with matching service, date, deposit and a clear local demonstration message." loading="lazy" width="690" height="628"/></a><figcaption>Figure 4. The fictional flow ends with the actual result component. Its explicit local message distinguishes the demonstration from a saved booking or delivered confirmation.</figcaption></figure></div></section><section class="chime-doc-section" id="records" aria-labelledby="heading-records"><div class="chime-shell"><span class="chime-doc-alias" id="platform"></span><h2 id="heading-records">The final write rechecks the current business rules.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">In the reviewed implementation, the interface helps someone make a choice and the server decides whether it can still be accepted.</p></div><div class="chime-doc-prose"><h3>Connect the records transactionally</h3></div><div class="chime-doc-prose"><p>The reviewed TypeScript and Express service uses PostgreSQL to recheck the business, service, slot state and remaining capacity while holding a slot row lock. It updates capacity and writes the connected booking, customer, calendar and payment references within one transaction. Notice, advance window and deposit checks use current service rules. The final submission is therefore the acceptance point, rather than an older calendar screen becoming a reservation.</p></div><div class="chime-doc-prose"><h3>Preserve the business boundary</h3></div><div class="chime-doc-prose"><p>Business routing identifies the organization receiving a request. Staff authentication checks a signed session against current membership, role and business status on each request. Shared appointment contracts connect the frontend and backend models. For the operator, that relationship matters because the appointment, customer and payment should remain part of the same business context when a different workspace or record is opened.</p></div><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-schedule-live.jpg" aria-label="Open full-size figure 5: Current authenticated Chime Studio with an empty Freelance appointment schedule."><img src="../assets/img/chime-docs/studio-schedule-live.jpg" alt="Current authenticated Chime Studio with an empty Freelance appointment schedule." loading="lazy" width="1068" height="370"/></a><figcaption>Figure 5. The authenticated Freelance schedule is empty. It shows workspace access, not an appointment saved from the fictional customer flow.</figcaption></figure></div></section><section class="chime-doc-section" id="changes" aria-labelledby="heading-changes"><div class="chime-shell"><span class="chime-doc-alias" id="studio"></span><h2 id="heading-changes">A proposed change must not pretend to be an applied change.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Moving an appointment involves both the calendar and the person whose plans are changing.</p></div><div class="chime-doc-prose"><h3>Use one consequential review</h3></div><div class="chime-doc-prose"><p>In the reviewed implementation, dragging and typed edits reach the same change path. A preview compares time, duration, team and location, names the recipient and follows the server supplied plan. An identical change is not sent again. When a customer decision is required, the original appointment stays active and the request can be withdrawn. This separates the time still in force from the proposed alternative.</p></div><div class="chime-doc-prose"><h3>Make the implementation limit explicit</h3></div><div class="chime-doc-prose"><p>That revision stores random customer decision tokens as hashes, with expiration and replay handling, then rechecks the proposal on approval. A proposed time is not a guaranteed reservation. Its staff related modes use customer approval because that revision&#x27;s staff channel is unfinished. This does not establish the current deployed backend&#x27;s limit: live templates now include newer team and coverage messages. The source was not deployment matched, and no live change decision was exercised.</p></div><figure class="chime-doc-figure" style="max-width:480px"><a href="../assets/img/chime-docs/studio-move.jpg" aria-label="Open full-size figure 6: Previously published Chime appointment change review comparing old and proposed values."><img src="../assets/img/chime-docs/studio-move.jpg" alt="Previously published Chime appointment change review comparing old and proposed values." loading="lazy" width="480" height="578"/></a><figcaption>Figure 6. Earlier public Sea &amp; Kin Studio imagery shows the review idea. Its records are separate from Jordan&#x27;s example; the reviewed implementation determines whether a change is immediate or pending.</figcaption></figure></div></section><section class="chime-doc-section" id="payments" aria-labelledby="heading-payments"><div class="chime-shell"><span class="chime-doc-alias" id="trust"></span><h2 id="heading-payments">Payment states describe different financial events.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">The system and its writing keep authorization, collection, release and refund distinct.</p></div><div class="chime-doc-prose"><h3>Carry the originating account</h3></div><div class="chime-doc-prose"><p>In the reviewed implementation, new connected Stripe deposits use manual capture. Authorization differs from collection, and the record retains the account holding the payment for later collection, release or refund. Historical rows without that account use the platform branch. Keeping the origin with the record lets the operator interpret the available action in the context of the payment that exists.</p></div><div class="chime-doc-prose"><h3>Make actions inspectable</h3></div><div class="chime-doc-prose"><p>Payment operations require permission, version preconditions and idempotency keys. The refundable amount is bounded by captured money less prior returns. History records the initiator and provider result, while the ledger offers actions appropriate to the current state. The writing uses the same distinctions: releasing a hold differs from returning collected money, and a refund request differs from a credit already posted by the customer&#x27;s bank.</p></div><figure class="chime-doc-figure" style="max-width:1095px"><a href="../assets/img/chime-docs/studio-payments-live.jpg" aria-label="Open full-size figure 7: Current authenticated Chime Studio Deposits page with zero deposits."><img src="../assets/img/chime-docs/studio-payments-live.jpg" alt="Current authenticated Chime Studio Deposits page with zero deposits." loading="lazy" width="1095" height="590"/></a><figcaption>Figure 7. The current live Deposits workspace is empty. It establishes the current page and its state, without a financial action.</figcaption></figure><figure class="chime-doc-figure" style="max-width:1068px"><a href="../assets/img/chime-docs/studio-payments.jpg" aria-label="Open full-size figure 8: Previously published Chime payment ledger and selected transaction view."><img src="../assets/img/chime-docs/studio-payments.jpg" alt="Previously published Chime payment ledger and selected transaction view." loading="lazy" width="1068" height="550"/></a><figcaption>Figure 8. Earlier public Sea &amp; Kin Studio ledger for a separate $25 Extended service example. It is not a receipt for Jordan&#x27;s $20 Consultation or evidence of a payment made during this review.</figcaption></figure></div></section><section class="chime-doc-section" id="delivery" aria-labelledby="heading-delivery"><div class="chime-shell"><span class="chime-doc-alias" id="messages"></span><h2 id="heading-delivery">Preparing a message is separate from delivering it.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Communication has its own queue, attempts, environment and recovery state.</p></div><div class="chime-doc-prose"><h3>Keep background work durable</h3></div><div class="chime-doc-prose"><p>The reviewed implementation has a separate notification worker with leases, locked queue selection, attempts and retry backoff. Scheduling gives businesses turns instead of letting one backlog take every opportunity. Templates and reply addresses stay connected to the business and appointment. Provider idempotency supports repeated handoff attempts; failed or stopped work remains visible instead of being hidden behind the booking result.</p></div><div class="chime-doc-prose"><h3>Show the environment and its limit</h3></div><div class="chime-doc-prose"><p>The live workspace presents Activity, Templates and Sending setup. It reported Live email and an automatic service Running, while Last message accepted remained None recorded. Its own status explains that acceptance does not confirm delivery to an inbox. Published templates can be inspected with sample details without sending; Send preview email is a separate consequential action.</p></div><figure class="chime-doc-figure" style="max-width:1095px"><a href="../assets/img/chime-docs/studio-messages-live.jpg" aria-label="Open full-size figure 9: Current Chime Studio Messages workspace viewed without processing deliveries."><img src="../assets/img/chime-docs/studio-messages-live.jpg" alt="Current Chime Studio Messages workspace viewed without processing deliveries." loading="lazy" width="1095" height="670"/></a><figcaption>Figure 9. Current authenticated Messages view. No email or test message was sent during the observation.</figcaption></figure><figure class="chime-doc-figure" style="max-width:810px"><a href="../assets/img/chime-docs/studio-sending-live.jpg" aria-label="Open full-size figure 10: Current Chime Sending setup showing automatic sending Running and Last message accepted None recorded."><img src="../assets/img/chime-docs/studio-sending-live.jpg" alt="Current Chime Sending setup showing automatic sending Running and Last message accepted None recorded." loading="lazy" width="810" height="465"/></a><figcaption>Figure 10. A configured running sender can still have no recorded accepted message. The screen keeps that distinction visible.</figcaption></figure></div></section><section class="chime-doc-section" id="portable" aria-labelledby="heading-portable"><div class="chime-shell"><span class="chime-doc-alias" id="brand"></span><h2 id="heading-portable">A portable widget keeps business configuration connected.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">The same customer components can support a hosted booking page and website placements.</p></div><div class="chime-doc-prose"><h3>Separate design from publication</h3></div><div class="chime-doc-prose"><p>The live Widget designer organizes appearance under Your brand, Customer welcome, Color and finish and Saved design, with Wide, Inline and Phone previews. It directs the operator to Launch, which separates a hosted booking link from an installed website widget. The observed workspace made the distinction concrete: the hosted link control was checked, while the website widget was Not published yet and blocked by incomplete readiness. A broad Live badge did not establish every channel as ready.</p></div><div class="chime-doc-prose"><h3>Keep public configuration public</h3></div><div class="chime-doc-prose"><p>The project separates customer, Studio, embed and approval builds while sharing the relevant models and customer components. Business routing and display configuration can travel with a public widget; administrator credentials stay outside that connection. The operator can distinguish a saved appearance from an installed widget, a published calendar and a configured payment provider, rather than treating a successful preview as completion of every setup task.</p></div><figure class="chime-doc-figure" style="max-width:1097px"><a href="../assets/img/chime-docs/studio-widget-live.jpg" aria-label="Open full-size figure 11: Current Chime Studio Widget designer in the authenticated Freelance workspace."><img src="../assets/img/chime-docs/studio-widget-live.jpg" alt="Current Chime Studio Widget designer in the authenticated Freelance workspace." loading="lazy" width="1097" height="550"/></a><figcaption>Figure 11. Current authenticated Widget designer, showing its saved design and preview formats. No design or publication change was made.</figcaption></figure><figure class="chime-doc-figure" style="max-width:1100px"><a href="../assets/img/chime-docs/studio-launch-live.jpg" aria-label="Open full-size figure 12: Launch readiness at 33%, with Business is open and Deposit payouts complete and four remaining setup requirements."><img src="../assets/img/chime-docs/studio-launch-live.jpg" alt="Launch readiness at 33%, with Business is open and Deposit payouts complete and four remaining setup requirements." loading="lazy" width="1120" height="166"/></a><figcaption>Figure 12. The live Launch readiness panel shows 33%, with two of six essentials complete. Public service, team coverage, bookable times and widget design still need attention.</figcaption></figure></div></section><section class="chime-doc-section" id="writing" aria-labelledby="heading-writing"><div class="chime-shell"><span class="chime-doc-alias" id="making"></span><h2 id="heading-writing">The explanation follows the work and preserves its boundaries.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">Technical writing is part of the interface between a system state and the next action someone can take.</p></div><div class="chime-doc-prose"><h3>Use one concrete customer example</h3></div><div class="chime-doc-prose"><p>The walkthrough follows Jordan&#x27;s fictional Consultation through actual customer components, then gives authorized staff direct routes into business operations. Exact controls, nearby screenshots and observable results support the task. Live Studio labels take precedence where they differ from inspected source or earlier Sea &amp; Kin examples. Prerequisites precede consequential actions, and direct entry points let a reader find an appointment, review a move or inspect a deposit without searching through the customer story.</p></div><div class="chime-doc-prose"><h3>Keep source and observation separate</h3></div><div class="chime-doc-prose"><p>A compact reference distinguishes price from deposit, request from approval, authorization from collection and prepared confirmation from delivery. Recovery starts with the visible symptom and preserves completed work. One shared content model supplies the web and PDF companions, so a corrected label or qualification can move through every format without creating separate procedural versions.</p></div></div></section><section class="chime-doc-section" id="evidence" aria-labelledby="heading-evidence"><div class="chime-shell"><h2 id="heading-evidence">The evidence supports implementation claims with visible limits.</h2><div class="chime-doc-prose"><p class="chime-doc-intro">The review date is October 26, 2026. Source inspection, a synthetic customer flow, an authenticated workspace and earlier public illustrations support different statements.</p></div><div class="chime-doc-prose"><h3>Describe the checks actually available</h3></div><div class="chime-doc-prose"><p>The repository contains targeted regression scripts for capacity limits, cross business writes, Stripe account routing, approval replay, refunds and notification fairness. They were inspected, not executed for this writing review. The capacity script exercises the last available place sequentially rather than testing a simultaneous race. The Stripe routing check uses a recording stand in, not real settlement. The local customer screenshots show actual component behavior without a production transaction.</p></div><div class="chime-doc-prose"><h3>Keep the next work honest</h3></div><div class="chime-doc-prose"><p>These implementation controls are not a security certification or a guarantee of recovery from every provider or concurrent scheduling failure. The source revision&#x27;s unfinished staff channel is not asserted as a deployed limitation. Live Studio was viewed without creating appointments, changing setup, sending messages or moving money. No adoption, time saving, accessibility conformance or representative user study is claimed. Those remain evaluation questions; the case describes the work and evidence available now.</p></div><div class="chime-doc-links"><a href="chime-walkthrough.html">Read the complete customer and Studio walkthrough</a><a href="https://bookwithchime.com/">Explore the functioning Chime website</a></div></div></section><div class="chime-doc-bottom"><div class="chime-shell"><div class="chime-actions"><a class="chime-cta chime-cta--solid" href="chime-walkthrough.html">Follow the detailed walkthrough</a><a class="chime-cta" href="../assets/media/Chime-Case-Study.pdf">Download the PDF</a><a class="chime-cta" href="https://christianjoudon.github.io/index.html#work">All selected work</a></div></div></div></main><footer id="contact">
 <div class="wrap">
 <div class="reveal">
 <div class="f-kick">Contact</div>
@@ -1371,7 +1236,4 @@
 </div>
 </div>
 </div>
-</footer>
-<script src="../assets/site.js"></script>
-</body>
-</html>
+</footer><script src="../assets/site.js"></script></body></html>
