@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HAVEN User Guides &amp; Presentation | Christian Joudon</title>
+<meta name="description" content="Four illustrated HAVEN handbooks and a captioned presentation covering the product overview, navigation, reservation lifecycle, and invoice processing.">
+<link rel="canonical" href="https://christianjoudon.github.io/work/haven-guides/">
+<meta property="og:title" content="HAVEN User Guides &amp; Presentation">
+<meta property="og:description" content="Understand the product, find your way around, and follow a fictional stay and its vendor invoice through the work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://christianjoudon.github.io/work/haven-guides/">
+<meta property="og:image" content="https://christianjoudon.github.io/work/haven-guides/video/preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.ico">
+<link rel="stylesheet" href="../../assets/site.css">
+<style>
+@font-face{font-family:'Hanken Grotesk';src:url(source/fonts/HankenGrotesk-400.ttf);font-weight:400;font-display:swap}
+@font-face{font-family:'Hanken Grotesk';src:url(source/fonts/HankenGrotesk-700.ttf);font-weight:700;font-display:swap}
+@font-face{font-family:Fraunces;src:url(source/fonts/Fraunces-400.ttf);font-weight:400;font-display:swap}
+@font-face{font-family:'Space Mono';src:url(source/fonts/SpaceMono-400.ttf);font-weight:400;font-display:swap}
+body{--maxw:1240px;background:#f6f5f1}
+.skip{position:absolute;left:-9999px}.skip:focus{left:20px;top:12px;padding:10px;background:white;z-index:100}
+a:focus-visible,button:focus-visible,video:focus-visible{outline:3px solid #456a8f;outline-offset:5px}
+.docs-nav{display:flex;gap:1.7rem;font-size:.85rem}.docs-nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.docs-hero{padding:clamp(3rem,7vw,5.5rem) 0 3rem;border-bottom:1px solid var(--line)}
+.docs-hero h1{font-size:clamp(2.9rem,7.5vw,5.4rem);max-width:15ch;margin:1rem 0 1.6rem;line-height:1.02;letter-spacing:-.035em}
+.docs-lede{font-size:clamp(1.15rem,2.3vw,1.45rem);line-height:1.55;max-width:62ch;color:#57616d;margin:0 0 1.8rem}
+.docs-meta{display:flex;flex-wrap:wrap;gap:.7rem 1.7rem;font: .74rem/1.6 var(--mono);color:#566574}
+.docs-actions{display:flex;gap:1.3rem;flex-wrap:wrap;margin:1.8rem 0 0}.docs-actions a{font-weight:700;font-size:.95rem;text-decoration:underline;text-underline-offset:5px}
+.docs-section{padding:clamp(3rem,7vw,5rem) 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.docs-heading{display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;align-items:end;margin-bottom:2rem}.docs-heading h2{font-size:clamp(2rem,4.5vw,3.3rem);margin:.65rem 0 0;max-width:18ch}.docs-heading p{margin:0;color:#5e6670;max-width:50ch}
+.docs-player{margin:0;border:1px solid #c7d0d8;border-radius:14px;overflow:hidden;background:#172536;box-shadow:0 14px 35px rgba(22,35,59,.08)}
+.docs-player video{display:block;width:100%;aspect-ratio:16/9;background:#172536}
+.docs-player figcaption{padding:1rem 1.3rem;background:#fff;color:#5b6570;font-size:.9rem;line-height:1.55}
+.docs-player figcaption p{margin:0;max-width:90ch}
+.docs-downloads{display:flex;gap:1rem 1.8rem;flex-wrap:wrap;margin:1.2rem 0 0;font-size:.9rem}.docs-downloads a{text-decoration:underline;text-underline-offset:4px}
+.docs-chapters{margin:1.4rem 0 0;display:flex;gap:.7rem 2rem;flex-wrap:wrap;font-size:.9rem;color:#5b6570}.docs-chapters strong{font-family:var(--mono);font-size:.78rem;color:#21344f}
+.docs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.docs-card{padding:clamp(1.5rem,3vw,2.2rem);background:#fff;border:1px solid #d9dfe4;border-radius:12px;min-width:0;display:flex;flex-direction:column}
+.docs-card .kicker{color:#51677e;font-size:.68rem;letter-spacing:.1em}
+.docs-card h3{font-size:clamp(1.65rem,3vw,2.15rem);margin:1.3rem 0 1rem;line-height:1.14}
+.docs-card h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.docs-card p{margin:0 0 1.3rem;color:#5c6570;max-width:50ch}.docs-card .docs-card-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:.9rem 1.6rem;font-size:.9rem;font-weight:700}.docs-card-links a{text-decoration:underline;text-underline-offset:5px}
+.docs-note{margin:2rem 0 0;font-size:.9rem;color:#65707b;max-width:90ch}
+.docs-practice{padding:clamp(2rem,4vw,3rem);border-left:3px solid #577391;background:#eaf0f4;border-radius:0 12px 12px 0}
+.docs-practice h2{font-size:clamp(1.9rem,4vw,2.8rem);max-width:24ch;margin:.65rem 0 1.2rem}.docs-practice p{max-width:80ch;color:#53616d;margin:0 0 1rem}.docs-practice p:last-child{margin:0}
+.docs-footer{padding:2rem 0 2.7rem;color:#68727b;font-size:.85rem}.docs-footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.docs-footer a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px){.docs-heading,.docs-grid{grid-template-columns:1fr}.docs-heading{gap:1rem}.docs-nav{gap:1rem;font-size:.75rem}.brand{font-size:1rem}.docs-hero{padding-top:2.4rem}.docs-chapters{display:block}.docs-chapters span{display:block;margin:.5rem 0}.docs-player figcaption{padding:1rem}.docs-section{scroll-margin-top:65px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to documentation</a>
+<header><div class="wrap nav"><a class="brand" href="../../index.html"><b>Christian</b> Joudon</a><nav class="docs-nav" aria-label="Documentation navigation"><a href="../haven.html">HAVEN case study</a><a href="#guides">Guides</a><a href="#presentation">Video</a></nav></div></header>
+<main id="main">
+<div class="wrap">
+<section class="docs-hero" aria-labelledby="title">
+<div class="kicker">HAVEN · User documentation</div>
+<h1 id="title">Understand the product.<br>Follow the work.</h1>
+<p class="docs-lede">Learn how HAVEN connects a reservation to service work, financial records, and owner reporting. Start with the overview, find your way around, then follow a fictional stay and its vendor invoice.</p>
+<div class="docs-meta"><span>4 illustrated handbooks</span><span>47 PDF pages</span><span>Captioned 4:19 presentation</span><span>Browser &amp; PDF editions</span></div>
+<div class="docs-actions"><a href="#guides">Choose a guide ↓</a><a href="#presentation">Watch the presentation ↓</a><a href="../haven.html">Explore the product case study ↗</a></div>
+</section>
+<section class="docs-section" id="presentation" aria-labelledby="presentation-title">
+<div class="docs-heading"><div><div class="kicker">See HAVEN in use</div><h2 id="presentation-title">From the dashboard to the first entries.</h2></div><p>The presentation introduces the workspace, creates a native reservation, and enters a vendor invoice with two coded lines and its source document.</p></div>
+<figure class="docs-player">
+<video controls playsinline preload="metadata" poster="video/preview.jpg" width="1920" height="1080" aria-label="HAVEN overview, reservation entry, and invoice entry presentation">
+<source src="video/HAVEN%20Overview%20and%20Entry%20Walkthrough.mp4" type="video/mp4">
+<track kind="captions" src="video/HAVEN%20Overview%20and%20Entry%20Walkthrough.vtt" srclang="en" label="English">
+<p><a href="video/HAVEN%20Overview%20and%20Entry%20Walkthrough.mp4">Download the HAVEN presentation video</a>.</p>
+</video>
+<figcaption><p>Actual HAVEN browser captures, edited into a presentation with chapter cards and bottom captions. 1080p · 4:19 · Silent, with written guidance.</p></figcaption>
+</figure>
+<div class="docs-chapters" aria-label="Presentation chapters"><span><strong>00:00</strong> · General overview</span><span><strong>00:28</strong> · Initial reservation entry</span><span><strong>01:57</strong> · Invoice entry</span></div>
+<div class="docs-downloads"><a href="video/HAVEN%20Overview%20and%20Entry%20Walkthrough.mp4" download>Download MP4</a><a href="video/HAVEN%20Overview%20and%20Entry%20Walkthrough.srt" download>Download captions (SRT)</a></div>
+</section>
+<section class="docs-section" id="guides" aria-labelledby="guides-title">
+<div class="docs-heading"><div><div class="kicker">Read &amp; follow along</div><h2 id="guides-title">Choose the next task.</h2></div><p>The handbooks share a fictional Hale Mālie stay. Read them in order to learn the system, or open the guide for the work in front of you.</p></div>
+<div class="docs-grid">
+<article class="docs-card"><div class="kicker">01 · Product model · 7 pages</div><h3><a href="product-overview.html">Product overview</a></h3><p>Understand the relationships between a stay, guest balances, service work, accounting, owner statements, and reports.</p><div class="docs-card-links"><a href="product-overview.html">Read in browser ↗</a><a href="HAVEN%20Product%20Overview.pdf">Download PDF ↗</a></div></article>
+<article class="docs-card"><div class="kicker">02 · Finding your way · 11 pages</div><h3><a href="navigation-guide.html">Navigation guide</a></h3><p>Choose a workspace, use Search and filters, inspect an existing reservation, and return to open work.</p><div class="docs-card-links"><a href="navigation-guide.html">Read in browser ↗</a><a href="HAVEN%20Navigation%20Guide.pdf">Download PDF ↗</a></div></article>
+<article class="docs-card"><div class="kicker">03 · Following one stay · 15 pages</div><h3><a href="reservation-lifecycle-walkthrough.html">Reservation lifecycle walkthrough</a></h3><p>Trace a booking through its folio, service work, accounting evidence, and owner context, then save a reservation summary.</p><div class="docs-card-links"><a href="reservation-lifecycle-walkthrough.html">Read in browser ↗</a><a href="HAVEN%20Reservation%20Lifecycle%20Walkthrough.pdf">Download PDF ↗</a></div></article>
+<article class="docs-card"><div class="kicker">04 · Entering a vendor bill · 14 pages</div><h3><a href="invoice-processing.html">Invoice processing guide</a></h3><p>Prepare a vendor invoice, split cleaning and linen charges, review its dates and source, and approve the bill for accounting.</p><div class="docs-card-links"><a href="invoice-processing.html">Read in browser ↗</a><a href="HAVEN%20Invoice%20Processing%20Guide.pdf">Download PDF ↗</a></div></article>
+</div>
+<p class="docs-note">For reservation staff, bookkeepers, and invoice reviewers. The guides and presentation use fictional records in HAVEN’s development build.</p>
+</section>
+<section class="docs-section" aria-labelledby="practice-title">
+<div class="docs-practice"><div class="kicker">Technical writing in practice</div><h2 id="practice-title">Make the next action easier to understand.</h2><p>I designed and built HAVEN, then developed the documentation around the questions a colleague would bring to the screen: where to begin, which record matters, what to enter, and how to recognize the saved result.</p><p>The collection combines product explanation, annotated interface views, task sequences, and linked examples. The browser editions support navigation and reference; the PDFs retain the illustrated handbook layout for sharing and presentation.</p></div>
+</section>
+</div>
+</main>
+<footer class="docs-footer"><div class="wrap"><span>HAVEN documentation · Christian Joudon · 2026</span><a href="../../index.html#essays">More technical &amp; editorial writing ↗</a></div></footer>
+</body>
+</html>

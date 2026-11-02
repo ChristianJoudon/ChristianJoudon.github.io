@@ -1,0 +1,44 @@
+[
+  {
+    "family": "Fraunces",
+    "weight": "400",
+    "file": "Fraunces-400.ttf",
+    "url": "https://fonts.gstatic.com/s/fraunces/v38/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIctxujDg.ttf",
+    "bytes": 71580
+  },
+  {
+    "family": "Fraunces",
+    "weight": "600",
+    "file": "Fraunces-600.ttf",
+    "url": "https://fonts.gstatic.com/s/fraunces/v38/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIcaRyjDg.ttf",
+    "bytes": 71632
+  },
+  {
+    "family": "Hanken Grotesk",
+    "weight": "400",
+    "file": "HankenGrotesk-400.ttf",
+    "url": "https://fonts.gstatic.com/s/hankengrotesk/v12/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_Ncs2Za4Q.ttf",
+    "bytes": 57248
+  },
+  {
+    "family": "Hanken Grotesk",
+    "weight": "600",
+    "file": "HankenGrotesk-600.ttf",
+    "url": "https://fonts.gstatic.com/s/hankengrotesk/v12/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_NcbWFa4Q.ttf",
+    "bytes": 57212
+  },
+  {
+    "family": "Hanken Grotesk",
+    "weight": "700",
+    "file": "HankenGrotesk-700.ttf",
+    "url": "https://fonts.gstatic.com/s/hankengrotesk/v12/ieVq2YZDLWuGJpnzaiwFXS9tYvBRzyFLlZg_f_NcVGFa4Q.ttf",
+    "bytes": 57144
+  },
+  {
+    "family": "Space Mono",
+    "weight": "400",
+    "file": "SpaceMono-400.ttf",
+    "url": "https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRUEY.ttf",
+    "bytes": 81124
+  }
+]
